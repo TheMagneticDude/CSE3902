@@ -1,0 +1,13 @@
+C:\Important\Githubs\CSE1902\sprint0\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.deps.json
+C:\Important\Githubs\CSE1902\sprint0\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.dll
+C:\Important\Githubs\CSE1902\sprint0\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.pdb
+C:\Important\Githubs\CSE1902\sprint0\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.csproj.AssemblyReference.cache
+C:\Important\Githubs\CSE1902\sprint0\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Important\Githubs\CSE1902\sprint0\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.AssemblyInfoInputs.cache
+C:\Important\Githubs\CSE1902\sprint0\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.AssemblyInfo.cs
+C:\Important\Githubs\CSE1902\sprint0\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.csproj.CoreCompileInputs.cache
+C:\Important\Githubs\CSE1902\sprint0\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.sourcelink.json
+C:\Important\Githubs\CSE1902\sprint0\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.dll
+C:\Important\Githubs\CSE1902\sprint0\MonoGameLibrary\obj\Debug\net9.0\refint\MonoGameLibrary.dll
+C:\Important\Githubs\CSE1902\sprint0\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.pdb
+C:\Important\Githubs\CSE1902\sprint0\MonoGameLibrary\obj\Debug\net9.0\ref\MonoGameLibrary.dll
