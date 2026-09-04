@@ -11,6 +11,17 @@ namespace sprint0;
 
 public class Game1 : Core
 {
+
+    private IPlayer _player1;
+    private Keybinds _p1Input = new Keybinds
+    {
+        UpKey = Keys.W,
+        DownKey = Keys.S,
+        LeftKey = Keys.A,
+        RightKey = Keys.D,
+        ZoomKey = Keys.Space
+    };
+
     // Defines the slime animated sprite.
     private AnimatedSprite _slime;
 
@@ -65,6 +76,7 @@ public class Game1 : Core
 
     protected override void Update(GameTime gameTime)
     {
+        
         // Update the InputManger inside base.Update() right away.
         base.Update(gameTime);
 

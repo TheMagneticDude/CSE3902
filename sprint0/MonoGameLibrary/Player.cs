@@ -1,10 +1,8 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
-using MonoGameLibrary.Input;
 
 namespace sprint0;
 
@@ -14,29 +12,55 @@ public class Player : IPlayer
     private Vector2 _position;
     private const float MOVEMENT_SPEED = 5.0f;
 
+    public Keybinds Binds { get; private set; }
     public Vector2 Position => _position;
-
-
-    //calculates bounding box based on position
     public Circle Bounds => new Circle(
         (int)(_position.X + (_sprite.Width * 0.5f)),
         (int)(_position.Y + (_sprite.Height * 0.5f)),
         (int)(_sprite.Width * 0.5f)
     );
 
-
-    /// <summary>
-    /// Creates a new Player.
-    /// </summary>
     public Player(AnimatedSprite sprite, Vector2 startPosition)
     {
         _sprite = sprite;
         _position = startPosition;
     }
 
+    public void Update(GameTime gameTime, Rectangle screenBounds, Keybinds binds)
+    {
+        Binds = binds;
+        _sprite.Update(gameTime);
+        HandleInput();
+        KeepInBounds(screenBounds);
+    }
+
     public void Draw(SpriteBatch spriteBatch)
     {
         _sprite.Draw(spriteBatch, _position);
     }
-    
+
+    private void HandleInput()
+    {
+        float speed = MOVEMENT_SPEED;
+        
+        //handles all keybinds
+        
+        if (Binds.Zoom) 
+        {
+            speed *= 1.5f;
+        }
+        if (Binds.Up) _position.Y -= speed;
+        if (Binds.Down) _position.Y += speed;
+        if (Binds.Left) _position.X -= speed;
+        if (Binds.Right) _position.X += speed;
+    }
+
+    private void KeepInBounds(Rectangle screenBounds)
+    {
+        if (Bounds.Left < screenBounds.Left) _position.X = screenBounds.Left;
+        else if (Bounds.Right > screenBounds.Right) _position.X = screenBounds.Right - _sprite.Width;
+
+        if (Bounds.Top < screenBounds.Top) _position.Y = screenBounds.Top;
+        else if (Bounds.Bottom > screenBounds.Bottom) _position.Y = screenBounds.Bottom - _sprite.Height;
+    }
 }
