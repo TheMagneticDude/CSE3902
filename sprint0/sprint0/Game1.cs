@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -28,10 +29,13 @@ public class Game1 : Core
     // Tracks the velocity of the bat.
     private Vector2 _batVelocity;
 
-    public Game1() : base("Dungeon Slime", 1280, 720, false)
+    public Game1() : base("Sprint0", 1280, 720, false)
     {
 
     }
+
+    //controller list for multiple players
+    //List <object> controllerList; // could also be defined as List <IController>
 
     protected override void Initialize()
     {
@@ -196,6 +200,13 @@ public class Game1 : Core
 
     private void CheckKeyboardInput()
     {
+        //exit if escape is pressed
+        if (Input.Keyboard.IsKeyDown(Keys.Escape))
+        {
+            Exit();
+        }
+
+
         // If the space key is held down, the movement speed increases by 1.5
         float speed = MOVEMENT_SPEED;
         if (Input.Keyboard.IsKeyDown(Keys.Space))
@@ -226,11 +237,19 @@ public class Game1 : Core
         {
             _slimePosition.X += speed;
         }
+
+        
     }
 
     private void CheckGamePadInput()
     {
         GamePadInfo gamePadOne = Input.GamePads[(int)PlayerIndex.One];
+
+        //exit if back is pressed
+        if (gamePadOne.IsButtonDown(Buttons.Back))
+        {
+            Exit();
+        }
 
         // If the A button is held down, the movement speed increases by 1.5
         // and the gamepad vibrates as feedback to the player.
