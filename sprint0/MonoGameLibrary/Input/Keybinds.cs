@@ -10,7 +10,6 @@ public struct Keybinds
     public Keys LeftKey;
     public Keys RightKey;
     public Keys ZoomKey;
-    public Keys EscKey;
 
     //Key states
     public bool Up;
@@ -18,5 +17,4 @@ public struct Keybinds
     public bool Left;
     public bool Right;
     public bool Zoom;
-    public bool Esc;
 }

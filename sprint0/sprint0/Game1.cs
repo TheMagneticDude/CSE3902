@@ -22,39 +22,22 @@ public class Game1 : Core
         ZoomKey = Keys.Space
     };
 
-    // Defines the slime animated sprite.
-    private AnimatedSprite _slime;
-
-    // Defines the bat animated sprite.
+    //bat Vars
     private AnimatedSprite _bat;
-
-    // Tracks the position of the slime.
-    private Vector2 _slimePosition;
-
-    // Speed multiplier when moving.
+    private Vector2 _batPosition;
+    private Vector2 _batVelocity;
     private const float MOVEMENT_SPEED = 5.0f;
 
-    // Tracks the position of the bat.
-    private Vector2 _batPosition;
 
-    // Tracks the velocity of the bat.
-    private Vector2 _batVelocity;
 
     public Game1() : base("Sprint0", 1280, 720, false)
     {
 
     }
 
-    //controller list for multiple players
-    //List <object> controllerList; // could also be defined as List <IController>
-
     protected override void Initialize()
     {
         base.Initialize();
-
-        // Set the initial position of the bat to be 10px
-        // to the right of the slime.
-        _batPosition = new Vector2(_slime.Width + 10, 0);
 
         // Assign the initial random velocity to the bat.
         AssignRandomBatVelocity();
@@ -65,33 +48,48 @@ public class Game1 : Core
         // Create the texture atlas from the XML configuration file.
         TextureAtlas atlas = TextureAtlas.FromFile(Content, "images/atlas-definition.xml");
 
-        // Create the slime animated sprite from the atlas.
-        _slime = atlas.CreateAnimatedSprite("slime-animation");
-        _slime.Scale = new Vector2(4.0f, 4.0f);
 
-        // Create the bat animated sprite from the atlas.
+        //player one init (slime)
+        AnimatedSprite slimeSprite = atlas.CreateAnimatedSprite("slime-animation");
+        slimeSprite.Scale = new Vector2(4.0f, 4.0f);
+        _player1 = new Player(slimeSprite, Vector2.Zero);
+
+
+
+
+        //enemy (bat) init
         _bat = atlas.CreateAnimatedSprite("bat-animation");
         _bat.Scale = new Vector2(4.0f, 4.0f);
+        //init pos
+        _batPosition = new Vector2(slimeSprite.Width + 10, 0);
     }
 
     protected override void Update(GameTime gameTime)
     {
-        
-        // Update the InputManger inside base.Update() right away.
         base.Update(gameTime);
 
-        // Update the slime animated sprite.
-        _slime.Update(gameTime);
+        var keyboard = Input.Keyboard;
+        var gamePad1 = Input.GamePads[(int)PlayerIndex.One];
 
-        // Update the bat animated sprite.
-        _bat.Update(gameTime);
+        //global exit keys (will merge into keybinds struct later)
+        if (Input.Keyboard.IsKeyDown(Keys.Escape) || gamePad1.IsButtonDown(Buttons.Back))
+        {
+            Exit();
+        }
 
-        // Check for keyboard input and handle it.
-        CheckKeyboardInput();
+        //poll keybinds
+        _p1Input.Zoom = keyboard.IsKeyDown(_p1Input.ZoomKey) || gamePad1.IsButtonDown(Buttons.A);
+        _p1Input.Up = keyboard.IsKeyDown(_p1Input.UpKey) || gamePad1.IsButtonDown(Buttons.DPadUp);
+        _p1Input.Down = keyboard.IsKeyDown(_p1Input.DownKey) || gamePad1.IsButtonDown(Buttons.DPadDown);
+        _p1Input.Left = keyboard.IsKeyDown(_p1Input.LeftKey) || gamePad1.IsButtonDown(Buttons.DPadLeft);
+        _p1Input.Right = keyboard.IsKeyDown(_p1Input.RightKey) || gamePad1.IsButtonDown(Buttons.DPadRight);
 
-        // Check for gamepad input and handle it.
-        CheckGamePadInput();
-
+        //poll thumbsticks
+        if (gamePad1.LeftThumbStick.Y > 0.5f) _p1Input.Up = true;
+        if (gamePad1.LeftThumbStick.Y < -0.5f) _p1Input.Down = true;
+        if (gamePad1.LeftThumbStick.X < -0.5f) _p1Input.Left = true;
+        if (gamePad1.LeftThumbStick.X > 0.5f) _p1Input.Right = true;
+       
         // Create a bounding rectangle for the screen.
         Rectangle screenBounds = new Rectangle(
             0,
@@ -100,38 +98,12 @@ public class Game1 : Core
             GraphicsDevice.PresentationParameters.BackBufferHeight
         );
 
-        // Creating a bounding circle for the slime
-        Circle slimeBounds = new Circle(
-            (int)(_slimePosition.X + (_slime.Width * 0.5f)),
-            (int)(_slimePosition.Y + (_slime.Height * 0.5f)),
-            (int)(_slime.Width * 0.5f)
-        );
+        //tick entities
+        _player1.Update(gameTime, screenBounds, _p1Input);
+        _bat.Update(gameTime);
 
-        // Use distance based checks to determine if the slime is within the
-        // bounds of the game screen, and if it is outside that screen edge,
-        // move it back inside.
-        if (slimeBounds.Left < screenBounds.Left)
-        {
-            _slimePosition.X = screenBounds.Left;
-        }
-        else if (slimeBounds.Right > screenBounds.Right)
-        {
-            _slimePosition.X = screenBounds.Right - _slime.Width;
-        }
-
-        if (slimeBounds.Top < screenBounds.Top)
-        {
-            _slimePosition.Y = screenBounds.Top;
-        }
-        else if (slimeBounds.Bottom > screenBounds.Bottom)
-        {
-            _slimePosition.Y = screenBounds.Bottom - _slime.Height;
-        }
-
-        // Calculate the new position of the bat based on the velocity.
+        //bat pos + bounding box
         Vector2 newBatPosition = _batPosition + _batVelocity;
-
-        // Create a bounding circle for the bat.
         Circle batBounds = new Circle(
             (int)(newBatPosition.X + (_bat.Width * 0.5f)),
             (int)(newBatPosition.Y + (_bat.Height * 0.5f)),
@@ -176,7 +148,8 @@ public class Game1 : Core
 
         _batPosition = newBatPosition;
 
-        if (slimeBounds.Intersects(batBounds))
+
+        if (_player1.Bounds.Intersects(batBounds))
         {
             // Divide the width  and height of the screen into equal columns and
             // rows based on the width and height of the bat.
@@ -210,108 +183,6 @@ public class Game1 : Core
         _batVelocity = direction * MOVEMENT_SPEED;
     }
 
-    private void CheckKeyboardInput()
-    {
-        //exit if escape is pressed
-        if (Input.Keyboard.IsKeyDown(Keys.Escape))
-        {
-            Exit();
-        }
-
-
-        // If the space key is held down, the movement speed increases by 1.5
-        float speed = MOVEMENT_SPEED;
-        if (Input.Keyboard.IsKeyDown(Keys.Space))
-        {
-            speed *= 1.5f;
-        }
-
-        // If the W or Up keys are down, move the slime up on the screen.
-        if (Input.Keyboard.IsKeyDown(Keys.W) || Input.Keyboard.IsKeyDown(Keys.Up))
-        {
-            _slimePosition.Y -= speed;
-        }
-
-        // if the S or Down keys are down, move the slime down on the screen.
-        if (Input.Keyboard.IsKeyDown(Keys.S) || Input.Keyboard.IsKeyDown(Keys.Down))
-        {
-            _slimePosition.Y += speed;
-        }
-
-        // If the A or Left keys are down, move the slime left on the screen.
-        if (Input.Keyboard.IsKeyDown(Keys.A) || Input.Keyboard.IsKeyDown(Keys.Left))
-        {
-            _slimePosition.X -= speed;
-        }
-
-        // If the D or Right keys are down, move the slime right on the screen.
-        if (Input.Keyboard.IsKeyDown(Keys.D) || Input.Keyboard.IsKeyDown(Keys.Right))
-        {
-            _slimePosition.X += speed;
-        }
-
-        
-    }
-
-    private void CheckGamePadInput()
-    {
-        GamePadInfo gamePadOne = Input.GamePads[(int)PlayerIndex.One];
-
-        //exit if back is pressed
-        if (gamePadOne.IsButtonDown(Buttons.Back))
-        {
-            Exit();
-        }
-
-        // If the A button is held down, the movement speed increases by 1.5
-        // and the gamepad vibrates as feedback to the player.
-        float speed = MOVEMENT_SPEED;
-        if (gamePadOne.IsButtonDown(Buttons.A))
-        {
-            speed *= 1.5f;
-            GamePad.SetVibration(PlayerIndex.One, 1.0f, 1.0f);
-        }
-        else
-        {
-            GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
-        }
-
-        // Check thumbstick first since it has priority over which gamepad input
-        // is movement.  It has priority since the thumbstick values provide a
-        // more granular analog value that can be used for movement.
-        if (gamePadOne.LeftThumbStick != Vector2.Zero)
-        {
-            _slimePosition.X += gamePadOne.LeftThumbStick.X * speed;
-            _slimePosition.Y -= gamePadOne.LeftThumbStick.Y * speed;
-        }
-        else
-        {
-            // If DPadUp is down, move the slime up on the screen.
-            if (gamePadOne.IsButtonDown(Buttons.DPadUp))
-            {
-                _slimePosition.Y -= speed;
-            }
-
-            // If DPadDown is down, move the slime down on the screen.
-            if (gamePadOne.IsButtonDown(Buttons.DPadDown))
-            {
-                _slimePosition.Y += speed;
-            }
-
-            // If DPapLeft is down, move the slime left on the screen.
-            if (gamePadOne.IsButtonDown(Buttons.DPadLeft))
-            {
-                _slimePosition.X -= speed;
-            }
-
-            // If DPadRight is down, move the slime right on the screen.
-            if (gamePadOne.IsButtonDown(Buttons.DPadRight))
-            {
-                _slimePosition.X += speed;
-            }
-        }
-    }
-
     protected override void Draw(GameTime gameTime)
     {
         // Clear the back buffer.
@@ -321,7 +192,7 @@ public class Game1 : Core
         SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
 
         // Draw the slime sprite.
-        _slime.Draw(SpriteBatch, _slimePosition);
+        _player1.Draw(SpriteBatch);
 
         // Draw the bat sprite.
         _bat.Draw(SpriteBatch, _batPosition);
@@ -331,4 +202,5 @@ public class Game1 : Core
 
         base.Draw(gameTime);
     }
+
 }
