@@ -11,6 +11,7 @@ public class Player : IPlayer
     private AnimatedSprite _sprite;
     private Vector2 _position;
     private const float MOVEMENT_SPEED = 5.0f;
+    private const float BOOST_MULTIPLIER = 5.5f;
 
     public Keybinds Binds { get; private set; }
     public Vector2 Position => _position;
@@ -47,7 +48,7 @@ public class Player : IPlayer
         
         if (Binds.Zoom) 
         {
-            speed *= 1.5f;
+            speed *= BOOST_MULTIPLIER;
         }
         if (Binds.Up) _position.Y -= speed;
         if (Binds.Down) _position.Y += speed;

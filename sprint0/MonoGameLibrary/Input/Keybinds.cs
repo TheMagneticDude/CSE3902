@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework.Input;
+using MonoGameLibrary.Input;
 
 namespace sprint0;
 
@@ -9,7 +10,7 @@ public struct Keybinds
     public Keys DownKey;
     public Keys LeftKey;
     public Keys RightKey;
-    public Keys ZoomKey;
+    public MouseButton ZoomKey;
 
     //Key states
     public bool Up;

@@ -19,7 +19,7 @@ public class Game1 : Core
         DownKey = Keys.S,
         LeftKey = Keys.A,
         RightKey = Keys.D,
-        ZoomKey = Keys.Space
+        ZoomKey = MouseButton.Left,
     };
 
     //bat Vars
@@ -78,7 +78,7 @@ public class Game1 : Core
         }
 
         //poll keybinds
-        _p1Input.Zoom = keyboard.IsKeyDown(_p1Input.ZoomKey) || gamePad1.IsButtonDown(Buttons.A);
+        _p1Input.Zoom = Input.Mouse.IsButtonDown(_p1Input.ZoomKey) || gamePad1.IsButtonDown(Buttons.A);
         _p1Input.Up = keyboard.IsKeyDown(_p1Input.UpKey) || gamePad1.IsButtonDown(Buttons.DPadUp);
         _p1Input.Down = keyboard.IsKeyDown(_p1Input.DownKey) || gamePad1.IsButtonDown(Buttons.DPadDown);
         _p1Input.Left = keyboard.IsKeyDown(_p1Input.LeftKey) || gamePad1.IsButtonDown(Buttons.DPadLeft);
