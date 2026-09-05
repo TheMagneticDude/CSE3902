@@ -9,13 +9,16 @@ namespace sprint0;
 
 public interface IPlayer
 {
-    Keybinds Binds {get;} //get keybinds
-
     Vector2 Position { get; } //object position
     Circle Bounds {get;} //bounding (circle) box
+
+    uint Score {get;}
     
     
-    void Update(GameTime gameTime, Rectangle screenBounds, Keybinds binds);
+    void Update(GameTime gameTime, Rectangle screenBounds, PlayerInput input);
     void Draw(SpriteBatch spriteBatch);
 
+    public uint getScore();
+    public void setScore(uint s);
+    public void incScore();//increments score
 }

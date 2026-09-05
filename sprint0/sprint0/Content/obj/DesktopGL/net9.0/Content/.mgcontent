@@ -4,10 +4,14 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Important/Githubs/CSE1902/sprint0/sprint0/Content/font/DefaultFont.spritefont</File>
     <File>C:/Important/Githubs/CSE1902/sprint0/sprint0/Content/images/atlas.png</File>
     <File>C:/Important/Githubs/CSE1902/sprint0/sprint0/Content/images/logo.png</File>
+    <File>C:/Important/Githubs/CSE1902/sprint0/sprint0/Content/images/snekatlas.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>

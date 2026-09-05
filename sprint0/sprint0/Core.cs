@@ -112,10 +112,10 @@ public class Core : Game
         // Update the input manager.
         Input.Update(gameTime);
 
-        if (ExitOnEscape && Input.Keyboard.WasKeyJustPressed(Keys.Escape))
-        {
-            Exit();
-        }
+        // if (ExitOnEscape && Input.Keyboard.WasKeyJustPressed(Keys.Escape))
+        // {
+        //     Exit();
+        // }
 
         base.Update(gameTime);
     }

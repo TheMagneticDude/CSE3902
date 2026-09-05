@@ -107,6 +107,19 @@ public class Sprite
         Region.Draw(spriteBatch, position, Color, Rotation, Origin, Scale, Effects, LayerDepth);
     }
 
+    //overloaded draw function to support sprite rotaiton (in degrees)
+    public void Draw(SpriteBatch spriteBatch, Vector2 position, float rotation)
+    {
+        // calculate cenbter
+        Vector2 centerOrigin = new Vector2(Region.Width * 0.5f, Region.Height * 0.5f);
+
+        //top left corner is pos
+        Vector2 centerPosition = position + (centerOrigin * Scale);
+
+        
+        Region.Draw(spriteBatch, centerPosition, Color, rotation * (System.MathF.PI / 180f), centerOrigin, Scale, Effects, LayerDepth);
+    }
+
 
 
 }

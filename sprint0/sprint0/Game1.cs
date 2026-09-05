@@ -7,25 +7,24 @@ using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Input;
 
+using System.Diagnostics;//debug output
+
 namespace sprint0;
 
 public class Game1 : Core
 {
 
+    private InputManager _inputManager;
     private IPlayer _player1;
-    private Keybinds _p1Input = new Keybinds
-    {
-        UpKey = Keys.W,
-        DownKey = Keys.S,
-        LeftKey = Keys.A,
-        RightKey = Keys.D,
-        ZoomKey = MouseButton.Left,
-    };
+    private PlayerInput _p1Input;
+
+    SpriteFont font1;
+    Vector2 fontPos;
 
     //bat Vars
-    private AnimatedSprite _bat;
-    private Vector2 _batPosition;
-    private Vector2 _batVelocity;
+    private Sprite _apple;
+    private Vector2 _applePosition;
+    private Vector2 _appleVelocity;
     private const float MOVEMENT_SPEED = 5.0f;
 
 
@@ -39,6 +38,9 @@ public class Game1 : Core
     {
         base.Initialize();
 
+        _inputManager = new InputManager();
+        _p1Input = new PlayerInput();
+
         // Assign the initial random velocity to the bat.
         AssignRandomBatVelocity();
     }
@@ -49,46 +51,43 @@ public class Game1 : Core
         TextureAtlas atlas = TextureAtlas.FromFile(Content, "images/atlas-definition.xml");
 
 
-        //player one init (slime)
-        AnimatedSprite slimeSprite = atlas.CreateAnimatedSprite("slime-animation");
-        slimeSprite.Scale = new Vector2(4.0f, 4.0f);
-        _player1 = new Player(slimeSprite, Vector2.Zero);
+       
+        _player1 = new SnekPlayer(atlas, Vector2.Zero);
+        
 
 
 
 
-        //enemy (bat) init
-        _bat = atlas.CreateAnimatedSprite("bat-animation");
-        _bat.Scale = new Vector2(4.0f, 4.0f);
+        //apple init
+        _apple = atlas.CreateSprite("apple");
+        _apple.Scale = new Vector2(4.0f, 4.0f);
         //init pos
-        _batPosition = new Vector2(slimeSprite.Width + 10, 0);
+        _applePosition = new Vector2(16, 0);
+
+
+
+        //font init
+        // Create a new SpriteBatch, which can be used to draw textures.
+        font1 = Content.Load<SpriteFont>("font/DefaultFont");
+
+        fontPos = new Vector2(20, 20);
     }
 
     protected override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
 
+        _inputManager.Update(gameTime);
+        _p1Input.Update(gameTime, _inputManager);
+
         var keyboard = Input.Keyboard;
         var gamePad1 = Input.GamePads[(int)PlayerIndex.One];
 
-        //global exit keys (will merge into keybinds struct later)
-        if (Input.Keyboard.IsKeyDown(Keys.Escape) || gamePad1.IsButtonDown(Buttons.Back))
+        //global exit keys
+        if (_p1Input.KeyBinds[KeyAction.Exit].IsNewPress)
         {
             Exit();
         }
-
-        //poll keybinds
-        _p1Input.Zoom = Input.Mouse.IsButtonDown(_p1Input.ZoomKey) || gamePad1.IsButtonDown(Buttons.A);
-        _p1Input.Up = keyboard.IsKeyDown(_p1Input.UpKey) || gamePad1.IsButtonDown(Buttons.DPadUp);
-        _p1Input.Down = keyboard.IsKeyDown(_p1Input.DownKey) || gamePad1.IsButtonDown(Buttons.DPadDown);
-        _p1Input.Left = keyboard.IsKeyDown(_p1Input.LeftKey) || gamePad1.IsButtonDown(Buttons.DPadLeft);
-        _p1Input.Right = keyboard.IsKeyDown(_p1Input.RightKey) || gamePad1.IsButtonDown(Buttons.DPadRight);
-
-        //poll thumbsticks
-        if (gamePad1.LeftThumbStick.Y > 0.5f) _p1Input.Up = true;
-        if (gamePad1.LeftThumbStick.Y < -0.5f) _p1Input.Down = true;
-        if (gamePad1.LeftThumbStick.X < -0.5f) _p1Input.Left = true;
-        if (gamePad1.LeftThumbStick.X > 0.5f) _p1Input.Right = true;
        
         // Create a bounding rectangle for the screen.
         Rectangle screenBounds = new Rectangle(
@@ -100,14 +99,14 @@ public class Game1 : Core
 
         //tick entities
         _player1.Update(gameTime, screenBounds, _p1Input);
-        _bat.Update(gameTime);
+        
 
         //bat pos + bounding box
-        Vector2 newBatPosition = _batPosition + _batVelocity;
+        Vector2 newBatPosition = _applePosition + _appleVelocity;
         Circle batBounds = new Circle(
-            (int)(newBatPosition.X + (_bat.Width * 0.5f)),
-            (int)(newBatPosition.Y + (_bat.Height * 0.5f)),
-            (int)(_bat.Width * 0.5f)
+            (int)(newBatPosition.X + (_apple.Width * 0.5f)),
+            (int)(newBatPosition.Y + (_apple.Height * 0.5f)),
+            (int)(_apple.Width * 0.5f)
         );
 
         Vector2 normal = Vector2.Zero;
@@ -123,7 +122,7 @@ public class Game1 : Core
         else if (batBounds.Right > screenBounds.Right)
         {
             normal.X = -Vector2.UnitX.X;
-            newBatPosition.X = screenBounds.Right - _bat.Width;
+            newBatPosition.X = screenBounds.Right - _apple.Width;
         }
 
         if (batBounds.Top < screenBounds.Top)
@@ -134,7 +133,7 @@ public class Game1 : Core
         else if (batBounds.Bottom > screenBounds.Bottom)
         {
             normal.Y = -Vector2.UnitY.Y;
-            newBatPosition.Y = screenBounds.Bottom - _bat.Height;
+            newBatPosition.Y = screenBounds.Bottom - _apple.Height;
         }
 
         // If the normal is anything but Vector2.Zero, this means the bat had
@@ -143,18 +142,18 @@ public class Game1 : Core
         if (normal != Vector2.Zero)
         {
             normal.Normalize();
-            _batVelocity = Vector2.Reflect(_batVelocity, normal);
+            _appleVelocity = Vector2.Reflect(_appleVelocity, normal);
         }
 
-        _batPosition = newBatPosition;
+        _applePosition = newBatPosition;
 
 
         if (_player1.Bounds.Intersects(batBounds))
         {
             // Divide the width  and height of the screen into equal columns and
             // rows based on the width and height of the bat.
-            int totalColumns = GraphicsDevice.PresentationParameters.BackBufferWidth / (int)_bat.Width;
-            int totalRows = GraphicsDevice.PresentationParameters.BackBufferHeight / (int)_bat.Height;
+            int totalColumns = GraphicsDevice.PresentationParameters.BackBufferWidth / (int)_apple.Width;
+            int totalRows = GraphicsDevice.PresentationParameters.BackBufferHeight / (int)_apple.Height;
 
             // Choose a random row and column based on the total number of each
             int column = Random.Shared.Next(0, totalColumns);
@@ -162,7 +161,7 @@ public class Game1 : Core
 
             // Change the bat position by setting the x and y values equal to
             // the column and row multiplied by the width and height.
-            _batPosition = new Vector2(column * _bat.Width, row * _bat.Height);
+            _applePosition = new Vector2(column * _apple.Width, row * _apple.Height);
 
             // Assign a new random velocity to the bat
             AssignRandomBatVelocity();
@@ -171,6 +170,12 @@ public class Game1 : Core
 
     private void AssignRandomBatVelocity()
     {
+        if (_player1 != null) 
+        {
+            _player1.incScore(); // increment player 
+            Debug.WriteLine("Player1: " + _player1.getScore());
+        }
+
         // Generate a random angle.
         float angle = (float)(Random.Shared.NextDouble() * Math.PI * 2);
 
@@ -180,7 +185,7 @@ public class Game1 : Core
         Vector2 direction = new Vector2(x, y);
 
         // Multiply the direction vector by the movement speed.
-        _batVelocity = direction * MOVEMENT_SPEED;
+        _appleVelocity = direction * MOVEMENT_SPEED;
     }
 
     protected override void Draw(GameTime gameTime)
@@ -195,7 +200,10 @@ public class Game1 : Core
         _player1.Draw(SpriteBatch);
 
         // Draw the bat sprite.
-        _bat.Draw(SpriteBatch, _batPosition);
+        _apple.Draw(SpriteBatch, _applePosition);
+
+        string scoreText = "Score: " + _player1.getScore();
+        SpriteBatch.DrawString(font1, scoreText, fontPos, Color.Black);
 
         // Always end the sprite batch when finished.
         SpriteBatch.End();

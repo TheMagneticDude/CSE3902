@@ -40,3 +40,5 @@ C:\Important\Githubs\CSE1902\sprint0\sprint0\bin\Debug\net9.0\MonoGameLibrary.pd
 C:\Important\Githubs\CSE1902\sprint0\sprint0\bin\Debug\net9.0\Content\images\atlas-definition.xml
 C:\Important\Githubs\CSE1902\sprint0\sprint0\bin\Debug\net9.0\Content\images\atlas.xnb
 C:\Important\Githubs\CSE1902\sprint0\sprint0\bin\Debug\net9.0\Content\images\logo.xnb
+C:\Important\Githubs\CSE1902\sprint0\sprint0\bin\Debug\net9.0\Content\font\DefaultFont.xnb
+C:\Important\Githubs\CSE1902\sprint0\sprint0\bin\Debug\net9.0\Content\images\snekatlas.xnb
