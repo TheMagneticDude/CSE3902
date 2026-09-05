@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary;
@@ -11,11 +12,20 @@ public class SnekPlayer : IPlayer
 {
 
     private Sprite[] spritelist;
+
+    private struct SnekSegment
+    {
+        public Vector2 Position;
+        public MoveDir Direction;
+    }
+
+    private List<SnekSegment> _body;
     
     private Vector2 _position;
     private uint _score;
-    private const float MOVEMENT_SPEED = 5.0f;
-    private const float BOOST_MULTIPLIER = 5.5f;
+    private float _moveTimer = 0f; //moves the snek in game ticks on the grid
+    private const float MOVEMENT_SPEED = 0.5f; 
+    private const float BOOST_SPEED = 0.05f;
 
     public PlayerInput Input { get; private set; }
     public Vector2 Position => _position;
@@ -51,6 +61,9 @@ public class SnekPlayer : IPlayer
             atlas.CreateSprite("snek_tail"),
         ];
 
+        _body = new List<SnekSegment>();
+        _body.Add(new SnekSegment { Position = startPosition, Direction = currDir });
+
         //move right by default
         currDir = MoveDir.MoveRight;
 
@@ -63,13 +76,62 @@ public class SnekPlayer : IPlayer
 
         _position = startPosition;
         _score = 0; //initialize score to 0
+
     }
 
     public void Update(GameTime gameTime, Rectangle screenBounds, PlayerInput input)
     {
         Input = input;
         HandleInput();
-        KeepInBounds(screenBounds);
+       
+        //set movement multiplier 
+        float tickSpeed = Input.KeyBinds[KeyAction.Zoom].IsPressed ? BOOST_SPEED : MOVEMENT_SPEED;
+
+        //accumulate time
+        _moveTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+        if (_moveTimer >= tickSpeed)
+        {
+            _moveTimer = 0f;
+            SnekStep(screenBounds);
+        }
+
+    }
+
+    private void SnekStep(Rectangle screenBounds)
+    {
+        Vector2 newPos = _body[0].Position;
+        float stepSize = spritelist[1].Width; //move by width of middle body segement length 
+
+        switch (currDir)
+        {
+            case MoveDir.MoveUp: 
+                newPos.Y -= stepSize; 
+            break;
+            case MoveDir.MoveDown: 
+                newPos.Y += stepSize; 
+            break;
+            case MoveDir.MoveLeft: 
+                newPos.X -= stepSize; 
+            break;
+            case MoveDir.MoveRight: 
+                newPos.X += stepSize; 
+            break;
+        }
+
+        newPos = KeepInBounds(newPos, screenBounds);
+
+        //add new segmnent
+        _body.Insert(0, new SnekSegment { Position = newPos, Direction = currDir });
+
+        _position = newPos;
+        
+
+        //cull trailing body segnments
+        while (_body.Count > _score + 1)
+        {
+            _body.RemoveAt(_body.Count - 1);
+        } 
     }
 
     public void Draw(SpriteBatch spriteBatch)
@@ -78,24 +140,121 @@ public class SnekPlayer : IPlayer
         //up is 90
         //right is 180
         //down is 270
+
+        //custom head rotation pivot so body connects
+        float gapHeadOffset = 24f;
+
+        float gapHeadSecondaryOffset = 12f;
+
+        float gapTailOffset = 6f;
+
+        float gapCornerOffset = 11f;
+
+        Vector2 headOffset = Vector2.Zero;
+        Vector2 tailOffset = Vector2.Zero;
+        Vector2 cornerOffset = Vector2.Zero;
+        cornerOffset.Y = gapCornerOffset;
+
+        //offset body/tail in direction of movement to not have gap
         switch (currDir)
         {
-            case MoveDir.MoveLeft:
-                spritelist[0].Draw(spriteBatch, _position, 0);
-            break;
+            case MoveDir.MoveLeft:  
+                headOffset.X = -gapHeadOffset;  
+                break; //body is to the right
+            //case MoveDir.MoveRight: 
+            // visualOffset.X = -gapHeadOffset; break; //body is to the left no offset needed
             case MoveDir.MoveUp:
-                spritelist[0].Draw(spriteBatch, _position, 90);
-            break;
-            case MoveDir.MoveRight:
-                spritelist[0].Draw(spriteBatch, _position, 180);
-            break;
-            case MoveDir.MoveDown:
-                spritelist[0].Draw(spriteBatch, _position, 270);
-            break;
+                headOffset.Y = 0; headOffset.X = -gapHeadSecondaryOffset; 
+                tailOffset.X = - gapTailOffset;
+                
+                break; //body is below
+            case MoveDir.MoveDown:  
+                headOffset.Y = 0; headOffset.X = -gapHeadSecondaryOffset; 
+                tailOffset.X = - gapTailOffset;
+                
+            break; //body is above
         }
-        
-        
+
+        for (int i = 1; i < _body.Count; i++)
+        {
+            SnekSegment current = _body[i];
+            if (i == _body.Count - 1)
+            {
+                //draw tail
+                spritelist[2].Draw(spriteBatch, _body[i].Position  + tailOffset, GetRotation(_body[i].Direction));
+            }
+            else
+            {
+                SnekSegment ahead = _body[i-1];//look ahead
+                
+                if (current.Direction == ahead.Direction)
+                {
+                // draw body straight
+                spritelist[1].Draw(spriteBatch, current.Position, GetRotation(current.Direction));
+
+
+                }
+                else//if the ahead piece is not aligned, the snek turned
+                {
+                    Sprite corner = GetCornerSprite(current.Direction, ahead.Direction);//select correct sprite depending on orientation
+                    corner.Draw(spriteBatch, current.Position + cornerOffset);
+                }
+            }
+            
+        }
+
+        //draw head sprite last so it appears on top of the body
+
+        spritelist[0].Draw(spriteBatch, _position + headOffset, GetRotation(currDir));
     }
+
+    private float GetRotation(MoveDir dir)
+    {
+        switch (dir)
+        {
+            case MoveDir.MoveLeft:
+                return MathHelper.ToRadians(0);
+            case MoveDir.MoveUp:
+                return MathHelper.ToRadians(90);
+            case MoveDir.MoveRight:
+                return MathHelper.ToRadians(180);
+            case MoveDir.MoveDown:
+                return MathHelper.ToRadians(270);
+            default:
+            return 0;
+
+        };
+    }
+
+    //literally look at every sprite ahead and behind to determine what direction it goes
+    private Sprite GetCornerSprite(MoveDir currentDir, MoveDir aheadDir)
+    {
+        //Right to Up
+        if (currentDir == MoveDir.MoveRight && aheadDir == MoveDir.MoveUp) return spritelist[6];
+        
+        // Right to Down
+        if (currentDir == MoveDir.MoveRight && aheadDir == MoveDir.MoveDown) return spritelist[4];
+
+        // Left to Up
+        if (currentDir == MoveDir.MoveLeft && aheadDir == MoveDir.MoveUp) return spritelist[5];
+        
+        // Left to Down
+        if (currentDir == MoveDir.MoveLeft && aheadDir == MoveDir.MoveDown) return spritelist[3];
+
+        // Up to Right
+        if (currentDir == MoveDir.MoveUp && aheadDir == MoveDir.MoveRight) return spritelist[3];
+        
+        // Up to Left
+        if (currentDir == MoveDir.MoveUp && aheadDir == MoveDir.MoveLeft) return spritelist[4];
+
+        // Down to Right
+        if (currentDir == MoveDir.MoveDown && aheadDir == MoveDir.MoveRight) return spritelist[5];
+        
+        // Down to Left
+        if (currentDir == MoveDir.MoveDown && aheadDir == MoveDir.MoveLeft) return spritelist[6];
+
+    return spritelist[1]; 
+}
 
     private void HandleInput()
     {
@@ -103,54 +262,41 @@ public class SnekPlayer : IPlayer
         
         //handles all keybinds
         
-        if (Input.KeyBinds[KeyAction.Zoom].IsPressed) 
-        {
-            speed *= BOOST_MULTIPLIER;
-        }
-
         //get keybind states
         if (Input.KeyBinds[KeyAction.MoveUp].IsPressed) {currDir = MoveDir.MoveUp;}
         if (Input.KeyBinds[KeyAction.MoveDown].IsPressed) {currDir = MoveDir.MoveDown;}
         if (Input.KeyBinds[KeyAction.MoveLeft].IsPressed) {currDir = MoveDir.MoveLeft;}
         if (Input.KeyBinds[KeyAction.MoveRight].IsPressed) {currDir = MoveDir.MoveRight;}
-
-        //apply movement
-        switch (currDir)
-        {
-            case MoveDir.MoveUp:
-                _position.Y -= speed;
-                break;
-            case MoveDir.MoveDown:
-                _position.Y += speed;
-                break;
-            case MoveDir.MoveLeft:
-                _position.X -= speed;
-                break;
-            case MoveDir.MoveRight:
-                _position.X += speed;
-                break;
-        }
     }
 
-    private void KeepInBounds(Rectangle screenBounds)
+    private Vector2 KeepInBounds(Vector2 pos, Rectangle screenBounds)
         {
-            // Just use the properties directly! They already know they are scaled 4x.
+           
             float actualWidth = spritelist[0].Width;
             float actualHeight = spritelist[0].Height;
 
+            Vector2 outPos = pos;
+
+            //loop walls
             // Left wall
-            if (_position.X < screenBounds.Left) 
-                _position.X = screenBounds.Left;
+            if (pos.X < screenBounds.Left) 
+                //outPos.X = screenBounds.Left;
+                outPos.X = screenBounds.Right - actualWidth;
             // Right wall
-            else if (_position.X + actualWidth > screenBounds.Right) 
-                _position.X = screenBounds.Right - actualWidth;
+            else if (pos.X + actualWidth > screenBounds.Right) 
+                //outPos.X = screenBounds.Right - actualWidth;
+                outPos.X = screenBounds.Left;
 
             // Top wall
-            if (_position.Y < screenBounds.Top) 
-                _position.Y = screenBounds.Top;
+            if (pos.Y < screenBounds.Top) 
+                //outPos.Y = screenBounds.Top;
+                outPos.Y = screenBounds.Bottom - actualHeight;
             // Bottom wall
-            else if (_position.Y + actualHeight > screenBounds.Bottom) 
-                _position.Y = screenBounds.Bottom - actualHeight;
+            else if (pos.Y + actualHeight > screenBounds.Bottom) 
+                //outPos.Y = screenBounds.Bottom - actualHeight;
+                outPos.Y = screenBounds.Top;
+
+            return outPos;
         }
 
 

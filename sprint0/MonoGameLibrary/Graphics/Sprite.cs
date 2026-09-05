@@ -107,7 +107,7 @@ public class Sprite
         Region.Draw(spriteBatch, position, Color, Rotation, Origin, Scale, Effects, LayerDepth);
     }
 
-    //overloaded draw function to support sprite rotaiton (in degrees)
+    //overloaded draw function to support sprite rotaiton (in rad)
     public void Draw(SpriteBatch spriteBatch, Vector2 position, float rotation)
     {
         // calculate cenbter
@@ -117,7 +117,18 @@ public class Sprite
         Vector2 centerPosition = position + (centerOrigin * Scale);
 
         
-        Region.Draw(spriteBatch, centerPosition, Color, rotation * (System.MathF.PI / 180f), centerOrigin, Scale, Effects, LayerDepth);
+        Region.Draw(spriteBatch, centerPosition, Color, rotation, centerOrigin, Scale, Effects, LayerDepth);
+    }
+    //overloaded draw function to support rotation with custom pivot
+    public void Draw(SpriteBatch spriteBatch, Vector2 position, float rotation, Vector2 customPivot)
+    {
+        Vector2 origin = customPivot;
+
+        // 2. Adjust the position so the top-left corner remains the anchor point for your grid
+        Vector2 adjustedPosition = position + (origin * Scale);
+
+        // 3. Draw using the calculated origin and adjusted position
+        Region.Draw(spriteBatch, adjustedPosition, Color, rotation, origin, Scale, Effects, LayerDepth);
     }
 
 

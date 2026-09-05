@@ -191,7 +191,7 @@ public class Game1 : Core
     protected override void Draw(GameTime gameTime)
     {
         // Clear the back buffer.
-        GraphicsDevice.Clear(Color.CornflowerBlue);
+        GraphicsDevice.Clear(Color.DarkSeaGreen);
 
         // Begin the sprite batch to prepare for rendering.
         SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
