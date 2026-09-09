@@ -12,10 +12,14 @@ public enum KeyAction
     MoveUp, MoveDown, MoveLeft, MoveRight, Zoom, Exit 
 }
 
+
+
 public class PlayerInput
 {
     // Replaces std::unordered_map
     public Dictionary<KeyAction, TriggerKey> KeyBinds { get; private set; }
+
+    public float DAS_delay = 0.3f;
 
     public PlayerInput()
     {
@@ -54,7 +58,7 @@ public class PlayerInput
 
     private void HandleDAS(TriggerKey key)
     {
-        if (key.UseDAS && key.HoldTime > 0.3f) // 0.3s delay before auto-shift
+        if (key.UseDAS && key.HoldTime > DAS_delay) // 0.3s default delay before auto-shift
         {
             key.ResetHold(); // triggers IsNewPress to be true again
         }

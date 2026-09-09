@@ -1,0 +1,18 @@
+Created by: Nathan Cheng
+Github page: https://github.com/TheMagneticDude/CSE1902/tree/main/sprint0
+==================================Game Summary==============================
+A simple barebones snake game with code framework for keybinding.  
+
+
+==================================Credits ==================================
+Sprites found from google and modified into atlas by me.  
+Apple sprite: https://rembound.com/articles/creating-a-snake-game-tutorial-with-html5
+Snake sprites: https://www.pixilart.com/art/snake-sprite-sr25de9bcd852e6
+
+==================================Controls==================================
+By default the keybinds are WASD for movememnt, mouse left click for boost and escape key for quitting the program.
+Default keybinds can be changed in PlayerInput.cs
+Delayed auto shift (DAS) functionality carried over from another project.  Simply repeats the key's execution once held after a certain amount of time.  DAS delay is data driven.
+
+==================================AI Use====================================
+AI was used in fixing syntax issues from converting old keybind code written in C and generating the blueprint for atlasdefinition.xml file.
