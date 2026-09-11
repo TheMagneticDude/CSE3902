@@ -7,4 +7,6 @@
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
 </Project>
