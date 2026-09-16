@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas>
+    <Texture>images/snekatlas</Texture>
+    <Regions>
+        <!-- Top Row -->
+        <Region name="snek_head" x="0" y="0" width="14" height="11" />
+        <Region name="snek_mid" x="15" y="0" width="8" height="11" />
+        <Region name="snek_tail" x="24" y="0" width="11" height="11" />
+        <Region name="snek_down_right" x="36" y="2" width="8" height="7" />
+        <Region name="snek_down_left" x="46" y="2" width="7" height="7" />
+        <Region name="snek_up_right" x="36" y="11" width="8" height="7" />
+        <Region name="snek_up_left" x="46" y="11" width="7" height="7" />
+
+        <!-- Bottom Row -->
+        <Region name="apple" x="1" y="12" width="11" height="12" />
+        
+        
+    </Regions>
+
+    <Animations>
+    </Animations>
+
+</TextureAtlas>

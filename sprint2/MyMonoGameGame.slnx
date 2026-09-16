@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MonoGameLibrary/MonoGameLibrary.csproj" />
+  <Project Path="sprint0/sprint0.csproj" />
+</Solution>
