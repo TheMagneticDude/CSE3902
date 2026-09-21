@@ -1,5 +1,0 @@
-Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"c:/Important/Githubs/CSE1902/sprint0/sprint0/Content/font/DefaultFont.spritefont","c:/Important/Githubs/CSE1902/sprint0/sprint0/Content/bin/DesktopGL/font/DefaultFont.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21529,0.1574193
-"c:/Important/Githubs/CSE1902/sprint0/sprint0/Content/images/atlas-definition.xml","c:\Important\Githubs\CSE1902\sprint0\sprint0\Content\bin\DesktopGL\images/atlas-definition.xml","CopyItem","File",279,279,0.00176
-"c:/Important/Githubs/CSE1902/sprint0/sprint0/Content/images/atlas.png","c:/Important/Githubs/CSE1902/sprint0/sprint0/Content/bin/DesktopGL/images/atlas.xnb","TextureProcessor","Texture2DContent",590,16469,0.1003267
-"c:/Important/Githubs/CSE1902/sprint0/sprint0/Content/images/logo.png","c:/Important/Githubs/CSE1902/sprint0/sprint0/Content/bin/DesktopGL/images/logo.xnb","TextureProcessor","Texture2DContent",16734,311381,0.0120711
