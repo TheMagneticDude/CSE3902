@@ -29,30 +29,35 @@ public class TriggerKey
     public bool IsPressed { get; private set; }
     public bool IsNewPress { get; private set; }
     public bool UseDAS { get; set; }
+    public double DasTimeMs {get; set;}
     public float HoldTime { get; private set; }
+    public float LastDasTime { get; set; }
     private bool _wasPressedLastFrame;
 
     //keyboard constructor
-    public TriggerKey(Keys keyCode, bool useDAS = false)
+    public TriggerKey(Keys keyCode, bool useDAS = false, double dasTimeMs = 0.0)
     {
         DeviceType = InputDeviceType.Keyboard;
         KeyCode = keyCode;
         UseDAS = useDAS;
+        DasTimeMs = dasTimeMs;
     }
     //nmouse constructor
-    public TriggerKey(MouseButton mouseButton, bool useDAS = false)
+    public TriggerKey(MouseButton mouseButton, bool useDAS = false, double dasTimeMs = 0.0)
     {
         DeviceType = InputDeviceType.Mouse;
         MouseButtonCode = mouseButton;
         UseDAS = useDAS;
+        DasTimeMs = dasTimeMs;
     }
 
     //gamepad constructor
-    public TriggerKey(Buttons gamePadButton, bool useDAS = false)
+    public TriggerKey(Buttons gamePadButton, bool useDAS = false, double dasTimeMs = 0.0)
     {
         DeviceType = InputDeviceType.GamePadButton;
         GamePadButtonCode = gamePadButton;
         UseDAS = useDAS;
+        DasTimeMs = dasTimeMs;
     }
 
 
@@ -108,6 +113,7 @@ public class TriggerKey
         else if (IsPressed)
         {
             HoldTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            LastDasTime += (float)gameTime.ElapsedGameTime.TotalSeconds;//same as hold time but if das is active this timer is used for the repeats 
         }
         else
         {

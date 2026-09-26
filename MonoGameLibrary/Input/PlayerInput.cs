@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Reflection.Metadata;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using MonoGameLibrary.Input;
@@ -9,8 +10,10 @@ namespace sprint0;
 
 public enum KeyAction 
 { 
-    MoveUp, MoveDown, MoveLeft, MoveRight, Zoom, Exit 
+    MoveUp, MoveDown, MoveLeft, MoveRight, Attack, Use, Exit,
 }
+
+
 
 
 
@@ -20,6 +23,9 @@ public class PlayerInput
     public Dictionary<KeyAction, TriggerKey> KeyBinds { get; private set; }
 
     public float DAS_delay = 0.3f;
+    //Delayed auto shift is functionality ported over from our tetrio game
+    //effectivly it just means the delay before the key starts repeting 
+    //dasTimeMs is the how many miliseconds between each repeted action 
 
     public PlayerInput()
     {
@@ -28,9 +34,10 @@ public class PlayerInput
         {
             { KeyAction.MoveUp, new TriggerKey(Keys.W) },
             { KeyAction.MoveDown, new TriggerKey(Keys.S) },
-            { KeyAction.MoveLeft, new TriggerKey(Keys.A, useDAS: true) },
-            { KeyAction.MoveRight, new TriggerKey(Keys.D, useDAS: true) },
-            { KeyAction.Zoom, new TriggerKey(MouseButton.Left) },
+            { KeyAction.MoveLeft, new TriggerKey(Keys.A) },
+            { KeyAction.MoveRight, new TriggerKey(Keys.D) },
+            { KeyAction.Attack, new TriggerKey(MouseButton.Left, useDAS: true, dasTimeMs: 1000) },
+            { KeyAction.Use, new TriggerKey(MouseButton.Right, useDAS: true, dasTimeMs: 1000) },
             { KeyAction.Exit, new TriggerKey(Keys.Escape) }
         };
     }
@@ -49,11 +56,13 @@ public class PlayerInput
         foreach (var key in KeyBinds.Values)
         {
             key.Update(gameTime, inputs);
+            if (key.UseDAS && (key.LastDasTime>= key.DasTimeMs))
+            {
+                key.LastDasTime = 0;
+                HandleDAS(key);
+            }
         }
         
-        
-        HandleDAS(KeyBinds[KeyAction.MoveLeft]);
-        HandleDAS(KeyBinds[KeyAction.MoveRight]);
     }
 
     private void HandleDAS(TriggerKey key)
