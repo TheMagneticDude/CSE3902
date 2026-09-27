@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas>
+    <Texture>Blocks/blocks</Texture>
+    
+    <Regions>
+        <Region name="Carved-Brick" x="2" y="14" width="24" height="24" />
+        <Region name="Pearlstone" x="28" y="14" width="24" height="24" />
+        <Region name="Copper-Brick" x="54" y="14" width="24" height="24" />
+        <Region name="Green-Brick" x="80" y="14" width="24" height="24" />
+        <Region name="Red-Brick" x="106" y="14" width="24" height="24" />
+        <Region name="Blue-Brick" x="132" y="14" width="24" height="24" />
+    </Regions>
+
+    <Animations />
+
+</TextureAtlas>

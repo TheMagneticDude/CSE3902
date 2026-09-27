@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas>
+    <Texture>Bosses/Cthulhu</Texture>
+    <Regions>
+        <Region name="cthulhu-attack-1" x="4" y="30" width="110" height="152" />
+        <Region name="cthulhu-attack-2" x="118" y="24" width="110" height="158" />
+        <Region name="cthulhu-attack-3" x="232" y="20" width="110" height="162" />
+        <Region name="cthulhu-rage-1" x="346" y="46" width="110" height="136" />
+        <Region name="cthulhu-rage-2" x="460" y="40" width="110" height="142" />
+        <Region name="cthulhu-rage-3" x="574" y="36" width="110" height="146" />
+    </Regions>
+
+    <Animations>
+
+        <Animation name="cthulhu-phase-1" delay="200">
+            <Frame region="cthulhu-attack-1" />
+            <Frame region="cthulhu-attack-2" />
+            <Frame region="cthulhu-attack-3" />
+        </Animation>
+         <Animation name="cthulhu-phase-2" delay="200">
+            <Frame region="cthulhu-rage-1" />
+            <Frame region="cthulhu-rage-2" />
+            <Frame region="cthulhu-rage-3" />
+        </Animation>
+
+    </Animations>
+
+</TextureAtlas>
+
