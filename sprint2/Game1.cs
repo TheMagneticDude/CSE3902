@@ -56,7 +56,7 @@ public class Game1 : Core
 
         base.Update(gameTime);
 
-        _blocksDemo.Update(gameTime);
+        _blocksDemo.Update(gameTime, _p1Input);
         _queenBee.Update(gameTime);
         _eyeOfCthulhu.Update(gameTime);
 
