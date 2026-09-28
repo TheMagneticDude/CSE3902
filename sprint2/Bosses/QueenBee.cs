@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
+using sprint2.Bosses.States;
 
 namespace sprint2.Bosses;
 
@@ -14,16 +15,31 @@ public class QueenBee
     private TextureAtlas _atlas;
     private uint movementSpeed = 10;
 
+    private IBossState _state;
+
+    public void ChangeState(IBossState newState)
+    {
+        _state = newState;
+        _state.Enter();
+    }
+
     public QueenBee(AnimatedSprite sprite, TextureAtlas atlas)
     {
         _sprite = sprite;
         _atlas = atlas;
-        Location = new Vector2(400, 300);
+        Location = new Vector2(1100, 400);
         Velocity = new Vector2(movementSpeed, 0);  //move right on init
+        ChangeState(new QueenBeeIdleState(this));
+    }
+
+    public void SetAnimation(string animationName)
+    {
+        _sprite.Animation = _atlas.GetAnimation(animationName);
     }
 
     public void Update(GameTime gameTime)
     {
+        _state.Update(gameTime);
         _sprite.Update(gameTime);
 
         Location += Velocity;
