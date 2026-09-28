@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using MonoGameLibrary.Input; 
 
-namespace sprint0;
+namespace MonoGameLibrary.Input;
 
 //select from three input types
 public enum InputDeviceType
