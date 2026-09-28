@@ -105,4 +105,10 @@ public class Sprite
     {
         Region.Draw(spriteBatch, position, Color, Rotation, Origin, Scale, Effects, LayerDepth);
     }
+
+//method allows access to effects
+    public void Draw(SpriteBatch spriteBatch, Vector2 location, SpriteEffects effects = SpriteEffects.None)
+{
+    Region.Draw(spriteBatch, location, Color, Rotation, Origin, Scale, effects, LayerDepth);
+}
 }
