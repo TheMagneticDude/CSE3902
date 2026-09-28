@@ -16,6 +16,6 @@ public interface IPlayer
     void Update(GameTime gameTime, PlayerInput input);
     void Draw(SpriteBatch spriteBatch);
 
-    void EquipWeapon(Weapon weapon);
+    void EquipWeapon(IWeapon weapon);
     void UnequipWeapon();
 }
