@@ -10,7 +10,7 @@ namespace sprint0;
 
 public enum KeyAction 
 { 
-    MoveUp, MoveDown, MoveLeft, MoveRight, Attack, Use, Exit,
+    MoveUp, MoveDown, MoveLeft, MoveRight, Attack, UseItem1, UseItem2, UseItem3, TakeDamage, Exit, Reset
 }
 
 
@@ -37,8 +37,12 @@ public class PlayerInput
             { KeyAction.MoveLeft, new TriggerKey(Keys.A) },
             { KeyAction.MoveRight, new TriggerKey(Keys.D) },
             { KeyAction.Attack, new TriggerKey(MouseButton.Left, useDAS: true, dasTimeMs: 1000) },
-            { KeyAction.Use, new TriggerKey(MouseButton.Right, useDAS: true, dasTimeMs: 1000) },
-            { KeyAction.Exit, new TriggerKey(Keys.Escape) }
+            { KeyAction.UseItem1, new TriggerKey(MouseButton.Right, useDAS: true, dasTimeMs: 1000) },
+            { KeyAction.UseItem2, new TriggerKey(Keys.Space, useDAS: true, dasTimeMs: 1000) },
+            { KeyAction.UseItem3, new TriggerKey(Keys.E, useDAS: true, dasTimeMs: 1000) },
+            { KeyAction.TakeDamage, new TriggerKey(Keys.H) },
+            { KeyAction.Exit, new TriggerKey(Keys.Escape) },
+            { KeyAction.Reset, new TriggerKey(Keys.R) }
         };
     }
 
