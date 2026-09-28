@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-
+namespace sprint2.StateMachines;
 public class StateMachine<TState> where TState : Enum
 {
     //Dictionary for storing states
     private readonly Dictionary<TState, IState> states = new();
-    public IState? CurrentState {get; private set;}
+    public IState CurrentState {get; private set;}
 
     public void AddState(TState key, IState state)
     {
