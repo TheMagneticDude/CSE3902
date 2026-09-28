@@ -15,10 +15,20 @@ public class Player : IPlayer
         Jump
     }
 
-
+    public enum PlayerItem
+    {
+        Empty,
+        Melee,
+        Bow,
+        Staff
+    }
+    private const int HotbarSlotCount = 3;
+    private readonly PlayerItem[] _hotbar = new PlayerItem[HotbarSlotCount];
+    public int SelectedHotbarSlot { get; private set; }
+    public PlayerItem SelectedHotbarItem =>
+        _hotbar[SelectedHotbarSlot];
     public Vector2 Location { get; set; }
     public Vector2 Velocity {get; set;}
-
     internal AnimatedSprite Sprite { get; private set; }
     public bool IsGrounded { get; private set; }
     public PlayerInput Input { get; private set; }
@@ -42,7 +52,10 @@ public class Player : IPlayer
         _atlas = atlas;
         Location = new Vector2(400, 500);
         Velocity = new Vector2(0, 0);
-
+        _hotbar[0] = PlayerItem.Melee;
+        _hotbar[1] = PlayerItem.Bow;
+        _hotbar[2] = PlayerItem.Staff;
+        SelectedHotbarSlot = 0;
         //statemachine init
         _stateMachine = new StateMachine<PlayerState>();
         _stateMachine.AddState(PlayerState.Idle, new IdleState(this));
@@ -50,11 +63,26 @@ public class Player : IPlayer
         _stateMachine.AddState(PlayerState.Jump, new JumpState(this));
         _stateMachine.ChangeState(PlayerState.Idle);
     }
-
+    private void HandleHotbarInput()
+    {
+        if (Input.IsNewPress(KeyAction.UseItem1))
+        {
+            SelectedHotbarSlot = 0;
+        }
+        else if (Input.IsNewPress(KeyAction.UseItem2))
+        {
+            SelectedHotbarSlot = 1;
+        }
+        else if (Input.IsNewPress(KeyAction.UseItem3))
+        {
+            SelectedHotbarSlot = 2;
+        }
+    }
     public void Update(GameTime gameTime, PlayerInput input)
     {
         Input = input;
         ApplyPhysics();
+        HandleHotbarInput();
 
         _stateMachine.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
 
