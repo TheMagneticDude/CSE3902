@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas>
-    <Texture>Bosses/QueenBee</Texture>
+    <Texture>Bosses/queen_bee</Texture>
     <Regions>
-        <Region name="queen-attack-up" x="12" y="16" width="150" height="134" />
-        <Region name="queen-attack-wing-up" x="10" y="180" width="152" height="120" />
-        <Region name="queen-attack-down" x="10" y="378" width="152" height="72" />
-        <Region name="queen-attack-wing-down" x="12" y="470" width="150" height="134" />
-        <Region name="queen-idle-up" x="208" y="32" width="150" height="134" />
-        <Region name="queen-idle-wing-up" x="192" y="188" width="158" height="126" />
-        <Region name="queen-idle-down" x="192" y="338" width="158" height="126" />
-        <Region name="queen-idle-wing-down" x="192" y="486" width="164" height="132" />
+        <Region name="queen-attack-up" x="4" y="4" width="152" height="134" />
+        <Region name="queen-attack-wing-up" x="158" y="18" width="152" height="134" />
+        <Region name="queen-attack-down" x="314" y="66" width="152" height="134" />
+        <Region name="queen-attack-wing-down" x="470" y="4" width="152" height="134" />
+        <Region name="queen-idle-up" x="624" y="6" width="150" height="132" />
+        <Region name="queen-idle-wing-up" x="778" y="12" width="158" height="126" />
+        <Region name="queen-idle-down" x="940" y="12" width="158" height="126" />
+        <Region name="queen-idle-wing-down" x="1102" y="6" width="164" height="132" />
     </Regions>
 
     <Animations>
 
-        <Animation name="queen-bee-attack" delay="200">
+        <Animation name="queen-bee-attack" delay="150">
             <Frame region="queen-attack-up" />
             <Frame region="queen-attack-wing-up" />
             <Frame region="queen-attack-down" />
             <Frame region="queen-attack-wing-down" />
         </Animation>
-         <Animation name="queen-bee-idle" delay="200">
+         <Animation name="queen-bee-idle" delay="150">
             <Frame region="queen-idle-up" />
             <Frame region="queen-idle-wing-up" />
             <Frame region="queen-idle-down" />

@@ -36,7 +36,8 @@ public class BossFactory
     {
             AnimatedSprite sprite = _queenBeeAtlas.CreateAnimatedSprite("queen-bee-idle");
 
-            sprite.CenterOrigin();
+            //sprite.CenterOrigin();
+            sprite.Origin = new Vector2(sprite.Width/2f, sprite.Height);
 
             return new QueenBee(sprite, _queenBeeAtlas);
     }
@@ -45,7 +46,6 @@ public class BossFactory
     {
         AnimatedSprite sprite = _cthulhuAtlas.CreateAnimatedSprite("cthulhu-phase-1");
 
-        //sprite.Origin = new Vector2(75, 134);
         sprite.CenterOrigin();
 
         sprite.Rotation = 1.5708f;
