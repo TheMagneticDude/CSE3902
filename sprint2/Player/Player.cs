@@ -1,9 +1,11 @@
+using System;
+using System.Security.Cryptography;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Input;
 using sprint2.StateMachines;
-
+using sprint2.Weapons;
 namespace sprint2.Players;
 
 public class Player : IPlayer
@@ -17,7 +19,7 @@ public class Player : IPlayer
 
 
     public Vector2 Location { get; set; }
-    public Vector2 Velocity {get; set;}
+    public Vector2 Velocity { get; set; }
 
     internal AnimatedSprite Sprite { get; private set; }
     public bool IsGrounded { get; private set; }
@@ -34,6 +36,9 @@ public class Player : IPlayer
     private const float GroundLevel = 450f;
 
     private bool _facingRight = true;
+
+    //Weapon stuff
+    private Weapon? _equippedWeapon;
 
 
     public Player(AnimatedSprite sprite, TextureAtlas atlas)
@@ -54,6 +59,11 @@ public class Player : IPlayer
     public void Update(GameTime gameTime, PlayerInput input)
     {
         Input = input;
+        if(_equippedWeapon != null && Input.IsNewPress(KeyAction.Attack))
+        {
+            _equippedWeapon.Attack();
+        }
+        _equippedWeapon?.Update(gameTime,_facingRight);
         ApplyPhysics();
 
         _stateMachine.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
@@ -80,18 +90,30 @@ public class Player : IPlayer
     void HandleHorizontalMovement()
     {
         float componentX = (Input.IsPressed(KeyAction.MoveRight) ? 1f : 0f) - (Input.IsPressed(KeyAction.MoveLeft) ? 1f : 0f);
-        
+
         Velocity = new Vector2(componentX * MovementSpeed, Velocity.Y);
 
         if (Velocity.X > 0) _facingRight = true;
         else if (Velocity.X < 0) _facingRight = false;
     }
 
+    public void EquipWeapon(Weapon weapon)
+    {
+        _equippedWeapon = weapon;
+    }
+
+    public void UnequipWeapon()
+    {
+        _equippedWeapon = null;
+    }
+
     public void Draw(SpriteBatch spriteBatch)
     {
         SpriteEffects effect = _facingRight ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-        
+
         Sprite.Draw(spriteBatch, Location, effect);
+
+        _equippedWeapon?.Draw(spriteBatch, Location, _facingRight);
     }
 
 
@@ -113,7 +135,7 @@ public class Player : IPlayer
         private Player _player;
         public IdleState(Player player) { _player = player; }
 
-        public void Enter() { _player.Sprite = _player._atlas.CreateAnimatedSprite("Idle");}
+        public void Enter() { _player.Sprite = _player._atlas.CreateAnimatedSprite("Idle"); }
         public void Exit() { }
 
         public void Update(float deltaTime)
@@ -142,7 +164,7 @@ public class Player : IPlayer
         private Player _player;
         public WalkState(Player player) { _player = player; }
 
-        public void Enter() { _player.Sprite = _player._atlas.CreateAnimatedSprite("Walk");}
+        public void Enter() { _player.Sprite = _player._atlas.CreateAnimatedSprite("Walk"); }
         public void Exit() { }
 
         public void Update(float deltaTime)
@@ -165,14 +187,14 @@ public class Player : IPlayer
             }
         }
     }
-    
+
 
     private class JumpState : IState
     {
         private Player _player;
         public JumpState(Player player) { _player = player; }
 
-        public void Enter() { _player.Sprite = _player._atlas.CreateAnimatedSprite("Jump"); _player.Velocity = new Vector2(_player.Velocity.X, JumpStrength); _player.IsGrounded = false;}
+        public void Enter() { _player.Sprite = _player._atlas.CreateAnimatedSprite("Jump"); _player.Velocity = new Vector2(_player.Velocity.X, JumpStrength); _player.IsGrounded = false; }
         public void Exit() { }
 
         public void Update(float deltaTime)
@@ -189,14 +211,4 @@ public class Player : IPlayer
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
 }
