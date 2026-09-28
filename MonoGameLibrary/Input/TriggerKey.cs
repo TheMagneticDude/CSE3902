@@ -30,8 +30,8 @@ public class TriggerKey
     public bool IsNewPress { get; private set; }
     public bool UseDAS { get; set; }
     public double DasTimeMs {get; set;}
-    public float HoldTime { get; private set; }
-    public float LastDasTime { get; set; }
+    public double HoldTime { get; private set; }
+    public double LastDasTime { get; set; }
     private bool _wasPressedLastFrame;
 
     //keyboard constructor
@@ -112,8 +112,8 @@ public class TriggerKey
         }
         else if (IsPressed)
         {
-            HoldTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            LastDasTime += (float)gameTime.ElapsedGameTime.TotalSeconds;//same as hold time but if das is active this timer is used for the repeats 
+            HoldTime += (double)gameTime.ElapsedGameTime.TotalSeconds;
+            LastDasTime += (double)gameTime.ElapsedGameTime.TotalSeconds;//same as hold time but if das is active this timer is used for the repeats 
         }
         else
         {

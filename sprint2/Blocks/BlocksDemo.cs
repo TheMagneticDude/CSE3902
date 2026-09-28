@@ -2,6 +2,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
+using MonoGameLibrary.Input;
+using sprint2.Players;
+
 
 namespace sprint2.Blocks;
 
@@ -34,15 +37,13 @@ public class BlocksDemo
 
     }
 
-    public void Update(GameTime gameTime)
+    public void Update(GameTime gameTime, PlayerInput input)
     {
         _timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-        if (_timer >= TIME)
-        {
-            _timer -= TIME;
-            _currBlock = (_currBlock + 1) % _blocks.Length;
-        }
+        if(input.IsNewPress(KeyAction.ScrollLeft)) {_currBlock = (_currBlock - 1) % _blocks.Length;}
+        if(_currBlock < 0) {_currBlock = _blocks.Length - 1;}
+        if(input.IsNewPress(KeyAction.ScrollRight)) {_currBlock = (_currBlock + 1) % _blocks.Length;}
     }
 
     public void Draw(SpriteBatch spriteBatch)
