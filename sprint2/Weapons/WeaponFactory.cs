@@ -32,4 +32,9 @@ public class WeaponFactory
     {
         return new Sword(_swordTexture);
     }
+
+    public Dagger CreateDagger()
+    {
+        return new Dagger(_swordTexture);
+    }
 }
