@@ -7,7 +7,7 @@ using MonoGameLibrary.Input;
 using sprint2.Blocks;
 using sprint2.Bosses;
 using sprint2.Players;
-
+using sprint2.Weapons;
 namespace sprint2;
 
 public class Game1 : Core
@@ -49,6 +49,10 @@ public class Game1 : Core
         //will create class that automatically handles creation of players later
         TextureAtlas _playerAtlas = TextureAtlas.FromFile(Content,"Player/Player.xml");
         _player1 = new Player(_playerAtlas.CreateAnimatedSprite("Idle"), _playerAtlas);
+
+        //Weapon stuff
+        WeaponFactory.Instance.LoadAllTextures(Content);
+        _player1.EquipWeapon(WeaponFactory.Instance.CreateSword());
 
 
     }
