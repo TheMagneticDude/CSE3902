@@ -35,4 +35,9 @@ public class WeaponFactory
     {
         return new Sword(swordAtlas.Texture);
     }
+
+    public Dagger CreateDagger()
+    {
+        return new Dagger(_swordTexture);
+    }
 }

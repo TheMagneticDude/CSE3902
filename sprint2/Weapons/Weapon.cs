@@ -26,7 +26,7 @@ public abstract class Weapon : IWeapon
         AttackTimer = 0f;
     }
 
-    public virtual void Attack()
+    public virtual void Attack(Vector2 playerLocation, bool facingRight)
     {
         // Don't restart an attack while one is already happening.
         if (IsAttacking)

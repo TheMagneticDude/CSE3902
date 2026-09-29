@@ -61,9 +61,12 @@ public class Player : IPlayer
         Input = input;
         if(_equippedWeapon != null && Input.IsNewPress(KeyAction.Attack))
         {
-            _equippedWeapon.Attack();
+            _equippedWeapon.Attack(Location, _facingRight);
         }
-        _equippedWeapon?.Update(gameTime,_facingRight);
+        if (_equippedWeapon != null)
+        {
+            _equippedWeapon.Update(gameTime, _facingRight);
+        }
         ApplyPhysics();
 
         _stateMachine.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
@@ -113,7 +116,10 @@ public class Player : IPlayer
 
         Sprite.Draw(spriteBatch, Location, effect);
 
-        _equippedWeapon?.Draw(spriteBatch, Location, _facingRight);
+        if (_equippedWeapon != null)
+        {
+            _equippedWeapon.Draw(spriteBatch, Location, _facingRight);
+        }
     }
 
 
