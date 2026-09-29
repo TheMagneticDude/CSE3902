@@ -5,7 +5,7 @@ using sprint2.Bosses.States;
 
 namespace sprint2.Bosses;
 
-public class QueenBee
+public class QueenBee: IBoss
 {
     public Vector2 Location { get; set; }
     public Vector2 Velocity {get; set;}
@@ -13,7 +13,7 @@ public class QueenBee
     private AnimatedSprite _sprite;
 
     private TextureAtlas _atlas;
-    private uint movementSpeed = 10;
+    private uint movementSpeed = 6;
 
     private IBossState _state;
 
@@ -47,10 +47,12 @@ public class QueenBee
         if (Location.X >= 1280)
         {
             Velocity = new Vector2(-movementSpeed,0);
+            _sprite.Effects = SpriteEffects.None;
         }
         if (Location.X <= 0)
         {
             Velocity = new Vector2(movementSpeed, 0);
+            _sprite.Effects = SpriteEffects.FlipHorizontally;
         }
     }
 

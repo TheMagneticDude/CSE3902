@@ -5,15 +5,19 @@ using sprint2.Bosses.States;
 
 namespace sprint2.Bosses;
 
-public class EyeOfCthulhu
+public class EyeOfCthulhu: IBoss
 {
     public Vector2 Location { get; set; }
+
+    public Vector2 Velocity {get; set;}
 
     private AnimatedSprite _sprite;
 
     private TextureAtlas _atlas;
 
     private IBossState _state;
+
+    private uint movementSpeed = 6;
 
     public void ChangeState(IBossState newState)
     {
@@ -26,6 +30,7 @@ public class EyeOfCthulhu
         _sprite = sprite;
         _atlas = atlas;
         Location = new Vector2(1100, 600);
+        Velocity = new Vector2(movementSpeed, 0);
         ChangeState(new CthulhuPhase1State(this));
     }
 
@@ -37,8 +42,21 @@ public class EyeOfCthulhu
 
     public void Update(GameTime gameTime)
     {
-         _state.Update(gameTime);
+        _state.Update(gameTime);
         _sprite.Update(gameTime);
+
+         Location += Velocity;
+
+        if (Location.X >= 1280)
+        {
+            Velocity = new Vector2(-movementSpeed,0);
+            _sprite.Effects = SpriteEffects.None;
+        }
+        if (Location.X <= 0)
+        {
+            Velocity = new Vector2(movementSpeed, 0);
+            _sprite.Effects = SpriteEffects.FlipVertically;
+        }
     }
 
     public void Draw(SpriteBatch spriteBatch)
