@@ -67,6 +67,10 @@ public class Player : IPlayer
         {
             _equippedWeapon.Update(gameTime, _facingRight);
         }
+
+        if (Input.IsPressed(KeyAction.UseItem1)){EquipWeapon(WeaponFactory.Instance.CreateSword());}
+        if (Input.IsPressed(KeyAction.UseItem2)){EquipWeapon(WeaponFactory.Instance.CreateDagger());}
+
         ApplyPhysics();
 
         _stateMachine.Update((float)gameTime.ElapsedGameTime.TotalSeconds);

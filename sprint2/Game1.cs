@@ -50,7 +50,7 @@ public class Game1 : Core
 
         //Weapon stuff
         WeaponFactory.Instance.LoadAllTextures(Content);
-        _player1.EquipWeapon(WeaponFactory.Instance.CreateDagger());
+        _player1.EquipWeapon(WeaponFactory.Instance.CreateSword());
 
 
     }

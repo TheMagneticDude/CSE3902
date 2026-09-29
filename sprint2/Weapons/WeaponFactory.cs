@@ -9,6 +9,7 @@ namespace sprint2.Weapons;
 public class WeaponFactory
 {
     private TextureAtlas swordAtlas;
+    private TextureAtlas daggerAtlas;
     
 
     private static readonly WeaponFactory instance = new WeaponFactory();
@@ -29,6 +30,8 @@ public class WeaponFactory
     public void LoadAllTextures(ContentManager content)
     {
         swordAtlas = TextureAtlas.FromFile(content, "Weapons/sword.xml");
+        daggerAtlas = TextureAtlas.FromFile(content, "Weapons/Magic_Dagger.xml");
+
     }
 
     public Sword CreateSword()
@@ -38,6 +41,6 @@ public class WeaponFactory
 
     public Dagger CreateDagger()
     {
-        return new Dagger(_swordTexture);
+        return new Dagger(daggerAtlas.Texture);
     }
 }

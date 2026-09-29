@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace sprint2.Weapons;
 
@@ -79,13 +80,17 @@ public sealed class Dagger : Weapon
         Vector2 origin = new(Texture.Width / 2f, Texture.Height / 2f);
         SpriteEffects effect;
 
+        float rot = 0;
+
         if (Velocity.X >= 0f)
         {
             effect = SpriteEffects.None;
+            rot = (float) Math.PI/2f;
         }
         else
         {
             effect = SpriteEffects.FlipHorizontally;
+            rot = - (float) Math.PI/2f;
         }
 
         spriteBatch.Draw(
@@ -93,7 +98,7 @@ public sealed class Dagger : Weapon
             Location,
             null,
             Color.White,
-            0f,
+            rot,
             origin,
             1f,
             effect,
