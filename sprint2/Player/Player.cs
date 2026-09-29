@@ -38,7 +38,7 @@ public class Player : IPlayer
     private bool _facingRight = true;
 
     //Weapon stuff
-    private IWeapon? _equippedWeapon;
+    private IWeapon _equippedWeapon;
 
 
     public Player(AnimatedSprite sprite, TextureAtlas atlas)

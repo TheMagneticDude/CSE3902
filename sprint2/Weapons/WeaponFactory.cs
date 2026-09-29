@@ -1,12 +1,15 @@
 using System;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGameLibrary.Graphics;
+
 
 namespace sprint2.Weapons;
 
 public class WeaponFactory
 {
-    private Texture2D _swordTexture;
+    private TextureAtlas swordAtlas;
+    
 
     private static readonly WeaponFactory instance = new WeaponFactory();
 
@@ -25,11 +28,11 @@ public class WeaponFactory
     
     public void LoadAllTextures(ContentManager content)
     {
-        _swordTexture = content.Load<Texture2D>("Weapons/Sword");
+        swordAtlas = TextureAtlas.FromFile(content, "Weapons/sword.xml");
     }
 
     public Sword CreateSword()
     {
-        return new Sword(_swordTexture);
+        return new Sword(swordAtlas.Texture);
     }
 }

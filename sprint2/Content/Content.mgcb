@@ -1,16 +1,4 @@
 
-#begin Bosses/queen_bee.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/processorParam:Version=3.8.5.1
-/build:Bosses/queen_bee.png
 #----------------------------- Global Properties ----------------------------#
 
 /outputDir:bin/$(Platform)
@@ -57,7 +45,7 @@
 #begin Bosses/Cthulhu.xml
 /copy:Bosses/Cthulhu.xml
 
-#begin Bosses/QueenBee.png
+#begin Bosses/queen_bee.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -68,7 +56,7 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /processorParam:Version=3.8.5.1
-/build:Bosses/QueenBee.png
+/build:Bosses/queen_bee.png
 
 #begin Bosses/QueenBee.xml
 /copy:Bosses/QueenBee.xml
@@ -88,4 +76,20 @@
 
 #begin Player/Player.xml
 /copy:Player/Player.xml
+
+#begin Weapons/Sword.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/processorParam:Version=3.8.5.1
+/build:Weapons/Sword.png
+
+#begin Weapons/Sword.xml
+/copy:Weapons/Sword.xml
 
