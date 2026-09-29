@@ -16,9 +16,7 @@ public class Game1 : Core
 //================Boss init===========================
     private BlocksDemo _blocksDemo;
 
-    private QueenBee _queenBee;
-
-    private EyeOfCthulhu _eyeOfCthulhu;
+    private List<IBoss> _bosses;
 
 //================Player init===========================
     private InputManager _inputManager;
@@ -41,8 +39,12 @@ public class Game1 : Core
     {
         _blocksDemo = new BlocksDemo(Content);
         BossFactory.Instance.LoadAllTextures(Content);
-        _queenBee = BossFactory.Instance.CreateQueenBee();
-        _eyeOfCthulhu = BossFactory.Instance.CreateCthulhu();
+        _bosses = new List<IBoss>();
+
+        _bosses.Add(BossFactory.Instance.CreateQueenBee());
+        _bosses.Add(BossFactory.Instance.CreateCthulhu());
+        _bosses.Add(BossFactory.Instance.CreateSlime());
+
         
         //will create class that automatically handles creation of players later
         TextureAtlas _playerAtlas = TextureAtlas.FromFile(Content,"Player/Player.xml");
@@ -61,8 +63,11 @@ public class Game1 : Core
         base.Update(gameTime);
 
         _blocksDemo.Update(gameTime, _p1Input);
-        _queenBee.Update(gameTime);
-        _eyeOfCthulhu.Update(gameTime);
+
+        foreach (IBoss boss in _bosses)
+        {
+            boss.Update(gameTime);
+        }
 
         _inputManager.Update(gameTime);
         _p1Input.Update(gameTime, _inputManager);
@@ -79,8 +84,12 @@ public class Game1 : Core
         SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
 
         _blocksDemo.Draw(SpriteBatch);
-        _queenBee.Draw(SpriteBatch);
-        _eyeOfCthulhu.Draw(SpriteBatch);
+
+        foreach (IBoss boss in _bosses)
+        {
+            boss.Draw(SpriteBatch);
+        }
+        
         _player1.Draw(SpriteBatch);
 
         SpriteBatch.End();
