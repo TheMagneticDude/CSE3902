@@ -7,7 +7,7 @@ namespace sprint2.Weapons;
 public sealed class Dagger : Weapon
 {
     private const float HorizontalSpeed = 5f;
-    private const float DaggerAttackDuration = 2f;
+    private const float DaggerAttackDuration = 20f;
 
     private readonly Vector2 _rightHandOffset = new(20f, 20f);
     private readonly Vector2 _leftHandOffset = new(-20f, 20f);
@@ -23,10 +23,6 @@ public sealed class Dagger : Weapon
 
     public override void Attack(Vector2 playerLocation, bool facingRight)
     {
-        if (IsAttacking)
-        {
-            return;
-        }
 
         Vector2 handOffset;
 

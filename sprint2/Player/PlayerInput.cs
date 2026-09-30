@@ -36,7 +36,7 @@ public class PlayerInput
             { KeyAction.MoveDown,  new MultiBind(new TriggerKey(Keys.S), new TriggerKey(Keys.Down)) },
             { KeyAction.MoveLeft,  new MultiBind(new TriggerKey(Keys.A), new TriggerKey(Keys.Left)) },
             { KeyAction.MoveRight, new MultiBind(new TriggerKey(Keys.D), new TriggerKey(Keys.Right)) },
-            { KeyAction.Attack,    new MultiBind(new TriggerKey(Keys.Z), new TriggerKey(Keys.N), new TriggerKey(MouseButton.Left)) },
+            { KeyAction.Attack,    new MultiBind(new TriggerKey(Keys.Z), new TriggerKey(Keys.N), new TriggerKey(MouseButton.Left,useDAS: true, dasTimeMs: 0.5)) },
             { KeyAction.ScrollLeft,new MultiBind(new TriggerKey(Keys.T,useDAS: true, dasTimeMs: 0.5)) },
             { KeyAction.ScrollRight,new MultiBind(new TriggerKey(Keys.Y,useDAS: true, dasTimeMs: 0.5)) },
             { KeyAction.UseItem1,  new MultiBind(new TriggerKey(Keys.D1), new TriggerKey(Keys.NumPad1), new TriggerKey(MouseButton.Right)) },

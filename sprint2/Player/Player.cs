@@ -97,7 +97,7 @@ public class Player : IPlayer
         }
 
         if (Input.IsPressed(KeyAction.UseItem1)){EquipWeapon(WeaponFactory.Instance.CreateSword());}
-        if (Input.IsPressed(KeyAction.UseItem2)){EquipWeapon(WeaponFactory.Instance.CreateDagger());}
+        if (Input.IsPressed(KeyAction.UseItem2)){EquipWeapon(WeaponFactory.Instance.CreateDagger()); _equippedWeapon.Attack(Location, _facingRight);}
 
         ApplyPhysics();
         HandleHotbarInput();
