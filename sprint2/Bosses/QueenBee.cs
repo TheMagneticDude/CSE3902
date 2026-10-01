@@ -1,7 +1,10 @@
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
 using sprint2.Bosses.States;
+using static sprint2.Constants;
+
 
 namespace sprint2.Bosses;
 
@@ -9,6 +12,8 @@ public class QueenBee: IBoss
 {
     public Vector2 Location { get; set; }
     public Vector2 Velocity {get; set;}
+    public Vector2 Acceleration {get; set;}
+    public Vector2 Drag {get; set;}
 
     private AnimatedSprite _sprite;
 
@@ -29,6 +34,7 @@ public class QueenBee: IBoss
         _atlas = atlas;
         Location = new Vector2(1100, 400);
         Velocity = new Vector2(movementSpeed, 0);  //move right on init
+        Drag = new Vector2(2f,2f);//constantly subtract or add from velocity towards 0 
         ChangeState(new QueenBeeIdleState(this));
     }
 
@@ -42,7 +48,16 @@ public class QueenBee: IBoss
         _state.Update(gameTime);
         _sprite.Update(gameTime);
 
+        
+    }
+
+    public void HandleMovement()
+    {
         Location += Velocity;
+
+        Velocity = CalcDrag(Velocity);
+
+
 
         if (Location.X >= 1280)
         {
@@ -54,6 +69,30 @@ public class QueenBee: IBoss
             Velocity = new Vector2(movementSpeed, 0);
             _sprite.Effects = SpriteEffects.FlipHorizontally;
         }
+
+    }
+
+    public Vector2 CalcDrag(Vector2 vel)
+    {
+        return new Vector2(HandleDragComponent(vel.X, Drag.X), HandleDragComponent(vel.Y, Drag.Y));
+    }
+
+    public float HandleDragComponent(float velComp, float dragComp)
+    {
+        if (Math.Abs(velComp) <= dragComp)
+        {
+            velComp = 0;
+        }
+
+        if (velComp > 0)
+        {//+
+            velComp -= dragComp;
+        }
+        else
+        {//-
+            velComp += dragComp;
+        }
+        return velComp;
     }
 
     public void Draw(SpriteBatch spriteBatch)

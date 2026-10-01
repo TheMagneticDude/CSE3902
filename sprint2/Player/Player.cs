@@ -6,6 +6,7 @@ using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Input;
 using sprint2.StateMachines;
 using sprint2.Weapons;
+using static sprint2.Constants;
 namespace sprint2.Players;
 
 public class Player : IPlayer
@@ -42,9 +43,7 @@ public class Player : IPlayer
 
     //player physics values
     private const float MovementSpeed = 5f;
-    private const float Gravity = 0.98f;//acceleration
     private const float JumpStrength = -25f;
-    private const float GroundLevel = 450f;
 
     private bool _facingRight = true;
 
