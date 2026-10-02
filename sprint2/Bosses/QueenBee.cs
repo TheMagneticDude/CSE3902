@@ -25,6 +25,8 @@ public class QueenBee: IBoss
 
     private IBossState _state;
 
+    private bool _facingRight = true;
+
     public void ChangeState(IBossState newState)
     {
         _state = newState;
@@ -64,6 +66,9 @@ public class QueenBee: IBoss
         
 
         Velocity = CalcDrag(Velocity);
+
+        if (Velocity.X > 0) _facingRight = true;
+        else if (Velocity.X < 0) _facingRight = false;
 
     }
 
@@ -121,6 +126,7 @@ public class QueenBee: IBoss
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        _sprite.Draw(spriteBatch, Position);
+        SpriteEffects effect = _facingRight ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+        _sprite.Draw(spriteBatch, Position, effect);
     }
 }
