@@ -41,7 +41,7 @@ public class QueenBee: IBoss
         Position = new Vector2(1100, 400);
         Velocity = new Vector2(0, 0); 
         Drag = new Vector2(0.02f,0.02f);//constantly subtract or add from velocity towards 0 (acceleration vector acting against direction of movement)
-        JerkDamping = new Vector2(0.002f,0.002f);
+        JerkDamping = new Vector2(0f,0f);
         ChangeState(new QueenBeeIdleState(this));
     }
 
