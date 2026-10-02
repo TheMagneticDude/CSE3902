@@ -60,7 +60,6 @@ public class EyeOfCthulhu: IBoss
         
         
         HandleMovement();
-        HandleRotation();
     }
 
     public void HandleAttack(GameTime gameTime)
@@ -71,6 +70,7 @@ public class EyeOfCthulhu: IBoss
 
     public void HandleRotation()
     {
+        //TODO: Make runToAngle for handling rotation so eye doesent snap to an angle every time it changes angle rapidly
         Vector2 direction = TargetPos - Position;
         direction.Normalize();
         Rotation = (float)Math.Atan2(direction.Y, direction.X) - MathHelper.PiOver2;
