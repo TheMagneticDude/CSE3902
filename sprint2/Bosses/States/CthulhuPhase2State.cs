@@ -25,7 +25,7 @@ public class CthulhuPhase2State: IBossState
         _timer += elapsed;
 
         //timer to test states
-        _eye.Location += new Vector2(-100 * elapsed, 0);
+        _eye.Position += new Vector2(-100 * elapsed, 0);
 
         if (_timer >= 1)
         {

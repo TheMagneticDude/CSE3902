@@ -25,6 +25,7 @@ public class CthulhuPhase1State: IBossState
         //timer to test states
         if (_timer >= 3)
         {
+            _eye.HandleAttack(gameTime);
             _eye.ChangeState(new CthulhuPhase2State(_eye));
         }
     }

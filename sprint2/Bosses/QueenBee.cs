@@ -15,6 +15,7 @@ public class QueenBee: IBoss
     public Vector2 Position { get; set; }
     public Vector2 Velocity {get; set;}
     public Vector2 Acceleration {get; set;}
+    public Vector2 JerkDamping {get; set;}//drag force on acceleration
     public Vector2 Drag {get; set;}
     public Vector2 TargetPos {get;set;}
 
@@ -40,6 +41,7 @@ public class QueenBee: IBoss
         Position = new Vector2(1100, 400);
         Velocity = new Vector2(0, 0); 
         Drag = new Vector2(0.02f,0.02f);//constantly subtract or add from velocity towards 0 (acceleration vector acting against direction of movement)
+        JerkDamping = new Vector2(0.002f,0.002f);
         ChangeState(new QueenBeeIdleState(this));
     }
 
@@ -65,16 +67,17 @@ public class QueenBee: IBoss
         Position += Velocity; 
         
 
-        Velocity = CalcDrag(Velocity);
+        Velocity = CalcDrag(Velocity, Drag);
+        Acceleration = CalcDrag(Acceleration, JerkDamping);
 
         if (Velocity.X > 0) _facingRight = true;
         else if (Velocity.X < 0) _facingRight = false;
 
     }
 
-    public Vector2 CalcDrag(Vector2 vel)
+    public Vector2 CalcDrag(Vector2 vel, Vector2 drag)
     {
-        return new Vector2(HandleDragComponent(vel.X, Drag.X), HandleDragComponent(vel.Y, Drag.Y));
+        return new Vector2(HandleDragComponent(vel.X, drag.X), HandleDragComponent(vel.Y, drag.Y));
     }
 
     public float HandleDragComponent(float velComp, float dragComp)
