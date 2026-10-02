@@ -76,15 +76,15 @@ public class QueenBee: IBoss
     {
         if (Math.Abs(velComp) <= dragComp)
         {
-            velComp = 0;
+            return 0;
         }
 
         if (velComp > 0)
-        {//+
+        {
             velComp -= dragComp;
         }
         else
-        {//-
+        {
             velComp += dragComp;
         }
         return velComp;
@@ -94,20 +94,29 @@ public class QueenBee: IBoss
     private float CalcDist(float target, float currPos)
     {
         float epsilon = 0.03f;
-
         float dist = target - currPos;
 
-        if (dist >= epsilon)
+        if (Math.Abs(dist) >= epsilon)
         {
-            Console.WriteLine("Dist: {0}", dist); 
             return dist;
         }
         return 0;
     }
     public void RunToPosition(Vector2 TargetPosition)
     {
-        Acceleration = new Vector2(CalcDist(TargetPosition.X, Position.X) * 0.2f, CalcDist(TargetPosition.Y, Position.Y)) * 0.2f;
-        
+        Vector2 direction = TargetPosition - Position;
+        float epsilon = 0.03f;
+        if (direction.Length() > epsilon)
+        {
+            direction.Normalize();
+
+            float accelerationForce = 0.5f; 
+            Acceleration = direction * accelerationForce;
+        }
+        else
+        {
+            Acceleration = Vector2.Zero;
+        }
     }
 
     public void Draw(SpriteBatch spriteBatch)
