@@ -107,8 +107,8 @@ public class Sprite
     }
 
 //method allows access to effects
-    public void Draw(SpriteBatch spriteBatch, Vector2 location, SpriteEffects effects = SpriteEffects.None)
-{
-    Region.Draw(spriteBatch, location, Color, Rotation, Origin, Scale, effects, LayerDepth);
-}
+    public void Draw(SpriteBatch spriteBatch, Vector2 location, SpriteEffects effects = SpriteEffects.None, float rotation = 0f)
+    {
+        Region.Draw(spriteBatch, location, Color, rotation, Origin, Scale, effects, LayerDepth);
+    }
 }

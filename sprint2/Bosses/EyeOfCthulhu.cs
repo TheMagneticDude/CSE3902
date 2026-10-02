@@ -16,6 +16,7 @@ public class EyeOfCthulhu: IBoss
     public Vector2 Drag {get; set;}
 
     public Vector2 TargetPos {get;set;}
+    public float Rotation { get; set; }
 
     private AnimatedSprite _sprite;
 
@@ -59,12 +60,20 @@ public class EyeOfCthulhu: IBoss
         
         
         HandleMovement();
+        HandleRotation();
     }
 
     public void HandleAttack(GameTime gameTime)
     {
             RunToPosition(TargetPos);
             DashToPosition(TargetPos);
+    }
+
+    public void HandleRotation()
+    {
+        Vector2 direction = TargetPos - Position;
+        direction.Normalize();
+        Rotation = (float)Math.Atan2(direction.Y, direction.X) - MathHelper.PiOver2;
     }
 
     public void HandleMovement()
@@ -136,6 +145,6 @@ public class EyeOfCthulhu: IBoss
     public void Draw(SpriteBatch spriteBatch)
     {
         SpriteEffects effect = _facingRight ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-        _sprite.Draw(spriteBatch, Position, effect);
+        _sprite.Draw(spriteBatch, Position, effect, Rotation);
     }
 }
