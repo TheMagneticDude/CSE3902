@@ -1,15 +1,18 @@
 using System;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Input;
+using sprint2.Combat;
 using sprint2.StateMachines;
 using sprint2.Weapons;
 namespace sprint2.Players;
 
-public class Player : IPlayer
+public class Player : CombatEntity, IPlayer
 {
+
     public enum PlayerState
     {
         Idle,
@@ -24,6 +27,7 @@ public class Player : IPlayer
         Bow,
         Staff
     }
+
     private const int HotbarSlotCount = 3;
     private readonly PlayerItem[] _hotbar = new PlayerItem[HotbarSlotCount];
     public int SelectedHotbarSlot { get; private set; }

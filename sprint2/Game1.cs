@@ -7,6 +7,7 @@ using MonoGameLibrary.Input;
 using sprint2.Blocks;
 using sprint2.Bosses;
 using sprint2.Players;
+using sprint2.Projectiles;
 using sprint2.Weapons;
 namespace sprint2;
 
@@ -23,6 +24,9 @@ public class Game1 : Core
     private IPlayer _player1;
     private PlayerInput _p1Input;
 
+//================Projectiles===========================
+    private List<IProjectile> _projectiles;
+
     public Game1() : base ("game", 1280, 720, false)
     {
         
@@ -30,9 +34,9 @@ public class Game1 : Core
     protected override void Initialize()
     {
         base.Initialize();
-
         _inputManager = new InputManager();
         _p1Input = new PlayerInput();
+        _projectiles = new List<IProjectile>();
     }
 
     protected override void LoadContent()
@@ -54,6 +58,8 @@ public class Game1 : Core
         WeaponFactory.Instance.LoadAllTextures(Content);
         _player1.EquipWeapon(WeaponFactory.Instance.CreateSword());
 
+        IProjectile dagger = ProjectileFactory.Instance.CreateDagger(_player1.Location, new Vector2(10f, 0f));
+        _projectiles.Add(dagger);
 
     }
 
@@ -67,6 +73,12 @@ public class Game1 : Core
         foreach (IBoss boss in _bosses)
         {
             boss.Update(gameTime);
+        }
+
+        foreach (IProjectile projectile in _projectiles)
+        {
+            projectile.Update(gameTime);
+            
         }
 
         _inputManager.Update(gameTime);
@@ -91,6 +103,12 @@ public class Game1 : Core
         }
         
         _player1.Draw(SpriteBatch);
+
+        foreach (IProjectile projectile in _projectiles)
+        {
+            projectile.Draw(SpriteBatch);
+            
+        }
 
         SpriteBatch.End();
 
