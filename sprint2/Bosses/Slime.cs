@@ -24,7 +24,7 @@ public class Slime: IBoss
         _sprite.Animation = _atlas.GetAnimation(animationName);
     }
 
-    public void Update(GameTime gameTime)
+    public void Update(GameTime gameTime, Vector2 PlayerPos)
     {
         _sprite.Update(gameTime);
 

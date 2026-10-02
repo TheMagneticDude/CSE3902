@@ -4,16 +4,19 @@ using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
 using sprint2.Bosses.States;
 using static sprint2.Constants;
+//temp
+using MonoGameLibrary.Input;
 
 
 namespace sprint2.Bosses;
 
 public class QueenBee: IBoss
 {
-    public Vector2 Location { get; set; }
+    public Vector2 Position { get; set; }
     public Vector2 Velocity {get; set;}
     public Vector2 Acceleration {get; set;}
     public Vector2 Drag {get; set;}
+    public Vector2 TargetPos {get;set;}
 
     private AnimatedSprite _sprite;
 
@@ -32,9 +35,9 @@ public class QueenBee: IBoss
     {
         _sprite = sprite;
         _atlas = atlas;
-        Location = new Vector2(1100, 400);
-        Velocity = new Vector2(movementSpeed, 0);  //move right on init
-        Drag = new Vector2(2f,2f);//constantly subtract or add from velocity towards 0 
+        Position = new Vector2(1100, 400);
+        Velocity = new Vector2(0, 0); 
+        Drag = new Vector2(0.02f,0.02f);//constantly subtract or add from velocity towards 0 (acceleration vector acting against direction of movement)
         ChangeState(new QueenBeeIdleState(this));
     }
 
@@ -43,32 +46,24 @@ public class QueenBee: IBoss
         _sprite.Animation = _atlas.GetAnimation(animationName);
     }
 
-    public void Update(GameTime gameTime)
+    public void Update(GameTime gameTime, Vector2 PlayerPos)
     {
+        TargetPos = PlayerPos;
         _state.Update(gameTime);
         _sprite.Update(gameTime);
 
-        
+        HandleMovement();
     }
 
     public void HandleMovement()
     {
-        Location += Velocity;
+        
+        
+        Velocity += Acceleration;
+        Position += Velocity; 
+        
 
         Velocity = CalcDrag(Velocity);
-
-
-
-        if (Location.X >= 1280)
-        {
-            Velocity = new Vector2(-movementSpeed,0);
-            _sprite.Effects = SpriteEffects.None;
-        }
-        if (Location.X <= 0)
-        {
-            Velocity = new Vector2(movementSpeed, 0);
-            _sprite.Effects = SpriteEffects.FlipHorizontally;
-        }
 
     }
 
@@ -95,8 +90,28 @@ public class QueenBee: IBoss
         return velComp;
     }
 
+
+    private float CalcDist(float target, float currPos)
+    {
+        float epsilon = 0.03f;
+
+        float dist = target - currPos;
+
+        if (dist >= epsilon)
+        {
+            Console.WriteLine("Dist: {0}", dist); 
+            return dist;
+        }
+        return 0;
+    }
+    public void RunToPosition(Vector2 TargetPosition)
+    {
+        Acceleration = new Vector2(CalcDist(TargetPosition.X, Position.X) * 0.2f, CalcDist(TargetPosition.Y, Position.Y)) * 0.2f;
+        
+    }
+
     public void Draw(SpriteBatch spriteBatch)
     {
-        _sprite.Draw(spriteBatch, Location);
+        _sprite.Draw(spriteBatch, Position);
     }
 }

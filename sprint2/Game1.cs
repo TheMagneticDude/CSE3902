@@ -67,8 +67,10 @@ public class Game1 : Core
 
         foreach (IBoss boss in _bosses)
         {
-            boss.Update(gameTime);
+            boss.Update(gameTime, _player1.Location);
         }
+
+        
 
         _inputManager.Update(gameTime);
         _p1Input.Update(gameTime, _inputManager);

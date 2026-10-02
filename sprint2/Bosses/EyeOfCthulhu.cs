@@ -40,7 +40,7 @@ public class EyeOfCthulhu: IBoss
     }
 
 
-    public void Update(GameTime gameTime)
+    public void Update(GameTime gameTime, Vector2 PlayerPos)
     {
         _state.Update(gameTime);
         _sprite.Update(gameTime);
