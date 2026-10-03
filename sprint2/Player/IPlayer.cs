@@ -12,6 +12,7 @@ public interface IPlayer
 {
     public Vector2 Location { get; set; }
     public Vector2 Velocity {get; set;}    
+    bool FacingRight { get; }
     
     void Update(GameTime gameTime, PlayerInput input);
     void Draw(SpriteBatch spriteBatch);

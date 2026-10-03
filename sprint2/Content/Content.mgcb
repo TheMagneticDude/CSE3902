@@ -58,7 +58,7 @@
 #begin Bosses/Cthulhu.xml
 /copy:Bosses/Cthulhu.xml
 
-#begin Bosses/queen_bee.png
+#begin Bosses/QueenBee.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -68,8 +68,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/processorParam:Version=3.8.5.1
-/build:Bosses/queen_bee.png
+/build:Bosses/QueenBee.png
 
 #begin Bosses/QueenBee.xml
 /copy:Bosses/QueenBee.xml
@@ -90,6 +89,35 @@
 /processorParam:Version=3.8.5.1
 /build:Bosses/slimes.png
 
+#begin Items/healthPotion.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Items/healthPotion.png
+
+#begin Items/healthPotion.xml
+/copy:Items/healthPotion.xml
+
+#begin Items/recallPotion.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Items/recallPotion.png
+
+#begin Items/recallPotion.xml
+/copy:Items/recallPotion.xml
 #begin Music/Overworld/Music-Overworld_Day.mp3
 /importer:Mp3Importer
 /processor:SongProcessor
@@ -137,7 +165,6 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/processorParam:Version=3.8.5.1
 /build:Weapons/Magic_Dagger.png
 
 #begin Weapons/Magic_Dagger.xml
@@ -153,7 +180,6 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/processorParam:Version=3.8.5.1
 /build:Weapons/Sword.png
 
 #begin Weapons/Sword.xml

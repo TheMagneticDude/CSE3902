@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas>
-    <Texture>Bosses/queen_bee</Texture>
+    <Texture>Bosses/QueenBee</Texture>
     <Regions>
         <Region name="queen-attack-up" x="4" y="4" width="152" height="134" />
         <Region name="queen-attack-wing-up" x="158" y="18" width="152" height="134" />
