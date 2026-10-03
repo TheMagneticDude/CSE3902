@@ -10,6 +10,7 @@ using sprint2.Bosses;
 using sprint2.Players;
 using sprint2.Weapons;
 using sprint2.Music;
+using sprint2.World;
 using static sprint2.Constants;
 namespace sprint2;
 
@@ -29,6 +30,9 @@ public class Game1 : Core
 //================Music init===========================    
     private MusicPlayer _music;
     private List<Song> _playList;
+
+//================World Handling===========================    
+    private WorldHandler _worldHandler;
     public Game1() : base (AppName, WindowWidth, WindowHeight, false)
     {
         
@@ -40,6 +44,7 @@ public class Game1 : Core
         _inputManager = new InputManager();
         _p1Input = new PlayerInput();
         _music.Start();
+        _worldHandler = new WorldHandler(WindowWidth, WindowHeight);
     }
 
     protected override void LoadContent()
@@ -91,14 +96,14 @@ public class Game1 : Core
 
         //tick entities
         _player1.Update(gameTime, _p1Input);
-
+        _worldHandler.Update(_player1.Location);
     }
 
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
-        SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
+        SpriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: _worldHandler.GetTransformMatrix());
 
         _blocksDemo.Draw(SpriteBatch);
 
@@ -107,6 +112,7 @@ public class Game1 : Core
         _player1.Draw(SpriteBatch);
 
         SpriteBatch.End();
+
 
         base.Draw(gameTime);
     }
