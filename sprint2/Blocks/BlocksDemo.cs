@@ -12,9 +12,6 @@ public class BlocksDemo
 {
     private Sprite[] _blocks;
     private int _currBlock = 0;
-    private float _timer = 0;
-
-    private const float TIME = 2f;
 
     public BlocksDemo(ContentManager Content)
     {
@@ -32,23 +29,22 @@ public class BlocksDemo
         // scale blocks for demo
         foreach (Sprite block in _blocks)
         {
-            block.Scale = new Vector2(3, 3);
+            block.Scale = new Vector2(2, 2);
         }
 
     }
 
     public void Update(GameTime gameTime, PlayerInput input)
     {
-        _timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-        if(input.IsNewPress(KeyAction.ScrollLeft)) {_currBlock = (_currBlock - 1) % _blocks.Length;}
+        if(input.IsNewPress(KeyAction.BlockLeft)) {_currBlock = (_currBlock - 1) % _blocks.Length;}
         if(_currBlock < 0) {_currBlock = _blocks.Length - 1;}
-        if(input.IsNewPress(KeyAction.ScrollRight)) {_currBlock = (_currBlock + 1) % _blocks.Length;}
+        if(input.IsNewPress(KeyAction.BlockRight)) {_currBlock = (_currBlock + 1) % _blocks.Length;}
     }
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        _blocks[_currBlock].Draw(spriteBatch, new Vector2(1000, 150));
+        _blocks[_currBlock].Draw(spriteBatch, new Vector2(800, 150));
     }
 
 }
