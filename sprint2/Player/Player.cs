@@ -6,6 +6,7 @@ using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Input;
 using sprint2.StateMachines;
 using sprint2.Weapons;
+using static sprint2.Constants;
 namespace sprint2.Players;
 
 public class Player : IPlayer
@@ -43,10 +44,8 @@ public class Player : IPlayer
     private StateMachine<PlayerState> _stateMachine;
 
     //player physics values
-    private const float MovementSpeed = 5f;
-    private const float Gravity = 0.98f;//acceleration
-    private const float JumpStrength = -25f;
-    private const float GroundLevel = 450f;
+    private const float _movementSpeed = 5f;
+    private const float _jumpStrength = -25f;
 
     private bool _facingRight = true;
 
@@ -144,7 +143,7 @@ public class Player : IPlayer
     {
         float componentX = (Input.IsPressed(KeyAction.MoveRight) ? 1f : 0f) - (Input.IsPressed(KeyAction.MoveLeft) ? 1f : 0f);
 
-        Velocity = new Vector2(componentX * MovementSpeed, Velocity.Y);
+        Velocity = new Vector2(componentX * _movementSpeed, Velocity.Y);
 
         if (Velocity.X > 0) _facingRight = true;
         else if (Velocity.X < 0) _facingRight = false;
@@ -250,7 +249,7 @@ public class Player : IPlayer
         private Player _player;
         public JumpState(Player player) { _player = player; }
 
-        public void Enter() { _player.Sprite = _player._atlas.CreateAnimatedSprite("Jump"); _player.Velocity = new Vector2(_player.Velocity.X, JumpStrength); _player.IsGrounded = false; }
+        public void Enter() { _player.Sprite = _player._atlas.CreateAnimatedSprite("Jump"); _player.Velocity = new Vector2(_player.Velocity.X, _jumpStrength); _player.IsGrounded = false; }
         public void Exit() { }
 
         public void Update(float deltaTime)

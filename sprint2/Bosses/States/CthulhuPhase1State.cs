@@ -20,11 +20,13 @@ public class CthulhuPhase1State: IBossState
 
     public void Update(GameTime gameTime)
     {
+        _eye.HandleRotation();//only stare into player's soul when in idle
         _timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
         //timer to test states
-        if (_timer >= 3)
+        if (_timer >= 5)
         {
+            _eye.HandleAttack(gameTime);
             _eye.ChangeState(new CthulhuPhase2State(_eye));
         }
     }

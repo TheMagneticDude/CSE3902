@@ -2,6 +2,7 @@ using MonoGameLibrary.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 
 namespace sprint2.Bosses;
 
@@ -14,6 +15,8 @@ public class BossFactory
     private TextureAtlas _slimeAtlas;
 
     private static BossFactory instance = new BossFactory();
+    
+    public List<IBoss> ActiveBosses { get; private set; }
 
      public static BossFactory Instance
     {
@@ -23,9 +26,35 @@ public class BossFactory
         }
     }
 
-    private BossFactory() 
+    private BossFactory()
     {
-        
+        ActiveBosses = new List<IBoss>();
+    }
+
+    public void SetList(List<IBoss> list)
+    {
+        ActiveBosses = list;
+    }
+
+    public void Add(IBoss b)
+    {
+        ActiveBosses.Add(b);
+    }
+
+    public void UpdateAll(GameTime gameTime, Vector2 playerPos)
+    {
+        for (int i = ActiveBosses.Count - 1; i >= 0; i--)
+        {
+            ActiveBosses[i].Update(gameTime, playerPos);
+        }
+    }
+
+    public void DrawAll(SpriteBatch spriteBatch)
+    {
+        foreach (var boss in ActiveBosses)
+        {
+            boss.Draw(spriteBatch);
+        }
     }
 
     public void LoadAllTextures(ContentManager content)
@@ -63,6 +92,15 @@ public class BossFactory
             sprite.CenterOrigin();
 
             return new Slime(sprite, _slimeAtlas);
+    }
+
+    public Slime CreateColoredSlime(Color c)
+    {
+            AnimatedSprite sprite = _slimeAtlas.CreateAnimatedSprite("slime");
+
+            sprite.CenterOrigin();
+
+            return new Slime(sprite, _slimeAtlas, c);
     }
 
 }

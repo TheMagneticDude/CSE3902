@@ -21,6 +21,7 @@ public class QueenBeeIdleState: IBossState
     public void Update(GameTime gameTime)
     {
         _timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+        _queenBee.Velocity = Vector2.Zero;
 
         //timer to test states
         if (_timer >= 3)
