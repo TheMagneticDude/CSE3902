@@ -25,7 +25,8 @@ public class QueenBeeFlyingState: IBossState
         _timer += elapsed;
 
         //timer to test states
-        _queenBee.Location += new Vector2(-100 * elapsed, 0);
+        //_queenBee.Position += new Vector2(-100 * elapsed, 0);
+        _queenBee.RunToPosition(_queenBee.TargetPos);//target player
 
         if (_timer >= 1)
         {

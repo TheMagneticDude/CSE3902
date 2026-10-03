@@ -8,6 +8,7 @@ using sprint2.Blocks;
 using sprint2.Bosses;
 using sprint2.Players;
 using sprint2.Weapons;
+using static sprint2.Constants;
 namespace sprint2;
 
 public class Game1 : Core
@@ -23,7 +24,7 @@ public class Game1 : Core
     private IPlayer _player1;
     private PlayerInput _p1Input;
 
-    public Game1() : base ("game", 1280, 720, false)
+    public Game1() : base (AppName, WindowWidth, WindowHeight, false)
     {
         
     }
@@ -66,8 +67,10 @@ public class Game1 : Core
 
         foreach (IBoss boss in _bosses)
         {
-            boss.Update(gameTime);
+            boss.Update(gameTime, _player1.Location);
         }
+
+        
 
         _inputManager.Update(gameTime);
         _p1Input.Update(gameTime, _inputManager);

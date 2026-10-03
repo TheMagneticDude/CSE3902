@@ -1,21 +1,32 @@
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
 using sprint2.Bosses.States;
+using static sprint2.Constants;
+//temp
+using MonoGameLibrary.Input;
+
 
 namespace sprint2.Bosses;
 
 public class QueenBee: IBoss
 {
-    public Vector2 Location { get; set; }
+    public Vector2 Position { get; set; }
     public Vector2 Velocity {get; set;}
+    public Vector2 Acceleration {get; set;}
+    public Vector2 JerkDamping {get; set;}//drag force on acceleration
+    public Vector2 Drag {get; set;}
+    public Vector2 TargetPos {get;set;}
 
     private AnimatedSprite _sprite;
 
     private TextureAtlas _atlas;
-    private uint movementSpeed = 6;
+    private uint _movementSpeed = 6;
 
     private IBossState _state;
+
+    private bool _facingRight = true;
 
     public void ChangeState(IBossState newState)
     {
@@ -27,8 +38,10 @@ public class QueenBee: IBoss
     {
         _sprite = sprite;
         _atlas = atlas;
-        Location = new Vector2(1100, 400);
-        Velocity = new Vector2(movementSpeed, 0);  //move right on init
+        Position = new Vector2(1100, 400);
+        Velocity = new Vector2(0, 0); 
+        Drag = new Vector2(0.02f,0.02f);//constantly subtract or add from velocity towards 0 (acceleration vector acting against direction of movement)
+        JerkDamping = new Vector2(0f,0f);
         ChangeState(new QueenBeeIdleState(this));
     }
 
@@ -37,27 +50,86 @@ public class QueenBee: IBoss
         _sprite.Animation = _atlas.GetAnimation(animationName);
     }
 
-    public void Update(GameTime gameTime)
+    public void Update(GameTime gameTime, Vector2 PlayerPos)
     {
+        TargetPos = PlayerPos;
         _state.Update(gameTime);
         _sprite.Update(gameTime);
 
-        Location += Velocity;
+        HandleMovement();
+    }
 
-        if (Location.X >= 1280)
+    public void HandleMovement()
+    {
+        
+        
+        Velocity += Acceleration;
+        Position += Velocity; 
+        
+
+        Velocity = CalcDrag(Velocity, Drag);
+        Acceleration = CalcDrag(Acceleration, JerkDamping);
+
+        if (Velocity.X > 0) _facingRight = true;
+        else if (Velocity.X < 0) _facingRight = false;
+
+    }
+
+    public Vector2 CalcDrag(Vector2 vel, Vector2 drag)
+    {
+        return new Vector2(HandleDragComponent(vel.X, drag.X), HandleDragComponent(vel.Y, drag.Y));
+    }
+
+    public float HandleDragComponent(float velComp, float dragComp)
+    {
+        if (Math.Abs(velComp) <= dragComp)
         {
-            Velocity = new Vector2(-movementSpeed,0);
-            _sprite.Effects = SpriteEffects.None;
+            return 0;
         }
-        if (Location.X <= 0)
+
+        if (velComp > 0)
         {
-            Velocity = new Vector2(movementSpeed, 0);
-            _sprite.Effects = SpriteEffects.FlipHorizontally;
+            velComp -= dragComp;
+        }
+        else
+        {
+            velComp += dragComp;
+        }
+        return velComp;
+    }
+
+
+    private float CalcDist(float target, float currPos)
+    {
+        float epsilon = 0.03f;
+        float dist = target - currPos;
+
+        if (Math.Abs(dist) >= epsilon)
+        {
+            return dist;
+        }
+        return 0;
+    }
+    public void RunToPosition(Vector2 TargetPosition)
+    {
+        Vector2 direction = TargetPosition - Position;
+        float epsilon = 0.03f;
+        if (direction.Length() > epsilon)
+        {
+            direction.Normalize();
+
+            float accelerationForce = 0.5f; 
+            Acceleration = direction * accelerationForce;
+        }
+        else
+        {
+            Acceleration = Vector2.Zero;
         }
     }
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        _sprite.Draw(spriteBatch, Location);
+        SpriteEffects effect = _facingRight ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+        _sprite.Draw(spriteBatch, Position, effect);
     }
 }

@@ -5,7 +5,7 @@ namespace sprint2.Bosses;
 
 public interface IBoss
 {
-    void Update(GameTime gameTime);
+    void Update(GameTime gameTime, Vector2 PlayerPos);
 
     void Draw(SpriteBatch spriteBatch);
 }
