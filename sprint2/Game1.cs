@@ -31,7 +31,6 @@ public class Game1 : Core
 
     private IItem _recallPotion;
 
-    public Game1() : base ("game", 1280, 720, false)
 //================Music init===========================    
     private MusicPlayer _music;
     private List<Song> _playList;
