@@ -96,6 +96,27 @@
 /processorParam:Version=3.8.5.1
 /build:Bosses/slimes.png
 
+#begin Music/Overworld/Music-Overworld_Day.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.1
+/build:Music/Overworld/Music-Overworld_Day.mp3
+
+#begin Music/Overworld/Music-Overworld_Night.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.1
+/build:Music/Overworld/Music-Overworld_Night.mp3
+
+#begin Music/Overworld/Music-Underground.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.1
+/build:Music/Overworld/Music-Underground.mp3
+
 #begin Player/Player.png
 /importer:TextureImporter
 /processor:TextureProcessor
