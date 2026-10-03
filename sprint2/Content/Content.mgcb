@@ -13,6 +13,25 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin Background/Forestbackground.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/processorParam:Version=3.8.5.1
+/build:Background/Forestbackground.png
+
+#begin Background/ForestBackground.xml
+/importer:XmlImporter
+/processor:PassThroughProcessor
+/processorParam:Version=3.8.5.1
+/build:Background/ForestBackground.xml
+
 #begin Blocks/blocks.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -23,6 +42,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+/processorParam:Version=3.8.5.1
 /build:Blocks/blocks.png
 
 #begin Blocks/blocks.xml
@@ -38,6 +58,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+/processorParam:Version=3.8.5.1
 /build:Bosses/Cthulhu.png
 
 #begin Bosses/Cthulhu.xml
@@ -72,7 +93,29 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+/processorParam:Version=3.8.5.1
 /build:Bosses/slimes.png
+
+#begin Music/Overworld/Music-Overworld_Day.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.1
+/build:Music/Overworld/Music-Overworld_Day.mp3
+
+#begin Music/Overworld/Music-Overworld_Night.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.1
+/build:Music/Overworld/Music-Overworld_Night.mp3
+
+#begin Music/Overworld/Music-Underground.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.5.1
+/build:Music/Overworld/Music-Underground.mp3
 
 #begin Player/Player.png
 /importer:TextureImporter
@@ -84,6 +127,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+/processorParam:Version=3.8.5.1
 /build:Player/Player.png
 
 #begin Player/Player.xml

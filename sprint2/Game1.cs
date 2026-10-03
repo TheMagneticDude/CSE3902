@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Input;
@@ -8,6 +9,7 @@ using sprint2.Blocks;
 using sprint2.Bosses;
 using sprint2.Players;
 using sprint2.Weapons;
+using sprint2.Music;
 using static sprint2.Constants;
 namespace sprint2;
 
@@ -24,6 +26,9 @@ public class Game1 : Core
     private IPlayer _player1;
     private PlayerInput _p1Input;
 
+//================Music init===========================    
+    private MusicPlayer _music;
+    private List<Song> _playList;
     public Game1() : base (AppName, WindowWidth, WindowHeight, false)
     {
         
@@ -34,17 +39,24 @@ public class Game1 : Core
 
         _inputManager = new InputManager();
         _p1Input = new PlayerInput();
+        _music.Start();
     }
 
     protected override void LoadContent()
     {
         _blocksDemo = new BlocksDemo(Content);
         BossFactory.Instance.LoadAllTextures(Content);
-        _bosses = new List<IBoss>();
+        _bosses =
+        [
+            BossFactory.Instance.CreateQueenBee(),
+            BossFactory.Instance.CreateCthulhu(),
+            BossFactory.Instance.CreateSlime(),
+            BossFactory.Instance.CreateColoredSlime(Color.Blue),
+            BossFactory.Instance.CreateColoredSlime(Color.Red),
+            BossFactory.Instance.CreateColoredSlime(Color.SeaGreen),
+        ];
+        BossFactory.Instance.SetList(_bosses);
 
-        _bosses.Add(BossFactory.Instance.CreateQueenBee());
-        _bosses.Add(BossFactory.Instance.CreateCthulhu());
-        _bosses.Add(BossFactory.Instance.CreateSlime());
 
         
         //will create class that automatically handles creation of players later
@@ -54,21 +66,23 @@ public class Game1 : Core
         //Weapon stuff
         WeaponFactory.Instance.LoadAllTextures(Content);
         _player1.EquipWeapon(WeaponFactory.Instance.CreateSword());
-
-
+        _playList = [
+            Content.Load<Song>("Music/Overworld/Music-Overworld_Day"),
+            Content.Load<Song>("Music/Overworld/Music-Overworld_Night"),
+            Content.Load<Song>("Music/Overworld/Music-Underground"), 
+        ];
+        _music = new MusicPlayer(_playList, false, 0.5f);
     }
 
     protected override void Update(GameTime gameTime)
     {
 
         base.Update(gameTime);
+        _music.Update();
 
         _blocksDemo.Update(gameTime, _p1Input);
 
-        foreach (IBoss boss in _bosses)
-        {
-            boss.Update(gameTime, _player1.Location);
-        }
+        BossFactory.Instance.UpdateAll(gameTime, _player1.Location);
 
         
 
@@ -88,10 +102,7 @@ public class Game1 : Core
 
         _blocksDemo.Draw(SpriteBatch);
 
-        foreach (IBoss boss in _bosses)
-        {
-            boss.Draw(SpriteBatch);
-        }
+        BossFactory.Instance.DrawAll(SpriteBatch);
         
         _player1.Draw(SpriteBatch);
 
