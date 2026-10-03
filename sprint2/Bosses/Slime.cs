@@ -15,24 +15,42 @@ public class Slime: IBoss
     public Vector2 Drag {get; set;}
     public bool IsGrounded { get; private set; }
     public Vector2 TargetPos {get;set;}
+    public Color Color {get;set;}
 
-    private const float _jumpStrength = -10f;
+    private float _jumpStrength = -10f - (float)random.Next(10);
+    private bool jumped = false;
     private float _timer;
 
-
+    private static Random random = new Random();
     private AnimatedSprite _sprite;
 
     private TextureAtlas _atlas;
-        private uint _movementSpeed = 5;
+    private uint _movementSpeed = 5 + (uint) random.Next(5);
 
-
+    
     public Slime(AnimatedSprite sprite, TextureAtlas atlas)
+    {
+        _sprite = sprite;
+        _atlas = atlas;
+        Position = new Vector2(200 - random.Next(10)*10, 100 - random.Next(10)*15); //randomize where they spawn
+        Drag = new Vector2(2f,0f);
+        Velocity = new Vector2(0, 0);
+        Color = Color.White;
+    }
+
+    public Slime(AnimatedSprite sprite, TextureAtlas atlas, Color c)
     {
         _sprite = sprite;
         _atlas = atlas;
         Position = new Vector2(200, 80);
         Drag = new Vector2(2f,0f);
-        Velocity = new Vector2(0, 0); 
+        Velocity = new Vector2(0, 0);
+        Color = c;
+    }
+
+    public void SetColor(Color c)
+    {
+        Color = c;
     }
 
     public void SetAnimation(string animationName)
@@ -52,8 +70,9 @@ public class Slime: IBoss
 
     public void HandleMovement()
     {
-        Position += Velocity; 
-        Velocity = CalcDrag(Velocity, Drag);
+        Position += Velocity;
+        if (IsGrounded){Velocity = CalcDrag(Velocity, Drag);}
+        
     }
 
     public Vector2 CalcDrag(Vector2 vel, Vector2 drag)
@@ -111,15 +130,19 @@ public class Slime: IBoss
             _timer = 0;
         }
 
-        if (!IsGrounded)
+        if (!IsGrounded && !jumped)
         {
             HandleHorizontalMovement();
+            jumped = true;//only set velocity once
         }
+
+        if(IsGrounded){jumped = false;} 
         
     }
 
     public void Draw(SpriteBatch spriteBatch)
     {
+        _sprite.Color = Color;
         _sprite.Draw(spriteBatch, Position);
     }
 }

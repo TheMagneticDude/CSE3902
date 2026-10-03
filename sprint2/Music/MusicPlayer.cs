@@ -42,10 +42,15 @@ public class MusicPlayer : IMusic
 
     public void Update()
     {
+        MediaPlayer.Volume = Volume;
         if (!Looping && MediaPlayer.State == MediaState.Stopped && _playlist.Count > 1)
         {
             NextSong();
         }
+    }
+    public void Start()
+    {
+        MediaPlayer.Play(_playlist[_currentSongIndex]);
     }
     public void Play()
     {

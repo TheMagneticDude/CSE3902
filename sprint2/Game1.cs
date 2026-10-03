@@ -39,17 +39,24 @@ public class Game1 : Core
 
         _inputManager = new InputManager();
         _p1Input = new PlayerInput();
+        _music.Start();
     }
 
     protected override void LoadContent()
     {
         _blocksDemo = new BlocksDemo(Content);
         BossFactory.Instance.LoadAllTextures(Content);
-        _bosses = new List<IBoss>();
+        _bosses =
+        [
+            BossFactory.Instance.CreateQueenBee(),
+            BossFactory.Instance.CreateCthulhu(),
+            BossFactory.Instance.CreateSlime(),
+            BossFactory.Instance.CreateColoredSlime(Color.Blue),
+            BossFactory.Instance.CreateColoredSlime(Color.Red),
+            BossFactory.Instance.CreateColoredSlime(Color.SeaGreen),
+        ];
+        BossFactory.Instance.SetList(_bosses);
 
-        _bosses.Add(BossFactory.Instance.CreateQueenBee());
-        _bosses.Add(BossFactory.Instance.CreateCthulhu());
-        _bosses.Add(BossFactory.Instance.CreateSlime());
 
         
         //will create class that automatically handles creation of players later
@@ -75,10 +82,7 @@ public class Game1 : Core
 
         _blocksDemo.Update(gameTime, _p1Input);
 
-        foreach (IBoss boss in _bosses)
-        {
-            boss.Update(gameTime, _player1.Location);
-        }
+        BossFactory.Instance.UpdateAll(gameTime, _player1.Location);
 
         
 
@@ -98,10 +102,7 @@ public class Game1 : Core
 
         _blocksDemo.Draw(SpriteBatch);
 
-        foreach (IBoss boss in _bosses)
-        {
-            boss.Draw(SpriteBatch);
-        }
+        BossFactory.Instance.DrawAll(SpriteBatch);
         
         _player1.Draw(SpriteBatch);
 
