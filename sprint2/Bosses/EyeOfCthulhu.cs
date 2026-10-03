@@ -17,6 +17,7 @@ public class EyeOfCthulhu: IBoss
 
     public Vector2 TargetPos {get;set;}
     public float Rotation { get; set; }
+    private float targetRotation;
 
     private AnimatedSprite _sprite;
 
@@ -24,7 +25,7 @@ public class EyeOfCthulhu: IBoss
 
     private IBossState _state;
 
-    private uint movementSpeed = 12;
+    private uint _movementSpeed = 12;
 
     private bool _facingRight = true;
 
@@ -70,10 +71,20 @@ public class EyeOfCthulhu: IBoss
 
     public void HandleRotation()
     {
-        //TODO: Make runToAngle for handling rotation so eye doesent snap to an angle every time it changes angle rapidly
         Vector2 direction = TargetPos - Position;
         direction.Normalize();
-        Rotation = (float)Math.Atan2(direction.Y, direction.X) - MathHelper.PiOver2;
+        if (direction != Vector2.Zero)
+        {
+            targetRotation = (float)Math.Atan2(direction.Y, direction.X) - MathHelper.PiOver2;
+
+            float angleDifference = MathHelper.WrapAngle(targetRotation - Rotation);
+
+            float turnSpeed = 0.05f;
+
+            Rotation += angleDifference * turnSpeed;
+            //wrap bounds
+            Rotation = MathHelper.WrapAngle(Rotation);
+        }
     }
 
     public void HandleMovement()
@@ -138,7 +149,7 @@ public class EyeOfCthulhu: IBoss
         Vector2 direction = TargetPosition - Position;
         
         direction.Normalize(); 
-        Velocity = direction * movementSpeed;
+        Velocity = direction * _movementSpeed;
         
     }
 
