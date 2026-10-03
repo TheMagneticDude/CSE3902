@@ -11,6 +11,7 @@ using sprint2.Players;
 using sprint2.Weapons;
 using sprint2.Items;
 using sprint2.Music;
+using sprint2.World;
 using static sprint2.Constants;
 namespace sprint2;
 
@@ -34,6 +35,11 @@ public class Game1 : Core
 //================Music init===========================    
     private MusicPlayer _music;
     private List<Song> _playList;
+
+//================World Handling===========================    
+    private WorldHandler _worldHandler;
+    private Texture2D _backgroundTexture;
+    private Rectangle _screenRectangle;
     public Game1() : base (AppName, WindowWidth, WindowHeight, false)
     {
         
@@ -44,7 +50,9 @@ public class Game1 : Core
 
         _inputManager = new InputManager();
         _p1Input = new PlayerInput();
-        _music.Start();
+        _worldHandler = new WorldHandler(WindowWidth, WindowHeight);
+        _screenRectangle = new Rectangle(0, 0, WindowWidth, WindowHeight);
+        
     }
 
     protected override void LoadContent()
@@ -87,6 +95,11 @@ public class Game1 : Core
             Content.Load<Song>("Music/Overworld/Music-Underground"), 
         ];
         _music = new MusicPlayer(_playList, false, 0.5f);
+        _music.Start();
+
+
+
+        _backgroundTexture = Content.Load<Texture2D>("Background/Forestbackground");
     }
 
     protected override void Update(GameTime gameTime)
@@ -107,6 +120,7 @@ public class Game1 : Core
 
         //tick entities
         _player1.Update(gameTime, _p1Input);
+        _worldHandler.Update(_player1.Location);
 
         if (_p1Input.IsNewPress(KeyAction.UseItem5))
         {
@@ -121,7 +135,9 @@ public class Game1 : Core
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
-        SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
+        SpriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: _worldHandler.GetTransformMatrix());
+        
+        SpriteBatch.Draw(_backgroundTexture, _screenRectangle, Color.White);
 
         _blocksDemo.Draw(SpriteBatch);
         _itemsDemo.Draw(SpriteBatch);
@@ -132,6 +148,7 @@ public class Game1 : Core
         _recallPotion.Draw(SpriteBatch, _player1.Location, _player1.FacingRight);
 
         SpriteBatch.End();
+
 
         base.Draw(gameTime);
     }

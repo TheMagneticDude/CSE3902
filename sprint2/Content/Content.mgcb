@@ -26,12 +26,6 @@
 /processorParam:Version=3.8.5.1
 /build:Background/Forestbackground.png
 
-#begin Background/ForestBackground.xml
-/importer:XmlImporter
-/processor:PassThroughProcessor
-/processorParam:Version=3.8.5.1
-/build:Background/ForestBackground.xml
-
 #begin Blocks/blocks.png
 /importer:TextureImporter
 /processor:TextureProcessor
