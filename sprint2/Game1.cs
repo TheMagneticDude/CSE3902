@@ -33,6 +33,8 @@ public class Game1 : Core
 
 //================World Handling===========================    
     private WorldHandler _worldHandler;
+    private Texture2D _backgroundTexture;
+    private Rectangle _screenRectangle;
     public Game1() : base (AppName, WindowWidth, WindowHeight, false)
     {
         
@@ -43,8 +45,9 @@ public class Game1 : Core
 
         _inputManager = new InputManager();
         _p1Input = new PlayerInput();
-        _music.Start();
         _worldHandler = new WorldHandler(WindowWidth, WindowHeight);
+        _screenRectangle = new Rectangle(0, 0, WindowWidth, WindowHeight);
+        
     }
 
     protected override void LoadContent()
@@ -77,6 +80,11 @@ public class Game1 : Core
             Content.Load<Song>("Music/Overworld/Music-Underground"), 
         ];
         _music = new MusicPlayer(_playList, false, 0.5f);
+        _music.Start();
+
+
+
+        _backgroundTexture = Content.Load<Texture2D>("Background/Forestbackground");
     }
 
     protected override void Update(GameTime gameTime)
@@ -104,6 +112,8 @@ public class Game1 : Core
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
         SpriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: _worldHandler.GetTransformMatrix());
+        
+        SpriteBatch.Draw(_backgroundTexture, _screenRectangle, Color.White);
 
         _blocksDemo.Draw(SpriteBatch);
 
