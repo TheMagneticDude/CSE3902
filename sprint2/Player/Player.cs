@@ -22,9 +22,11 @@ public class Player : IPlayer
         Empty,
         Melee,
         Bow,
-        Staff
+        Staff,
+        HealthPotion,
+        RecallPotion
     }
-    private const int HotbarSlotCount = 3;
+    private const int HotbarSlotCount = 5;
     private readonly PlayerItem[] _hotbar = new PlayerItem[HotbarSlotCount];
     public int SelectedHotbarSlot { get; private set; }
     public PlayerItem SelectedHotbarItem =>
@@ -48,6 +50,11 @@ public class Player : IPlayer
 
     private bool _facingRight = true;
 
+    public bool FacingRight
+    {
+        get { return _facingRight; }
+    }
+
     //Weapon stuff
     private IWeapon _equippedWeapon;
 
@@ -61,6 +68,8 @@ public class Player : IPlayer
         _hotbar[0] = PlayerItem.Melee;
         _hotbar[1] = PlayerItem.Bow;
         _hotbar[2] = PlayerItem.Staff;
+        _hotbar[3] = PlayerItem.HealthPotion;
+        _hotbar[4] = PlayerItem.RecallPotion;
         SelectedHotbarSlot = 0;
         //statemachine init
         _stateMachine = new StateMachine<PlayerState>();
@@ -82,6 +91,14 @@ public class Player : IPlayer
         else if (Input.IsNewPress(KeyAction.UseItem3))
         {
             SelectedHotbarSlot = 2;
+        }
+        else if (Input.IsNewPress(KeyAction.UseItem4))
+        {
+            SelectedHotbarSlot = 3;
+        }
+        else if (Input.IsNewPress(KeyAction.UseItem5))
+        {
+            SelectedHotbarSlot = 4;
         }
     }
     public void Update(GameTime gameTime, PlayerInput input)
