@@ -2,9 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
-using sprint2.Items;
-
-namespace sprint2.Blocks;
+namespace sprint2.Items;
 
 public class Item
 {

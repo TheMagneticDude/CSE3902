@@ -7,6 +7,7 @@ using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Input;
 using sprint2.Blocks;
 using sprint2.Bosses;
+using sprint2.Hotbar;
 using sprint2.Players;
 using sprint2.Weapons;
 using sprint2.Items;
@@ -28,8 +29,6 @@ public class Game1 : Core
     private InputManager _inputManager;
     private IPlayer _player1;
     private PlayerInput _p1Input;
-
-    private IItem _recallPotion;
 
 //================Music init===========================    
     private MusicPlayer _music;
@@ -60,6 +59,7 @@ public class Game1 : Core
         BossFactory.Instance.LoadAllTextures(Content);
         _itemsDemo = new ItemDemo(Content);
         ItemFactory.Instance.LoadAllTextures(Content);
+        WeaponFactory.Instance.LoadAllTextures(Content);
 
         _bosses = new List<IBoss>();
         _bosses =
@@ -77,15 +77,16 @@ public class Game1 : Core
         
         //will create class that automatically handles creation of players later
         TextureAtlas _playerAtlas = TextureAtlas.FromFile(Content,"Player/Player.xml");
-        _player1 = new Player(_playerAtlas.CreateAnimatedSprite("Idle"), _playerAtlas);
-
-        //Weapon stuff
-        WeaponFactory.Instance.LoadAllTextures(Content);
-        _player1.EquipWeapon(WeaponFactory.Instance.CreateSword());
-
-        //Item stuff
-        ItemFactory.Instance.LoadAllTextures(Content);
-        _recallPotion = ItemFactory.Instance.CreateRecallPot();
+        IHotbarEntry[] hotbarEntries = new IHotbarEntry[]
+        {
+            new WeaponHotbarEntry("Sword", WeaponFactory.Instance.CreateSword(), false),
+            new WeaponHotbarEntry("Dagger", WeaponFactory.Instance.CreateDagger(), true),
+            new EmptyHotbarEntry("Empty"),
+            ItemFactory.Instance.CreateHealthPot(),
+            ItemFactory.Instance.CreateRecallPot()
+        };
+        PlayerHotbar hotbar = new PlayerHotbar(hotbarEntries);
+        _player1 = new Player(_playerAtlas.CreateAnimatedSprite("Idle"), _playerAtlas, hotbar);
 
 
         _playList = [
@@ -121,13 +122,6 @@ public class Game1 : Core
         _player1.Update(gameTime, _p1Input);
         _worldHandler.Update(_player1.Location);
 
-        if (_p1Input.IsNewPress(KeyAction.UseItem5))
-        {
-            _recallPotion.Use(_player1);
-        }
-
-        _recallPotion.Update(gameTime);
-
     }
 
     protected override void Draw(GameTime gameTime)
@@ -144,7 +138,6 @@ public class Game1 : Core
         BossFactory.Instance.DrawAll(SpriteBatch);
         
         _player1.Draw(SpriteBatch);
-        _recallPotion.Draw(SpriteBatch, _player1.Location, _player1.FacingRight);
 
         SpriteBatch.End();
 

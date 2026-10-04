@@ -1,9 +1,8 @@
-using System;
-using System.Security.Cryptography;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Input;
+using sprint2.Hotbar;
 using sprint2.StateMachines;
 using sprint2.Weapons;
 using static sprint2.Constants;
@@ -18,20 +17,17 @@ public class Player : IPlayer
         Jump
     }
 
-    public enum PlayerItem
+    private readonly PlayerHotbar _hotbar;
+
+    public int SelectedHotbarSlot
     {
-        Empty,
-        Melee,
-        Bow,
-        Staff,
-        HealthPotion,
-        RecallPotion
+        get { return _hotbar.SelectedSlot; }
     }
-    private const int HotbarSlotCount = 5;
-    private readonly PlayerItem[] _hotbar = new PlayerItem[HotbarSlotCount];
-    public int SelectedHotbarSlot { get; private set; }
-    public PlayerItem SelectedHotbarItem =>
-        _hotbar[SelectedHotbarSlot];
+
+    public IHotbarEntry SelectedHotbarItem
+    {
+        get { return _hotbar.SelectedEntry; }
+    }
     public Vector2 Location { get; set; }
     public Vector2 Velocity { get; set; }
 
@@ -58,51 +54,49 @@ public class Player : IPlayer
     private IWeapon _equippedWeapon;
 
 
-    public Player(AnimatedSprite sprite, TextureAtlas atlas)
+    public Player(AnimatedSprite sprite, TextureAtlas atlas, PlayerHotbar hotbar)
     {
         Sprite = sprite;
         _atlas = atlas;
+        _hotbar = hotbar;
         Location = new Vector2(400, 500);
         Velocity = new Vector2(0, 0);
-        _hotbar[0] = PlayerItem.Melee;
-        _hotbar[1] = PlayerItem.Bow;
-        _hotbar[2] = PlayerItem.Staff;
-        _hotbar[3] = PlayerItem.HealthPotion;
-        _hotbar[4] = PlayerItem.RecallPotion;
-        SelectedHotbarSlot = 0;
         //statemachine init
         _stateMachine = new StateMachine<PlayerState>();
         _stateMachine.AddState(PlayerState.Idle, new IdleState(this));
         _stateMachine.AddState(PlayerState.Walk, new WalkState(this));
         _stateMachine.AddState(PlayerState.Jump, new JumpState(this));
         _stateMachine.ChangeState(PlayerState.Idle);
+        _hotbar.UseSelected(this);
     }
     private void HandleHotbarInput()
     {
         if (Input.IsNewPress(KeyAction.UseItem1))
         {
-            SelectedHotbarSlot = 0;
+            _hotbar.UseSlot(0, this);
         }
         else if (Input.IsNewPress(KeyAction.UseItem2))
         {
-            SelectedHotbarSlot = 1;
+            _hotbar.UseSlot(1, this);
         }
         else if (Input.IsNewPress(KeyAction.UseItem3))
         {
-            SelectedHotbarSlot = 2;
+            _hotbar.UseSlot(2, this);
         }
         else if (Input.IsNewPress(KeyAction.UseItem4))
         {
-            SelectedHotbarSlot = 3;
+            _hotbar.UseSlot(3, this);
         }
         else if (Input.IsNewPress(KeyAction.UseItem5))
         {
-            SelectedHotbarSlot = 4;
+            _hotbar.UseSlot(4, this);
         }
     }
     public void Update(GameTime gameTime, PlayerInput input)
     {
         Input = input;
+        HandleHotbarInput();
+
         if(_equippedWeapon != null && Input.IsNewPress(KeyAction.Attack))
         {
             _equippedWeapon.Attack(Location, _facingRight);
@@ -112,11 +106,8 @@ public class Player : IPlayer
             _equippedWeapon.Update(gameTime, _facingRight);
         }
 
-        if (Input.IsPressed(KeyAction.UseItem1)){EquipWeapon(WeaponFactory.Instance.CreateSword());}
-        if (Input.IsPressed(KeyAction.UseItem2)){EquipWeapon(WeaponFactory.Instance.CreateDagger()); _equippedWeapon.Attack(Location, _facingRight);}
-
+        _hotbar.Update(gameTime, this);
         ApplyPhysics();
-        HandleHotbarInput();
 
         _stateMachine.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
 
@@ -169,6 +160,8 @@ public class Player : IPlayer
         {
             _equippedWeapon.Draw(spriteBatch, Location, _facingRight);
         }
+
+        _hotbar.Draw(spriteBatch, this);
     }
 
 

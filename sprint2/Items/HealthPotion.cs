@@ -1,39 +1,64 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MonoGameLibrary.Graphics;
+using sprint2.Players;
 
 namespace sprint2.Items;
 
-public class HealthPotion
+public class HealthPotion : IItem
 {
-    private Vector2 _location;
+    private const float DisplayDuration = 0.5f;
 
-    private Texture2D _texture;
+    private readonly Texture2D _texture;
+    private float _timer;
 
+    public string Name
+    {
+        get { return "Health Potion"; }
+    }
     public bool IsActive { get; private set; }
-    public bool IsConsumed { get; private set; }
 
     public HealthPotion(Texture2D texture)
     {
         _texture = texture;
-        IsConsumed = false;
         IsActive = false;
     }
 
-    public void Use(Vector2 playerLocation)
+    public void Use(IPlayer player)
     {
         IsActive = true;
+        _timer = DisplayDuration;
     }
-    public void Update(GameTime gameTime)
+
+    public void Update(GameTime gameTime, IPlayer player)
     {
-        //will update player health
-    }
-    public void Draw(SpriteBatch spriteBatch, Vector2 playerLocation)
-    {
-        if(IsActive && !IsConsumed)
+        if (!IsActive)
         {
-            Vector2 position = playerLocation + new Vector2(20, 0);
-            spriteBatch.Draw(_texture, playerLocation, Color.White);
+            return;
         }
+
+        _timer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+        if (_timer <= 0f)
+        {
+            IsActive = false;
+        }
+    }
+
+    public void Draw(SpriteBatch spriteBatch, IPlayer player)
+    {
+        if (!IsActive)
+        {
+            return;
+        }
+
+        float horizontalOffset = 20f;
+
+        if (!player.FacingRight)
+        {
+            horizontalOffset = -20f;
+        }
+
+        Vector2 position = player.Location + new Vector2(horizontalOffset, 0f);
+        spriteBatch.Draw(_texture, position, Color.White);
     }
 }
