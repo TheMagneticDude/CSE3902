@@ -1,0 +1,30 @@
+In the plaintext file for a code quality review, include the following information:
+
+Author of the code review: Jacob Su
+Date of the code review: 10/5/26
+Sprint number: 2
+Name of the .cs files being reviewed: Player.cs IPlayer.cs
+Author of the .cs files being reviewed: Nathan Cheng
+Number of minutes taken to complete the review: 20
+
+Specific comments on code quality: 
+    Player.cs makes good use of the State design pattern. IdleState, WalkState,
+    JumpState, FallState, and UseItemState are able to keep state-specific behavior and
+    animation changes separate from the main Update method. This method avoids one large
+    collection of conditionals and makes the player's available states relatively
+    easy to identify.
+
+
+A hypothetical change to make to the game related to file being reviewed 
+and how the current implementation could or could not easily support that change:
+    One change would be to add player health, knockback, and a
+    damaged animation when the player presses E. The existing state-machine
+    design would be able to support this reasonably well. A Damaged value could be easily added to
+    PlayerState, and this could control the damaged animation, knockback,
+    and the amount of time before returning to Idle, Walk, Jump, or Fall.
+
+Specific comments on code readability: 
+    Readability could be improved by moving the nested states into separate files and removing unused using statements and commented-out code as well as applying
+    consistent spacing. Fields that don't change after construction, such as
+    _atlas, _stateMachine, and the Player references inside each state, could also
+    be marked readonly to communicate their actual use more clearly.
