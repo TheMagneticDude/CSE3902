@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using sprint2.Players;
@@ -21,6 +22,7 @@ public class WeaponHotbarEntry : IHotbarEntry
 
     public void Use(IPlayer player)
     {
+        ArgumentNullException.ThrowIfNull(player);
         player.EquipWeapon(_weapon);
 
         if (_attackWhenSelected)

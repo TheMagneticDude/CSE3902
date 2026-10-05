@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -35,7 +36,8 @@ public class ItemDemo
 
     public void Update(GameTime gameTime, PlayerInput input)
     {
-
+        ArgumentNullException.ThrowIfNull(gameTime);
+        ArgumentNullException.ThrowIfNull(input);
         if(input.IsNewPress(KeyAction.ItemLeft)) {_currItem = (_currItem - 1) % _items.Length;}
         if(_currItem < 0) {_currItem = _items.Length - 1;}
         if(input.IsNewPress(KeyAction.ItemRight)) {_currItem = (_currItem + 1) % _items.Length;}

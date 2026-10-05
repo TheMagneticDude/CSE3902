@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
@@ -99,6 +100,8 @@ public class Player : IPlayer
 
     public void Update(GameTime gameTime, PlayerInput input)
     {
+        ArgumentNullException.ThrowIfNull(gameTime);
+        ArgumentNullException.ThrowIfNull(input);
         Input = input;
         HandleHotbarInput();
 
@@ -137,7 +140,7 @@ public class Player : IPlayer
         }
     }
 
-    void HandleHorizontalMovement()
+    private void HandleHorizontalMovement()
     {
         float componentX =
             (Input.IsPressed(KeyAction.MoveRight) ? 1f : 0f) -

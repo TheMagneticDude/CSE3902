@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics.Contracts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -21,6 +22,7 @@ public abstract class Projectile : IProjectile
 
     public virtual void Update(GameTime gameTime)
     {
+        ArgumentNullException.ThrowIfNull(gameTime);
         float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
         Position += Velocity * deltaTime;
     }

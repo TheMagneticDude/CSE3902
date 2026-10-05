@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using sprint2.Players;
@@ -15,6 +16,7 @@ public class EmptyHotbarEntry : IHotbarEntry
 
     public void Use(IPlayer player)
     {
+        ArgumentNullException.ThrowIfNull(player);
         player.UnequipWeapon();
     }
 

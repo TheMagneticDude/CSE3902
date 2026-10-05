@@ -1,3 +1,5 @@
+using System;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using sprint2.Projectiles;
@@ -54,6 +56,7 @@ public class Dagger : Weapon
         GameTime gameTime,
         bool facingRight)
     {
+        ArgumentNullException.ThrowIfNull(gameTime);
         if (IsAttacking)
         {
             float deltaTime =
@@ -98,6 +101,7 @@ public class Dagger : Weapon
         Vector2 playerLocation,
         bool facingRight)
     {
+        ArgumentNullException.ThrowIfNull(spriteBatch);
         // Keep the equipped dagger visible even when it is not attacking.
         Vector2 handOffset =
             facingRight

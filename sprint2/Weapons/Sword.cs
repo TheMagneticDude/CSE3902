@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 using sprint2.Weapons;
+using System;
 
 public class Sword : Weapon
 {
@@ -19,6 +20,7 @@ public class Sword : Weapon
 
     public override void Update(GameTime gameTime, bool facingRight)
     {
+        ArgumentNullException.ThrowIfNull(gameTime);
         if(IsAttacking)
         {
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -46,6 +48,7 @@ public class Sword : Weapon
 
     public override void Draw(SpriteBatch spriteBatch, Vector2 playerLocation, bool facingRight)
     {
+        ArgumentNullException.ThrowIfNull(spriteBatch);
         //Don't draw if not attacking
         if(IsAttacking)
         {
