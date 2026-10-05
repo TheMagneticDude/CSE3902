@@ -38,6 +38,18 @@ public abstract class Weapon : IWeapon
         AttackTimer = 0f;
     }
 
+    public virtual void Attack(Vector2 playerLocation, bool facingRight, Point cursorPos)
+    {
+        // Don't restart an attack while one is already happening.
+        if (IsAttacking)
+        {
+            return;
+        }
+
+        IsAttacking = true;
+        AttackTimer = 0f;
+    }
+
     public abstract void Update(
         GameTime gameTime,
         bool facingRight);

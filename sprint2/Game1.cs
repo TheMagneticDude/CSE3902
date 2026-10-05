@@ -49,7 +49,7 @@ public class Game1 : Core
     protected override void Initialize()
     {
         _inputManager = new InputManager();
-        _p1Input = new PlayerInput();
+        _p1Input = new PlayerInput(_inputManager);
         _worldHandler = new WorldHandler(WindowWidth, WindowHeight);
         _screenRectangle = new Rectangle(0, 0, WindowWidth, WindowHeight);
 
@@ -115,7 +115,7 @@ public class Game1 : Core
 
         // Input should update before anything reads it.
         _inputManager.Update(gameTime);
-        _p1Input.Update(gameTime, _inputManager);
+        _p1Input.Update(gameTime);
 
         _blocksDemo.Update(gameTime, _p1Input);
         _itemsDemo.Update(gameTime, _p1Input);

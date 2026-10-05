@@ -26,7 +26,7 @@ public class Dagger : Weapon
 
     public override void Attack(
         Vector2 playerLocation,
-        bool facingRight)
+        bool facingRight, Point cursorPos)
     {
         if (IsAttacking)
         {
@@ -40,8 +40,13 @@ public class Dagger : Weapon
         Vector2 spawnLocation =
             playerLocation + new Vector2(20f * direction, 20f);
 
-        Vector2 velocity =
-            new Vector2(500f * direction, 0f);
+        
+        
+        Vector2 MousePointer = new Vector2(cursorPos.X, cursorPos.Y);
+        Vector2 velVect = MousePointer - playerLocation;
+        velVect.Normalize();
+
+        Vector2 velocity = velVect * 500f;
 
         DaggerProjectile projectile =
             ProjectileFactory.Instance.CreateDagger(
@@ -95,6 +100,7 @@ public class Dagger : Weapon
             }
         }
     }
+
 
     public override void Draw(
         SpriteBatch spriteBatch,
