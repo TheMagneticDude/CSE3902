@@ -1,0 +1,50 @@
+# Top-most EditorConfig file - stops looking up the directory tree
+root = true
+
+# All files
+[*]
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+
+# C# files rules
+[*.cs]
+
+#### Code Style Preferences ####
+
+# Organize Usings
+dotnet_separate_import_directive_groups = true
+dotnet_sort_system_directives_first = true
+
+# Modifier preferences
+dotnet_style_require_accessibility_modifiers = always:warning
+
+# Expression-bodied members
+csharp_style_expression_bodied_methods = when_on_single_line:suggestion
+csharp_style_expression_bodied_properties = true:suggestion
+
+# Pattern matching preferences
+csharp_style_pattern_matching_over_as_with_null_check = true:suggestion
+
+# Formatting / Brace layouts
+csharp_new_line_before_open_brace = all
+csharp_space_after_cast = false
+
+#### Code Quality / Roslyn Analyzer Rules ####
+
+# CA1062: Validate arguments of public methods (Prevents NullReferenceExceptions)
+dotnet_diagnostic.CA1062.severity = warning
+
+# CA2007: Consider calling ConfigureAwait on the awaited task (Async best practice)
+dotnet_diagnostic.CA2007.severity = warning
+
+# CA1825: Avoid zero-length array allocations (Performance - use Array.Empty<T> instead)
+dotnet_diagnostic.CA1825.severity = warning
+
+# CA1822: Mark members as static if they don't access instance data (Performance optimization)
+dotnet_diagnostic.CA1822.severity = suggestion
+
+# CA1806: Do not ignore method results
+dotnet_diagnostic.CA1806.severity = warning
