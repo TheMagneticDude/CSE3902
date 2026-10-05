@@ -80,7 +80,7 @@ public class Game1 : Core
         IHotbarEntry[] hotbarEntries = new IHotbarEntry[]
         {
             new WeaponHotbarEntry("Sword", WeaponFactory.Instance.CreateSword(), false),
-            new WeaponHotbarEntry("Dagger", WeaponFactory.Instance.CreateDagger(), true),
+            new WeaponHotbarEntry("Dagger", WeaponFactory.Instance.CreateDagger(), false),
             new EmptyHotbarEntry("Empty"),
             ItemFactory.Instance.CreateHealthPot(),
             ItemFactory.Instance.CreateRecallPot()
