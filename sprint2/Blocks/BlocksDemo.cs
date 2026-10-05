@@ -1,3 +1,5 @@
+using System;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -36,7 +38,7 @@ public class BlocksDemo
 
     public void Update(GameTime gameTime, PlayerInput input)
     {
-
+        ArgumentNullException.ThrowIfNull(input);
         if(input.IsNewPress(KeyAction.BlockLeft)) {_currBlock = (_currBlock - 1) % _blocks.Length;}
         if(_currBlock < 0) {_currBlock = _blocks.Length - 1;}
         if(input.IsNewPress(KeyAction.BlockRight)) {_currBlock = (_currBlock + 1) % _blocks.Length;}

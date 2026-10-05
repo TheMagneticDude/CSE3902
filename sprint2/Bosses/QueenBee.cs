@@ -22,7 +22,6 @@ public class QueenBee: IBoss
     private AnimatedSprite _sprite;
 
     private TextureAtlas _atlas;
-    private uint _movementSpeed = 6;
 
     private IBossState _state;
 

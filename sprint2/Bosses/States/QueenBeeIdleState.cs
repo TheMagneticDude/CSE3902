@@ -1,3 +1,5 @@
+using System;
+
 using Microsoft.Xna.Framework;
 
 namespace sprint2.Bosses.States;
@@ -20,6 +22,7 @@ public class QueenBeeIdleState: IBossState
 
     public void Update(GameTime gameTime)
     {
+        ArgumentNullException.ThrowIfNull(gameTime);
         _timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
         _queenBee.Velocity = Vector2.Zero;
 

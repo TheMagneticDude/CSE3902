@@ -1,3 +1,4 @@
+using System;
 using System.Data;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -27,6 +28,7 @@ public class ProjectileFactory
     
     public void LoadAllTextures(ContentManager content)
     {
+        ArgumentNullException.ThrowIfNull(content);
         _daggerTexture = content.Load<Texture2D>("Weapons/Projectiles/Magic_Dagger");
     }
 

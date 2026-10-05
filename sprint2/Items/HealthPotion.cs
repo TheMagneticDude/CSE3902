@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using sprint2.Players;
@@ -31,6 +32,8 @@ public class HealthPotion : IItem
 
     public void Update(GameTime gameTime, IPlayer player)
     {
+        ArgumentNullException.ThrowIfNull(gameTime);
+        ArgumentNullException.ThrowIfNull(player);
         if (!IsActive)
         {
             return;
@@ -46,6 +49,8 @@ public class HealthPotion : IItem
 
     public void Draw(SpriteBatch spriteBatch, IPlayer player)
     {
+        ArgumentNullException.ThrowIfNull(spriteBatch);
+        ArgumentNullException.ThrowIfNull(player);
         if (!IsActive)
         {
             return;

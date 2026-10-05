@@ -22,6 +22,7 @@ public class DaggerProjectile : Projectile
 
     public override void Draw(SpriteBatch spriteBatch)
     {
+        ArgumentNullException.ThrowIfNull(spriteBatch);
         if (IsActive)
         {
             float rotation = (float)Math.Atan2(Velocity.Y,Velocity.X) + MathHelper.PiOver2;

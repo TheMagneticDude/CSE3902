@@ -1,3 +1,5 @@
+using System;
+
 using Microsoft.Xna.Framework;
 
 namespace sprint2.Bosses.States;
@@ -20,6 +22,7 @@ public class CthulhuPhase1State: IBossState
 
     public void Update(GameTime gameTime)
     {
+        ArgumentNullException.ThrowIfNull(gameTime);
         _eye.HandleRotation();//only stare into player's soul when in idle
         _timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 

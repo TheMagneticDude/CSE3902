@@ -1,3 +1,5 @@
+using System;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
@@ -23,6 +25,7 @@ public class RecallPotion: IItem
 
     public RecallPotion(TextureAtlas atlas)
     {
+        ArgumentNullException.ThrowIfNull(atlas);
         _sprite = atlas.CreateSprite("recallPotion");
         IsActive = false;
     }
@@ -35,6 +38,8 @@ public class RecallPotion: IItem
 
     public void Update(GameTime gameTime, IPlayer player)
     {
+        ArgumentNullException.ThrowIfNull(gameTime);
+        ArgumentNullException.ThrowIfNull(player);
         if (IsActive)
         {
             _timer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -51,6 +56,8 @@ public class RecallPotion: IItem
     }
     public void Draw(SpriteBatch spriteBatch, IPlayer player)
     {
+        ArgumentNullException.ThrowIfNull(spriteBatch);
+        ArgumentNullException.ThrowIfNull(player);
         if(IsActive)
         {
             if (player.FacingRight)

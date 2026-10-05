@@ -1,3 +1,5 @@
+using System;
+
 using Microsoft.Xna.Framework;
 
 namespace sprint2.Bosses.States;
@@ -20,6 +22,7 @@ public class CthulhuPhase2State: IBossState
 
     public void Update(GameTime gameTime)
     {
+        ArgumentNullException.ThrowIfNull(gameTime);
         float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
         _timer += elapsed;

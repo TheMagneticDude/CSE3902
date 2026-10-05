@@ -60,6 +60,8 @@ public class Slime: IBoss
 
     public void Update(GameTime gameTime, Vector2 PlayerPos)
     {
+        ArgumentNullException.ThrowIfNull(gameTime);
+
         TargetPos = PlayerPos;
         _sprite.Update(gameTime);
         HandleMovement();
@@ -114,14 +116,14 @@ public class Slime: IBoss
             IsGrounded = false;
         }
     }
-    void HandleHorizontalMovement()
+    private void HandleHorizontalMovement()
     {
         float componentX = (TargetPos.X - Position.X) >=  0 ? 1 : -1;
 
         Velocity = new Vector2(componentX * _movementSpeed, Velocity.Y);
     }
 
-    void HandleJump(GameTime gameTime)
+    private void HandleJump(GameTime gameTime)
     {
         _timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
         if (_timer >= 2)
