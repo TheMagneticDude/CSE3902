@@ -100,11 +100,12 @@ public class Player : IPlayer
     public void Update(GameTime gameTime, PlayerInput input)
     {
         Input = input;
+        // Input.Update(gameTime);
         HandleHotbarInput();
 
         if (_equippedWeapon != null && Input.IsNewPress(KeyAction.Attack))
         {
-            _equippedWeapon.Attack(Location, _facingRight);
+            _equippedWeapon.Attack(Location, _facingRight, Input.GetCursorPos());
         }
 
         if (_equippedWeapon != null)

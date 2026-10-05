@@ -1,6 +1,8 @@
 using System.Diagnostics.Contracts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using static sprint2.Constants;
+
 
 namespace sprint2.Projectiles;
 
@@ -22,7 +24,21 @@ public abstract class Projectile : IProjectile
     public virtual void Update(GameTime gameTime)
     {
         float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+        ApplyPhysics();
         Position += Velocity * deltaTime;
+
+        if (Position.Y >= GroundLevel+100f)
+        {
+            Destroy();
+        }
+        
+    }
+
+    
+    private void ApplyPhysics()
+    {
+        Velocity = new Vector2(Velocity.X, Velocity.Y);
+        // Position += Velocity;
     }
 
     public abstract void Draw(SpriteBatch spriteBatch);

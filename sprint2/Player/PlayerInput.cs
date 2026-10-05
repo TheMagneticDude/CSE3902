@@ -26,14 +26,18 @@ public enum KeyAction
     Reset,
 }
 
+
 public class PlayerInput
 {
     public Dictionary<KeyAction, MultiBind> KeyBinds { get; private set; }
+    InputManager Inputs {get;set;}
+
 
     public float DAS_delay = 0.3f;
 
-    public PlayerInput()
+    public PlayerInput(InputManager Input)
     {
+        Inputs = Input;
         KeyBinds = new Dictionary<KeyAction, MultiBind>
         {
             { KeyAction.MoveUp,    new MultiBind(new TriggerKey(Keys.W), new TriggerKey(Keys.Up), new TriggerKey(Keys.Space)) },
@@ -78,11 +82,18 @@ public class PlayerInput
         }
     }
 
-    public void Update(GameTime gameTime, InputManager inputs)
+    public Point GetCursorPos()
+    {
+        return Inputs.Mouse.Position;
+    }
+
+    
+
+    public void Update(GameTime gameTime)
     {
         foreach (var group in KeyBinds.Values)
         {
-            group.Update(gameTime, inputs, DAS_delay);
+            group.Update(gameTime, Inputs, DAS_delay);
         }
     }
 
