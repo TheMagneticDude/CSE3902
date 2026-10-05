@@ -10,4 +10,5 @@ Creating methods currently rely on the texture atlases, meaning LoadAllTextures 
 Maybe extract file paths into constants, and make rotation constant as MathHelper functions instead. 
 The current code is very well written and could easily implement these changes by seperating draw features as well as adding easy null checks.
 The code is also very readable, makes sense, has good strcuturing, with only the rotation float seemingly appearing out of nowhere.
+Variables are descriptive and well named.
 Everything else is very readable!
