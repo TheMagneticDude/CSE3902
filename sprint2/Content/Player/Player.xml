@@ -36,6 +36,14 @@
             <Frame region="player-jump" />
         </Animation>
 
+        <Animation name="Fall" delay="200">
+            <Frame region="player-jump" />
+        </Animation>
+
+        <Animation name="UseItem" delay="200">
+            <Frame region="player-idle" />
+        </Animation>
+
         <Animation name="Walk" delay="70">
             <Frame region="player-walk-0" />
             <Frame region="player-walk-1" />
