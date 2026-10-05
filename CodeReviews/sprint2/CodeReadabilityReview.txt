@@ -1,0 +1,14 @@
+Code Reviews
+Each member of the team should review at least one class and have at least one of their classes reviewed, 
+with a focus on code readability. Each member of the team should review at least one class and have at least 
+one of their classes reviewed, with a focus on code maintainability.
+
+In the plaintext file for a readability review, include the following information:
+
+Author of the code review
+Date of the code review
+Sprint number
+Name of the .cs file being reviewed
+Author of the .cs file being reviewed
+Number of minutes taken to complete the review
+Specific comments on what is readable and what is not
