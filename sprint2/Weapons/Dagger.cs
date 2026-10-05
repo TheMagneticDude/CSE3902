@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using sprint2.Projectiles;
+using sprint2.World;
 
 namespace sprint2.Weapons;
 
@@ -41,7 +42,8 @@ public class Dagger : Weapon
         
         
         Vector2 MousePointer = new Vector2(cursorPos.X, cursorPos.Y);
-        Vector2 velVect = MousePointer - playerLocation;
+        Vector2 PointerWorldPos = WorldHandler.PixelToWorldSpace(MousePointer);
+        Vector2 velVect = PointerWorldPos - playerLocation;
         velVect.Normalize();
 
         Vector2 velocity = velVect * 500f;
