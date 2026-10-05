@@ -42,6 +42,7 @@ As of Sprint 2, this program includes a basic terraria guide character with move
 
 - Health and Recall potions appear simultaneously when pressing 4 and 5 together
 - Slime ground level does not match player ground level
+- Daggers appear oddly in hand
 
 ## Extra Tools/Processes
 
