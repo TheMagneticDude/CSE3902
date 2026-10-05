@@ -4,6 +4,7 @@ using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
 using sprint2.Hotbar;
 using sprint2.Weapons;
+using sprint2.Combat;
 
 
 namespace sprint2.Players;

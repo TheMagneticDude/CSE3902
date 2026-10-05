@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas>
-    <Texture>Weapons/Magic_Dagger</Texture>
+    <Texture>Weapons/Projectiles/Magic_Dagger</Texture>
     
     <Regions>
         <Region name="Dagger" x="0" y="0" width="10" height="24" />
