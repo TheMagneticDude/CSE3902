@@ -1,0 +1,40 @@
+Code Quality Review
+
+Author of the code review: Anna Mansur
+Date of the code review: 10/5/26
+Sprint number: 2
+Name of the .cs files being reviewed: IWeapon, Weapon, WeaponFactory
+Author of the .cs files being reviewed: Adam Rehan
+Number of minutes taken to complete the review: 20
+Specific comments on code quality: 
+
+    The code for these weapon files is well organized and follows the design patterns mentioned
+    in class with the basic interface and sprite factory design. The IWeapon interface is simple
+    enough to be reusable for many different weapon types while still providing all of the basic
+    behavior needed. One thing I noticed is the overloaded attack method in the interface which
+    isn't a huge deal, but it could maybe be combined into one attack method that either has the 
+    cursor position as optional or you could always pass in the cursor position and just not use it for
+    the weapons that don't need it to simplify code that uses the interface. 
+
+A hypothetical change to make to the game related to file being reviewed 
+and how the current implementation could or could not easily support that change:
+
+    If wanted to add another type of weapon to the game it would be relatively easy since there
+    is an IWeapon interface and WeaponFactory. For example if we wanted to add a bow there is
+    already an attack method in the interface with cursor position which would be helpful for 
+    something like a bow. It would be easy to update the weapon factory for a bow as well. 
+
+Code Readability Review
+
+Author of the code review: Anna Mansur
+Date of the code review: 10/5/26
+Sprint number: 2
+Name of the .cs file being reviewed:  IWeapon, Weapon, WeaponFactory
+Author of the .cs file being reviewed: Adam Rehan
+Number of minutes taken to complete the review: 10
+Specific comments on what is readable and what is not: 
+
+    Overall, I think all three of these files are readable and it is easy to understand how they
+    work together. All methods and variables are named so it is easy to understand what they do and 
+    what they are for. 
+
