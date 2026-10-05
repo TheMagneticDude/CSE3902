@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
@@ -88,6 +89,7 @@ public class PlayerInput
 
     public Keys[] ScanKey(KeyboardInfo keyboard)
     {
+        ArgumentNullException.ThrowIfNull(keyboard);
         return keyboard.CurrentState.GetPressedKeys();
     }
 }
