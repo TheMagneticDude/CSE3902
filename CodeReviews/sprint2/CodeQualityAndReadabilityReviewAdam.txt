@@ -1,0 +1,16 @@
+Author: Adam Rehan
+Date: October 5th, 2026
+Sprint Number: Sprint 2
+File Being Reviewed: BossFactory.cs
+Author(s): Anna and Nathan
+Right now the BossFactory is not only making entities but it is also storing, updating, and a drawing them. 
+This makes a lot of tight coupling, would rather have a manager and factory working in tandem. 
+Boss Factory instantiates, Boss Manager draws. 
+Creating methods currently rely on the texture atlases, meaning LoadAllTextures has to already be called, perhaps add null checks. 
+Maybe extract file paths into constants, and make rotation constant as MathHelper functions instead. 
+The current code is very well written and could easily implement these changes by seperating draw features as well as adding easy null checks.
+The code is also very readable, makes sense, has good strcuturing, with only the rotation float seemingly appearing out of nowhere.
+Variables are descriptive and well named.
+Everything else is very readable!
+
+Time Taken To Complete Review: ~30ish minutes?

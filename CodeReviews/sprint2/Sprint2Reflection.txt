@@ -1,0 +1,21 @@
+Sprint 2 Reflection
+
+Near the end of the sprint, write up a brief report on how your team performed this sprint, 
+using the burndown chart from the board as the basis for discussion. Feel free to also discuss 
+your processes as a whole. Were any changes your made this sprint constructive or detrimental? 
+Do you have any plans for doing things differently next sprint?
+
+Overall, I think our team performed well this sprint and managed to implement everything we
+planned on and more. Since we decided to create a game different from the mario and zelda options,
+we had more planning that needed to be done as far as the scope of our project. We kind of just
+decided on general ideas for our project and started implementing the different features based on 
+tasks we put in the issues section of github, but I think going into the next sprint we need to think
+about the actual scope of our project a bit more and what our end goal will look like. I think we did 
+a good job as a team of splitting the tasks up and each doing our share of the work, and also helping
+each other with parts of the code as needed. For the next sprint we also need to work on refactoring 
+our code somewhat and have better organization, maybe using the command design pattern just to make
+sure that we have quality code practices before our project gets too complex. Another thing we plan
+to do differently next sprint is having better management of branches and pull requests, and adding
+more constructive feedback when approving requests. 
+
+Code metrics info included in CodeMetrics.csv 
