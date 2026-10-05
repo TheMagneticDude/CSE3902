@@ -16,7 +16,9 @@ public class Player : IPlayer
     {
         Idle,
         Walk,
-        Jump
+        Jump,
+        Fall,
+        UseItem
     }
 
     private readonly PlayerHotbar _hotbar;
@@ -69,6 +71,8 @@ public class Player : IPlayer
         _stateMachine.AddState(PlayerState.Idle, new IdleState(this));
         _stateMachine.AddState(PlayerState.Walk, new WalkState(this));
         _stateMachine.AddState(PlayerState.Jump, new JumpState(this));
+        _stateMachine.AddState(PlayerState.Fall, new FallState(this));
+        _stateMachine.AddState(PlayerState.UseItem, new UseItemState(this));
         _stateMachine.ChangeState(PlayerState.Idle);
 
         _hotbar.UseSelected(this);
@@ -109,6 +113,7 @@ public class Player : IPlayer
         if (_equippedWeapon != null && Input.IsNewPress(KeyAction.Attack))
         {
             _equippedWeapon.Attack(Location, _facingRight, Input.GetCursorPos());
+            _stateMachine.ChangeState(PlayerState.UseItem);
         }
 
         if (_equippedWeapon != null)
@@ -210,7 +215,7 @@ public class Player : IPlayer
 
             if (!_player.IsGrounded)
             {
-                _player._stateMachine.ChangeState(PlayerState.Jump);
+                _player._stateMachine.ChangeState(PlayerState.Fall);
                 return;
             }
 
@@ -249,7 +254,7 @@ public class Player : IPlayer
 
             if (!_player.IsGrounded)
             {
-                _player._stateMachine.ChangeState(PlayerState.Jump);
+                _player._stateMachine.ChangeState(PlayerState.Fall);
                 return;
             }
 
@@ -289,7 +294,88 @@ public class Player : IPlayer
             // Allow horizontal control while in the air.
             _player.HandleHorizontalMovement();
 
+            if (_player.Velocity.Y > 0)
+            {
+                _player._stateMachine.ChangeState(PlayerState.Fall);
+                return;
+            }
+            if(_player.IsGrounded)
+            {
+                if (_player.Velocity.X != 0)
+                {
+                    _player._stateMachine.ChangeState(PlayerState.Walk);
+                }
+                else
+                {
+                    _player._stateMachine.ChangeState(PlayerState.Idle);
+                }
+            }
+        }
+    }
+
+    private class FallState : IState
+    {
+        private Player _player;
+
+        public FallState(Player player)
+        {
+            _player = player;
+        }
+
+        public void Enter()
+        {
+            _player.Sprite = _player._atlas.CreateAnimatedSprite("Fall");
+        }
+
+        public void Exit()
+        {
+        }
+
+        public void Update(float deltaTime)
+        {
+            // Allow horizontal control while in the air.
+            _player.HandleHorizontalMovement();
+
             if (_player.IsGrounded)
+            {
+                if (_player.Velocity.X != 0)
+                {
+                    _player._stateMachine.ChangeState(PlayerState.Walk);
+                }
+                else
+                {
+                    _player._stateMachine.ChangeState(PlayerState.Idle);
+                }
+            }
+        }
+    }
+
+    private class UseItemState : IState
+    {
+        private Player _player;
+
+        public UseItemState(Player player)
+        {
+            _player = player;
+        }
+
+        public void Enter()
+        {
+            _player.Sprite = _player._atlas.CreateAnimatedSprite("UseItem");
+        }
+
+        public void Exit()
+        {
+        }
+
+        public void Update(float deltaTime)
+        {
+            //Move slower while attacking or using item
+            float attackSpeedModifier = 0.9f;
+            // Allow horizontal control
+            _player.HandleHorizontalMovement();
+            _player.Velocity = new Vector2(_player.Velocity.X * attackSpeedModifier, _player.Velocity.Y);
+            if(!_player._equippedWeapon.IsAttacking)
             {
                 if (_player.Velocity.X != 0)
                 {

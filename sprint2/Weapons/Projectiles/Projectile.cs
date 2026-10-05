@@ -31,9 +31,8 @@ public abstract class Projectile : IProjectile
 
         if (Position.Y >= GroundLevel+100f)
         {
-            Destroy();
+            IsActive = false;
         }
-        
     }
 
     
