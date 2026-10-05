@@ -1,0 +1,24 @@
+In the plaintext file for a code quality review, include the following information:
+
+Author of the code review: Nathan Cheng
+Date of the code review: 10/5/26
+Sprint number: 2
+Name of the .cs files being reviewed: BossFactory.cs IBoss.cs
+Author of the .cs files being reviewed: Anna Mansur
+Number of minutes taken to complete the review: 20
+
+Specific comments on code quality: 
+    The code is very well organized and follows the class design patterns well.
+    The IBoss.cs interface establishes the near universal command structure of Update() and Draw() 
+    which is easily reusable and contains methods needed for any subsiquent boss created.  The BossFactory creates
+    its own static instance so that it can be accessed easily.  
+
+A hypothetical change to make to the game related to file being reviewed 
+and how the current implementation could or could not easily support that change:
+    Adding another boss is very easy as you just need to extend the existing IBoss class 
+    and the bossfactory handles everything very neatly within a list.  
+
+Specific comments on code readability: 
+
+    These files are very readable and well organized.  It is pretty easy to trace through how one utilizes another and
+    there are reasonably named variables and methods which makes it very easy to expand.
