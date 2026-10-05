@@ -41,6 +41,7 @@ As of Sprint 2, this program includes a basic terraria guide character with move
 ## Known Bugs
 
 - Health and Recall potions appear simultaneously when pressing 4 and 5 together
+- Slime ground level does not match player ground level
 
 ## Extra Tools/Processes
 
