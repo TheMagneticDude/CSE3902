@@ -61,7 +61,7 @@ public class Sword : Weapon
             Vector2 originOfWeapon = facingRight ? new Vector2(2f, Texture.Height - 2f) : new Vector2(Texture.Width - 2f, Texture.Height - 2f);
 
             SpriteEffects effect = facingRight ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
-            float weaponScale = 4.0f;
+            float weaponScale = 2.0f;
 
             spriteBatch.Draw(Texture, weaponPosition, null, Color.White, Rotation, originOfWeapon, weaponScale, effect, 0f);
         }
