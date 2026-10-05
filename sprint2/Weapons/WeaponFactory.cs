@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
+using sprint2.Projectiles;
 
 
 namespace sprint2.Weapons;
@@ -30,7 +31,7 @@ public class WeaponFactory
     public void LoadAllTextures(ContentManager content)
     {
         swordAtlas = TextureAtlas.FromFile(content, "Weapons/sword.xml");
-        daggerAtlas = TextureAtlas.FromFile(content, "Weapons/Magic_Dagger.xml");
+        daggerAtlas = TextureAtlas.FromFile(content, "Weapons/Projectiles/Magic_Dagger.xml");
 
     }
 
@@ -39,8 +40,8 @@ public class WeaponFactory
         return new Sword(swordAtlas.Texture);
     }
 
-    public Dagger CreateDagger()
+    public Dagger CreateDagger(ProjectileManager projectileManager)
     {
-        return new Dagger(daggerAtlas.Texture);
+        return new Dagger(daggerAtlas.Texture, projectileManager);
     }
 }

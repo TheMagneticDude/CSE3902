@@ -6,6 +6,7 @@ using sprint2.Hotbar;
 using sprint2.StateMachines;
 using sprint2.Weapons;
 using static sprint2.Constants;
+
 namespace sprint2.Players;
 
 public class Player : IPlayer
@@ -28,6 +29,7 @@ public class Player : IPlayer
     {
         get { return _hotbar.SelectedEntry; }
     }
+
     public Vector2 Location { get; set; }
     public Vector2 Velocity { get; set; }
 
@@ -36,10 +38,9 @@ public class Player : IPlayer
     public PlayerInput Input { get; private set; }
 
     private TextureAtlas _atlas;
-
     private StateMachine<PlayerState> _stateMachine;
 
-    //player physics values
+    // Player physics values.
     private const float _movementSpeed = 5f;
     private const float _jumpStrength = -25f;
 
@@ -50,25 +51,28 @@ public class Player : IPlayer
         get { return _facingRight; }
     }
 
-    //Weapon stuff
+    // Weapon stuff.
     private IWeapon _equippedWeapon;
-
 
     public Player(AnimatedSprite sprite, TextureAtlas atlas, PlayerHotbar hotbar)
     {
         Sprite = sprite;
         _atlas = atlas;
         _hotbar = hotbar;
+
         Location = new Vector2(400, 500);
         Velocity = new Vector2(0, 0);
-        //statemachine init
+
+        // State machine init.
         _stateMachine = new StateMachine<PlayerState>();
         _stateMachine.AddState(PlayerState.Idle, new IdleState(this));
         _stateMachine.AddState(PlayerState.Walk, new WalkState(this));
         _stateMachine.AddState(PlayerState.Jump, new JumpState(this));
         _stateMachine.ChangeState(PlayerState.Idle);
+
         _hotbar.UseSelected(this);
     }
+
     private void HandleHotbarInput()
     {
         if (Input.IsNewPress(KeyAction.UseItem1))
@@ -92,25 +96,27 @@ public class Player : IPlayer
             _hotbar.UseSlot(4, this);
         }
     }
+
     public void Update(GameTime gameTime, PlayerInput input)
     {
         Input = input;
         HandleHotbarInput();
 
-        if(_equippedWeapon != null && Input.IsNewPress(KeyAction.Attack))
+        if (_equippedWeapon != null && Input.IsNewPress(KeyAction.Attack))
         {
             _equippedWeapon.Attack(Location, _facingRight);
         }
+
         if (_equippedWeapon != null)
         {
             _equippedWeapon.Update(gameTime, _facingRight);
         }
 
         _hotbar.Update(gameTime, this);
+
         ApplyPhysics();
 
         _stateMachine.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
-
         Sprite.Update(gameTime);
     }
 
@@ -130,14 +136,23 @@ public class Player : IPlayer
             IsGrounded = false;
         }
     }
+
     void HandleHorizontalMovement()
     {
-        float componentX = (Input.IsPressed(KeyAction.MoveRight) ? 1f : 0f) - (Input.IsPressed(KeyAction.MoveLeft) ? 1f : 0f);
+        float componentX =
+            (Input.IsPressed(KeyAction.MoveRight) ? 1f : 0f) -
+            (Input.IsPressed(KeyAction.MoveLeft) ? 1f : 0f);
 
         Velocity = new Vector2(componentX * _movementSpeed, Velocity.Y);
 
-        if (Velocity.X > 0) _facingRight = true;
-        else if (Velocity.X < 0) _facingRight = false;
+        if (Velocity.X > 0)
+        {
+            _facingRight = true;
+        }
+        else if (Velocity.X < 0)
+        {
+            _facingRight = false;
+        }
     }
 
     public void EquipWeapon(IWeapon weapon)
@@ -152,7 +167,8 @@ public class Player : IPlayer
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        SpriteEffects effect = _facingRight ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+        SpriteEffects effect =
+            _facingRight ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
 
         Sprite.Draw(spriteBatch, Location, effect);
 
@@ -164,27 +180,25 @@ public class Player : IPlayer
         _hotbar.Draw(spriteBatch, this);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     //=====================================state implementations=====================================
 
     private class IdleState : IState
     {
         private Player _player;
-        public IdleState(Player player) { _player = player; }
 
-        public void Enter() { _player.Sprite = _player._atlas.CreateAnimatedSprite("Idle"); }
-        public void Exit() { }
+        public IdleState(Player player)
+        {
+            _player = player;
+        }
+
+        public void Enter()
+        {
+            _player.Sprite = _player._atlas.CreateAnimatedSprite("Idle");
+        }
+
+        public void Exit()
+        {
+        }
 
         public void Update(float deltaTime)
         {
@@ -192,7 +206,7 @@ public class Player : IPlayer
 
             if (!_player.IsGrounded)
             {
-                _player._stateMachine.ChangeState(PlayerState.Jump);//falling
+                _player._stateMachine.ChangeState(PlayerState.Jump);
                 return;
             }
 
@@ -210,10 +224,20 @@ public class Player : IPlayer
     private class WalkState : IState
     {
         private Player _player;
-        public WalkState(Player player) { _player = player; }
 
-        public void Enter() { _player.Sprite = _player._atlas.CreateAnimatedSprite("Walk"); }
-        public void Exit() { }
+        public WalkState(Player player)
+        {
+            _player = player;
+        }
+
+        public void Enter()
+        {
+            _player.Sprite = _player._atlas.CreateAnimatedSprite("Walk");
+        }
+
+        public void Exit()
+        {
+        }
 
         public void Update(float deltaTime)
         {
@@ -236,26 +260,41 @@ public class Player : IPlayer
         }
     }
 
-
     private class JumpState : IState
     {
         private Player _player;
-        public JumpState(Player player) { _player = player; }
 
-        public void Enter() { _player.Sprite = _player._atlas.CreateAnimatedSprite("Jump"); _player.Velocity = new Vector2(_player.Velocity.X, _jumpStrength); _player.IsGrounded = false; }
-        public void Exit() { }
+        public JumpState(Player player)
+        {
+            _player = player;
+        }
+
+        public void Enter()
+        {
+            _player.Sprite = _player._atlas.CreateAnimatedSprite("Jump");
+            _player.Velocity = new Vector2(_player.Velocity.X, _jumpStrength);
+            _player.IsGrounded = false;
+        }
+
+        public void Exit()
+        {
+        }
 
         public void Update(float deltaTime)
         {
-            // allow horizontal control while in the air
+            // Allow horizontal control while in the air.
             _player.HandleHorizontalMovement();
 
             if (_player.IsGrounded)
             {
                 if (_player.Velocity.X != 0)
+                {
                     _player._stateMachine.ChangeState(PlayerState.Walk);
+                }
                 else
+                {
                     _player._stateMachine.ChangeState(PlayerState.Idle);
+                }
             }
         }
     }

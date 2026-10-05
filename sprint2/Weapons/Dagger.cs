@@ -1,103 +1,134 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
+using sprint2.Projectiles;
 
 namespace sprint2.Weapons;
 
-public sealed class Dagger : Weapon
+public class Dagger : Weapon
 {
-    private const float HorizontalSpeed = 5f;
-    private const float DaggerAttackDuration = 20f;
+    private const float SwingStart = -MathHelper.PiOver2;
+    private const float SwingEnd = MathHelper.PiOver2;
 
-    private readonly Vector2 _rightHandOffset = new(20f, 20f);
-    private readonly Vector2 _leftHandOffset = new(-20f, 20f);
+    private readonly Vector2 _rightHandOffset = new Vector2(20f, 20f);
+    private readonly Vector2 _leftHandOffset = new Vector2(10f, 20f);
 
-    public Vector2 Location { get; private set; }
-    public Vector2 Velocity { get; private set; }
+    private readonly ProjectileManager _projectileManager;
 
-    public Dagger(Texture2D texture) : base(texture, DaggerAttackDuration)
+    public Dagger(
+        Texture2D texture,
+        ProjectileManager projectileManager)
+        : base(texture, 0.25f)
     {
-        Location = Vector2.Zero;
-        Velocity = Vector2.Zero;
+        _projectileManager = projectileManager;
     }
 
-    public override void Attack(Vector2 playerLocation, bool facingRight)
+    public override void Attack(
+        Vector2 playerLocation,
+        bool facingRight)
     {
-
-        Vector2 handOffset;
-
-        if (facingRight)
+        if (IsAttacking)
         {
-            handOffset = _rightHandOffset;
-        }
-        else
-        {
-            handOffset = _leftHandOffset;
-        }
-
-        Location = playerLocation + handOffset;
-
-        if (facingRight)
-        {
-            Velocity = new Vector2(HorizontalSpeed, 0f);
-        }
-        else
-        {
-            Velocity = new Vector2(-HorizontalSpeed, 0f);
+            return;
         }
 
         base.Attack(playerLocation, facingRight);
+
+        float direction = facingRight ? 1f : -1f;
+
+        Vector2 spawnLocation =
+            playerLocation + new Vector2(20f * direction, 20f);
+
+        Vector2 velocity =
+            new Vector2(500f * direction, 0f);
+
+        DaggerProjectile projectile =
+            ProjectileFactory.Instance.CreateDagger(
+                spawnLocation,
+                velocity
+            );
+
+        _projectileManager.AddProjectile(projectile);
     }
 
-    public override void Update(GameTime gameTime, bool facingRight)
+    public override void Update(
+        GameTime gameTime,
+        bool facingRight)
     {
-        if (!IsAttacking)
+        if (IsAttacking)
         {
-            return;
-        }
+            float deltaTime =
+                (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-        Location += Velocity;
-        AttackTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            AttackTimer += deltaTime;
 
-        if (AttackTimer >= AttackDuration)
-        {
-            Velocity = Vector2.Zero;
-            FinishAttack();
+            float progress =
+                AttackTimer / AttackDuration;
+
+            progress =
+                MathHelper.Clamp(progress, 0f, 1f);
+
+            if (facingRight)
+            {
+                Rotation =
+                    MathHelper.Lerp(
+                        SwingStart,
+                        SwingEnd,
+                        progress
+                    );
+            }
+            else
+            {
+                Rotation =
+                    MathHelper.Lerp(
+                        -SwingStart,
+                        -SwingEnd,
+                        progress
+                    );
+            }
+
+            if (AttackTimer >= AttackDuration)
+            {
+                FinishAttack();
+            }
         }
     }
 
-    public override void Draw(SpriteBatch spriteBatch, Vector2 playerLocation, bool facingRight)
+    public override void Draw(
+        SpriteBatch spriteBatch,
+        Vector2 playerLocation,
+        bool facingRight)
     {
-        if (!IsAttacking)
-        {
-            return;
-        }
+        // Keep the equipped dagger visible even when it is not attacking.
+        Vector2 handOffset =
+            facingRight
+                ? _rightHandOffset
+                : _leftHandOffset;
 
-        Vector2 origin = new(Texture.Width / 2f, Texture.Height / 2f);
-        SpriteEffects effect;
+        Vector2 weaponPosition =
+            playerLocation + handOffset;
 
-        float rot = 0;
+        Vector2 originOfWeapon =
+            facingRight
+                ? new Vector2(2f, Texture.Height - 2f)
+                : new Vector2(Texture.Width - 2f, Texture.Height - 2f);
 
-        if (Velocity.X >= 0f)
-        {
-            effect = SpriteEffects.None;
-            rot = (float) Math.PI/2f;
-        }
-        else
-        {
-            effect = SpriteEffects.FlipHorizontally;
-            rot = - (float) Math.PI/2f;
-        }
+        SpriteEffects effect =
+            facingRight
+                ? SpriteEffects.None
+                : SpriteEffects.FlipHorizontally;
+
+        float weaponScale = 1.0f;
 
         spriteBatch.Draw(
             Texture,
-            Location,
+            weaponPosition,
             null,
             Color.White,
-            rot,
-            origin,
-            1f,
+            Rotation,
+            originOfWeapon,
+            weaponScale,
             effect,
-            0f);
+            0f
+        );
     }
 }

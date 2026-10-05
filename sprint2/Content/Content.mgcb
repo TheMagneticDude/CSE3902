@@ -1,4 +1,3 @@
-
 #----------------------------- Global Properties ----------------------------#
 
 /outputDir:bin/$(Platform)
@@ -155,7 +154,7 @@
 #begin Player/Player.xml
 /copy:Player/Player.xml
 
-#begin Weapons/Magic_Dagger.png
+#begin Weapons/Projectiles/Magic_Dagger.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -165,10 +164,11 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Weapons/Magic_Dagger.png
+/processorParam:Version=3.8.5.1
+/build:Weapons/Projectiles/Magic_Dagger.png
 
-#begin Weapons/Magic_Dagger.xml
-/copy:Weapons/Magic_Dagger.xml
+#begin Weapons/Projectiles/Magic_Dagger.xml
+/copy:Weapons/Projectiles/Magic_Dagger.xml
 
 #begin Weapons/Sword.png
 /importer:TextureImporter
@@ -184,4 +184,3 @@
 
 #begin Weapons/Sword.xml
 /copy:Weapons/Sword.xml
-
