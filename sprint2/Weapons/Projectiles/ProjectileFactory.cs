@@ -1,4 +1,4 @@
-using System.Numerics;
+using System.Data;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -27,11 +27,11 @@ public class ProjectileFactory
     
     public void LoadAllTextures(ContentManager content)
     {
-        _daggerTexture = TextureAtlas.FromFile(content, "Weapons/Magic_Dagger.xml");
+        _daggerTexture = content.Load<Texture2D>("Weapons/Projectiles/Magic_Dagger");
     }
 
-    public Dagger CreateDagger(Vector2 position, Vector2 velocity)
+    public DaggerProjectile CreateDagger(Vector2 position, Vector2 velocity)
     {
-        return new Dagger(_daggerTexture, position, velocity);
+        return new DaggerProjectile(_daggerTexture, position, velocity);
     }
 }

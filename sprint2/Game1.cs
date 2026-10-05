@@ -7,8 +7,8 @@ using MonoGameLibrary.Input;
 using sprint2.Blocks;
 using sprint2.Bosses;
 using sprint2.Players;
-using sprint2.Projectiles;
 using sprint2.Weapons;
+using sprint2.Projectiles;
 namespace sprint2;
 
 public class Game1 : Core
@@ -25,7 +25,7 @@ public class Game1 : Core
     private PlayerInput _p1Input;
 
 //================Projectiles===========================
-    private List<IProjectile> _projectiles;
+    private ProjectileManager _projectileManager = new ProjectileManager();
 
     public Game1() : base ("game", 1280, 720, false)
     {
@@ -33,10 +33,9 @@ public class Game1 : Core
     }
     protected override void Initialize()
     {
-        base.Initialize();
         _inputManager = new InputManager();
         _p1Input = new PlayerInput();
-        _projectiles = new List<IProjectile>();
+        base.Initialize();
     }
 
     protected override void LoadContent()
@@ -52,14 +51,14 @@ public class Game1 : Core
         
         //will create class that automatically handles creation of players later
         TextureAtlas _playerAtlas = TextureAtlas.FromFile(Content,"Player/Player.xml");
-        _player1 = new Player(_playerAtlas.CreateAnimatedSprite("Idle"), _playerAtlas);
+        _player1 = new Player(_playerAtlas.CreateAnimatedSprite("Idle"), _playerAtlas, _projectileManager);
 
         //Weapon stuff
         WeaponFactory.Instance.LoadAllTextures(Content);
-        _player1.EquipWeapon(WeaponFactory.Instance.CreateSword());
+        _player1.EquipWeapon(WeaponFactory.Instance.CreateDagger(_projectileManager));
 
-        IProjectile dagger = ProjectileFactory.Instance.CreateDagger(_player1.Location, new Vector2(10f, 0f));
-        _projectiles.Add(dagger);
+        //Projectile stuff
+        ProjectileFactory.Instance.LoadAllTextures(Content);
 
     }
 
@@ -75,11 +74,7 @@ public class Game1 : Core
             boss.Update(gameTime);
         }
 
-        foreach (IProjectile projectile in _projectiles)
-        {
-            projectile.Update(gameTime);
-            
-        }
+        _projectileManager.Update(gameTime);
 
         _inputManager.Update(gameTime);
         _p1Input.Update(gameTime, _inputManager);
@@ -104,11 +99,7 @@ public class Game1 : Core
         
         _player1.Draw(SpriteBatch);
 
-        foreach (IProjectile projectile in _projectiles)
-        {
-            projectile.Draw(SpriteBatch);
-            
-        }
+        _projectileManager.Draw(SpriteBatch);
 
         SpriteBatch.End();
 

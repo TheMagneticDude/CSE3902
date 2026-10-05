@@ -89,7 +89,7 @@
 #begin Player/Player.xml
 /copy:Player/Player.xml
 
-#begin Weapons/Magic_Dagger.png
+#begin Weapons/Projectiles/Magic_Dagger.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -100,10 +100,10 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /processorParam:Version=3.8.5.1
-/build:Weapons/Magic_Dagger.png
+/build:Weapons/Projectiles/Magic_Dagger.png
 
-#begin Weapons/Magic_Dagger.xml
-/copy:Weapons/Magic_Dagger.xml
+#begin Weapons/Projectiles/Magic_Dagger.xml
+/copy:Weapons/Projectiles/Magic_Dagger.xml
 
 #begin Weapons/Sword.png
 /importer:TextureImporter

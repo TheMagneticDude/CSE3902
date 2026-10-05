@@ -8,9 +8,9 @@ public interface IProjectile
 {
     bool IsActive {get;}
     Vector2 Position {get;}
-    int Damage {get;}
-    float Knockback {get;}
-    CombatTeam Team {get;}
+    //int Damage {get;}
+    //float Knockback {get;}
+    //CombatTeam Team {get;}
     
     void Update(GameTime gameTime);
     void Draw(SpriteBatch spriteBatch);

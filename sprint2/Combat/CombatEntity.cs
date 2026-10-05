@@ -1,4 +1,4 @@
-using System.Drawing;
+/* using System.Drawing;
 using sprint2.Combat;
 
 public abstract class CombatEntity : ICombatEntity
@@ -32,3 +32,4 @@ public abstract class CombatEntity : ICombatEntity
         }
     }
 }
+ */

@@ -8,9 +8,10 @@ using MonoGameLibrary.Input;
 using sprint2.Combat;
 using sprint2.StateMachines;
 using sprint2.Weapons;
+using sprint2.Projectiles;
 namespace sprint2.Players;
 
-public class Player : CombatEntity, IPlayer
+public class Player : IPlayer
 {
 
     public enum PlayerState
@@ -55,11 +56,16 @@ public class Player : CombatEntity, IPlayer
     //Weapon stuff
     private IWeapon _equippedWeapon;
 
+    //Projectile Stuff
+    private readonly ProjectileManager _projectileManager;
 
-    public Player(AnimatedSprite sprite, TextureAtlas atlas)
+
+    public Player(AnimatedSprite sprite, TextureAtlas atlas, ProjectileManager projectileManager)
     {
         Sprite = sprite;
         _atlas = atlas;
+        _projectileManager = projectileManager ?? throw new ArgumentNullException(nameof(projectileManager));
+
         Location = new Vector2(400, 500);
         Velocity = new Vector2(0, 0);
         _hotbar[0] = PlayerItem.Melee;
@@ -101,7 +107,7 @@ public class Player : CombatEntity, IPlayer
         }
 
         if (Input.IsPressed(KeyAction.UseItem1)){EquipWeapon(WeaponFactory.Instance.CreateSword());}
-        if (Input.IsPressed(KeyAction.UseItem2)){EquipWeapon(WeaponFactory.Instance.CreateDagger());}
+        if (Input.IsPressed(KeyAction.UseItem2)){EquipWeapon(WeaponFactory.Instance.CreateDagger(_projectileManager));}
 
         ApplyPhysics();
         HandleHotbarInput();

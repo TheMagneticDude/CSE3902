@@ -9,7 +9,7 @@ using sprint2.Combat;
 namespace sprint2.Players;
 
 
-public interface IPlayer : ICombatEntity
+public interface IPlayer
 {
     public Vector2 Location { get; set; }
     public Vector2 Velocity {get; set;}    

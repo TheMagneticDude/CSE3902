@@ -21,7 +21,8 @@ public abstract class Projectile : IProjectile
 
     public virtual void Update(GameTime gameTime)
     {
-        Position += Velocity;
+        float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+        Position += Velocity * deltaTime;
     }
 
     public abstract void Draw(SpriteBatch spriteBatch);
