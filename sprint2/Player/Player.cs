@@ -22,6 +22,10 @@ public class Player : IPlayer
     }
 
     private readonly PlayerHotbar _hotbar;
+    public PlayerHotbar Hotbar
+    {
+        get { return _hotbar; }
+    }
 
     public int SelectedHotbarSlot
     {
@@ -45,7 +49,7 @@ public class Player : IPlayer
 
     // Player physics values.
     private const float _movementSpeed = 5f;
-    private const float _jumpStrength = -25f;
+    private const float _jumpStrength = -20f;
 
     private bool _facingRight = true;
 
@@ -75,30 +79,35 @@ public class Player : IPlayer
         _stateMachine.AddState(PlayerState.UseItem, new UseItemState(this));
         _stateMachine.ChangeState(PlayerState.Idle);
 
-        _hotbar.UseSelected(this);
+        _hotbar.SelectSlot(0, this);
     }
 
     private void HandleHotbarInput()
     {
-        if (Input.IsNewPress(KeyAction.UseItem1))
+        if (Input.IsNewPress(KeyAction.SelectSlot1))
         {
-            _hotbar.UseSlot(0, this);
+            _hotbar.SelectSlot(0, this);
         }
-        else if (Input.IsNewPress(KeyAction.UseItem2))
+        else if (Input.IsNewPress(KeyAction.SelectSlot2))
         {
-            _hotbar.UseSlot(1, this);
+            _hotbar.SelectSlot(1, this);
         }
-        else if (Input.IsNewPress(KeyAction.UseItem3))
+        else if (Input.IsNewPress(KeyAction.SelectSlot3))
         {
-            _hotbar.UseSlot(2, this);
+            _hotbar.SelectSlot(2, this);
         }
-        else if (Input.IsNewPress(KeyAction.UseItem4))
+        else if (Input.IsNewPress(KeyAction.SelectSlot4))
         {
-            _hotbar.UseSlot(3, this);
+            _hotbar.SelectSlot(3, this);
         }
-        else if (Input.IsNewPress(KeyAction.UseItem5))
+        else if (Input.IsNewPress(KeyAction.SelectSlot5))
         {
-            _hotbar.UseSlot(4, this);
+            _hotbar.SelectSlot(4, this);
+        }
+
+        if (Input.IsNewPress(KeyAction.UseItem))
+        {
+            _hotbar.UseSelected(this);
         }
     }
 

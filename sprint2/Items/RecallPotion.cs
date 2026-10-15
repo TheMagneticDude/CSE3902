@@ -1,5 +1,4 @@
 using System;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
@@ -9,6 +8,7 @@ namespace sprint2.Items;
 
 public class RecallPotion: IItem
 {
+    private const float DisplayDuration = 0.5f;
     private readonly Vector2 _recallLocation = new Vector2(640,450);
 
     private Vector2 _potPosition;
@@ -27,13 +27,19 @@ public class RecallPotion: IItem
     {
         ArgumentNullException.ThrowIfNull(atlas);
         _sprite = atlas.CreateSprite("recallPotion");
+        _sprite.CenterOrigin();
+       // _sprite.Scale = new Vector2(0.75f, 0.75f);
         IsActive = false;
     }
 
     public void Use(IPlayer player)
     {
         IsActive = true;
-        _timer = 0.5f;
+        _timer = DisplayDuration;
+    }
+
+    public void Select(IPlayer player)
+    {
     }
 
     public void Update(GameTime gameTime, IPlayer player)
@@ -62,14 +68,19 @@ public class RecallPotion: IItem
         {
             if (player.FacingRight)
             {
-                _potPosition = player.Location + new Vector2(17, 8);
+                _potPosition = player.Location + new Vector2(25, 22);
             }
             else
             {
-                _potPosition = player.Location + new Vector2(-15, 8);
+                _potPosition = player.Location + new Vector2(-1, 22);
             }
             _sprite.Draw(spriteBatch, _potPosition);
         }
+    }
+
+    public void DrawIcon(SpriteBatch spriteBatch, Rectangle slot)
+    {       
+        _sprite.Draw(spriteBatch, new Vector2(slot.Center.X, slot.Center.Y));
     }
 }
 

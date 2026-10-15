@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGameLibrary.Graphics;
 using sprint2.Players;
 
 namespace sprint2.Items;
@@ -9,8 +10,10 @@ public class HealthPotion : IItem
 {
     private const float DisplayDuration = 0.5f;
 
-    private readonly Texture2D _texture;
+    private readonly Sprite _sprite;
     private float _timer;
+
+    private Vector2 _potPosition;
 
     public string Name
     {
@@ -18,9 +21,13 @@ public class HealthPotion : IItem
     }
     public bool IsActive { get; private set; }
 
-    public HealthPotion(Texture2D texture)
+   
+    public HealthPotion(TextureAtlas atlas)
     {
-        _texture = texture;
+        ArgumentNullException.ThrowIfNull(atlas);
+        _sprite = atlas.CreateSprite("healthPotion");
+        _sprite.CenterOrigin();
+        //_sprite.Scale = new Vector2(0.85f, 0.85f);
         IsActive = false;
     }
 
@@ -28,6 +35,10 @@ public class HealthPotion : IItem
     {
         IsActive = true;
         _timer = DisplayDuration;
+    }
+
+    public void Select(IPlayer player)
+    {
     }
 
     public void Update(GameTime gameTime, IPlayer player)
@@ -51,19 +62,25 @@ public class HealthPotion : IItem
     {
         ArgumentNullException.ThrowIfNull(spriteBatch);
         ArgumentNullException.ThrowIfNull(player);
-        if (!IsActive)
+        
+        if(!IsActive)
         {
             return;
         }
-
-        float horizontalOffset = 20f;
-
-        if (!player.FacingRight)
+        
+        if (player.FacingRight)
         {
-            horizontalOffset = -20f;
+            _potPosition = player.Location + new Vector2(26, 22);
         }
+        else
+        {
+            _potPosition = player.Location + new Vector2(-2, 22);
+        }
+        _sprite.Draw(spriteBatch, _potPosition);
+    }
 
-        Vector2 position = player.Location + new Vector2(horizontalOffset, 0f);
-        spriteBatch.Draw(_texture, position, Color.White);
+    public void DrawIcon(SpriteBatch spriteBatch, Rectangle slot)
+    {
+        _sprite.Draw(spriteBatch, new Vector2(slot.Center.X, slot.Center.Y));
     }
 }

@@ -13,7 +13,7 @@ namespace sprint2
         
         //Movement vars
         public const float Gravity = 0.98f;//acceleration
-        public const float GroundLevel = 450f;
+        public const float GroundLevel = 456f;
     }
 }    
 
