@@ -183,7 +183,6 @@ public class CapsuleCollider: ICollider
     {
         if (!DEBUG.ShowHitboxes) return;
 
-        // Use the globally accessible texture from Sprint0
         Texture2D pixel = DEBUG.BlankTexture;
 
         DrawRectangle(spriteBatch, pixel, BoundingBox, Color.Red);
