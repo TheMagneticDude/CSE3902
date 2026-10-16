@@ -20,11 +20,21 @@ public class EmptyHotbarEntry : IHotbarEntry
         player.UnequipWeapon();
     }
 
+    public void Select(IPlayer player)
+    {
+        ArgumentNullException.ThrowIfNull(player);
+        player.UnequipWeapon();
+    }
+
     public void Update(GameTime gameTime, IPlayer player)
     {
     }
 
     public void Draw(SpriteBatch spriteBatch, IPlayer player)
+    {
+    }
+
+    public void DrawIcon(SpriteBatch spriteBatch, Rectangle slot)
     {
     }
 }

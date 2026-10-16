@@ -16,6 +16,8 @@ public interface IPlayer
     public Vector2 Velocity {get; set;}    
     bool FacingRight { get; }
     int SelectedHotbarSlot { get; }
+
+    PlayerHotbar Hotbar { get; }
     IHotbarEntry SelectedHotbarItem { get; }
     
     void Update(GameTime gameTime, PlayerInput input);

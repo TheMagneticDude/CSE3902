@@ -19,6 +19,7 @@ public class Block: IBlock
 
     public void Draw(SpriteBatch spriteBatch)
     {
+        TheSprite.Scale = new Vector2(1.24f, 1.24f);
         TheSprite.Draw(spriteBatch, Location);
     }
 

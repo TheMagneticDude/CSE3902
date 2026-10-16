@@ -43,7 +43,7 @@ public class PlayerHotbar
         SelectedEntry.Use(player);
     }
 
-    public void UseSlot(int slot, IPlayer player)
+    public void SelectSlot(int slot, IPlayer player)
     {
         if (slot < 0 || slot >= _slots.Length)
         {
@@ -51,7 +51,7 @@ public class PlayerHotbar
         }
 
         SelectedSlot = slot;
-        SelectedEntry.Use(player);
+        _slots[slot].Select(player);
     }
 
     public void Update(GameTime gameTime, IPlayer player)

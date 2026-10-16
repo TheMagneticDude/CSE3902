@@ -1,3 +1,4 @@
+
 #----------------------------- Global Properties ----------------------------#
 
 /outputDir:bin/$(Platform)
@@ -22,7 +23,6 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/processorParam:Version=3.8.5.1
 /build:Background/Forestbackground.png
 
 #begin Blocks/blocks.png
@@ -35,7 +35,6 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/processorParam:Version=3.8.5.1
 /build:Blocks/blocks.png
 
 #begin Blocks/blocks.xml
@@ -51,7 +50,6 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/processorParam:Version=3.8.5.1
 /build:Bosses/Cthulhu.png
 
 #begin Bosses/Cthulhu.xml
@@ -85,7 +83,6 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/processorParam:Version=3.8.5.1
 /build:Bosses/slimes.png
 
 #begin Items/healthPotion.png
@@ -117,25 +114,23 @@
 
 #begin Items/recallPotion.xml
 /copy:Items/recallPotion.xml
+
 #begin Music/Overworld/Music-Overworld_Day.mp3
 /importer:Mp3Importer
 /processor:SongProcessor
 /processorParam:Quality=Best
-/processorParam:Version=3.8.5.1
 /build:Music/Overworld/Music-Overworld_Day.mp3
 
 #begin Music/Overworld/Music-Overworld_Night.mp3
 /importer:Mp3Importer
 /processor:SongProcessor
 /processorParam:Quality=Best
-/processorParam:Version=3.8.5.1
 /build:Music/Overworld/Music-Overworld_Night.mp3
 
 #begin Music/Overworld/Music-Underground.mp3
 /importer:Mp3Importer
 /processor:SongProcessor
 /processorParam:Quality=Best
-/processorParam:Version=3.8.5.1
 /build:Music/Overworld/Music-Underground.mp3
 
 #begin Player/Player.png
@@ -148,11 +143,19 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/processorParam:Version=3.8.5.1
 /build:Player/Player.png
 
 #begin Player/Player.xml
 /copy:Player/Player.xml
+
+#begin Rooms/BeeRoom.csv
+/copy:Rooms/BeeRoom.csv
+
+#begin Rooms/CthulhuRoom.csv
+/copy:Rooms/CthulhuRoom.csv
+
+#begin Rooms/SlimeRoom.csv
+/copy:Rooms/SlimeRoom.csv
 
 #begin Weapons/Projectiles/Magic_Dagger.png
 /importer:TextureImporter
@@ -164,7 +167,6 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/processorParam:Version=3.8.5.1
 /build:Weapons/Projectiles/Magic_Dagger.png
 
 #begin Weapons/Projectiles/Magic_Dagger.xml
@@ -184,3 +186,4 @@
 
 #begin Weapons/Sword.xml
 /copy:Weapons/Sword.xml
+
