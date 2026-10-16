@@ -46,6 +46,10 @@ public class Game1 : Core
     //================Projectiles===========================
     private readonly ProjectileManager _projectileManager = new ProjectileManager();
 
+
+    //================Debug===========================
+    public static Texture2D blankTexture;
+
     public Game1() : base(AppName, WindowWidth, WindowHeight, false)
     {
     }
@@ -60,6 +64,8 @@ public class Game1 : Core
         // Core.Initialize triggers LoadContent in this project, so all fields
         // needed by LoadContent must be initialized before this call.
         base.Initialize();
+        blankTexture = new Texture2D(GraphicsDevice, 1, 1);
+        DEBUG.LoadContent(GraphicsDevice, blankTexture);
     }
 
     protected override void LoadContent()
@@ -112,6 +118,10 @@ public class Game1 : Core
 
     protected override void Update(GameTime gameTime)
     {
+
+
+
+
         base.Update(gameTime);
 
         _music.Update();

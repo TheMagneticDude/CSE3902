@@ -6,7 +6,9 @@ using MonoGameLibrary.Input;
 using sprint2.Hotbar;
 using sprint2.StateMachines;
 using sprint2.Weapons;
+using sprint2.Collision;
 using static sprint2.Constants;
+
 
 namespace sprint2.Players;
 
@@ -37,8 +39,14 @@ public class Player : IPlayer
         get { return _hotbar.SelectedEntry; }
     }
 
+    
+
     public Vector2 Location { get; set; }
+    //because sprite is drawn from upper left corner hitbox needs to be offset
+    private Vector2 HitboxOffset{get; set;}
     public Vector2 Velocity { get; set; }
+
+    public CapsuleCollider Hitbox {get; set;}
 
     internal AnimatedSprite Sprite { get; private set; }
     public bool IsGrounded { get; private set; }
@@ -80,6 +88,24 @@ public class Player : IPlayer
         _stateMachine.ChangeState(PlayerState.Idle);
 
         _hotbar.SelectSlot(0, this);
+
+        HitboxOffset = new Vector2(Sprite.Width/2f, Sprite.Height/2f);
+
+        Hitbox = new CapsuleCollider(
+        Location + HitboxOffset,
+        Sprite.Width/2f,
+        Sprite.Height * 0.5f
+        );
+    }
+
+    private void HandleToggleDebugInput()
+    {
+        //show hitboxes (same keybind as minecraft lol)
+        if (Input.IsPressed(KeyAction.TriggerDebug) && Input.IsNewPress(KeyAction.ShowHitboxes))
+        {
+            DEBUG.ShowHitboxes = !DEBUG.ShowHitboxes;
+        }
+        
     }
 
     private void HandleHotbarInput()
@@ -113,11 +139,17 @@ public class Player : IPlayer
 
     public void Update(GameTime gameTime, PlayerInput input)
     {
+        
+
+
         ArgumentNullException.ThrowIfNull(gameTime);
         ArgumentNullException.ThrowIfNull(input);
         Input = input;
         // Input.Update(gameTime);
         HandleHotbarInput();
+        HandleToggleDebugInput();
+
+        Hitbox.Update(Location + HitboxOffset);
 
         if (_equippedWeapon != null && Input.IsNewPress(KeyAction.Attack))
         {
@@ -185,6 +217,12 @@ public class Player : IPlayer
 
     public void Draw(SpriteBatch spriteBatch)
     {
+
+        if (DEBUG.ShowHitboxes) {Hitbox.DrawDebug(spriteBatch);}
+
+        // Vector2 origin = new Vector2(Sprite.Width / 2f, Sprite.Height / 2f);
+        // Sprite.Origin = origin;
+
         SpriteEffects effect =
             _facingRight ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
 

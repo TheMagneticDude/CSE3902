@@ -23,7 +23,9 @@ public enum KeyAction
     Exit,
     Reset,
     PreviousRoom,
-    NextRoom
+    NextRoom,
+    TriggerDebug,
+    ShowHitboxes
 }
 
 
@@ -55,7 +57,9 @@ public class PlayerInput
             { KeyAction.Exit,      new MultiBind(new TriggerKey(Keys.Q), new TriggerKey(Keys.Escape)) },
             { KeyAction.Reset,     new MultiBind(new TriggerKey(Keys.R)) },
             { KeyAction.PreviousRoom, new MultiBind(new TriggerKey(Keys.J)) },
-            { KeyAction.NextRoom, new MultiBind(new TriggerKey(Keys.K)) }
+            { KeyAction.NextRoom, new MultiBind(new TriggerKey(Keys.K)) },
+            { KeyAction.TriggerDebug, new MultiBind(new TriggerKey(Keys.F3))},
+            { KeyAction.ShowHitboxes, new MultiBind(new TriggerKey(Keys.B))}
         };
     }
 
