@@ -78,6 +78,18 @@ public class RoomFactory
         {
             sprite = BlockFactory.Instance.CreateBlueBrickBlockSprite();
         }
+        else if (objectName == "Hellstone")
+        {
+            sprite = BlockFactory.Instance.CreateHellstoneBlockSprite();
+        }
+        else if (objectName == "Hellstone-Brick")
+        {
+            sprite = BlockFactory.Instance.CreateHellstoneBrickBlockSprite();
+        }
+        else if (objectName == "Honey")
+        {
+            sprite = BlockFactory.Instance.CreateHoneyBlockSprite();
+        }
         else
         {
             throw new Exception("Unknown block: " + objectName);

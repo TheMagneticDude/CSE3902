@@ -40,6 +40,21 @@
 #begin Blocks/blocks.xml
 /copy:Blocks/blocks.xml
 
+#begin Blocks/SpecialBlocks.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Blocks/SpecialBlocks.png
+
+#begin Blocks/SpecialBlocks.xml
+/copy:Blocks/SpecialBlocks.xml
+
 #begin Bosses/Cthulhu.png
 /importer:TextureImporter
 /processor:TextureProcessor

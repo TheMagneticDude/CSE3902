@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas>
+    <Texture>Blocks/SpecialBlocks</Texture>
+    
+    <Regions>
+        <Region name="Hellstone" x="10" y="10" width="48" height="48" />
+        <Region name="Hellstone-Brick" x="68" y="10" width="48" height="48" />
+        <Region name="Honey" x="126" y="10" width="48" height="48" />
+    </Regions>
+
+    <Animations />
+
+</TextureAtlas>
