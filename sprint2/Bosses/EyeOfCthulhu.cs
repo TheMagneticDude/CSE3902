@@ -4,6 +4,7 @@ using MonoGameLibrary.Graphics;
 using System;
 
 using sprint2.Bosses.States;
+using sprint2.Collision;
 
 namespace sprint2.Bosses;
 
@@ -17,6 +18,8 @@ public class EyeOfCthulhu: IBoss
 
     public Vector2 TargetPos {get;set;}
     public float Rotation { get; set; }
+    public ICollider Hitbox {get; set;}
+    public bool IsGrounded { get; set; }
     private float targetRotation;
 
     private AnimatedSprite _sprite;
@@ -43,6 +46,12 @@ public class EyeOfCthulhu: IBoss
         Velocity = new Vector2(0, 0); 
         Drag = new Vector2(0.2f,0.2f);
         JerkDamping = new Vector2(0.002f,0.002f);
+
+        Hitbox = new RectangularCollider(
+        Position,
+        _sprite.Width/2f,
+        _sprite.Height * 0.5f
+        );
 
         ChangeState(new CthulhuPhase1State(this));
     }
@@ -157,5 +166,6 @@ public class EyeOfCthulhu: IBoss
     {
         SpriteEffects effect = _facingRight ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
         _sprite.Draw(spriteBatch, Position, effect, Rotation);
+        Hitbox.DrawDebug(spriteBatch);
     }
 }

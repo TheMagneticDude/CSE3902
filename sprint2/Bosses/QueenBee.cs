@@ -6,9 +6,9 @@ using sprint2.Bosses.States;
 using static sprint2.Constants;
 //temp
 using MonoGameLibrary.Input;
-
-
+using sprint2.Collision;
 namespace sprint2.Bosses;
+
 
 public class QueenBee: IBoss
 {
@@ -18,6 +18,8 @@ public class QueenBee: IBoss
     public Vector2 JerkDamping {get; set;}//drag force on acceleration
     public Vector2 Drag {get; set;}
     public Vector2 TargetPos {get;set;}
+    public ICollider Hitbox {get; set;}
+    public bool IsGrounded { get; set; }
 
     private AnimatedSprite _sprite;
 
@@ -42,6 +44,12 @@ public class QueenBee: IBoss
         Drag = new Vector2(0.02f,0.02f);//constantly subtract or add from velocity towards 0 (acceleration vector acting against direction of movement)
         JerkDamping = new Vector2(0f,0f);
         ChangeState(new QueenBeeIdleState(this));
+
+        Hitbox = new RectangularCollider(
+        Position,
+        _sprite.Width/2f,
+        _sprite.Height * 0.5f
+        );
     }
 
     public void SetAnimation(string animationName)
@@ -130,5 +138,6 @@ public class QueenBee: IBoss
     {
         SpriteEffects effect = _facingRight ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
         _sprite.Draw(spriteBatch, Position, effect);
+        Hitbox.DrawDebug(spriteBatch);
     }
 }
