@@ -16,4 +16,6 @@ public interface ICollider
     bool Intersects(ICollider other);
     bool Intersects(Rectangle otherRectangle);
     void DrawDebug(SpriteBatch spriteBatch);
+
+    void Update(Vector2 pos);
 }

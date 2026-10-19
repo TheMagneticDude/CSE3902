@@ -5,6 +5,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
+using sprint2.Collision;
 using static sprint2.Constants;
 
 
@@ -33,9 +34,11 @@ public class Slime: IBoss
     public Vector2 Position { get; set; }
     public Vector2 Velocity { get; set; }
     public Vector2 Drag {get; set;}
-    public bool IsGrounded { get; private set; }
+    public bool IsGrounded { get;  set; }
     public Vector2 TargetPos {get;set;}
     public Color Color {get;set;}
+
+    public ICollider Hitbox {get; set;}
 
     private float _jumpStrength = -10f - (float)random.Next(10);
     private bool jumped = false;
@@ -48,24 +51,30 @@ public class Slime: IBoss
     private uint _movementSpeed = 5 + (uint) random.Next(5);
 
     
+
+    
     public Slime(AnimatedSprite sprite, TextureAtlas atlas)
     {
         _sprite = sprite;
         _atlas = atlas;
-        Position = new Vector2(200 - random.Next(10)*10, 100 - random.Next(10)*15); //randomize where they spawn
+        Position = new Vector2(200 - random.Next(10)*10, 100); //randomize where they spawn
         Drag = new Vector2(2f,0f);
         Velocity = new Vector2(0, 0);
         Color = Color.White;
+
+        Hitbox = new CenteredRectangularCollider(Position, _sprite.Width, _sprite.Height);
     }
 
     public Slime(AnimatedSprite sprite, TextureAtlas atlas, Color c)
     {
         _sprite = sprite;
         _atlas = atlas;
-        Position = new Vector2(200, 80);
+        Position = new Vector2(200 - random.Next(10)*10, 80);
         Drag = new Vector2(2f,0f);
         Velocity = new Vector2(0, 0);
         Color = c;
+
+        Hitbox = new CenteredRectangularCollider(Position, _sprite.Width, _sprite.Height);
     }
 
     public void SetColor(Color c)
@@ -86,9 +95,8 @@ public class Slime: IBoss
         Health.Update(gameTime);
         TargetPos = PlayerPos;
         _sprite.Update(gameTime);
-        HandleMovement();
         ApplyPhysics();
-
+        HandleMovement();
         HandleJump(gameTime);
     }
 
@@ -124,18 +132,23 @@ public class Slime: IBoss
 
     private void ApplyPhysics()
     {
+        Hitbox.Update(Position);
         Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity);
-        Position += Velocity;
+        //void floor
+        // if (Position.Y >= GroundLevel)
+        // {
+        //     Position = new Vector2(Position.X, GroundLevel);
+        //     Velocity = new Vector2(Velocity.X, 0f);
+        //     IsGrounded = true;
+        // }
+        // else
+        // {
+        //     IsGrounded = false;
+        // }
 
-        if (Position.Y >= GroundLevel)
+        if (IsGrounded)
         {
-            Position = new Vector2(Position.X, GroundLevel);
             Velocity = new Vector2(Velocity.X, 0f);
-            IsGrounded = true;
-        }
-        else
-        {
-            IsGrounded = false;
         }
     }
     private void HandleHorizontalMovement()
@@ -148,19 +161,16 @@ public class Slime: IBoss
     private void HandleJump(GameTime gameTime)
     {
         _timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-        if (_timer >= 2)
+        if (IsGrounded)
         {
-            Velocity = new Vector2(Velocity.X, _jumpStrength);
-            _timer = 0;
+            if (_timer >= 2f)
+            {
+                HandleHorizontalMovement();
+                Velocity = new Vector2(Velocity.X, _jumpStrength);
+                IsGrounded = false;
+                _timer = 0f;
+            }
         }
-
-        if (!IsGrounded && !jumped)
-        {
-            HandleHorizontalMovement();
-            jumped = true;//only set velocity once
-        }
-
-        if(IsGrounded){jumped = false;} 
         
     }
 
@@ -170,5 +180,6 @@ public class Slime: IBoss
         if (Health.IsDead) return;
         Hitbox.DrawDebug(spriteBatch);
         _sprite.Draw(spriteBatch, Position);
+        Hitbox.DrawDebug(spriteBatch);
     }
 }

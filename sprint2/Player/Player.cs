@@ -57,7 +57,7 @@ public class Player : IPlayer
 
     // Player physics values.
     private const float _movementSpeed = 4f;
-    private const float _jumpStrength = -16;
+    private const float _jumpStrength = -16f;
 
     private bool _facingRight = true;
     private bool _voidFloor = true;

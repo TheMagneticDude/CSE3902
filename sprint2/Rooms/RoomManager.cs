@@ -211,7 +211,52 @@ public class RoomManager
         }
     }
 
-    public void ProcessWorldCollisions()
+    public void ProcessBossWorldCollisions(IBoss boss)
+    {
+        ArgumentNullException.ThrowIfNull(boss);
+
+        //process x collision first
+        Vector2 loc = new Vector2(boss.Position.X, boss.Position.Y);
+        loc.X += boss.Velocity.X; // project one tick into the future
+        boss.Position = loc;
+        boss.Hitbox.Update(boss.Position);
+
+        for (int i = 0; i < WorldMesh.Count; i++)
+        {
+            CollisionSurface surface = WorldMesh[i];
+            if (!surface.VerticalOrientation) continue;
+
+            Rectangle surfaceRect = surface.BoundingBox;
+            if (boss.Hitbox.Intersects(surfaceRect))
+            {
+                ResolveXAxisBossCollision(boss,surface, surfaceRect);
+                boss.Hitbox.Update(boss.Position);
+            }
+        }
+
+
+        boss.IsGrounded = false;
+
+        // process y collision second
+        loc = new Vector2(boss.Position.X, boss.Position.Y);;
+        loc.Y += boss.Velocity.Y; // project one tick into the future
+        boss.Position = loc;
+        boss.Hitbox.Update(boss.Position);
+
+        for (int i = 0; i < WorldMesh.Count; i++)
+        {
+            CollisionSurface surface = WorldMesh[i];
+            if (surface.VerticalOrientation) continue;
+
+            Rectangle surfaceRect = surface.BoundingBox;
+            if (boss.Hitbox.BoundingBox.Intersects(surfaceRect) && boss.Hitbox.Intersects(surfaceRect))
+            {
+                ResolveYAxisBossCollision(boss,surface, surfaceRect);
+                boss.Hitbox.Update(boss.Position);
+            }
+        }
+    }
+    public void ProcessPlayerWorldCollisions()
     {
         //process x collision first
         Vector2 loc = new Vector2(_player.Location.X, _player.Location.Y);
@@ -232,8 +277,10 @@ public class RoomManager
             }
         }
 
+        
+
         // process y collision second
-        loc = _player.Location;
+        loc = new Vector2(_player.Location.X, _player.Location.Y);
         loc.Y += _player.Velocity.Y; // project one tick into the future
         _player.Location = loc;
         _player.Hitbox.Update(_player.Location);
@@ -250,6 +297,49 @@ public class RoomManager
                 _player.Hitbox.Update(_player.Location);
             }
         }
+    }
+
+    private void ResolveXAxisBossCollision(IBoss b, CollisionSurface surface, Rectangle surfaceRect)
+    {
+        Rectangle bounds = b.Hitbox.BoundingBox;
+        Vector2 newLocation = b.Hitbox.Position;
+        float halfWidth = bounds.Width / 2f;
+
+        if (b.Velocity.X > 0)
+        {
+            //moving right, push left
+            newLocation.X = surfaceRect.Left - halfWidth;
+        }
+        else if (b.Velocity.X < 0)
+        {
+            //moving left, push right
+            newLocation.X = surfaceRect.Right + halfWidth;
+        }
+
+        b.Position = newLocation;
+        b.Velocity = new Vector2(0, b.Velocity.Y);
+    }
+
+    private void ResolveYAxisBossCollision(IBoss b, CollisionSurface surface, Rectangle surfaceRect)
+    {
+        Rectangle bounds = b.Hitbox.BoundingBox;
+        Vector2 newLocation = b.Hitbox.Position;
+        float halfHeight = bounds.Height / 2f;
+        
+        if (b.Velocity.Y > 0)
+        {
+            //falling, push poiu
+            newLocation.Y = surfaceRect.Top - halfHeight;
+            b.IsGrounded = true;
+        }
+        else if (b.Velocity.Y < 0)
+        {
+            //moving up, puish down
+            newLocation.Y = surfaceRect.Bottom + halfHeight;
+        }
+
+        b.Position = newLocation;
+        b.Velocity = new Vector2(b.Velocity.X, 0);
     }
 
     private void ResolveXAxisCollision(CollisionSurface surface, Rectangle surfaceRect)
@@ -288,6 +378,10 @@ public class RoomManager
             //moving up, puish down
             newLocation.Y = surfaceRect.Bottom;
         }
+        else
+        {
+            _player.IsGrounded = false;
+        }
 
         _player.Location = newLocation;
         _player.Velocity = new Vector2(_player.Velocity.X, 0);
@@ -312,7 +406,11 @@ public class RoomManager
         
         
 
-        ProcessWorldCollisions();
+        ProcessPlayerWorldCollisions();
+        foreach(IBoss b in _bosses)
+        {
+            ProcessBossWorldCollisions(b);
+        }
 
         if (input.IsNewPress(KeyAction.NextRoom))
         {
