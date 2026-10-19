@@ -36,7 +36,7 @@ public class ItemFactory
 
     public HealthPotion CreateHealthPot()
     {
-        return new HealthPotion(_healthPotAtlas.Texture);
+        return new HealthPotion(_healthPotAtlas);
     }
 
     public RecallPotion CreateRecallPot()

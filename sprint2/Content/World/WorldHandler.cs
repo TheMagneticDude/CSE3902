@@ -3,7 +3,10 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using System.Collections.Generic;
+using sprint2.Blocks;
+
 using static sprint2.Constants;
+using System;
 
 namespace sprint2.World;
 
@@ -13,7 +16,6 @@ public class WorldHandler
     public static WorldHandler Instance { get; private set; }
     public Vector2 ScreenCenter { get; private set; }
     public Vector2 CameraPosition { get; set; }
-    
 
 
     public WorldHandler(int screenWidth, int screenHeight)

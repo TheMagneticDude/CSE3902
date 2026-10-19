@@ -6,7 +6,9 @@ using MonoGameLibrary.Input;
 using sprint2.Hotbar;
 using sprint2.StateMachines;
 using sprint2.Weapons;
+using sprint2.Collision;
 using static sprint2.Constants;
+
 
 namespace sprint2.Players;
 
@@ -22,6 +24,10 @@ public class Player : IPlayer
     }
 
     private readonly PlayerHotbar _hotbar;
+    public PlayerHotbar Hotbar
+    {
+        get { return _hotbar; }
+    }
 
     public int SelectedHotbarSlot
     {
@@ -33,11 +39,15 @@ public class Player : IPlayer
         get { return _hotbar.SelectedEntry; }
     }
 
+    
+
     public Vector2 Location { get; set; }
     public Vector2 Velocity { get; set; }
 
+    public CapsuleCollider Hitbox {get; set;}
+
     internal AnimatedSprite Sprite { get; private set; }
-    public bool IsGrounded { get; private set; }
+    public bool IsGrounded { get; set; }
     public PlayerInput Input { get; private set; }
 
     private TextureAtlas _atlas;
@@ -45,9 +55,10 @@ public class Player : IPlayer
 
     // Player physics values.
     private const float _movementSpeed = 5f;
-    private const float _jumpStrength = -25f;
+    private const float _jumpStrength = -20f;
 
     private bool _facingRight = true;
+    private bool _voidFloor = true;
 
     public bool FacingRight
     {
@@ -75,40 +86,72 @@ public class Player : IPlayer
         _stateMachine.AddState(PlayerState.UseItem, new UseItemState(this));
         _stateMachine.ChangeState(PlayerState.Idle);
 
-        _hotbar.UseSelected(this);
+        _hotbar.SelectSlot(0, this);
+
+        Hitbox = new CapsuleCollider(
+        Location,
+        Sprite.Width/2f,
+        Sprite.Height * 0.5f
+        );
+    }
+
+    private void HandleToggleDebugInput()
+    {
+        //show hitboxes (same keybind as minecraft lol)
+        if (Input.IsPressed(KeyAction.TriggerDebug) && Input.IsNewPress(KeyAction.ShowHitboxes))
+        {
+            DEBUG.ShowHitboxes = !DEBUG.ShowHitboxes;
+        }
+
+        if (Input.IsPressed(KeyAction.TriggerDebug) && Input.IsNewPress(KeyAction.VoidFloor))
+        {
+            _voidFloor = !_voidFloor;
+        }
+        
     }
 
     private void HandleHotbarInput()
     {
-        if (Input.IsNewPress(KeyAction.UseItem1))
+        if (Input.IsNewPress(KeyAction.SelectSlot1))
         {
-            _hotbar.UseSlot(0, this);
+            _hotbar.SelectSlot(0, this);
         }
-        else if (Input.IsNewPress(KeyAction.UseItem2))
+        else if (Input.IsNewPress(KeyAction.SelectSlot2))
         {
-            _hotbar.UseSlot(1, this);
+            _hotbar.SelectSlot(1, this);
         }
-        else if (Input.IsNewPress(KeyAction.UseItem3))
+        else if (Input.IsNewPress(KeyAction.SelectSlot3))
         {
-            _hotbar.UseSlot(2, this);
+            _hotbar.SelectSlot(2, this);
         }
-        else if (Input.IsNewPress(KeyAction.UseItem4))
+        else if (Input.IsNewPress(KeyAction.SelectSlot4))
         {
-            _hotbar.UseSlot(3, this);
+            _hotbar.SelectSlot(3, this);
         }
-        else if (Input.IsNewPress(KeyAction.UseItem5))
+        else if (Input.IsNewPress(KeyAction.SelectSlot5))
         {
-            _hotbar.UseSlot(4, this);
+            _hotbar.SelectSlot(4, this);
+        }
+
+        if (Input.IsNewPress(KeyAction.UseItem))
+        {
+            _hotbar.UseSelected(this);
         }
     }
 
     public void Update(GameTime gameTime, PlayerInput input)
     {
+        
+
+
         ArgumentNullException.ThrowIfNull(gameTime);
         ArgumentNullException.ThrowIfNull(input);
         Input = input;
         // Input.Update(gameTime);
         HandleHotbarInput();
+        HandleToggleDebugInput();
+
+        Hitbox.Update(Location);
 
         if (_equippedWeapon != null && Input.IsNewPress(KeyAction.Attack))
         {
@@ -133,18 +176,22 @@ public class Player : IPlayer
     {
         Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity);
         Location += Velocity;
-
-        if (Location.Y >= GroundLevel)
+        if (_voidFloor)
         {
-            Location = new Vector2(Location.X, GroundLevel);
-            Velocity = new Vector2(Velocity.X, 0f);
-            IsGrounded = true;
+            if (Location.Y >= GroundLevel)
+            {
+                Location = new Vector2(Location.X, GroundLevel);
+                Velocity = new Vector2(Velocity.X, 0f);
+                IsGrounded = true;
+            }
+            else
+            {
+                IsGrounded = false;
+            }
         }
-        else
-        {
-            IsGrounded = false;
-        }
+        
     }
+
 
     private void HandleHorizontalMovement()
     {
@@ -176,6 +223,12 @@ public class Player : IPlayer
 
     public void Draw(SpriteBatch spriteBatch)
     {
+
+        if (DEBUG.ShowHitboxes) {Hitbox.DrawDebug(spriteBatch);}
+
+        // Vector2 origin = new Vector2(Sprite.Width / 2f, Sprite.Height / 2f);
+        // Sprite.Origin = origin;
+
         SpriteEffects effect =
             _facingRight ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
 
