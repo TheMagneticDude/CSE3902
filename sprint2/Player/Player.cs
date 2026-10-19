@@ -428,7 +428,7 @@ public class Player : IPlayer
             // Allow horizontal control
             _player.HandleHorizontalMovement();
             _player.Velocity = new Vector2(_player.Velocity.X * attackSpeedModifier, _player.Velocity.Y);
-            if(!_player._equippedWeapon.IsAttacking)
+            
             {
                 if (_player.Velocity.X != 0)
                 {
