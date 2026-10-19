@@ -1,27 +1,27 @@
-using System.Numerics;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading;
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Vector2 = Microsoft.Xna.Framework.Vector2;
 using sprint2.Weapons;
-using System;
+using sprint2.Collision;
 
 public class Sword : Weapon
 {
+    private const float WeaponScale = 1.3f;
     private const float SwingStart = -MathHelper.PiOver2;
     private const float SwingEnd = MathHelper.PiOver2;
     private readonly Vector2 _rightHandOffset = new Vector2(22f, 30f);
     private readonly Vector2 _leftHandOffset = new Vector2(5f, 30f);
+
     public Sword(Texture2D texture) : base(texture, 0.25f)
     {
-        
+        Hitbox = new RotatedRectangleCollider(
+            Vector2.Zero, texture.Width * WeaponScale * 0.6f, texture.Height * WeaponScale * 0.75f);
     }
 
     public override void Update(GameTime gameTime, bool facingRight)
     {
         ArgumentNullException.ThrowIfNull(gameTime);
-        if(IsAttacking)
+        if (IsAttacking)
         {
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -29,9 +29,9 @@ public class Sword : Weapon
 
             float progress = AttackTimer / AttackDuration;
 
-            progress = MathHelper.Clamp (progress, 0f, 1f);
+            progress = MathHelper.Clamp(progress, 0f, 1f);
 
-            if(facingRight)
+            if (facingRight)
             {
                 Rotation = MathHelper.Lerp(SwingStart, SwingEnd, progress);
             }
@@ -39,7 +39,7 @@ public class Sword : Weapon
             {
                 Rotation = MathHelper.Lerp(-SwingStart, -SwingEnd, progress);
             }
-            if(AttackTimer >= AttackDuration)
+            if (AttackTimer >= AttackDuration)
             {
                 FinishAttack();
             }
@@ -49,25 +49,56 @@ public class Sword : Weapon
     public override void Draw(SpriteBatch spriteBatch, Vector2 playerLocation, bool facingRight)
     {
         ArgumentNullException.ThrowIfNull(spriteBatch);
-        //Don't draw if not attacking
-        if(IsAttacking)
+        if (IsAttacking)
         {
-
-            //All for setting up the draw
             Vector2 handOffset = facingRight ? _rightHandOffset : _leftHandOffset;
             Vector2 weaponPosition = playerLocation + handOffset;
-            
-            // SET ORIGIN TO THE HANDLE
-
-            //Vector2 originOfWeapon = new Vector2(0, Texture.Height);
 
             Vector2 originOfWeapon = facingRight ? new Vector2(2f, Texture.Height - 2f) : new Vector2(Texture.Width - 2f, Texture.Height - 2f);
 
             SpriteEffects effect = facingRight ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
-            float weaponScale = 1.3f;
 
-            spriteBatch.Draw(Texture, weaponPosition, null, Color.White, Rotation, originOfWeapon, weaponScale, effect, 0f);
+            spriteBatch.Draw(Texture, weaponPosition, null, Color.White, Rotation, originOfWeapon, WeaponScale, effect, 0f);
+            Hitbox.DrawDebug(spriteBatch);
         }
     }
-    
+
+    public override void UpdateHitbox(Vector2 playerLocation, bool facingRight)
+    {
+        if (Hitbox is not RotatedRectangleCollider collider)
+        {
+            return;
+        }
+
+        Vector2 handOffset = facingRight ? _rightHandOffset : _leftHandOffset;
+        Vector2 weaponPosition = playerLocation + handOffset;
+
+        Vector2 origin = facingRight
+            ? new Vector2(2f, Texture.Height - 2f)
+            : new Vector2(Texture.Width - 2f, Texture.Height - 2f);
+
+        // The artwork is diagonal: follow the blade from the guard to its tip.
+        Vector2 bladeStart = new Vector2(Texture.Width * 0.25f, Texture.Height * 0.75f);
+        Vector2 bladeEnd = new Vector2(Texture.Width * 0.94f, Texture.Height * 0.06f);
+        if (!facingRight)
+        {
+            bladeStart.X = Texture.Width - bladeStart.X;
+            bladeEnd.X = Texture.Width - bladeEnd.X;
+        }
+        Vector2 bladeCenter = (bladeStart + bladeEnd) / 2f;
+        Vector2 bladeDirection = bladeEnd - bladeStart;
+
+        Vector2 localOffset = (bladeCenter - origin) * WeaponScale;
+        float cos = MathF.Cos(Rotation);
+        float sin = MathF.Sin(Rotation);
+
+        Vector2 rotatedOffset = new Vector2(
+            localOffset.X * cos - localOffset.Y * sin,
+            localOffset.X * sin + localOffset.Y * cos);
+
+        collider.Position = weaponPosition + rotatedOffset;
+        collider.Width = bladeDirection.Length() * WeaponScale;
+        collider.Height = Texture.Width * 0.22f * WeaponScale;
+        collider.Rotation = Rotation + MathF.Atan2(bladeDirection.Y, bladeDirection.X);
+    }
 }

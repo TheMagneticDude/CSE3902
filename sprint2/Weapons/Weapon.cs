@@ -1,10 +1,17 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+using sprint2.Collision;
+
 namespace sprint2.Weapons;
 
 public abstract class Weapon : IWeapon
 {
+    public ICollider Hitbox { get; protected set; }
+
+    public virtual int Damage => 20;
+    public int AttackId { get; private set; }
+
     public Texture2D Texture { get; }
 
     public bool IsAttacking { get; protected set; }
@@ -34,6 +41,7 @@ public abstract class Weapon : IWeapon
             return;
         }
 
+        AttackId++;
         IsAttacking = true;
         AttackTimer = 0f;
     }
@@ -46,6 +54,7 @@ public abstract class Weapon : IWeapon
             return;
         }
 
+        AttackId++;
         IsAttacking = true;
         AttackTimer = 0f;
     }
@@ -64,4 +73,8 @@ public abstract class Weapon : IWeapon
         SpriteBatch spriteBatch,
         Vector2 playerLocation,
         bool facingRight);
+
+    public virtual void UpdateHitbox(Vector2 playerLocation, bool facingRight)
+    {
+    }
 }
