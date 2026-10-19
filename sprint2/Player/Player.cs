@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Input;
 using sprint2.Hotbar;
-using sprint2.Combat;
 using sprint2.StateMachines;
 using sprint2.Weapons;
 using sprint2.Collision;
@@ -69,11 +68,7 @@ public class Player : IPlayer
 
     // Weapon stuff.
     private IWeapon _equippedWeapon;
-    private readonly HealthComponent _health = new HealthComponent(100, slowDuration: 0.75f);
 
-    public int CurrentHealth => _health.CurrentHealth;
-    public int MaxHealth => _health.MaxHealth;
-    public bool IsDead => _health.IsDead;
     public Player(AnimatedSprite sprite, TextureAtlas atlas, PlayerHotbar hotbar)
     {
         Sprite = sprite;
@@ -112,19 +107,7 @@ public class Player : IPlayer
         }
         
     }
-    public void TakeDamage(int damage)
-    {
-        if (_health.TakeDamage(damage))
-        {
-            System.Diagnostics.Debug.WriteLine(
-                $"Health: {CurrentHealth}/{MaxHealth}");
-        }
-    }
 
-    public void Heal(int amount)
-    {
-        _health.Heal(amount);
-    }
     private void HandleHotbarInput()
     {
         if (Input.IsNewPress(KeyAction.SelectSlot1))
@@ -163,24 +146,6 @@ public class Player : IPlayer
         ArgumentNullException.ThrowIfNull(input);
         Input = input;
         // Input.Update(gameTime);
-        _health.Update(gameTime);
-
-        if (Input.IsNewPress(KeyAction.Reset))
-        {
-            _health.Reset();
-        }
-
-        if (Input.IsNewPress(KeyAction.TakeDamage))
-        {
-            TakeDamage(10);
-        }
-
-        // Temporary death behavior to stop movement
-        if (IsDead)
-        {
-            Velocity = Vector2.Zero;
-            return;
-        }
         HandleHotbarInput();
         HandleToggleDebugInput();
 
