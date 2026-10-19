@@ -224,7 +224,7 @@ public class RoomManager
             if (!surface.VerticalOrientation) continue;
 
             Rectangle surfaceRect = surface.BoundingBox;
-            if (_player.Hitbox.Intersects(surfaceRect))
+            if (boss.Hitbox.Intersects(surfaceRect))
             {
                 ResolveXAxisBossCollision(boss,surface, surfaceRect);
                 boss.Hitbox.Update(boss.Position);
@@ -294,17 +294,18 @@ public class RoomManager
     private void ResolveXAxisBossCollision(IBoss b, CollisionSurface surface, Rectangle surfaceRect)
     {
         Rectangle bounds = b.Hitbox.BoundingBox;
-        Vector2 newLocation = b.Position;
+        Vector2 newLocation = b.Hitbox.Position;
+        float halfWidth = bounds.Width / 2f;
 
         if (b.Velocity.X > 0)
         {
             //moving right, push left
-            newLocation.X = surfaceRect.Left - bounds.Width;
+            newLocation.X = surfaceRect.Left - halfWidth;
         }
         else if (b.Velocity.X < 0)
         {
             //moving left, push right
-            newLocation.X = surfaceRect.Right;
+            newLocation.X = surfaceRect.Right + halfWidth;
         }
 
         b.Position = newLocation;
@@ -314,9 +315,10 @@ public class RoomManager
     private void ResolveYAxisBossCollision(IBoss b, CollisionSurface surface, Rectangle surfaceRect)
     {
         Rectangle bounds = b.Hitbox.BoundingBox;
-        Vector2 newLocation = b.Position;
-
-        if (_player.Velocity.Y > 0)
+        Vector2 newLocation = b.Hitbox.Position;
+        float halfHeight = bounds.Height / 2f;
+        
+        if (b.Velocity.Y > 0)
         {
             //falling, push poiu
             newLocation.Y = surfaceRect.Top - bounds.Height;
@@ -325,7 +327,7 @@ public class RoomManager
         else if (b.Velocity.Y < 0)
         {
             //moving up, puish down
-            newLocation.Y = surfaceRect.Bottom;
+            newLocation.Y = surfaceRect.Bottom + halfHeight;
         }
 
         b.Position = newLocation;
@@ -367,6 +369,10 @@ public class RoomManager
         {
             //moving up, puish down
             newLocation.Y = surfaceRect.Bottom;
+        }
+        else
+        {
+            _player.IsGrounded = false;
         }
 
         _player.Location = newLocation;

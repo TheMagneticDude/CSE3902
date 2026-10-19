@@ -173,6 +173,6 @@ Block,Carved-Brick,1176 -4
 Block,Carved-Brick,1200 -4
 Block,Carved-Brick,1224 -4
 Block,Carved-Brick,1248 -4
-Boss,Slime,800 500
-Boss,Slime,1000 500
-Boss,Slime,1200 500
+Boss,Slime,800 100
+Boss,Slime,1000 100
+Boss,Slime,1200 100

@@ -73,10 +73,8 @@ public class Slime: IBoss
 
         TargetPos = PlayerPos;
         _sprite.Update(gameTime);
-        HandleMovement();
         ApplyPhysics();
-        Hitbox.Update(Position);
-
+        HandleMovement();
         HandleJump(gameTime);
     }
 
@@ -112,6 +110,7 @@ public class Slime: IBoss
 
     private void ApplyPhysics()
     {
+        Hitbox.Update(Position);
         Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity);
         Position += Velocity;
 
@@ -126,6 +125,11 @@ public class Slime: IBoss
         // {
         //     IsGrounded = false;
         // }
+
+        if (IsGrounded)
+        {
+            Velocity = new Vector2(Velocity.X, 0f);
+        }
     }
     private void HandleHorizontalMovement()
     {
@@ -149,7 +153,7 @@ public class Slime: IBoss
             jumped = true;//only set velocity once
         }
 
-        if(IsGrounded){jumped = false;} 
+        if(IsGrounded){jumped = false; IsGrounded = false;} 
         
     }
 
