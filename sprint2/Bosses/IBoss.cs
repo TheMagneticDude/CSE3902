@@ -9,7 +9,6 @@ namespace sprint2.Bosses;
 
 public interface IBoss
 {
-    ICollider Hitbox { get; }
     HealthComponent Health { get; }
     int ContactDamage { get; }
     Vector2 Position { get; set; }

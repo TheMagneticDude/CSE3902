@@ -15,21 +15,6 @@ public class EyeOfCthulhu: IBoss
     public HealthComponent Health { get; } = new(1000, 0f, invulnerabilityDuration: 0f);
     public int ContactDamage => 20;
     private readonly RotatedRectangleCollider _hitbox = new(Vector2.Zero, 1f, 1f);
-    public ICollider Hitbox
-    {
-        get
-        {
-            // Position is the sprite origin; rotate the local center with the image.
-            Vector2 offset = new Vector2(_sprite.Width / 2f, _sprite.Height / 2f)
-                - _sprite.Origin * _sprite.Scale;
-            float rotation = Rotation;
-            _hitbox.Position = Position + Vector2.Transform(offset, Matrix.CreateRotationZ(rotation));
-            _hitbox.Width = _sprite.Width;
-            _hitbox.Height = _sprite.Height;
-            _hitbox.Rotation = rotation;
-            return _hitbox;
-        }
-    }
 
     public Vector2 Position { get; set; }
     public Vector2 Velocity {get; set;}

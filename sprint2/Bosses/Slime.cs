@@ -16,20 +16,6 @@ public class Slime: IBoss
     public HealthComponent Health { get; } = new(50, 0f, invulnerabilityDuration: 0f);
     public int ContactDamage => 10;
     private readonly RotatedRectangleCollider _hitbox = new(Vector2.Zero, 1f, 1f);
-    public ICollider Hitbox
-    {
-        get
-        {
-            // Account for the sprite origin when finding its center.
-            Vector2 offset = new Vector2(_sprite.Width / 2f, _sprite.Height / 2f)
-                - _sprite.Origin * _sprite.Scale;
-            _hitbox.Position = Position + offset;
-            _hitbox.Width = _sprite.Width;
-            _hitbox.Height = _sprite.Height;
-            _hitbox.Rotation = 0f;
-            return _hitbox;
-        }
-    }
 
     public Vector2 Position { get; set; }
     public Vector2 Velocity { get; set; }

@@ -1,5 +1,7 @@
 
 using System;
+using System.Data;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary;
@@ -15,6 +17,11 @@ public class RotatedRectangleCollider : ICollider
     public float Width { get; set; }
     public float Height { get; set; }
     public float Rotation { get; set; }
+
+    public void Update(Vector2 pos)
+    {
+        Position = pos;
+    }
 
     public RotatedRectangleCollider(Vector2 position, float width, float height)
     {
