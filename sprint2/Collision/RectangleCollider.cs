@@ -222,19 +222,7 @@ public class RotatedRectangleCollider : ICollider
         {
             Vector2 start = corners[i];
             Vector2 end = corners[(i + 1) % 4];
-            Vector2 diff = end - start;
-
-            spriteBatch.Draw(
-                pixel,
-                start,
-                null,
-                Color.Red,
-                MathF.Atan2(diff.Y, diff.X),
-                Vector2.Zero,
-                new Vector2(diff.Length(), 2f),
-                SpriteEffects.None,
-                0f
-            );
+            DEBUG.DrawLine(spriteBatch, pixel, start, end, Color.Red, thickness: 2);
         }
     }
 }

@@ -155,7 +155,6 @@ public class CollisionSurface: ICollider
     }
     public void DrawDebug(SpriteBatch spriteBatch)
     {
-        ArgumentNullException.ThrowIfNull(spriteBatch);
         if (!DEBUG.ShowHitboxes) return;
 
    

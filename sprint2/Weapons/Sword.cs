@@ -59,6 +59,7 @@ public class Sword : Weapon
             SpriteEffects effect = facingRight ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
 
             spriteBatch.Draw(Texture, weaponPosition, null, Color.White, Rotation, originOfWeapon, WeaponScale, effect, 0f);
+            Hitbox.DrawDebug(spriteBatch);
         }
     }
 

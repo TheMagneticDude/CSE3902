@@ -1,17 +1,13 @@
 using System;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
 using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Input;
-
 using sprint2.Hotbar;
 using sprint2.Combat;
 using sprint2.StateMachines;
 using sprint2.Weapons;
 using sprint2.Collision;
-
 using static sprint2.Constants;
 
 
@@ -44,12 +40,12 @@ public class Player : IPlayer
         get { return _hotbar.SelectedEntry; }
     }
 
-
+    
 
     public Vector2 Location { get; set; }
     public Vector2 Velocity { get; set; }
 
-    public CapsuleCollider Hitbox { get; set; }
+    public CapsuleCollider Hitbox {get; set;}
 
     internal AnimatedSprite Sprite { get; private set; }
     public bool IsGrounded { get; set; }
@@ -100,7 +96,7 @@ public class Player : IPlayer
 
         Hitbox = new CapsuleCollider(
         Location,
-        Sprite.Width / 2f,
+        Sprite.Width/2f,
         Sprite.Height * 0.5f
         );
     }
@@ -117,7 +113,7 @@ public class Player : IPlayer
         {
             _voidFloor = !_voidFloor;
         }
-
+        
     }
     public void TakeDamage(int damage)
     {
@@ -163,7 +159,7 @@ public class Player : IPlayer
 
     public void Update(GameTime gameTime, PlayerInput input)
     {
-
+        
 
 
         ArgumentNullException.ThrowIfNull(gameTime);
@@ -233,7 +229,7 @@ public class Player : IPlayer
                 IsGrounded = false;
             }
         }
-
+        
     }
 
 
@@ -268,7 +264,7 @@ public class Player : IPlayer
     public void Draw(SpriteBatch spriteBatch)
     {
 
-        if (DEBUG.ShowHitboxes) { Hitbox.DrawDebug(spriteBatch); }
+        if (DEBUG.ShowHitboxes) {Hitbox.DrawDebug(spriteBatch);}
 
         // Vector2 origin = new Vector2(Sprite.Width / 2f, Sprite.Height / 2f);
         // Sprite.Origin = origin;
@@ -281,11 +277,6 @@ public class Player : IPlayer
         if (_equippedWeapon != null)
         {
             _equippedWeapon.Draw(spriteBatch, Location, _facingRight);
-
-            if (_equippedWeapon.IsAttacking)
-            {
-                _equippedWeapon.Hitbox?.DrawDebug(spriteBatch);
-            }
         }
 
         _hotbar.Draw(spriteBatch, this);
@@ -401,7 +392,7 @@ public class Player : IPlayer
                 _player._stateMachine.ChangeState(PlayerState.Fall);
                 return;
             }
-            if (_player.IsGrounded)
+            if(_player.IsGrounded)
             {
                 if (_player.Velocity.X != 0)
                 {
@@ -477,7 +468,7 @@ public class Player : IPlayer
             // Allow horizontal control
             _player.HandleHorizontalMovement();
             _player.Velocity = new Vector2(_player.Velocity.X * attackSpeedModifier, _player.Velocity.Y);
-
+            
             {
                 if (_player.Velocity.X != 0)
                 {
