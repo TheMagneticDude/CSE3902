@@ -1,12 +1,14 @@
 
 using MonoGameLibrary.Graphics;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework;
 
 namespace sprint2.Blocks;
 
 public class BlockFactory
 {
     private TextureAtlas blockAtlas;
+    private TextureAtlas specialBlockAtlas;
 
     private static BlockFactory instance = new BlockFactory();
 
@@ -26,6 +28,7 @@ public class BlockFactory
     public void LoadAllTextures(ContentManager content)
     {
         blockAtlas = TextureAtlas.FromFile(content, "Blocks/blocks.xml");
+        specialBlockAtlas = TextureAtlas.FromFile(content, "Blocks/SpecialBlocks.xml");
 
     }
 
@@ -34,29 +37,50 @@ public class BlockFactory
         return blockAtlas.CreateSprite("Carved-Brick");
     }
 
-     public Sprite CreatePearlstoneBlockSprite()
+    public Sprite CreatePearlstoneBlockSprite()
     {
         return blockAtlas.CreateSprite("Pearlstone");
     }
 
-     public Sprite CreateCopperBrickBlockSprite()
+    public Sprite CreateCopperBrickBlockSprite()
     {
         return blockAtlas.CreateSprite("Copper-Brick");
     }
 
-     public Sprite CreateGreenBrickBlockSprite()
+    public Sprite CreateGreenBrickBlockSprite()
     {
         return blockAtlas.CreateSprite("Green-Brick");
     }
 
-     public Sprite CreateRedBrickBlockSprite()
+    public Sprite CreateRedBrickBlockSprite()
     {
         return blockAtlas.CreateSprite("Red-Brick");
     }
 
-     public Sprite CreateBlueBrickBlockSprite()
+    public Sprite CreateBlueBrickBlockSprite()
     {
         return blockAtlas.CreateSprite("Blue-Brick");
+    }
+
+    public Sprite CreateHellstoneBlockSprite()
+    {
+        Sprite sprite = specialBlockAtlas.CreateSprite("Hellstone");
+        sprite.Scale = new Vector2(0.5f, 0.5f);
+        return sprite;
+    }
+
+    public Sprite CreateHellstoneBrickBlockSprite()
+    {
+        Sprite sprite = specialBlockAtlas.CreateSprite("Hellstone-Brick");
+        sprite.Scale = new Vector2(0.5f, 0.5f);
+        return sprite;
+    }
+
+    public Sprite CreateHoneyBlockSprite()
+    {
+        Sprite sprite =  specialBlockAtlas.CreateSprite("Honey");
+        sprite.Scale = new Vector2(0.5f, 0.5f);
+        return sprite;
     }
 
 
