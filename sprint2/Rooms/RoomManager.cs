@@ -231,6 +231,9 @@ public class RoomManager
             }
         }
 
+
+        boss.IsGrounded = false;
+        
         // process y collision second
         loc = boss.Position;
         loc.Y += boss.Velocity.Y; // project one tick into the future
@@ -270,6 +273,8 @@ public class RoomManager
                 _player.Hitbox.Update(_player.Location);
             }
         }
+
+        
 
         // process y collision second
         loc = _player.Location;
@@ -321,7 +326,7 @@ public class RoomManager
         if (b.Velocity.Y > 0)
         {
             //falling, push poiu
-            newLocation.Y = surfaceRect.Top - bounds.Height;
+            newLocation.Y = surfaceRect.Top - halfHeight;
             b.IsGrounded = true;
         }
         else if (b.Velocity.Y < 0)

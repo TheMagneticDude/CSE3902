@@ -80,7 +80,7 @@ public class Slime: IBoss
 
     public void HandleMovement()
     {
-        Position += Velocity;
+        // Position += Velocity; //velocity handled within room collision logic now
         if (IsGrounded){Velocity = CalcDrag(Velocity, Drag);}
         
     }
@@ -112,8 +112,6 @@ public class Slime: IBoss
     {
         Hitbox.Update(Position);
         Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity);
-        Position += Velocity;
-
         //void floor
         // if (Position.Y >= GroundLevel)
         // {
@@ -141,19 +139,16 @@ public class Slime: IBoss
     private void HandleJump(GameTime gameTime)
     {
         _timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-        if (_timer >= 2)
+        if (IsGrounded)
         {
-            Velocity = new Vector2(Velocity.X, _jumpStrength);
-            _timer = 0;
+            if (_timer >= 2f)
+            {
+                HandleHorizontalMovement();
+                Velocity = new Vector2(Velocity.X, _jumpStrength);
+                IsGrounded = false;
+                _timer = 0f;
+            }
         }
-
-        if (!IsGrounded && !jumped)
-        {
-            HandleHorizontalMovement();
-            jumped = true;//only set velocity once
-        }
-
-        if(IsGrounded){jumped = false; IsGrounded = false;} 
         
     }
 
