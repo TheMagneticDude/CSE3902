@@ -56,8 +56,8 @@ public class Player : IPlayer
     public IWeapon EquippedWeapon => _equippedWeapon;
 
     // Player physics values.
-    private const float _movementSpeed = 5f;
-    private const float _jumpStrength = -20f;
+    private const float _movementSpeed = 4f;
+    private const float _jumpStrength = -16;
 
     private bool _facingRight = true;
     private bool _voidFloor = true;
@@ -216,19 +216,19 @@ public class Player : IPlayer
     {
         Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity);
         Location += Velocity;
-        if (_voidFloor)
-        {
-            if (Location.Y >= GroundLevel)
-            {
-                Location = new Vector2(Location.X, GroundLevel);
-                Velocity = new Vector2(Velocity.X, 0f);
-                IsGrounded = true;
-            }
-            else
-            {
-                IsGrounded = false;
-            }
-        }
+        // if (_voidFloor)
+        // {
+        //     if (Location.Y >= GroundLevel)
+        //     {
+        //         Location = new Vector2(Location.X, GroundLevel);
+        //         Velocity = new Vector2(Velocity.X, 0f);
+        //         IsGrounded = true;
+        //     }
+        //     else
+        //     {
+        //         IsGrounded = false;
+        //     }
+        // }
         
     }
 
