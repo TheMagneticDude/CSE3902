@@ -3,12 +3,14 @@ using System.Diagnostics.Contracts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static sprint2.Constants;
-
+using sprint2.Collision;
 
 namespace sprint2.Projectiles;
 
 public abstract class Projectile : IProjectile
 {
+    public ICollider Hitbox { get; protected set; }
+    public virtual int Damage => 15;
     public Texture2D Texture {get;}
     public Vector2 Position {get; protected set;}
     public Vector2 Velocity {get; protected set;}

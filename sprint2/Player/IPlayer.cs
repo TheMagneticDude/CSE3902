@@ -17,6 +17,9 @@ public interface IPlayer
     public Vector2 Velocity {get; set;}
     public CapsuleCollider Hitbox {get; set;}    
       public bool IsGrounded { get; set; }
+    bool IsDead { get; }
+    void TakeDamage(int damage);
+    IWeapon EquippedWeapon { get; }
     bool FacingRight { get; }
     int SelectedHotbarSlot { get; }
 

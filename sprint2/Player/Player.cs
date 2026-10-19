@@ -53,6 +53,7 @@ public class Player : IPlayer
 
     private TextureAtlas _atlas;
     private StateMachine<PlayerState> _stateMachine;
+    public IWeapon EquippedWeapon => _equippedWeapon;
 
     // Player physics values.
     private const float _movementSpeed = 5f;
@@ -203,7 +204,11 @@ public class Player : IPlayer
 
         ApplyPhysics();
 
+        Hitbox.Update(Location);
+
         _stateMachine.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
+        // Movement states can change facing; use the same final pose as Draw.
+        _equippedWeapon?.UpdateHitbox(Location, _facingRight);
         Sprite.Update(gameTime);
     }
 
