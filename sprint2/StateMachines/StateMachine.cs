@@ -31,7 +31,7 @@ public class StateMachine<TState> where TState : Enum
 
     public void Update(float deltaTime)
     {
-        CurrentState?.Update(deltaTime);
+        CurrentState.Update(deltaTime);
     }
 
 }
