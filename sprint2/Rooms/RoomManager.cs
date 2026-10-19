@@ -233,9 +233,9 @@ public class RoomManager
 
 
         boss.IsGrounded = false;
-        
+
         // process y collision second
-        loc = boss.Position;
+        loc = new Vector2(boss.Position.X, boss.Position.Y);;
         loc.Y += boss.Velocity.Y; // project one tick into the future
         boss.Position = loc;
         boss.Hitbox.Update(boss.Position);
@@ -277,7 +277,7 @@ public class RoomManager
         
 
         // process y collision second
-        loc = _player.Location;
+        loc = new Vector2(_player.Location.X, _player.Location.Y);
         loc.Y += _player.Velocity.Y; // project one tick into the future
         _player.Location = loc;
         _player.Hitbox.Update(_player.Location);

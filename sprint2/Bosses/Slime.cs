@@ -80,7 +80,7 @@ public class Slime: IBoss
 
     public void HandleMovement()
     {
-        // Position += Velocity; //velocity handled within room collision logic now
+        Position += Velocity;
         if (IsGrounded){Velocity = CalcDrag(Velocity, Drag);}
         
     }

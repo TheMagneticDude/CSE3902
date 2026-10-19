@@ -55,8 +55,8 @@ public class Player : IPlayer
     private StateMachine<PlayerState> _stateMachine;
 
     // Player physics values.
-    private const float _movementSpeed = 5f;
-    private const float _jumpStrength = -20f;
+    private const float _movementSpeed = 4f;
+    private const float _jumpStrength = -16f;
 
     private bool _facingRight = true;
     private bool _voidFloor = true;
