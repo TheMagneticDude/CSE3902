@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Data;
 
 using Microsoft.Xna.Framework;
@@ -19,13 +20,12 @@ public class CapsuleCollider: ICollider
 
     
 
-    public Circle TopCircle
+  public Circle TopCircle
     {
         get
         {
-            Point center = new Point((int) Position.X, (int) ( Position.Y - (Height / 2) ) );
-
-            return new Circle(center, (int) Radius);
+            Point center = new Point((int)(Position.X + Radius), (int)(Position.Y + Radius));
+            return new Circle(center, (int)Radius);
         }
     }
 
@@ -36,10 +36,7 @@ public class CapsuleCollider: ICollider
             int width = (int)(Radius * 2);
             int height = (int)Height;
             
-            int topLeftX = (int)(Position.X - Radius);
-            int topLeftY = (int)(Position.Y - (Height / 2));
-
-            return new Rectangle(topLeftX, topLeftY, width, height);
+            return new Rectangle((int)Position.X, (int)(Position.Y + Radius), width, height);
         }
     }
     
@@ -49,9 +46,8 @@ public class CapsuleCollider: ICollider
     {
         get
         {
-            Point center = new Point((int) Position.X, (int) ( Position.Y + (Height / 2) ) );
-
-            return new Circle(center, (int) Radius);
+            Point center = new Point((int)(Position.X + Radius), (int)(Position.Y + Radius + Height));
+            return new Circle(center, (int)Radius);
         }
     }
     public Rectangle BoundingBox 
@@ -61,10 +57,7 @@ public class CapsuleCollider: ICollider
             int totalWidth = (int)(Radius * 2);
             int totalHeight = (int)(Height + (Radius * 2));
             
-            int topLeftX = (int)(Position.X - Radius);
-            int topLeftY = (int)(Position.Y - (Height / 2) - Radius);
-
-            return new Rectangle(topLeftX, topLeftY, totalWidth, totalHeight);
+            return new Rectangle((int)Position.X, (int)Position.Y, totalWidth, totalHeight);
         }
     }
 
@@ -90,6 +83,36 @@ public class CapsuleCollider: ICollider
         if(other == null || !this.BoundingBox.Intersects(other.BoundingBox)){return false;}
 
         return other.Intersects(this.BoundingBox);
+    }
+
+    public List<CollisionSurface> ScanIntersectingSurfaces(List<CollisionSurface> worldMesh)
+    {
+        ArgumentNullException.ThrowIfNull(worldMesh);
+        
+        List<CollisionSurface> hitSurfaces = new List<CollisionSurface>();
+        
+
+        // grab the outer bounding box once per scan
+        Rectangle playerBroadBox = this.BoundingBox;
+
+        for (int i = 0; i < worldMesh.Count; i++)
+        {
+            Rectangle surfaceRect = worldMesh[i].BoundingBox;
+
+            if (!playerBroadBox.Intersects(surfaceRect))
+            {
+                continue;
+            }
+
+            //check if its close enough to trigger outer bounding box
+            //then check capsule bounds
+            if (this.Intersects(surfaceRect))
+            {
+                hitSurfaces.Add(worldMesh[i]);
+            }
+        }
+
+        return hitSurfaces;
     }
     
 

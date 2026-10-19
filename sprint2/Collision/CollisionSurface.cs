@@ -26,19 +26,17 @@ public class CollisionSurface: ICollider
             int topLeftX, topLeftY, totalWidth, totalHeight;
             if (VerticalOrientation)
             {
-                topLeftX = (int) Position.X;
-                totalWidth = 0;
-
-                topLeftY = (int) ((Position.Y - Width) / 2f);
-                totalHeight = (int) Width;
+                topLeftX = (int)Position.X;
+                topLeftY = (int)Position.Y;
+                totalWidth = (int) BlockSize;
+                totalHeight = (int)Width;
             }
             else
             {
-                topLeftX = (int) ((Position.X - Width) / 2f);
-                totalWidth = (int) Width;
-
-                topLeftY = (int) Position.Y;
-                totalHeight = 0;
+                topLeftX = (int)Position.X;
+            topLeftY = (int)Position.Y;
+            totalWidth = (int)Width;
+            totalHeight = (int) BlockSize;
             }
 
             return new Rectangle(topLeftX, topLeftY, totalWidth, totalHeight);

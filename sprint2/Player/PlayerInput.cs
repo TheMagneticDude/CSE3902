@@ -25,7 +25,8 @@ public enum KeyAction
     PreviousRoom,
     NextRoom,
     TriggerDebug,
-    ShowHitboxes
+    ShowHitboxes,
+    VoidFloor
 }
 
 
@@ -59,7 +60,8 @@ public class PlayerInput
             { KeyAction.PreviousRoom, new MultiBind(new TriggerKey(Keys.J)) },
             { KeyAction.NextRoom, new MultiBind(new TriggerKey(Keys.K)) },
             { KeyAction.TriggerDebug, new MultiBind(new TriggerKey(Keys.F3))},
-            { KeyAction.ShowHitboxes, new MultiBind(new TriggerKey(Keys.B))}
+            { KeyAction.ShowHitboxes, new MultiBind(new TriggerKey(Keys.B))},
+            { KeyAction.VoidFloor, new MultiBind(new TriggerKey(Keys.G))}
         };
     }
 

@@ -130,6 +130,7 @@ public class Game1 : Core
         _inputManager.Update(gameTime);
         _p1Input.Update(gameTime);
         _roomManager.Update(_p1Input);
+        
 
         for (int i = 0; i < _blocks.Count; i++)
         {
@@ -164,6 +165,7 @@ public class Game1 : Core
 
         _player1.Draw(SpriteBatch);
         _projectileManager.Draw(SpriteBatch);
+        _roomManager.Draw(SpriteBatch);
 
         SpriteBatch.End();
 

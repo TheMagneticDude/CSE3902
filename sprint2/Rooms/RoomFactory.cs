@@ -31,6 +31,24 @@ public class RoomFactory
             objects.Add(data);
         }
 
+        
+        //sort list to force heirarchy
+        //amke comparator
+        objects.Sort((a,b) =>
+        {
+            Vector2 locA = GetLocation(a.Location);
+            Vector2 locB = GetLocation(b.Location);
+
+            int compareX = locA.X.CompareTo(locB.X);
+
+            if (compareX != 0)
+            {
+                return compareX;
+            }//x heirarchy in increasing order first then y
+
+            return locA.Y.CompareTo(locB.Y);
+        });
+
         return objects;
     }
     public object CreateObject(RoomObjectData data)

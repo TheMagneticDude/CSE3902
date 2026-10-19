@@ -42,14 +42,12 @@ public class Player : IPlayer
     
 
     public Vector2 Location { get; set; }
-    //because sprite is drawn from upper left corner hitbox needs to be offset
-    private Vector2 HitboxOffset{get; set;}
     public Vector2 Velocity { get; set; }
 
     public CapsuleCollider Hitbox {get; set;}
 
     internal AnimatedSprite Sprite { get; private set; }
-    public bool IsGrounded { get; private set; }
+    public bool IsGrounded { get; set; }
     public PlayerInput Input { get; private set; }
 
     private TextureAtlas _atlas;
@@ -60,6 +58,7 @@ public class Player : IPlayer
     private const float _jumpStrength = -20f;
 
     private bool _facingRight = true;
+    private bool _voidFloor = true;
 
     public bool FacingRight
     {
@@ -89,10 +88,8 @@ public class Player : IPlayer
 
         _hotbar.SelectSlot(0, this);
 
-        HitboxOffset = new Vector2(Sprite.Width/2f, Sprite.Height/2f);
-
         Hitbox = new CapsuleCollider(
-        Location + HitboxOffset,
+        Location,
         Sprite.Width/2f,
         Sprite.Height * 0.5f
         );
@@ -104,6 +101,11 @@ public class Player : IPlayer
         if (Input.IsPressed(KeyAction.TriggerDebug) && Input.IsNewPress(KeyAction.ShowHitboxes))
         {
             DEBUG.ShowHitboxes = !DEBUG.ShowHitboxes;
+        }
+
+        if (Input.IsPressed(KeyAction.TriggerDebug) && Input.IsNewPress(KeyAction.VoidFloor))
+        {
+            _voidFloor = !_voidFloor;
         }
         
     }
@@ -149,7 +151,7 @@ public class Player : IPlayer
         HandleHotbarInput();
         HandleToggleDebugInput();
 
-        Hitbox.Update(Location + HitboxOffset);
+        Hitbox.Update(Location);
 
         if (_equippedWeapon != null && Input.IsNewPress(KeyAction.Attack))
         {
@@ -174,18 +176,22 @@ public class Player : IPlayer
     {
         Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity);
         Location += Velocity;
-
-        if (Location.Y >= GroundLevel)
+        if (_voidFloor)
         {
-            Location = new Vector2(Location.X, GroundLevel);
-            Velocity = new Vector2(Velocity.X, 0f);
-            IsGrounded = true;
+            if (Location.Y >= GroundLevel)
+            {
+                Location = new Vector2(Location.X, GroundLevel);
+                Velocity = new Vector2(Velocity.X, 0f);
+                IsGrounded = true;
+            }
+            else
+            {
+                IsGrounded = false;
+            }
         }
-        else
-        {
-            IsGrounded = false;
-        }
+        
     }
+
 
     private void HandleHorizontalMovement()
     {

@@ -9,7 +9,7 @@ namespace sprint2.Items;
 public class RecallPotion: IItem
 {
     private const float DisplayDuration = 0.5f;
-    private readonly Vector2 _recallLocation = new Vector2(640,450);
+    private readonly Vector2 _recallLocation = new Vector2(640,200);
 
     private Vector2 _potPosition;
 
