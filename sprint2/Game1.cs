@@ -6,6 +6,7 @@ using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Input;
 using sprint2.Blocks;
+using sprint2.Combat;
 using sprint2.Bosses;
 using sprint2.Hotbar;
 using sprint2.Items;
@@ -39,6 +40,7 @@ public class Game1 : Core
     private Rectangle _screenRectangle;
 
     private HotbarUI _hotbarUI;
+    private CombatManager _combatManager;
 
     private RoomManager _roomManager;
     private List<IBlock> _blocks;   
@@ -113,6 +115,8 @@ public class Game1 : Core
 
         _hotbarUI = new HotbarUI();
 
+        _combatManager = new CombatManager(_projectileManager);
+        _roomManager.RoomLoaded += _combatManager.Clear;
         _roomManager.LoadCurrentRoom();
     }
 
@@ -141,7 +145,7 @@ public class Game1 : Core
 
         // Player may spawn projectiles during this update.
         _player1.Update(gameTime, _p1Input);
-        _projectileManager.Update(gameTime);
+        _combatManager.Update(gameTime, _player1, _bosses, _roomManager.WorldMesh);
 
         _worldHandler.Update(_player1.Location);
     }

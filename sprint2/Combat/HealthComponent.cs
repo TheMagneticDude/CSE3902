@@ -5,6 +5,7 @@ namespace sprint2.Combat;
 public class HealthComponent
 {
     private readonly float _slowDuration;
+    private readonly float _invulnerabilityDuration;
     private float _slowTimer;
     private float _invulnerabilityTimer;
     public int CurrentHealth { get; private set; }
@@ -13,7 +14,7 @@ public class HealthComponent
     public bool Slow { get; set; }
     public bool IsInvulnerable { get; set; } = false;
 
-    public HealthComponent(int maxHealth, float slowDuration)
+    public HealthComponent(int maxHealth, float slowDuration, float invulnerabilityDuration = 0.75f)
     {
         if (maxHealth <= 0)
         {
@@ -23,6 +24,11 @@ public class HealthComponent
         {
             throw new ArgumentException("Slow duration must be a non-negative value.");
         }
+        if (invulnerabilityDuration < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(invulnerabilityDuration));
+        }
+        _invulnerabilityDuration = invulnerabilityDuration;
         MaxHealth = maxHealth;
         CurrentHealth = maxHealth;
         IsDead = false;
@@ -43,8 +49,8 @@ public class HealthComponent
             CurrentHealth = 0;
             IsDead = true;
         }
-        IsInvulnerable = true;
-        _invulnerabilityTimer = 0.75f;
+        IsInvulnerable = _invulnerabilityDuration > 0f;
+        _invulnerabilityTimer = _invulnerabilityDuration;
         return true;
     }
 

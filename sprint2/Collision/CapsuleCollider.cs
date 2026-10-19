@@ -82,6 +82,10 @@ public class CapsuleCollider: ICollider
     {
         if(other == null || !this.BoundingBox.Intersects(other.BoundingBox)){return false;}
 
+        if (other is RotatedRectangleCollider rotated)
+        {
+            return rotated.Intersects(this);
+        }
         return other.Intersects(this.BoundingBox);
     }
 

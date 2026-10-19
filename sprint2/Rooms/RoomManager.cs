@@ -155,8 +155,11 @@ public class RoomManager
 
     }
 
+    public event Action RoomLoaded;
+
     public void LoadCurrentRoom()
     {
+        RoomLoaded?.Invoke();
         _blocks.Clear();
         _bosses.Clear();
 

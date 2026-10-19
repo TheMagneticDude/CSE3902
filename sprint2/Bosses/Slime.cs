@@ -1,3 +1,5 @@
+using sprint2.Collision;
+using sprint2.Combat;
 using System.Reflection.Metadata;
 using System;
 using Microsoft.Xna.Framework;
@@ -10,6 +12,24 @@ namespace sprint2.Bosses;
 
 public class Slime: IBoss
 {
+    public HealthComponent Health { get; } = new(50, 0f, invulnerabilityDuration: 0f);
+    public int ContactDamage => 10;
+    private readonly RotatedRectangleCollider _hitbox = new(Vector2.Zero, 1f, 1f);
+    public ICollider Hitbox
+    {
+        get
+        {
+            // Account for the sprite origin when finding its center.
+            Vector2 offset = new Vector2(_sprite.Width / 2f, _sprite.Height / 2f)
+                - _sprite.Origin * _sprite.Scale;
+            _hitbox.Position = Position + offset;
+            _hitbox.Width = _sprite.Width;
+            _hitbox.Height = _sprite.Height;
+            _hitbox.Rotation = 0f;
+            return _hitbox;
+        }
+    }
+
     public Vector2 Position { get; set; }
     public Vector2 Velocity { get; set; }
     public Vector2 Drag {get; set;}
@@ -62,6 +82,8 @@ public class Slime: IBoss
     {
         ArgumentNullException.ThrowIfNull(gameTime);
 
+        if (Health.IsDead) return;
+        Health.Update(gameTime);
         TargetPos = PlayerPos;
         _sprite.Update(gameTime);
         HandleMovement();
@@ -145,6 +167,8 @@ public class Slime: IBoss
     public void Draw(SpriteBatch spriteBatch)
     {
         _sprite.Color = Color;
+        if (Health.IsDead) return;
+        Hitbox.DrawDebug(spriteBatch);
         _sprite.Draw(spriteBatch, Position);
     }
 }

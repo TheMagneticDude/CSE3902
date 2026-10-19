@@ -10,6 +10,10 @@ public class ProjectileManager
 {
     private readonly List<IProjectile> _projectiles = new();
 
+    public IReadOnlyList<IProjectile> Projectiles => _projectiles;
+
+    public void RemoveInactive() => _projectiles.RemoveAll(projectile => !projectile.IsActive);
+
     public ProjectileManager()
     {
         _projectiles = new List<IProjectile>(); 
