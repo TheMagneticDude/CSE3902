@@ -191,6 +191,12 @@ public class RoomManager
         _player.Location = new Vector2(200, 500);
     }
 
+    public void ResetRoom()
+    {
+        _currRoom = 0;
+        LoadCurrentRoom();
+    }
+
     public void NextRoom()
     {
         if (_currRoom < _roomFiles.Length - 1)
@@ -422,6 +428,19 @@ public class RoomManager
     public void Update(PlayerInput input, GameTime gameTime)
     {
         ArgumentNullException.ThrowIfNull(input);
+
+        if (input.IsNewPress(KeyAction.Reset))
+        {
+            ResetRoom();
+        }
+        else if (input.IsNewPress(KeyAction.NextRoom))
+        {
+                NextRoom();
+        }
+        else if (input.IsNewPress(KeyAction.PreviousRoom))
+        {
+            PreviosRoom();
+        }
         
         UpdateBlocks(gameTime);
 
@@ -429,15 +448,6 @@ public class RoomManager
         foreach(IBoss b in _bossManager.Bosses)
         {
             ProcessBossWorldCollisions(b);
-        }
-
-        if (input.IsNewPress(KeyAction.NextRoom))
-        {
-        NextRoom();
-        }
-        else if (input.IsNewPress(KeyAction.PreviousRoom))
-        {
-            PreviosRoom();
         }
     }
 }
