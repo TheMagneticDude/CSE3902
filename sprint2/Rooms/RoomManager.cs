@@ -34,10 +34,10 @@ public class RoomManager
 
     private int _currRoom;
 
-    public RoomManager(RoomFactory roomFactory, List<IBlock> blocks, BossManager bossManager, IPlayer player)
+    public RoomManager(RoomFactory roomFactory, BossManager bossManager, IPlayer player)
     {
         _roomFactory = roomFactory;
-        _blocks = blocks;
+        _blocks = new List<IBlock>();
         _bossManager = bossManager;
         _player = player;
         _currRoom = 0;
@@ -393,16 +393,37 @@ public class RoomManager
         }
     }
 
-    public void Draw(SpriteBatch spriteBatch)
+    public void DrawBlocks(SpriteBatch spriteBatch)
     {
-        if (DEBUG.ShowHitboxes) {DEBUGHitbox(spriteBatch);}
+        for (int i = 0; i < _blocks.Count; i++)
+        {
+            _blocks[i].Draw(spriteBatch);
+        }
     }
 
-    public void Update(PlayerInput input)
+    public void Draw(SpriteBatch spriteBatch)
+    {
+        DrawBlocks(spriteBatch);
+
+        if (DEBUG.ShowHitboxes)
+        {
+            DEBUGHitbox(spriteBatch);
+        }
+    }
+
+    public void UpdateBlocks(GameTime gameTime)
+    {
+        for (int i = 0; i < _blocks.Count; i++)
+        {
+        _blocks[i].Update(gameTime);
+        }
+    }
+
+    public void Update(PlayerInput input, GameTime gameTime)
     {
         ArgumentNullException.ThrowIfNull(input);
         
-        
+        UpdateBlocks(gameTime);
 
         ProcessPlayerWorldCollisions();
         foreach(IBoss b in _bossManager.Bosses)
