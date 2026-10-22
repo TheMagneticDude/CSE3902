@@ -19,7 +19,7 @@ public class RoomManager
 {
     private readonly RoomFactory _roomFactory;
     private readonly List<IBlock> _blocks;
-    private readonly List<IBoss> _bosses;
+    private readonly BossManager _bossManager;
     private readonly IPlayer _player;
 
     public List<CollisionSurface> WorldMesh {get; set;} //contains all merged collision surfaces (this is to prevent internal collisions behaving weirdly)
@@ -34,11 +34,11 @@ public class RoomManager
 
     private int _currRoom;
 
-    public RoomManager(RoomFactory roomFactory, List<IBlock> blocks, List<IBoss> bosses, IPlayer player)
+    public RoomManager(RoomFactory roomFactory, List<IBlock> blocks, BossManager bossManager, IPlayer player)
     {
         _roomFactory = roomFactory;
         _blocks = blocks;
-        _bosses = bosses;
+        _bossManager = bossManager;
         _player = player;
         _currRoom = 0;
         WorldMesh = new List<CollisionSurface>();
@@ -161,7 +161,7 @@ public class RoomManager
     {
         RoomLoaded?.Invoke();
         _blocks.Clear();
-        _bosses.Clear();
+        _bossManager.Clear();
 
         string roomFile = Path.Combine(
             AppContext.BaseDirectory,
@@ -182,15 +182,13 @@ public class RoomManager
             }
             else if (gameObject is IBoss boss)
             {
-                _bosses.Add(boss);
+                _bossManager.Add(boss);
             }
         }
 
         LoadMesh(_blocks);//load collision mesh
 
         _player.Location = new Vector2(200, 500);
-
-        BossFactory.Instance.SetList(_bosses);
     }
 
     public void NextRoom()
@@ -407,7 +405,7 @@ public class RoomManager
         
 
         ProcessPlayerWorldCollisions();
-        foreach(IBoss b in _bosses)
+        foreach(IBoss b in _bossManager.Bosses)
         {
             ProcessBossWorldCollisions(b);
         }

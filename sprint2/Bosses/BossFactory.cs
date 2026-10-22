@@ -18,7 +18,7 @@ public class BossFactory
     
     public List<IBoss> ActiveBosses { get; private set; }
 
-     public static BossFactory Instance
+    public static BossFactory Instance
     {
         get
         {
@@ -28,33 +28,7 @@ public class BossFactory
 
     private BossFactory()
     {
-        ActiveBosses = new List<IBoss>();
-    }
-
-    public void SetList(List<IBoss> list)
-    {
-        ActiveBosses = list;
-    }
-
-    public void Add(IBoss b)
-    {
-        ActiveBosses.Add(b);
-    }
-
-    public void UpdateAll(GameTime gameTime, Vector2 playerPos)
-    {
-        for (int i = ActiveBosses.Count - 1; i >= 0; i--)
-        {
-            ActiveBosses[i].Update(gameTime, playerPos);
-        }
-    }
-
-    public void DrawAll(SpriteBatch spriteBatch)
-    {
-        foreach (var boss in ActiveBosses)
-        {
-            boss.Draw(spriteBatch);
-        }
+        
     }
 
     public void LoadAllTextures(ContentManager content)

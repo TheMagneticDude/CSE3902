@@ -23,7 +23,7 @@ namespace sprint2;
 public class Game1 : Core
 {
     //================Boss init===========================
-    private List<IBoss> _bosses;
+    private BossManager _bossManager;
 
     //================Player init===========================
     private InputManager _inputManager;
@@ -76,7 +76,8 @@ public class Game1 : Core
         BossFactory.Instance.LoadAllTextures(Content);
 
         _blocks = new List<IBlock>();
-        _bosses = new List<IBoss>();
+        //_bosses = new List<IBoss>();
+        _bossManager = new BossManager();
 
         ItemFactory.Instance.LoadAllTextures(Content);
         ProjectileFactory.Instance.LoadAllTextures(Content);
@@ -99,7 +100,7 @@ public class Game1 : Core
         _player1 = new Player(playerAtlas.CreateAnimatedSprite("Idle"), playerAtlas, hotbar);
 
         RoomFactory roomFactory = new RoomFactory();
-        _roomManager = new RoomManager(roomFactory,_blocks,_bosses,_player1);
+        _roomManager = new RoomManager(roomFactory,_blocks,_bossManager,_player1);
 
         _playList =
         [
@@ -141,11 +142,11 @@ public class Game1 : Core
             _blocks[i].Update(gameTime);
         }
 
-        BossFactory.Instance.UpdateAll(gameTime, _player1.Location);
+        _bossManager.UpdateAll(gameTime, _player1.Location);
 
         // Player may spawn projectiles during this update.
         _player1.Update(gameTime, _p1Input);
-        _combatManager.Update(gameTime, _player1, _bosses, _roomManager.WorldMesh);
+        _combatManager.Update(gameTime, _player1,_bossManager.Bosses, _roomManager.WorldMesh);
 
         _worldHandler.Update(_player1.Location);
     }
@@ -165,7 +166,7 @@ public class Game1 : Core
         {
             _blocks[i].Draw(SpriteBatch);
         }
-        BossFactory.Instance.DrawAll(SpriteBatch);
+        _bossManager.DrawAll(SpriteBatch);
 
         _player1.Draw(SpriteBatch);
         _projectileManager.Draw(SpriteBatch);
