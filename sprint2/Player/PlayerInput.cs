@@ -35,7 +35,6 @@ public class PlayerInput
     public Dictionary<KeyAction, MultiBind> KeyBinds { get; private set; }
     InputManager Inputs {get;set;}
 
-
     public float DAS_delay = 0.3f;
 
     public PlayerInput(InputManager Input)
