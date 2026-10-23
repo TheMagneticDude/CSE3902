@@ -51,7 +51,6 @@ public class BossFactory
     {
         AnimatedSprite sprite = _cthulhuAtlas.CreateAnimatedSprite("cthulhu-phase-1");
 
-       // sprite.Origin = new Vector2(sprite.Width/2f, sprite.Height);
         sprite.CenterOrigin();
 
         sprite.Rotation = 1.5708f;
