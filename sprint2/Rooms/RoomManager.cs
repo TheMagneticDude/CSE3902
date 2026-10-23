@@ -190,6 +190,7 @@ public class RoomManager
 
         _player.Location = new Vector2(200, 450);
         _player.Velocity = Vector2.Zero;
+    }
 
     public void ResetRoom()
     {
