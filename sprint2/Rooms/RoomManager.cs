@@ -274,7 +274,7 @@ public class RoomManager
             if (!surface.VerticalOrientation) continue;
 
             Rectangle surfaceRect = surface.BoundingBox;
-            if (_player.Hitbox.BoundingBox.Intersects(surfaceRect) && _player.Hitbox.Intersects(surfaceRect))
+            if (_player.Hitbox.BoundingBox.Intersects(surfaceRect))
             {
                 ResolveXAxisCollision(surface, surfaceRect);
                 _player.Hitbox.Update(_player.Location);
@@ -295,7 +295,7 @@ public class RoomManager
             if (surface.VerticalOrientation) continue;
 
             Rectangle surfaceRect = surface.BoundingBox;
-            if (_player.Hitbox.BoundingBox.Intersects(surfaceRect) && _player.Hitbox.Intersects(surfaceRect))
+            if (_player.Hitbox.BoundingBox.Intersects(surfaceRect))
             {
                 ResolveYAxisCollision(surface, surfaceRect);
                 _player.Hitbox.Update(_player.Location);

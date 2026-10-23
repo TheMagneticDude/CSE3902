@@ -90,7 +90,7 @@ public class Core : Game
         IsMouseVisible = true;
 
         // Exit on escape is true by default
-        ExitOnEscape = true;
+        ExitOnEscape = false;
     }
 
     protected override void Initialize()
