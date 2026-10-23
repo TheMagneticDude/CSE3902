@@ -148,6 +148,15 @@ public class Game1 : Core
         _combatManager.Update(gameTime, _player1, _bosses, _roomManager.WorldMesh);
 
         _worldHandler.Update(_player1.Location);
+
+
+
+
+        //exit handler
+        if (_p1Input.IsNewPress(KeyAction.Exit))
+        {
+            Exit();
+        }
     }
 
     protected override void Draw(GameTime gameTime)
