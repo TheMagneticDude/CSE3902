@@ -188,8 +188,8 @@ public class RoomManager
 
         LoadMesh(_blocks);//load collision mesh
 
-        _player.Location = new Vector2(200, 500);
-    }
+        _player.Location = new Vector2(200, 450);
+        _player.Velocity = Vector2.Zero;
 
     public void ResetRoom()
     {
