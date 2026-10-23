@@ -15,6 +15,8 @@ This program uses MonoGame framework and C# to create a 2D boss-rush game inspir
 
 As of Sprint 2, this program includes a basic terraria guide character with movement, attacking, and item use abilities. There are three boss types with movement, animations, and player tracking abilities. You can also cycle through the current blocks and items.
 
+As of Sprint 3, this program includes three different boss levels that you can swap between with J and K. Hotbar UI has been added along with player, block, and boss collisions. The player and enemies can now take damage and die as well. Special blocks now exist and have functions like causing player damage or slowing the player down.
+
 ## Game Controls
 
 | Action | Keyboard / Mouse |
@@ -23,26 +25,25 @@ As of Sprint 2, this program includes a basic terraria guide character with move
 | Move Left | `A`, `←` |
 | Move Right | `D`, `→` |
 | Attack | `Z`, `N`, or Left Mouse Button |
-| Block Left | `T` |
-| Block Right | `Y` |
-| Previous Item | `U` |
-| Next Item | `I` |
-| Use Sword | `1`, Numpad `1` |
-| Use Dagger | `2`, Numpad `2` |
-| Use Item 3 (TBD) | `3`, Numpad `3` |
-| Use Health Potion | `4`, Numpad `4` |
-| Use Recall Potion | `5`, Numpad `5` |
-| Take Damage | `E` |
+| Swap to Sword | `1`, Numpad `1` |
+| Swap to Dagger | `2`, Numpad `2` |
+| Swap to Item 3 (TBD) | `3`, Numpad `3` |
+| Swap to Health Potion | `4`, Numpad `4` |
+| Swap to Recall Potion | `5`, Numpad `5` |
+| Use Potions | Right Mouse Button |
 | Reset | `R` |
 | Exit | `Q` or `Esc` |
+| Show Hitboxes | `F3` + `G` |
+| Next Level | `K` |
+| Previous Level | `J` |
 
 - Run project from root with: dotnet run --project sprint2
 
 ## Known Bugs
 
 - Health and Recall potions appear simultaneously when pressing 4 and 5 together
-- Slime ground level does not match player ground level
 - Daggers appear oddly in hand
+- Currently no player death animation the player just stops moving
 
 ## Extra Tools/Processes
 

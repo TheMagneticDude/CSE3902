@@ -19,7 +19,7 @@ public class RoomManager
 {
     private readonly RoomFactory _roomFactory;
     private readonly List<IBlock> _blocks;
-    private readonly List<IBoss> _bosses;
+    private readonly BossManager _bossManager;
     private readonly IPlayer _player;
 
     public List<CollisionSurface> WorldMesh {get; set;} //contains all merged collision surfaces (this is to prevent internal collisions behaving weirdly)
@@ -34,11 +34,11 @@ public class RoomManager
 
     private int _currRoom;
 
-    public RoomManager(RoomFactory roomFactory, List<IBlock> blocks, List<IBoss> bosses, IPlayer player)
+    public RoomManager(RoomFactory roomFactory, BossManager bossManager, IPlayer player)
     {
         _roomFactory = roomFactory;
-        _blocks = blocks;
-        _bosses = bosses;
+        _blocks = new List<IBlock>();
+        _bossManager = bossManager;
         _player = player;
         _currRoom = 0;
         WorldMesh = new List<CollisionSurface>();
@@ -161,7 +161,7 @@ public class RoomManager
     {
         RoomLoaded?.Invoke();
         _blocks.Clear();
-        _bosses.Clear();
+        _bossManager.Clear();
 
         string roomFile = Path.Combine(
             AppContext.BaseDirectory,
@@ -182,7 +182,7 @@ public class RoomManager
             }
             else if (gameObject is IBoss boss)
             {
-                _bosses.Add(boss);
+                _bossManager.Add(boss);
             }
         }
 
@@ -191,7 +191,10 @@ public class RoomManager
         _player.Location = new Vector2(200, 450);
         _player.Velocity = Vector2.Zero;
 
-        BossFactory.Instance.SetList(_bosses);
+    public void ResetRoom()
+    {
+        _currRoom = 0;
+        LoadCurrentRoom();
     }
 
     public void NextRoom()
@@ -271,7 +274,7 @@ public class RoomManager
             if (!surface.VerticalOrientation) continue;
 
             Rectangle surfaceRect = surface.BoundingBox;
-            if (_player.Hitbox.BoundingBox.Intersects(surfaceRect) && _player.Hitbox.Intersects(surfaceRect))
+            if (_player.Hitbox.BoundingBox.Intersects(surfaceRect))
             {
                 ResolveXAxisCollision(surface, surfaceRect);
                 _player.Hitbox.Update(_player.Location);
@@ -292,7 +295,7 @@ public class RoomManager
             if (surface.VerticalOrientation) continue;
 
             Rectangle surfaceRect = surface.BoundingBox;
-            if (_player.Hitbox.BoundingBox.Intersects(surfaceRect) && _player.Hitbox.Intersects(surfaceRect))
+            if (_player.Hitbox.BoundingBox.Intersects(surfaceRect))
             {
                 ResolveYAxisCollision(surface, surfaceRect);
                 _player.Hitbox.Update(_player.Location);
@@ -396,30 +399,55 @@ public class RoomManager
         }
     }
 
-    public void Draw(SpriteBatch spriteBatch)
+    public void DrawBlocks(SpriteBatch spriteBatch)
     {
-        if (DEBUG.ShowHitboxes) {DEBUGHitbox(spriteBatch);}
+        for (int i = 0; i < _blocks.Count; i++)
+        {
+            _blocks[i].Draw(spriteBatch);
+        }
     }
 
-    public void Update(PlayerInput input)
+    public void Draw(SpriteBatch spriteBatch)
+    {
+        DrawBlocks(spriteBatch);
+
+        if (DEBUG.ShowHitboxes)
+        {
+            DEBUGHitbox(spriteBatch);
+        }
+    }
+
+    public void UpdateBlocks(GameTime gameTime)
+    {
+        for (int i = 0; i < _blocks.Count; i++)
+        {
+        _blocks[i].Update(gameTime);
+        }
+    }
+
+    public void Update(PlayerInput input, GameTime gameTime)
     {
         ArgumentNullException.ThrowIfNull(input);
-        
-        
 
-        ProcessPlayerWorldCollisions();
-        foreach(IBoss b in _bosses)
+        if (input.IsNewPress(KeyAction.Reset))
         {
-            ProcessBossWorldCollisions(b);
+            ResetRoom();
         }
-
-        if (input.IsNewPress(KeyAction.NextRoom))
+        else if (input.IsNewPress(KeyAction.NextRoom))
         {
-        NextRoom();
+                NextRoom();
         }
         else if (input.IsNewPress(KeyAction.PreviousRoom))
         {
             PreviosRoom();
+        }
+        
+        UpdateBlocks(gameTime);
+
+        ProcessPlayerWorldCollisions();
+        foreach(IBoss b in _bossManager.Bosses)
+        {
+            ProcessBossWorldCollisions(b);
         }
     }
 }
