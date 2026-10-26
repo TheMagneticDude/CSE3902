@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-namespace sprint2.StateMachines;
+namespace terraria.StateMachines;
 public class StateMachine<TState> where TState : Enum
 {
     //Dictionary for storing states

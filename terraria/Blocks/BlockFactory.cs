@@ -3,7 +3,7 @@ using MonoGameLibrary.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
 
-namespace sprint2.Blocks;
+namespace terraria.Blocks;
 
 public class BlockFactory
 {

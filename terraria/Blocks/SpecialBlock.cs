@@ -3,13 +3,13 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
-using static sprint2.Constants;
-using sprint2.Collision;
+using static terraria.Constants;
+using terraria.Collision;
 
 using System;
 
 
-namespace sprint2.Blocks;
+namespace terraria.Blocks;
 
 public class SpecialBlock: IBlock
 {

@@ -1,10 +1,10 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using sprint2.Players;
-using sprint2.Weapons;
+using terraria.Players;
+using terraria.Weapons;
 
-namespace sprint2.Hotbar;
+namespace terraria.Hotbar;
 
 public class WeaponHotbarEntry : IHotbarEntry
 {

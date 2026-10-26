@@ -37,7 +37,7 @@ As of Sprint 3, this program includes three different boss levels that you can s
 | Next Level | `K` |
 | Previous Level | `J` |
 
-- Run project from root with: dotnet run --project sprint2
+- Run project from root with: dotnet run --project terraria
 
 ## Known Bugs
 

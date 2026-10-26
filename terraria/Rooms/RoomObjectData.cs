@@ -1,7 +1,7 @@
 
 using System;
 
-namespace sprint2.Rooms;
+namespace terraria.Rooms;
 
 public class RoomObjectData
 {

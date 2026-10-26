@@ -1,9 +1,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using sprint2.Combat;
-using sprint2.Collision;
+using terraria.Combat;
+using terraria.Collision;
 
-namespace sprint2.Projectiles;
+namespace terraria.Projectiles;
 
 public interface IProjectile
 {

@@ -1,7 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 
-namespace sprint2.Combat;
+namespace terraria.Combat;
 public class HealthComponent
 {
     private const float HitFlashDuration = 0.15f;

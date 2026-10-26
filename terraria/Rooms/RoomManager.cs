@@ -3,18 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
-using sprint2.Blocks;
-using sprint2.Bosses;
-using sprint2.Players;
-using sprint2.Collision;
+using terraria.Blocks;
+using terraria.Bosses;
+using terraria.Players;
+using terraria.Collision;
 
-using static sprint2.Constants;
+using static terraria.Constants;
 using Microsoft.Xna.Framework.Graphics;
 using System.Linq;
 
 
 
-namespace sprint2.Rooms;
+namespace terraria.Rooms;
 
 public class RoomManager
 {

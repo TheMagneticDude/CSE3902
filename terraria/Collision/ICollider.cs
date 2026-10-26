@@ -4,9 +4,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
 
-using static sprint2.Constants;
+using static terraria.Constants;
 
-namespace sprint2.Collision;
+namespace terraria.Collision;
 
 
 public interface ICollider

@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace sprint2.Bosses;
+namespace terraria.Bosses;
 
 public class BossManager
 {

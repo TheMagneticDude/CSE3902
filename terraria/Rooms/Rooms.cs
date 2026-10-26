@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace sprint2.Rooms;
+namespace terraria.Rooms;
 
 public class Room
 {

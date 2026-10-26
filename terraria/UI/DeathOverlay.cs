@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace sprint2.UI;
+namespace terraria.UI;
 
 public static class DeathOverlay
 {

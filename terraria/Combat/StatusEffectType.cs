@@ -1,4 +1,4 @@
-namespace sprint2.Combat;
+namespace terraria.Combat;
 
 public enum StatusEffectType
 {

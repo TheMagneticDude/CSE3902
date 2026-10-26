@@ -1,7 +1,7 @@
 using System.Reflection;
 using Microsoft.Xna.Framework;
 
-namespace sprint2.Combat;
+namespace terraria.Combat;
 
 public interface ICombatEntity
 {

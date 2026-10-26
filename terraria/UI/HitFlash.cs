@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
 
-namespace sprint2.UI;
+namespace terraria.UI;
 
 public static class HitFlash
 {

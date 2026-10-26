@@ -2,10 +2,10 @@ using System;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
-using sprint2.Projectiles;
+using terraria.Projectiles;
 
 
-namespace sprint2.Weapons;
+namespace terraria.Weapons;
 
 public class WeaponFactory
 {

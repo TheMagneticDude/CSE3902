@@ -1,9 +1,9 @@
-using sprint2.Collision;
-using sprint2.Combat;
+using terraria.Collision;
+using terraria.Combat;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace sprint2.Bosses;
+namespace terraria.Bosses;
 
 public interface IBoss
 {

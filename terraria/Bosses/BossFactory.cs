@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 
-namespace sprint2.Bosses;
+namespace terraria.Bosses;
 
 public class BossFactory
 {

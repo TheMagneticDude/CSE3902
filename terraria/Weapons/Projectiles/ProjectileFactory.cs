@@ -3,9 +3,9 @@ using System.Data;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using sprint2.Weapons;
+using terraria.Weapons;
 
-namespace sprint2.Projectiles;
+namespace terraria.Projectiles;
 
 public class ProjectileFactory
 {

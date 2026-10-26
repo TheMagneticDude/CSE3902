@@ -1,15 +1,15 @@
-using sprint2.Collision;
-using sprint2.Combat;
-using sprint2.UI;
+using terraria.Collision;
+using terraria.Combat;
+using terraria.UI;
 using System.Reflection.Metadata;
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
-using static sprint2.Constants;
+using static terraria.Constants;
 
 
-namespace sprint2.Bosses;
+namespace terraria.Bosses;
 
 public class Slime: IBoss
 {

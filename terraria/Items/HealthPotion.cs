@@ -2,9 +2,9 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
-using sprint2.Players;
+using terraria.Players;
 
-namespace sprint2.Items;
+namespace terraria.Items;
 
 public class HealthPotion : IItem
 {

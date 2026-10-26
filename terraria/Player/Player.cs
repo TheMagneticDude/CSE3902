@@ -3,16 +3,16 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Input;
-using sprint2.Hotbar;
-using sprint2.Combat;
-using sprint2.StateMachines;
-using sprint2.Weapons;
-using sprint2.Collision;
-using sprint2.UI;
-using static sprint2.Constants;
+using terraria.Hotbar;
+using terraria.Combat;
+using terraria.StateMachines;
+using terraria.Weapons;
+using terraria.Collision;
+using terraria.UI;
+using static terraria.Constants;
 
 
-namespace sprint2.Players;
+namespace terraria.Players;
 
 public class Player : IPlayer
 {

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using MonoGameLibrary.Input;
 
-namespace sprint2.Players;
+namespace terraria.Players;
 
 public class MultiBind
 {

@@ -5,21 +5,21 @@ using Microsoft.Xna.Framework.Media;
 using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Input;
-using sprint2.Blocks;
-using sprint2.Combat;
-using sprint2.Bosses;
-using sprint2.Hotbar;
-using sprint2.Items;
-using sprint2.Music;
-using sprint2.Players;
-using sprint2.Projectiles;
-using sprint2.Weapons;
-using sprint2.World;
-using sprint2.Rooms;
-using sprint2.UI;
-using static sprint2.Constants;
+using terraria.Blocks;
+using terraria.Combat;
+using terraria.Bosses;
+using terraria.Hotbar;
+using terraria.Items;
+using terraria.Music;
+using terraria.Players;
+using terraria.Projectiles;
+using terraria.Weapons;
+using terraria.World;
+using terraria.Rooms;
+using terraria.UI;
+using static terraria.Constants;
 
-namespace sprint2;
+namespace terraria;
 
 public class Game1 : Core
 {

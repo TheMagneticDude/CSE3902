@@ -2,14 +2,14 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
-using sprint2.Hotbar;
-using sprint2.Weapons;
-using sprint2.Collision;
-using sprint2.Combat;
+using terraria.Hotbar;
+using terraria.Weapons;
+using terraria.Collision;
+using terraria.Combat;
 
 
-namespace sprint2.Players;
-using static sprint2.Constants;
+namespace terraria.Players;
+using static terraria.Constants;
 
 
 

@@ -2,7 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace sprint2
+namespace terraria
 {
     public static class DEBUG 
     {

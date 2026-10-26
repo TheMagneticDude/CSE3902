@@ -1,15 +1,15 @@
-using sprint2.Collision;
-using sprint2.Combat;
-using sprint2.UI;
+using terraria.Collision;
+using terraria.Combat;
+using terraria.UI;
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
-using sprint2.Bosses.States;
-using static sprint2.Constants;
+using terraria.Bosses.States;
+using static terraria.Constants;
 //temp
 using MonoGameLibrary.Input;
-namespace sprint2.Bosses;
+namespace terraria.Bosses;
 
 
 public class QueenBee: IBoss

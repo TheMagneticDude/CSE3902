@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
 
-namespace sprint2.Bosses.States;
+namespace terraria.Bosses.States;
 
 public interface IBossState
 {

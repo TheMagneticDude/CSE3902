@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 
 
-namespace sprint2.Music;
+namespace terraria.Music;
 
 
 //maybe should create enum list of songs representing IDs

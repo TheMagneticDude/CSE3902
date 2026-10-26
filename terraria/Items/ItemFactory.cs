@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
 
 
-namespace sprint2.Items;
+namespace terraria.Items;
 
 public class ItemFactory
 {

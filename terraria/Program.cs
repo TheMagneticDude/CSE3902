@@ -1,2 +1,2 @@
-﻿using var game = new sprint2.Game1();
+﻿using var game = new terraria.Game1();
 game.Run();

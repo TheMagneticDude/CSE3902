@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-namespace sprint2.Weapons;
+namespace terraria.Weapons;
 
 public interface IProjectile
 {

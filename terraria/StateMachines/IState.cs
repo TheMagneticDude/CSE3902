@@ -1,5 +1,5 @@
 using Microsoft.Xna.Framework;
-namespace sprint2.StateMachines;
+namespace terraria.StateMachines;
 public interface IState
 {
     void Enter();

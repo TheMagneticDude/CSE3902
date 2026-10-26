@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using sprint2.Bosses;
-using sprint2.Collision;
-using sprint2.Players;
-using sprint2.Projectiles;
-using IProjectile = sprint2.Projectiles.IProjectile;
-using sprint2.Weapons;
+using terraria.Bosses;
+using terraria.Collision;
+using terraria.Players;
+using terraria.Projectiles;
+using IProjectile = terraria.Projectiles.IProjectile;
+using terraria.Weapons;
 
-namespace sprint2.Combat;
+namespace terraria.Combat;
 
 public sealed class CombatManager
 {

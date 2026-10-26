@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
 
-namespace sprint2.Blocks;
+namespace terraria.Blocks;
 
 public class Block: IBlock
 {

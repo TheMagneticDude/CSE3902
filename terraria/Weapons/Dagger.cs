@@ -2,10 +2,10 @@ using System;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using sprint2.Projectiles;
-using sprint2.World;
+using terraria.Projectiles;
+using terraria.World;
 
-namespace sprint2.Weapons;
+namespace terraria.Weapons;
 
 public class Dagger : Weapon
 {

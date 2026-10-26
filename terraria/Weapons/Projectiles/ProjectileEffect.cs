@@ -1,4 +1,4 @@
-namespace sprint2.Combat;
+namespace terraria.Combat;
 public readonly struct ProjectileEffect
 {
     public StatusEffectType Type {get;}

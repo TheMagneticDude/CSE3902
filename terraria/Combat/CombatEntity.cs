@@ -1,5 +1,5 @@
 /* using System.Drawing;
-using sprint2.Combat;
+using terraria.Combat;
 
 public abstract class CombatEntity : ICombatEntity
 {

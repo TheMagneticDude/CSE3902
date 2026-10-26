@@ -4,12 +4,12 @@ using System.IO;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using MonoGameLibrary.Graphics;
-using sprint2.Blocks;
-using sprint2.Bosses;
-using static sprint2.Constants;
+using terraria.Blocks;
+using terraria.Bosses;
+using static terraria.Constants;
 
 
-namespace sprint2.Rooms;
+namespace terraria.Rooms;
 
 public class RoomFactory
 {

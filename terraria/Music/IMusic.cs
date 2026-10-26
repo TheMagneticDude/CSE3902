@@ -5,7 +5,7 @@ using MonoGameLibrary;
 
 
 
-namespace sprint2.Music;
+namespace terraria.Music;
 
 
 public interface IMusic

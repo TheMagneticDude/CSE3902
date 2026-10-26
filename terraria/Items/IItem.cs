@@ -1,9 +1,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using sprint2.Hotbar;
-using sprint2.Players;
+using terraria.Hotbar;
+using terraria.Players;
 
-namespace sprint2.Items;
+namespace terraria.Items;
 
 public interface IItem : IHotbarEntry
 {

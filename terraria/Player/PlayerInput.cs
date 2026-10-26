@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using MonoGameLibrary.Input;
 
-namespace sprint2.Players;
+namespace terraria.Players;
 
 public enum KeyAction 
 { 

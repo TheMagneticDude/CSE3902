@@ -3,12 +3,12 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using System.Collections.Generic;
-using sprint2.Blocks;
+using terraria.Blocks;
 
-using static sprint2.Constants;
+using static terraria.Constants;
 using System;
 
-namespace sprint2.World;
+namespace terraria.World;
 
 //interface layer to convert between pixel space (absolute position on screen) and world space (actual coordinates in game)
 public class WorldHandler

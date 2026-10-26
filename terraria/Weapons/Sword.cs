@@ -1,8 +1,8 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using sprint2.Weapons;
-using sprint2.Collision;
+using terraria.Weapons;
+using terraria.Collision;
 
 public class Sword : Weapon
 {

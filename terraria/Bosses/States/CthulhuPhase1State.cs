@@ -2,7 +2,7 @@ using System;
 
 using Microsoft.Xna.Framework;
 
-namespace sprint2.Bosses.States;
+namespace terraria.Bosses.States;
 
 public class CthulhuPhase1State: IBossState
 {

@@ -2,10 +2,10 @@ using System;
 using System.Diagnostics.Contracts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using static sprint2.Constants;
-using sprint2.Collision;
+using static terraria.Constants;
+using terraria.Collision;
 
-namespace sprint2.Projectiles;
+namespace terraria.Projectiles;
 
 public abstract class Projectile : IProjectile
 {

@@ -5,9 +5,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 using MonoGameLibrary.Graphics;
 
-using sprint2.Players;
+using terraria.Players;
 
-namespace sprint2.Hotbar;
+namespace terraria.Hotbar;
 
 public interface IHotbarEntry
 {

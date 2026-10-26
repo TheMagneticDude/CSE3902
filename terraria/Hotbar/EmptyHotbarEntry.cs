@@ -1,9 +1,9 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using sprint2.Players;
+using terraria.Players;
 
-namespace sprint2.Hotbar;
+namespace terraria.Hotbar;
 
 public class EmptyHotbarEntry : IHotbarEntry
 {
