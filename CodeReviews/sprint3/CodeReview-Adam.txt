@@ -1,0 +1,34 @@
+Code Quality Review
+
+Author of the code review: Adam Rehan
+Date of the code review: 10/26/26
+Sprint number: 3
+Name of the .cs files being reviewed: HealthComponent.cs
+Author of the .cs files being reviewed: Jacob Su
+Number of minutes taken to complete the review: 15 minutes
+Specific comments on code quality: 
+
+        The class has good cohesion because it keeps dmg, healing, death, health reset, all of that in one class.
+        It doesn't directly depend on Player or anything else, making it more reusable in the future. Private
+        setters allow the class to handle all health changes.  
+
+        An improvement would be to restrict changes to IsInvulnerable and make a method for handling that. 
+        The public setter allows other classes to change the flag without setting the timer. Also slow effects or other effects
+        could be moved to a separate catch.
+
+A hypothetical change to make to the game related to file being reviewed 
+and how the current implementation could or could not easily support that change:
+
+    Adding another enemy would be relatively straight forward. By creating a health component and using the already established methods.
+
+Code Readability Review
+
+Author of the code review: Adam Rehan
+Date of the code review: 10/26/26
+Sprint number: 3
+Name of the .cs file being reviewed: HealthComponent.cs
+Author of the .cs file being reviewed: Jacob Su
+Number of minutes taken to complete the review: 10
+Specific comments on what is readable and what is not: 
+    The method names are descriptive, methods are short, early returns make methods easy to follow.
+    Slow is less clear just because you don't know if it is a boolean or a movement multiplier just off the name.
