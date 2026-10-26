@@ -61,7 +61,7 @@ public class Player : IPlayer
     public IWeapon EquippedWeapon => _equippedWeapon;
 
     // Player physics values.
-    private const float _movementSpeed = 4f;
+    private const float _movementSpeed = 5f;
     private const float _jumpStrength = -16f;
     private const float _honeySpeedModifier = 0.5f;
     private const int _hazardContactDamage = 10;

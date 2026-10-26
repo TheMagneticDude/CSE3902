@@ -14,6 +14,8 @@ public class Sword : Weapon
 
     public Sword(Texture2D texture) : base(texture, 0.25f)
     {
+        ArgumentNullException.ThrowIfNull(texture);
+
         Hitbox = new RotatedRectangleCollider(
             Vector2.Zero, texture.Width * WeaponScale * 0.6f, texture.Height * WeaponScale * 0.75f);
     }

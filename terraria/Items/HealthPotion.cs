@@ -33,6 +33,10 @@ public class HealthPotion : IItem
 
     public void Use(IPlayer player)
     {
+        ArgumentNullException.ThrowIfNull(player);
+        
+        player.Heal(25);
+
         IsActive = true;
         _timer = DisplayDuration;
     }

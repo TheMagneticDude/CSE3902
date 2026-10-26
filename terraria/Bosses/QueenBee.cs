@@ -9,7 +9,6 @@ using sprint2.Bosses.States;
 using static sprint2.Constants;
 //temp
 using MonoGameLibrary.Input;
-using sprint2.Collision;
 namespace sprint2.Bosses;
 
 

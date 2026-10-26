@@ -3,8 +3,6 @@ using sprint2.Combat;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-using sprint2.Collision;
-
 namespace sprint2.Bosses;
 
 public interface IBoss

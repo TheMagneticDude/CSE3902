@@ -7,7 +7,6 @@ using MonoGameLibrary.Graphics;
 using System;
 
 using sprint2.Bosses.States;
-using sprint2.Collision;
 
 namespace sprint2.Bosses;
 

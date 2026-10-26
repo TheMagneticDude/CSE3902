@@ -191,6 +191,8 @@ public class CapsuleCollider: ICollider
     }
     public void DrawDebug(SpriteBatch spriteBatch)
     {
+        ArgumentNullException.ThrowIfNull(spriteBatch);
+
         if (!DEBUG.ShowHitboxes) return;
 
         Texture2D pixel = DEBUG.BlankTexture;

@@ -6,7 +6,6 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
-using sprint2.Collision;
 using static sprint2.Constants;
 
 
@@ -39,7 +38,7 @@ public class Slime: IBoss
     }
 
     private float _jumpStrength = -10f - (float)random.Next(10);
-    private bool jumped = false;
+    //private bool jumped = false;
     private float _timer;
 
     private static Random random = new Random();

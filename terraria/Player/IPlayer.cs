@@ -23,6 +23,7 @@ public interface IPlayer
     public PlayerMovementEffects MovementEffects {get;set;}
     bool IsDead { get; }
     void TakeDamage(int damage);
+    void Heal(int amount);
     IWeapon EquippedWeapon { get; }
     bool FacingRight { get; }
     int SelectedHotbarSlot { get; }

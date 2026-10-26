@@ -42,8 +42,8 @@ As of Sprint 3, this program includes three different boss levels that you can s
 ## Known Bugs
 
 - Health and Recall potions appear simultaneously when pressing 4 and 5 together
+- Weapons can still be used while using Health or Recall potions
 - Daggers appear oddly in hand
-- Currently no player death animation the player just stops moving
 
 ## Extra Tools/Processes
 

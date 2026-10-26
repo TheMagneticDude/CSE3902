@@ -9,7 +9,7 @@ namespace sprint2.Items;
 public class RecallPotion: IItem
 {
     private const float DisplayDuration = 0.5f;
-    private readonly Vector2 _recallLocation = new Vector2(640,200);
+    private readonly Vector2 _recallLocation = new Vector2(200,450);
 
     private Vector2 _potPosition;
 
@@ -28,7 +28,6 @@ public class RecallPotion: IItem
         ArgumentNullException.ThrowIfNull(atlas);
         _sprite = atlas.CreateSprite("recallPotion");
         _sprite.CenterOrigin();
-       // _sprite.Scale = new Vector2(0.75f, 0.75f);
         IsActive = false;
     }
 

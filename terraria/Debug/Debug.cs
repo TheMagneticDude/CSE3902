@@ -13,6 +13,8 @@ namespace sprint2
 
         public static void LoadContent(GraphicsDevice graphicsDevice, Texture2D blankTexture)
         {
+            ArgumentNullException.ThrowIfNull(blankTexture);
+
             BlankTexture = blankTexture;
             BlankTexture.SetData(new[] { Color.White });
         }

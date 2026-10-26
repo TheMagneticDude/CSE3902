@@ -6,6 +6,8 @@ using MonoGameLibrary.Graphics;
 using static sprint2.Constants;
 using sprint2.Collision;
 
+using System;
+
 
 namespace sprint2.Blocks;
 
@@ -31,6 +33,8 @@ public class SpecialBlock: IBlock
 
     public SpecialBlock(Sprite sprite, Vector2 location, PlayerMovementEffects effectType)
     {
+        ArgumentNullException.ThrowIfNull(sprite);
+
         this.TheSprite = sprite;
         this.Location = location;
         MovementEffect = effectType;
