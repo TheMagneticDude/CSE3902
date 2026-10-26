@@ -1,0 +1,36 @@
+Author of the code review: Jacob Su
+Date of the code review: 10/26/26
+Sprint number: 3
+Name of the .cs file being reviewed: SpecialBlock.cs
+Author of the .cs file being reviewed: Nathan Cheng
+Number of minutes taken to complete the review: 35
+Specific comments on code quality:
+    SpecialBlock.cs implements IBlock which allows special blocks to be used
+    through the same interface as other blocks. The constructor accepts
+    the sprite, location, and movement effect and makes the class
+    reusable for different types of special blocks.
+
+    One improvement would be to control how TheSprite and Hitbox 
+    changes after construction. The hitbox dimensions are initialized
+    from the original sprite so replacing TheSprite with a different
+    sized sprite would leave the hitbox with the wrong dimensions. If
+    sprite replacement is supported, then the hitbox should also be resized.
+
+A hypothetical change to make to the game related to the file being reviewed
+and how the current implementation could or could not easily support that change:
+    One change could be to add a mud block that could slow the player down
+    when it is touched. The existing constructor could also support this by accepting
+    a mud sprite and an appropriate PlayerMovementEffects value, and a new
+    effect value could be added here if one does not already exist.
+
+    However, SpecialBlock only stores the movement effect and it doesn't
+    apply that effect to the player. The collision or player movement
+    code would have to also need to recognize the effect and adjust movement.
+
+Specific comments on code readability:
+    The class is short and easy to follow since update, draw, and the
+    constructor have a clear purpose, and names such as Location,
+    Hitbox, and MovementEffect show what the properties represent.
+
+    Readability could be improved by using consistent spacing and indenting the arguments
+    inside the RectangularCollider constructor call. Commenting more could also improve how this class connects to the rest of the game.
