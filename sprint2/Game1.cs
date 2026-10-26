@@ -16,6 +16,7 @@ using sprint2.Projectiles;
 using sprint2.Weapons;
 using sprint2.World;
 using sprint2.Rooms;
+using sprint2.UI;
 using static sprint2.Constants;
 
 namespace sprint2;
@@ -171,6 +172,11 @@ public class Game1 : Core
         );
 
         _hotbarUI.Draw(SpriteBatch, _player1.Hotbar);
+
+        if (_player1.IsDead)
+        {
+            DeathOverlay.Draw(SpriteBatch, blankTexture);
+        }
 
         SpriteBatch.End();
 

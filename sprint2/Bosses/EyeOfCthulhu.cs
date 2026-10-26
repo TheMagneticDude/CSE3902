@@ -1,5 +1,6 @@
 using sprint2.Collision;
 using sprint2.Combat;
+using sprint2.UI;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
@@ -24,7 +25,18 @@ public class EyeOfCthulhu: IBoss
 
     public Vector2 TargetPos {get;set;}
     public float Rotation { get; set; }
-    public ICollider Hitbox {get; set;}
+    public ICollider Hitbox
+    {
+        get
+        {
+            // Position is the shared center for rendering and collision resolution.
+            _hitbox.Width = _sprite.Width;
+            _hitbox.Height = _sprite.Height;
+            _hitbox.Rotation = Rotation;
+            _hitbox.Update(Position);
+            return _hitbox;
+        }
+    }
     public bool IsGrounded { get; set; }
     private float targetRotation;
 
@@ -53,11 +65,7 @@ public class EyeOfCthulhu: IBoss
         Drag = new Vector2(0.2f,0.2f);
         JerkDamping = new Vector2(0.002f,0.002f);
 
-        Hitbox = new RectangularCollider(
-        Position,
-        _sprite.Width/2f,
-        _sprite.Height * 0.5f
-        );
+        _sprite.CenterOrigin();
 
         ChangeState(new CthulhuPhase1State(this));
     }
@@ -109,7 +117,7 @@ public class EyeOfCthulhu: IBoss
         
         
         Velocity += Acceleration;
-        Position += Velocity; 
+        // RoomManager applies velocity and resolves world collisions.
         
         
 
@@ -172,10 +180,10 @@ public class EyeOfCthulhu: IBoss
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        SpriteEffects effect = _facingRight ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
         if (Health.IsDead) return;
-        Hitbox.DrawDebug(spriteBatch);
-        _sprite.Draw(spriteBatch, Position, effect, Rotation);
+        _sprite.CenterOrigin();
+        SpriteEffects effect = _facingRight ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+        HitFlash.Draw(spriteBatch, _sprite, Position, Health.IsHitFlashing, _sprite.Color, effect, Rotation);
         Hitbox.DrawDebug(spriteBatch);
     }
 }

@@ -1,5 +1,6 @@
 using sprint2.Collision;
 using sprint2.Combat;
+using sprint2.UI;
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -24,7 +25,18 @@ public class QueenBee: IBoss
     public Vector2 JerkDamping {get; set;}//drag force on acceleration
     public Vector2 Drag {get; set;}
     public Vector2 TargetPos {get;set;}
-    public ICollider Hitbox {get; set;}
+    public ICollider Hitbox
+    {
+        get
+        {
+            // Position is the shared center for rendering and collision resolution.
+            _hitbox.Width = _sprite.Width;
+            _hitbox.Height = _sprite.Height;
+            _hitbox.Rotation = 0f;
+            _hitbox.Update(Position);
+            return _hitbox;
+        }
+    }
     public bool IsGrounded { get; set; }
 
     private AnimatedSprite _sprite;
@@ -51,11 +63,7 @@ public class QueenBee: IBoss
         JerkDamping = new Vector2(0f,0f);
         ChangeState(new QueenBeeIdleState(this));
 
-        Hitbox = new RectangularCollider(
-        Position,
-        _sprite.Width/2f,
-        _sprite.Height * 0.5f
-        );
+        _sprite.CenterOrigin();
     }
 
     public void SetAnimation(string animationName)
@@ -79,7 +87,7 @@ public class QueenBee: IBoss
         
         
         Velocity += Acceleration;
-        Position += Velocity; 
+        // RoomManager applies velocity and resolves world collisions.
         
 
         Velocity = CalcDrag(Velocity, Drag);
@@ -144,10 +152,10 @@ public class QueenBee: IBoss
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        SpriteEffects effect = _facingRight ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
         if (Health.IsDead) return;
-        Hitbox.DrawDebug(spriteBatch);
-        _sprite.Draw(spriteBatch, Position, effect);
+        _sprite.CenterOrigin();
+        SpriteEffects effect = _facingRight ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+        HitFlash.Draw(spriteBatch, _sprite, Position, Health.IsHitFlashing, _sprite.Color, effect);
         Hitbox.DrawDebug(spriteBatch);
     }
 }

@@ -4,6 +4,10 @@ using Microsoft.Xna.Framework;
 namespace sprint2.Combat;
 public class HealthComponent
 {
+    private const float HitFlashDuration = 0.15f;
+    private float _hitFlashTimer;
+    public bool IsHitFlashing => _hitFlashTimer > 0f;
+
     private readonly float _slowDuration;
     private readonly float _invulnerabilityDuration;
     private float _slowTimer;
@@ -43,6 +47,7 @@ public class HealthComponent
         {
             return false;
         }
+        _hitFlashTimer = HitFlashDuration;
         CurrentHealth -= damage;
         if (CurrentHealth <= 0)
         {
@@ -66,6 +71,8 @@ public class HealthComponent
     public void Update(GameTime gameTime)
     {
         ArgumentNullException.ThrowIfNull(gameTime);
+
+        _hitFlashTimer = Math.Max(0f, _hitFlashTimer - (float)gameTime.ElapsedGameTime.TotalSeconds);
 
         if (IsInvulnerable)
         {
@@ -91,6 +98,7 @@ public class HealthComponent
     public void Reset()
     {
         CurrentHealth = MaxHealth;
+        _hitFlashTimer = 0f;
         IsDead = false;
         Slow = false;
         _slowTimer = 0f;

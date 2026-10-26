@@ -8,6 +8,7 @@ using sprint2.Combat;
 using sprint2.StateMachines;
 using sprint2.Weapons;
 using sprint2.Collision;
+using sprint2.UI;
 using static sprint2.Constants;
 
 
@@ -62,6 +63,9 @@ public class Player : IPlayer
     // Player physics values.
     private const float _movementSpeed = 4f;
     private const float _jumpStrength = -16f;
+    private const float _honeySpeedModifier = 0.5f;
+    private const int _hazardContactDamage = 10;
+    private bool _isTouchingHoney;
 
     private bool _facingRight = true;
     private bool _voidFloor = true;
@@ -103,13 +107,13 @@ public class Player : IPlayer
         Hitbox = new CapsuleCollider(
         Location,
         Sprite.Width/2f,
-        Sprite.Height * 0.5f
+        MathF.Max(0f, Sprite.Height - Sprite.Width)
         );
 
         SpecialHitbox = new RectangularCollider(
         Location,
-        Sprite.Width,
-        Sprite.Height * 2f
+        Hitbox.BoundingBox.Width,
+        Hitbox.BoundingBox.Height + 1f
         );
     }
 
@@ -130,25 +134,15 @@ public class Player : IPlayer
 
     public void HandleSpecialBlockEffect()
     {
-        if (MovementEffects != PlayerMovementEffects.None)
+        _isTouchingHoney = MovementEffects == PlayerMovementEffects.Slowed;
+
+        if (MovementEffects == PlayerMovementEffects.Burning)
         {
-            switch (MovementEffects){
-                case PlayerMovementEffects.Burning:
-                    TakeDamage(1000);
-                    
-                    break;
-                case PlayerMovementEffects.Frozen:
-                    //TODO: ADD FROZEN 
-                    break;
-                case PlayerMovementEffects.Slowed:
-                    //TODO: ADD SLOWED
-                    break;
-
-            }
-
-            MovementEffects = PlayerMovementEffects.None;
+            TakeDamage(_hazardContactDamage);
         }
+        MovementEffects = PlayerMovementEffects.None;
     }
+
     public void TakeDamage(int damage)
     {
         if (_health.TakeDamage(damage))
@@ -237,11 +231,12 @@ public class Player : IPlayer
 
         _hotbar.Update(gameTime, this);
 
+        HandleSpecialBlockEffect();
+
         ApplyPhysics();
 
         Hitbox.Update(Location);
-
-        HandleSpecialBlockEffect();
+        SpecialHitbox.Update(Location);
 
         _stateMachine.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
         // Movement states can change facing; use the same final pose as Draw.
@@ -252,7 +247,7 @@ public class Player : IPlayer
     private void ApplyPhysics()
     {
         Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity);
-        Location += Velocity;
+        // RoomManager moves the player and resolves world collisions once per tick.
         // if (_voidFloor)
         // {
         //     if (Location.Y >= GroundLevel)
@@ -276,7 +271,7 @@ public class Player : IPlayer
             (Input.IsPressed(KeyAction.MoveRight) ? 1f : 0f) -
             (Input.IsPressed(KeyAction.MoveLeft) ? 1f : 0f);
 
-        Velocity = new Vector2(componentX * _movementSpeed, Velocity.Y);
+        Velocity = new Vector2(componentX * _movementSpeed * (_isTouchingHoney ? _honeySpeedModifier : 1f), Velocity.Y);
 
         if (Velocity.X > 0)
         {
@@ -309,7 +304,7 @@ public class Player : IPlayer
         SpriteEffects effect =
             _facingRight ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
 
-        Sprite.Draw(spriteBatch, Location, effect);
+        HitFlash.Draw(spriteBatch, Sprite, Location, _health.IsHitFlashing, Sprite.Color, effect);
 
         if (_equippedWeapon != null)
         {

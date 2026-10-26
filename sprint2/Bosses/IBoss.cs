@@ -14,7 +14,7 @@ public interface IBoss
     Vector2 Position { get; set; }
     Vector2 Velocity { get; set; }
     public bool IsGrounded { get; set; }
-    ICollider Hitbox {get; set;}
+    ICollider Hitbox {get;}
     
     void Update(GameTime gameTime, Vector2 PlayerPos);
 

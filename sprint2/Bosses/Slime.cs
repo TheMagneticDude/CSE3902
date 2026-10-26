@@ -1,5 +1,6 @@
 using sprint2.Collision;
 using sprint2.Combat;
+using sprint2.UI;
 using System.Reflection.Metadata;
 using System;
 using Microsoft.Xna.Framework;
@@ -24,7 +25,18 @@ public class Slime: IBoss
     public Vector2 TargetPos {get;set;}
     public Color Color {get;set;}
 
-    public ICollider Hitbox {get; set;}
+    public ICollider Hitbox
+    {
+        get
+        {
+            // Position is the shared center for rendering and collision resolution.
+            _hitbox.Width = _sprite.Width;
+            _hitbox.Height = _sprite.Height;
+            _hitbox.Rotation = 0f;
+            _hitbox.Update(Position);
+            return _hitbox;
+        }
+    }
 
     private float _jumpStrength = -10f - (float)random.Next(10);
     private bool jumped = false;
@@ -48,7 +60,7 @@ public class Slime: IBoss
         Velocity = new Vector2(0, 0);
         Color = Color.White;
 
-        Hitbox = new CenteredRectangularCollider(Position, _sprite.Width, _sprite.Height);
+        _sprite.CenterOrigin();
     }
 
     public Slime(AnimatedSprite sprite, TextureAtlas atlas, Color c)
@@ -60,7 +72,7 @@ public class Slime: IBoss
         Velocity = new Vector2(0, 0);
         Color = c;
 
-        Hitbox = new CenteredRectangularCollider(Position, _sprite.Width, _sprite.Height);
+        _sprite.CenterOrigin();
     }
 
     public void SetColor(Color c)
@@ -88,7 +100,7 @@ public class Slime: IBoss
 
     public void HandleMovement()
     {
-        Position += Velocity;
+        // RoomManager applies velocity and resolves world collisions.
         if (IsGrounded){Velocity = CalcDrag(Velocity, Drag);}
         
     }
@@ -162,10 +174,9 @@ public class Slime: IBoss
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        _sprite.Color = Color;
         if (Health.IsDead) return;
-        Hitbox.DrawDebug(spriteBatch);
-        _sprite.Draw(spriteBatch, Position);
+        _sprite.CenterOrigin();
+        HitFlash.Draw(spriteBatch, _sprite, Position, Health.IsHitFlashing, Color);
         Hitbox.DrawDebug(spriteBatch);
     }
 }
