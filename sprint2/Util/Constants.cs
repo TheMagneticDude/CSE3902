@@ -17,6 +17,16 @@ namespace sprint2
 
         //block vars
         public const uint BlockSize = 24;
+
+
+        //player enums
+        public enum PlayerMovementEffects
+        {
+            None,
+            Slowed,
+            Burning,
+            Frozen
+        }
     }
 }    
 

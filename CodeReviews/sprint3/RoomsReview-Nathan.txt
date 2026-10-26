@@ -1,0 +1,33 @@
+Code Quality Review
+
+Author of the code review: Nathan Cheng
+Date of the code review: 10/26/26
+Sprint number: 3
+Name of the .cs files being reviewed: RoomManager, RoomFactory, Rooms, RoomObjectData
+Author of the .cs files being reviewed: Anna Mansur
+Number of minutes taken to complete the review: 20
+Specific comments on code quality: 
+
+    The code for rooms was clearly very well planned and well organized.  They follow the design
+     principles well and seems to have good cohesion and pretty low coupling given how much is tied into handling rooms.
+     The system of parsing .csv files containing each separate room's data is elegantly modular and is easily scalable.  
+     The way RoomObjectData is formatted is very simple and reusable for any game element that might need to be loaded from csv.
+
+A hypothetical change to make to the game related to file being reviewed 
+and how the current implementation could or could not easily support that change:
+
+    It would be very easy to create another room by simply creating a new csv file containing the specific elements that should be spawned in.
+    The only difficulty would be currently each entity and element needs to be typed up by hand in terms of its position.
+
+Code Readability Review
+
+Author of the code review: Nathan Cheng
+Date of the code review: 10/26/26
+Sprint number: 3
+Name of the .cs file being reviewed:  RoomManager, RoomFactory, Rooms, RoomObjectData
+Author of the .cs file being reviewed: Anna Mansur
+Number of minutes taken to complete the review: 10
+Specific comments on what is readable and what is not: 
+
+    I think overall these files are very well written and while somewhat complex is still very 
+    readable.  Every method is labled well and for the most part follows established patterns and conventions.

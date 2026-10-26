@@ -10,6 +10,7 @@ using sprint2.Collision;
 
 using static sprint2.Constants;
 using Microsoft.Xna.Framework.Graphics;
+using System.Linq;
 
 
 
@@ -19,6 +20,7 @@ public class RoomManager
 {
     private readonly RoomFactory _roomFactory;
     private readonly List<IBlock> _blocks;
+    private List<SpecialBlock> _specialBlocks;
     private readonly BossManager _bossManager;
     private readonly IPlayer _player;
 
@@ -38,6 +40,7 @@ public class RoomManager
     {
         _roomFactory = roomFactory;
         _blocks = new List<IBlock>();
+        _specialBlocks = _blocks.OfType<SpecialBlock>().ToList<SpecialBlock>();
         _bossManager = bossManager;
         _player = player;
         _currRoom = 0;
@@ -161,6 +164,7 @@ public class RoomManager
     {
         RoomLoaded?.Invoke();
         _blocks.Clear();
+        _specialBlocks.Clear();
         _bossManager.Clear();
 
         string roomFile = Path.Combine(
@@ -187,6 +191,8 @@ public class RoomManager
         }
 
         LoadMesh(_blocks);//load collision mesh
+
+        _specialBlocks = _blocks.OfType<SpecialBlock>().ToList<SpecialBlock>();
 
         _player.Location = new Vector2(200, 450);
         _player.Velocity = Vector2.Zero;
@@ -284,6 +290,8 @@ public class RoomManager
 
         
 
+        _player.IsGrounded = false;
+
         // process y collision second
         loc = new Vector2(_player.Location.X, _player.Location.Y);
         loc.Y += _player.Velocity.Y; // project one tick into the future
@@ -300,6 +308,33 @@ public class RoomManager
             {
                 ResolveYAxisCollision(surface, surfaceRect);
                 _player.Hitbox.Update(_player.Location);
+            }
+        }
+        UpdatePlayerGroundContact();
+    }
+
+    private void UpdatePlayerGroundContact()
+    {
+        // Rectangle bounds truncate subpixel movement. Keep floor contact when
+        // gravity moves the feet less than one pixel, but never during a jump.
+        if (_player.Velocity.Y < 0 || _player.IsGrounded) return;
+
+        float feet = _player.Location.Y + _player.Hitbox.BoundingBox.Height;
+        Rectangle bounds = _player.Hitbox.BoundingBox;
+        foreach (CollisionSurface surface in WorldMesh)
+        {
+            if (surface.VerticalOrientation) continue;
+            Rectangle floor = surface.BoundingBox;
+            float gap = floor.Top - feet;
+            if (bounds.Right > floor.Left && bounds.Left < floor.Right &&
+                gap >= -1f && gap <= 1f)
+            {
+                _player.Location = new Vector2(_player.Location.X,
+                    floor.Top - bounds.Height);
+                _player.Velocity = new Vector2(_player.Velocity.X, 0f);
+                _player.IsGrounded = true;
+                _player.Hitbox.Update(_player.Location);
+                return;
             }
         }
     }
@@ -426,6 +461,25 @@ public class RoomManager
         }
     }
 
+
+    public void SpecialBlockCollision()
+    {
+        // Use the resolved position, including a one-pixel probe below the feet.
+        _player.SpecialHitbox.Update(_player.Location);
+        _player.MovementEffects = PlayerMovementEffects.None;
+        foreach(SpecialBlock sb in _specialBlocks)
+        {
+            if (_player.SpecialHitbox.Intersects(sb.Hitbox))
+            {
+                if (_player.MovementEffects != PlayerMovementEffects.Burning)
+                {
+                    _player.MovementEffects = sb.MovementEffect;
+                }
+            }
+        }
+        
+    }
+
     public void Update(PlayerInput input, GameTime gameTime)
     {
         ArgumentNullException.ThrowIfNull(input);
@@ -450,5 +504,8 @@ public class RoomManager
         {
             ProcessBossWorldCollisions(b);
         }
+
+
+        SpecialBlockCollision();
     }
 }
