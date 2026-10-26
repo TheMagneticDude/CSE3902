@@ -1,0 +1,9 @@
+Sprint 3 Reflection
+
+I believe our team performed very well this sprint, we have proper collision and more importantly a dynamic 
+system for hitboxes, the boss rooms are more fleshed out and the hotbar has a GUI.  Since the last sprint we 
+have better defined the scope of our project and have a good roadmap for features needed to be implemented 
+moving forward. Moving forwards on future sprints it would be ideal to refactor parts of our code, mainly 
+IPlayer and IBoss ideally should have an interface that handles both of them so code can be iterated other 
+both types of objects (maybe IEntity). We also plan to make the rooms much more detailed and fix the backgrounds,
+we just have very basic rooms right now while we test everything.

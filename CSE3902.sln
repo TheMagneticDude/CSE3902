@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGameLibrary", "MonoGameLibrary\MonoGameLibrary.csproj", "{93CE0529-D62C-4A51-9D16-61D8F8BC8F32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sprint2", "sprint2\sprint2.csproj", "{2B04FFFA-497C-4947-8588-32095307FEB7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "terraria", "terraria\terraria.csproj", "{2B04FFFA-497C-4947-8588-32095307FEB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

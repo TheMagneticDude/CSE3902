@@ -1,0 +1,43 @@
+Code Quality Review
+
+Author of the code review: Anna Mansur
+Date of the code review: 10/26/26
+Sprint number: 3
+Name of the .cs files being reviewed: CombatManager, ICombatEntity
+Author of the .cs files being reviewed: Adam Rehan
+Number of minutes taken to complete the review: 20
+Specific comments on code quality: 
+
+ICombatEntity is concise and contains only methods needed that are directly related to combat. The combat 
+logic is organized well and the manager has just the basic methods needed, nothing too complicated. The Update method 
+does handle a lot of different projectile, combat, and collision logic right now, which could get harder to maintain 
+as more is added to the game. I like the design choice of using _swingHits so the enemies take damage correctly. The 
+cohesion is good since everything in the class is combat-related. There is some coupling due to the fact that it is 
+a manager and there are a lot things that CombatManager needs to interact with, but it is improved somewhat by the 
+use of interfaces. 
+
+A hypothetical change to make to the game related to file being reviewed 
+and how the current implementation could or could not easily support that change:
+
+If we wanted to add enemy projectiles that damage the player it would be pretty easy to implement with
+what we have already. In Update the projectile collisions are already checked with the blocks and bosses, 
+so we would just have to add a check for the player hitbox which would be pretty simple.
+
+
+Code Readability Review
+
+Author of the code review: Anna Mansur
+Date of the code review: 10/26/26
+Sprint number: 3
+Name of the .cs file being reviewed:  CombatManager, ICombatEntity
+Author of the .cs file being reviewed: Adam Rehan
+Number of minutes taken to complete the review: 5
+Specific comments on what is readable and what is not: 
+
+    Overall, both of these files are readable and the naming and name conventions for the variables and methods 
+    are consistent and understandable, it is easy to figure out what they do without needing extra comments. The
+    only method that is a bit hard to follow is the Update method only because there is a lot of different logic
+    there, but the conditional checks make it easier to understand what is happening. 
+   
+ 
+

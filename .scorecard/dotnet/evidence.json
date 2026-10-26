@@ -202,12 +202,12 @@
           "limitation": "Does not establish cohesion or readability. Extracting trivial helpers can improve the ratio without improving the code. A zero eligible population is unmeasured, even when policy supplies a default score.",
           "topOffenders": [
             {
-              "project": "sprint2",
+              "project": "terraria",
               "namespace": "\u003Cglobal namespace\u003E",
               "type": "Sword",
               "typeId": "global::Sword",
               "sourceFiles": [
-                "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Sword.cs"
+                "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Sword.cs"
               ],
               "decompositionRatio": 3.6667,
               "maxMemberCc": 5,
@@ -222,7 +222,7 @@
                 {
                   "Name": "Sword.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch, Microsoft.Xna.Framework.Vector2, bool)",
                   "Kind": "method",
-                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Sword.cs",
+                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Sword.cs",
                   "Line": 49,
                   "OwnCyclomaticComplexity": 5,
                   "SourceSpanStart": 1425,
@@ -232,7 +232,7 @@
                 {
                   "Name": "Sword.Update(Microsoft.Xna.Framework.GameTime, bool)",
                   "Kind": "method",
-                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Sword.cs",
+                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Sword.cs",
                   "Line": 21,
                   "OwnCyclomaticComplexity": 4,
                   "SourceSpanStart": 648,
@@ -242,7 +242,7 @@
                 {
                   "Name": "Sword.Sword(Microsoft.Xna.Framework.Graphics.Texture2D)",
                   "Kind": "method",
-                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Sword.cs",
+                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Sword.cs",
                   "Line": 16,
                   "OwnCyclomaticComplexity": 1,
                   "SourceSpanStart": 553,
@@ -255,12 +255,12 @@
               "loc": 28
             },
             {
-              "project": "sprint2",
-              "namespace": "sprint2.Weapons",
+              "project": "terraria",
+              "namespace": "terraria.Weapons",
               "type": "Dagger",
-              "typeId": "global::sprint2.Weapons.Dagger",
+              "typeId": "global::terraria.Weapons.Dagger",
               "sourceFiles": [
-                "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Dagger.cs"
+                "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Dagger.cs"
               ],
               "decompositionRatio": 3.25,
               "maxMemberCc": 4,
@@ -273,9 +273,9 @@
               "decompositionComplexity": 13,
               "functions": [
                 {
-                  "Name": "sprint2.Weapons.Dagger.Update(Microsoft.Xna.Framework.GameTime, bool)",
+                  "Name": "terraria.Weapons.Dagger.Update(Microsoft.Xna.Framework.GameTime, bool)",
                   "Kind": "method",
-                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Dagger.cs",
+                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Dagger.cs",
                   "Line": 62,
                   "OwnCyclomaticComplexity": 4,
                   "SourceSpanStart": 1623,
@@ -283,9 +283,9 @@
                   "CountsForDecomposition": true
                 },
                 {
-                  "Name": "sprint2.Weapons.Dagger.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch, Microsoft.Xna.Framework.Vector2, bool)",
+                  "Name": "terraria.Weapons.Dagger.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch, Microsoft.Xna.Framework.Vector2, bool)",
                   "Kind": "method",
-                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Dagger.cs",
+                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Dagger.cs",
                   "Line": 107,
                   "OwnCyclomaticComplexity": 4,
                   "SourceSpanStart": 2697,
@@ -293,9 +293,9 @@
                   "CountsForDecomposition": true
                 },
                 {
-                  "Name": "sprint2.Weapons.Dagger.Attack(Microsoft.Xna.Framework.Vector2, bool, Microsoft.Xna.Framework.Point)",
+                  "Name": "terraria.Weapons.Dagger.Attack(Microsoft.Xna.Framework.Vector2, bool, Microsoft.Xna.Framework.Point)",
                   "Kind": "method",
-                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Dagger.cs",
+                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Dagger.cs",
                   "Line": 28,
                   "OwnCyclomaticComplexity": 3,
                   "SourceSpanStart": 718,
@@ -303,9 +303,9 @@
                   "CountsForDecomposition": true
                 },
                 {
-                  "Name": "sprint2.Weapons.Dagger.Dagger(Microsoft.Xna.Framework.Graphics.Texture2D, sprint2.Projectiles.ProjectileManager)",
+                  "Name": "terraria.Weapons.Dagger.Dagger(Microsoft.Xna.Framework.Graphics.Texture2D, terraria.Projectiles.ProjectileManager)",
                   "Kind": "method",
-                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Dagger.cs",
+                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Dagger.cs",
                   "Line": 20,
                   "OwnCyclomaticComplexity": 1,
                   "SourceSpanStart": 521,
@@ -391,12 +391,12 @@
               "loc": 92
             },
             {
-              "project": "sprint2",
-              "namespace": "sprint2.Players",
+              "project": "terraria",
+              "namespace": "terraria.Players",
               "type": "MultiBind",
-              "typeId": "global::sprint2.Players.MultiBind",
+              "typeId": "global::terraria.Players.MultiBind",
               "sourceFiles": [
-                "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/MultiBind.cs"
+                "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/MultiBind.cs"
               ],
               "decompositionRatio": 2.8333,
               "maxMemberCc": 5,
@@ -409,9 +409,9 @@
               "decompositionComplexity": 17,
               "functions": [
                 {
-                  "Name": "sprint2.Players.MultiBind.Update(Microsoft.Xna.Framework.GameTime, MonoGameLibrary.Input.InputManager, float)",
+                  "Name": "terraria.Players.MultiBind.Update(Microsoft.Xna.Framework.GameTime, MonoGameLibrary.Input.InputManager, float)",
                   "Kind": "method",
-                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/MultiBind.cs",
+                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/MultiBind.cs",
                   "Line": 60,
                   "OwnCyclomaticComplexity": 5,
                   "SourceSpanStart": 1286,
@@ -419,9 +419,9 @@
                   "CountsForDecomposition": true
                 },
                 {
-                  "Name": "sprint2.Players.MultiBind.IsPressed.get",
+                  "Name": "terraria.Players.MultiBind.IsPressed.get",
                   "Kind": "accessor",
-                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/MultiBind.cs",
+                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/MultiBind.cs",
                   "Line": 14,
                   "OwnCyclomaticComplexity": 3,
                   "SourceSpanStart": 297,
@@ -429,9 +429,9 @@
                   "CountsForDecomposition": true
                 },
                 {
-                  "Name": "sprint2.Players.MultiBind.IsNewPress.get",
+                  "Name": "terraria.Players.MultiBind.IsNewPress.get",
                   "Kind": "accessor",
-                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/MultiBind.cs",
+                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/MultiBind.cs",
                   "Line": 27,
                   "OwnCyclomaticComplexity": 3,
                   "SourceSpanStart": 606,
@@ -439,9 +439,9 @@
                   "CountsForDecomposition": true
                 },
                 {
-                  "Name": "sprint2.Players.MultiBind.ReplaceKey(MonoGameLibrary.Input.TriggerKey, int)",
+                  "Name": "terraria.Players.MultiBind.ReplaceKey(MonoGameLibrary.Input.TriggerKey, int)",
                   "Kind": "method",
-                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/MultiBind.cs",
+                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/MultiBind.cs",
                   "Line": 48,
                   "OwnCyclomaticComplexity": 3,
                   "SourceSpanStart": 1038,
@@ -449,9 +449,9 @@
                   "CountsForDecomposition": true
                 },
                 {
-                  "Name": "sprint2.Players.MultiBind.MultiBind(params MonoGameLibrary.Input.TriggerKey[])",
+                  "Name": "terraria.Players.MultiBind.MultiBind(params MonoGameLibrary.Input.TriggerKey[])",
                   "Kind": "method",
-                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/MultiBind.cs",
+                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/MultiBind.cs",
                   "Line": 38,
                   "OwnCyclomaticComplexity": 1,
                   "SourceSpanStart": 845,
@@ -464,12 +464,12 @@
               "loc": 29
             },
             {
-              "project": "sprint2",
-              "namespace": "sprint2.Blocks",
+              "project": "terraria",
+              "namespace": "terraria.Blocks",
               "type": "BlocksDemo",
-              "typeId": "global::sprint2.Blocks.BlocksDemo",
+              "typeId": "global::terraria.Blocks.BlocksDemo",
               "sourceFiles": [
-                "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/BlocksDemo.cs"
+                "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/BlocksDemo.cs"
               ],
               "decompositionRatio": 2.6667,
               "maxMemberCc": 4,
@@ -482,9 +482,9 @@
               "decompositionComplexity": 8,
               "functions": [
                 {
-                  "Name": "sprint2.Blocks.BlocksDemo.Update(Microsoft.Xna.Framework.GameTime, sprint2.Players.PlayerInput)",
+                  "Name": "terraria.Blocks.BlocksDemo.Update(Microsoft.Xna.Framework.GameTime, terraria.Players.PlayerInput)",
                   "Kind": "method",
-                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/BlocksDemo.cs",
+                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/BlocksDemo.cs",
                   "Line": 39,
                   "OwnCyclomaticComplexity": 4,
                   "SourceSpanStart": 958,
@@ -492,9 +492,9 @@
                   "CountsForDecomposition": true
                 },
                 {
-                  "Name": "sprint2.Blocks.BlocksDemo.BlocksDemo(Microsoft.Xna.Framework.Content.ContentManager)",
+                  "Name": "terraria.Blocks.BlocksDemo.BlocksDemo(Microsoft.Xna.Framework.Content.ContentManager)",
                   "Kind": "method",
-                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/BlocksDemo.cs",
+                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/BlocksDemo.cs",
                   "Line": 18,
                   "OwnCyclomaticComplexity": 2,
                   "SourceSpanStart": 338,
@@ -502,9 +502,9 @@
                   "CountsForDecomposition": true
                 },
                 {
-                  "Name": "sprint2.Blocks.BlocksDemo.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
+                  "Name": "terraria.Blocks.BlocksDemo.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
                   "Kind": "method",
-                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/BlocksDemo.cs",
+                  "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/BlocksDemo.cs",
                   "Line": 47,
                   "OwnCyclomaticComplexity": 1,
                   "SourceSpanStart": 1345,
@@ -590,12 +590,12 @@
       },
       "topOffenders": [
         {
-          "project": "sprint2",
+          "project": "terraria",
           "namespace": "\u003Cglobal namespace\u003E",
           "type": "Sword",
           "typeId": "global::Sword",
           "sourceFiles": [
-            "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Sword.cs"
+            "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Sword.cs"
           ],
           "decompositionRatio": 3.6667,
           "maxMemberCc": 5,
@@ -610,7 +610,7 @@
             {
               "Name": "Sword.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch, Microsoft.Xna.Framework.Vector2, bool)",
               "Kind": "method",
-              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Sword.cs",
+              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Sword.cs",
               "Line": 49,
               "OwnCyclomaticComplexity": 5,
               "SourceSpanStart": 1425,
@@ -620,7 +620,7 @@
             {
               "Name": "Sword.Update(Microsoft.Xna.Framework.GameTime, bool)",
               "Kind": "method",
-              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Sword.cs",
+              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Sword.cs",
               "Line": 21,
               "OwnCyclomaticComplexity": 4,
               "SourceSpanStart": 648,
@@ -630,7 +630,7 @@
             {
               "Name": "Sword.Sword(Microsoft.Xna.Framework.Graphics.Texture2D)",
               "Kind": "method",
-              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Sword.cs",
+              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Sword.cs",
               "Line": 16,
               "OwnCyclomaticComplexity": 1,
               "SourceSpanStart": 553,
@@ -643,12 +643,12 @@
           "loc": 28
         },
         {
-          "project": "sprint2",
-          "namespace": "sprint2.Weapons",
+          "project": "terraria",
+          "namespace": "terraria.Weapons",
           "type": "Dagger",
-          "typeId": "global::sprint2.Weapons.Dagger",
+          "typeId": "global::terraria.Weapons.Dagger",
           "sourceFiles": [
-            "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Dagger.cs"
+            "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Dagger.cs"
           ],
           "decompositionRatio": 3.25,
           "maxMemberCc": 4,
@@ -661,9 +661,9 @@
           "decompositionComplexity": 13,
           "functions": [
             {
-              "Name": "sprint2.Weapons.Dagger.Update(Microsoft.Xna.Framework.GameTime, bool)",
+              "Name": "terraria.Weapons.Dagger.Update(Microsoft.Xna.Framework.GameTime, bool)",
               "Kind": "method",
-              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Dagger.cs",
+              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Dagger.cs",
               "Line": 62,
               "OwnCyclomaticComplexity": 4,
               "SourceSpanStart": 1623,
@@ -671,9 +671,9 @@
               "CountsForDecomposition": true
             },
             {
-              "Name": "sprint2.Weapons.Dagger.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch, Microsoft.Xna.Framework.Vector2, bool)",
+              "Name": "terraria.Weapons.Dagger.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch, Microsoft.Xna.Framework.Vector2, bool)",
               "Kind": "method",
-              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Dagger.cs",
+              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Dagger.cs",
               "Line": 107,
               "OwnCyclomaticComplexity": 4,
               "SourceSpanStart": 2697,
@@ -681,9 +681,9 @@
               "CountsForDecomposition": true
             },
             {
-              "Name": "sprint2.Weapons.Dagger.Attack(Microsoft.Xna.Framework.Vector2, bool, Microsoft.Xna.Framework.Point)",
+              "Name": "terraria.Weapons.Dagger.Attack(Microsoft.Xna.Framework.Vector2, bool, Microsoft.Xna.Framework.Point)",
               "Kind": "method",
-              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Dagger.cs",
+              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Dagger.cs",
               "Line": 28,
               "OwnCyclomaticComplexity": 3,
               "SourceSpanStart": 718,
@@ -691,9 +691,9 @@
               "CountsForDecomposition": true
             },
             {
-              "Name": "sprint2.Weapons.Dagger.Dagger(Microsoft.Xna.Framework.Graphics.Texture2D, sprint2.Projectiles.ProjectileManager)",
+              "Name": "terraria.Weapons.Dagger.Dagger(Microsoft.Xna.Framework.Graphics.Texture2D, terraria.Projectiles.ProjectileManager)",
               "Kind": "method",
-              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Dagger.cs",
+              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Dagger.cs",
               "Line": 20,
               "OwnCyclomaticComplexity": 1,
               "SourceSpanStart": 521,
@@ -779,12 +779,12 @@
           "loc": 92
         },
         {
-          "project": "sprint2",
-          "namespace": "sprint2.Players",
+          "project": "terraria",
+          "namespace": "terraria.Players",
           "type": "MultiBind",
-          "typeId": "global::sprint2.Players.MultiBind",
+          "typeId": "global::terraria.Players.MultiBind",
           "sourceFiles": [
-            "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/MultiBind.cs"
+            "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/MultiBind.cs"
           ],
           "decompositionRatio": 2.8333,
           "maxMemberCc": 5,
@@ -797,9 +797,9 @@
           "decompositionComplexity": 17,
           "functions": [
             {
-              "Name": "sprint2.Players.MultiBind.Update(Microsoft.Xna.Framework.GameTime, MonoGameLibrary.Input.InputManager, float)",
+              "Name": "terraria.Players.MultiBind.Update(Microsoft.Xna.Framework.GameTime, MonoGameLibrary.Input.InputManager, float)",
               "Kind": "method",
-              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/MultiBind.cs",
+              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/MultiBind.cs",
               "Line": 60,
               "OwnCyclomaticComplexity": 5,
               "SourceSpanStart": 1286,
@@ -807,9 +807,9 @@
               "CountsForDecomposition": true
             },
             {
-              "Name": "sprint2.Players.MultiBind.IsPressed.get",
+              "Name": "terraria.Players.MultiBind.IsPressed.get",
               "Kind": "accessor",
-              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/MultiBind.cs",
+              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/MultiBind.cs",
               "Line": 14,
               "OwnCyclomaticComplexity": 3,
               "SourceSpanStart": 297,
@@ -817,9 +817,9 @@
               "CountsForDecomposition": true
             },
             {
-              "Name": "sprint2.Players.MultiBind.IsNewPress.get",
+              "Name": "terraria.Players.MultiBind.IsNewPress.get",
               "Kind": "accessor",
-              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/MultiBind.cs",
+              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/MultiBind.cs",
               "Line": 27,
               "OwnCyclomaticComplexity": 3,
               "SourceSpanStart": 606,
@@ -827,9 +827,9 @@
               "CountsForDecomposition": true
             },
             {
-              "Name": "sprint2.Players.MultiBind.ReplaceKey(MonoGameLibrary.Input.TriggerKey, int)",
+              "Name": "terraria.Players.MultiBind.ReplaceKey(MonoGameLibrary.Input.TriggerKey, int)",
               "Kind": "method",
-              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/MultiBind.cs",
+              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/MultiBind.cs",
               "Line": 48,
               "OwnCyclomaticComplexity": 3,
               "SourceSpanStart": 1038,
@@ -837,9 +837,9 @@
               "CountsForDecomposition": true
             },
             {
-              "Name": "sprint2.Players.MultiBind.MultiBind(params MonoGameLibrary.Input.TriggerKey[])",
+              "Name": "terraria.Players.MultiBind.MultiBind(params MonoGameLibrary.Input.TriggerKey[])",
               "Kind": "method",
-              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/MultiBind.cs",
+              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/MultiBind.cs",
               "Line": 38,
               "OwnCyclomaticComplexity": 1,
               "SourceSpanStart": 845,
@@ -852,12 +852,12 @@
           "loc": 29
         },
         {
-          "project": "sprint2",
-          "namespace": "sprint2.Blocks",
+          "project": "terraria",
+          "namespace": "terraria.Blocks",
           "type": "BlocksDemo",
-          "typeId": "global::sprint2.Blocks.BlocksDemo",
+          "typeId": "global::terraria.Blocks.BlocksDemo",
           "sourceFiles": [
-            "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/BlocksDemo.cs"
+            "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/BlocksDemo.cs"
           ],
           "decompositionRatio": 2.6667,
           "maxMemberCc": 4,
@@ -870,9 +870,9 @@
           "decompositionComplexity": 8,
           "functions": [
             {
-              "Name": "sprint2.Blocks.BlocksDemo.Update(Microsoft.Xna.Framework.GameTime, sprint2.Players.PlayerInput)",
+              "Name": "terraria.Blocks.BlocksDemo.Update(Microsoft.Xna.Framework.GameTime, terraria.Players.PlayerInput)",
               "Kind": "method",
-              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/BlocksDemo.cs",
+              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/BlocksDemo.cs",
               "Line": 39,
               "OwnCyclomaticComplexity": 4,
               "SourceSpanStart": 958,
@@ -880,9 +880,9 @@
               "CountsForDecomposition": true
             },
             {
-              "Name": "sprint2.Blocks.BlocksDemo.BlocksDemo(Microsoft.Xna.Framework.Content.ContentManager)",
+              "Name": "terraria.Blocks.BlocksDemo.BlocksDemo(Microsoft.Xna.Framework.Content.ContentManager)",
               "Kind": "method",
-              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/BlocksDemo.cs",
+              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/BlocksDemo.cs",
               "Line": 18,
               "OwnCyclomaticComplexity": 2,
               "SourceSpanStart": 338,
@@ -890,9 +890,9 @@
               "CountsForDecomposition": true
             },
             {
-              "Name": "sprint2.Blocks.BlocksDemo.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
+              "Name": "terraria.Blocks.BlocksDemo.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
               "Kind": "method",
-              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/BlocksDemo.cs",
+              "File": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/BlocksDemo.cs",
               "Line": 47,
               "OwnCyclomaticComplexity": 1,
               "SourceSpanStart": 1345,
@@ -1426,11 +1426,11 @@
           ]
         },
         {
-          "project": "sprint2",
+          "project": "terraria",
           "type": "Game1",
-          "name": "sprint2.Game1.LoadContent()",
+          "name": "terraria.Game1.LoadContent()",
           "kind": "method",
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Game1.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Game1.cs",
           "line": 61,
           "sourceSpanStart": 1879,
           "mi": 43.1405702949205,
@@ -1441,17 +1441,17 @@
           "observationCount": 1,
           "projectFrameworkObservations": [
             {
-              "project": "sprint2",
+              "project": "terraria",
               "mi": 43.1405702949205
             }
           ]
         },
         {
-          "project": "sprint2",
+          "project": "terraria",
           "type": "PlayerInput",
-          "name": "sprint2.Players.PlayerInput.PlayerInput(MonoGameLibrary.Input.InputManager)",
+          "name": "terraria.Players.PlayerInput.PlayerInput(MonoGameLibrary.Input.InputManager)",
           "kind": "method",
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/PlayerInput.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/PlayerInput.cs",
           "line": 39,
           "sourceSpanStart": 624,
           "mi": 47.7049792708295,
@@ -1462,7 +1462,7 @@
           "observationCount": 1,
           "projectFrameworkObservations": [
             {
-              "project": "sprint2",
+              "project": "terraria",
               "mi": 47.7049792708295
             }
           ]
@@ -1489,11 +1489,11 @@
           ]
         },
         {
-          "project": "sprint2",
+          "project": "terraria",
           "type": "Dagger",
-          "name": "sprint2.Weapons.Dagger.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch, Microsoft.Xna.Framework.Vector2, bool)",
+          "name": "terraria.Weapons.Dagger.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch, Microsoft.Xna.Framework.Vector2, bool)",
           "kind": "method",
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Dagger.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Dagger.cs",
           "line": 107,
           "sourceSpanStart": 2697,
           "mi": 49.0997537287222,
@@ -1504,7 +1504,7 @@
           "observationCount": 1,
           "projectFrameworkObservations": [
             {
-              "project": "sprint2",
+              "project": "terraria",
               "mi": 49.0997537287222
             }
           ]
@@ -1525,11 +1525,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Game1.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Game1.cs",
           "line": 61,
           "sourceSpanStart": 1879,
           "kind": "method",
-          "name": "sprint2.Game1.LoadContent()",
+          "name": "terraria.Game1.LoadContent()",
           "mi": 43.1405702949205,
           "individualScore": 0.52342838248675,
           "group": "weakest",
@@ -1538,11 +1538,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/PlayerInput.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/PlayerInput.cs",
           "line": 39,
           "sourceSpanStart": 624,
           "kind": "method",
-          "name": "sprint2.Players.PlayerInput.PlayerInput(MonoGameLibrary.Input.InputManager)",
+          "name": "terraria.Players.PlayerInput.PlayerInput(MonoGameLibrary.Input.InputManager)",
           "mi": 47.7049792708295,
           "individualScore": 1.2841632118049166666666666667,
           "group": "weakest",
@@ -1564,11 +1564,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Dagger.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Dagger.cs",
           "line": 107,
           "sourceSpanStart": 2697,
           "kind": "method",
-          "name": "sprint2.Weapons.Dagger.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch, Microsoft.Xna.Framework.Vector2, bool)",
+          "name": "terraria.Weapons.Dagger.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch, Microsoft.Xna.Framework.Vector2, bool)",
           "mi": 49.0997537287222,
           "individualScore": 1.5166256214537,
           "group": "weakest",
@@ -1577,11 +1577,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Dagger.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Dagger.cs",
           "line": 62,
           "sourceSpanStart": 1623,
           "kind": "method",
-          "name": "sprint2.Weapons.Dagger.Update(Microsoft.Xna.Framework.GameTime, bool)",
+          "name": "terraria.Weapons.Dagger.Update(Microsoft.Xna.Framework.GameTime, bool)",
           "mi": 49.9915228418064,
           "individualScore": 1.6652538069677333333333333333,
           "group": "weakest",
@@ -1590,11 +1590,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Dagger.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Dagger.cs",
           "line": 28,
           "sourceSpanStart": 718,
           "kind": "method",
-          "name": "sprint2.Weapons.Dagger.Attack(Microsoft.Xna.Framework.Vector2, bool, Microsoft.Xna.Framework.Point)",
+          "name": "terraria.Weapons.Dagger.Attack(Microsoft.Xna.Framework.Vector2, bool, Microsoft.Xna.Framework.Point)",
           "mi": 53.2821427379996,
           "individualScore": 2.4273809126665333333333333333,
           "group": "weakest",
@@ -1629,11 +1629,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 60,
           "sourceSpanStart": 1303,
           "kind": "method",
-          "name": "sprint2.Players.Player.Player(MonoGameLibrary.Graphics.AnimatedSprite, MonoGameLibrary.Graphics.TextureAtlas, sprint2.Hotbar.PlayerHotbar)",
+          "name": "terraria.Players.Player.Player(MonoGameLibrary.Graphics.AnimatedSprite, MonoGameLibrary.Graphics.TextureAtlas, terraria.Hotbar.PlayerHotbar)",
           "mi": 55.5654070884268,
           "individualScore": 3.1884690294756,
           "group": "weakest",
@@ -1642,11 +1642,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 105,
           "sourceSpanStart": 2708,
           "kind": "method",
-          "name": "sprint2.Players.Player.Update(Microsoft.Xna.Framework.GameTime, sprint2.Players.PlayerInput)",
+          "name": "terraria.Players.Player.Update(Microsoft.Xna.Framework.GameTime, terraria.Players.PlayerInput)",
           "mi": 55.6881179995221,
           "individualScore": 3.2293726665073666666666666667,
           "group": "weakest",
@@ -1681,11 +1681,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Game1.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Game1.cs",
           "line": 132,
           "sourceSpanStart": 4469,
           "kind": "method",
-          "name": "sprint2.Game1.Draw(Microsoft.Xna.Framework.GameTime)",
+          "name": "terraria.Game1.Draw(Microsoft.Xna.Framework.GameTime)",
           "mi": 56.8357023165552,
           "individualScore": 3.6119007721850666666666666667,
           "group": "weakest",
@@ -1694,7 +1694,7 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Sword.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Sword.cs",
           "line": 21,
           "sourceSpanStart": 648,
           "kind": "method",
@@ -1720,11 +1720,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 81,
           "sourceSpanStart": 2099,
           "kind": "method",
-          "name": "sprint2.Players.Player.HandleHotbarInput()",
+          "name": "terraria.Players.Player.HandleHotbarInput()",
           "mi": 58.2541625719918,
           "individualScore": 4.0726178777119428571428571429,
           "group": "weakest",
@@ -1733,11 +1733,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/BlocksDemo.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/BlocksDemo.cs",
           "line": 18,
           "sourceSpanStart": 338,
           "kind": "method",
-          "name": "sprint2.Blocks.BlocksDemo.BlocksDemo(Microsoft.Xna.Framework.Content.ContentManager)",
+          "name": "terraria.Blocks.BlocksDemo.BlocksDemo(Microsoft.Xna.Framework.Content.ContentManager)",
           "mi": 59.4422936443481,
           "individualScore": 4.4120838983851714285714285714,
           "group": "weakest",
@@ -1746,11 +1746,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Game1.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Game1.cs",
           "line": 110,
           "sourceSpanStart": 3845,
           "kind": "method",
-          "name": "sprint2.Game1.Update(Microsoft.Xna.Framework.GameTime)",
+          "name": "terraria.Game1.Update(Microsoft.Xna.Framework.GameTime)",
           "mi": 59.995452693217,
           "individualScore": 4.5701293409191428571428571429,
           "group": "weakest",
@@ -1759,7 +1759,7 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Sword.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Sword.cs",
           "line": 49,
           "sourceSpanStart": 1425,
           "kind": "method",
@@ -1772,11 +1772,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 292,
           "sourceSpanStart": 7323,
           "kind": "method",
-          "name": "sprint2.Players.Player.JumpState.Update(float)",
+          "name": "terraria.Players.Player.JumpState.Update(float)",
           "mi": 60.7670233497244,
           "individualScore": 4.7905780999212571428571428571,
           "group": "weakest",
@@ -1785,11 +1785,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/HealthPotion.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/HealthPotion.cs",
           "line": 50,
           "sourceSpanStart": 1025,
           "kind": "method",
-          "name": "sprint2.Items.HealthPotion.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch, sprint2.Players.IPlayer)",
+          "name": "terraria.Items.HealthPotion.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch, terraria.Players.IPlayer)",
           "mi": 60.9094013171124,
           "individualScore": 4.8312575191749714285714285714,
           "group": "weakest",
@@ -1811,11 +1811,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 149,
           "sourceSpanStart": 3915,
           "kind": "method",
-          "name": "sprint2.Players.Player.HandleHorizontalMovement()",
+          "name": "terraria.Players.Player.HandleHorizontalMovement()",
           "mi": 61.4321105512188,
           "individualScore": 4.9806030146339428571428571429,
           "group": "weakest",
@@ -1824,11 +1824,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 371,
           "sourceSpanStart": 9220,
           "kind": "method",
-          "name": "sprint2.Players.Player.UseItemState.Update(float)",
+          "name": "terraria.Players.Player.UseItemState.Update(float)",
           "mi": 61.5928971276238,
           "individualScore": 5.0265420364639428571428571429,
           "group": "weakest",
@@ -1837,11 +1837,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 212,
           "sourceSpanStart": 5372,
           "kind": "method",
-          "name": "sprint2.Players.Player.IdleState.Update(float)",
+          "name": "terraria.Players.Player.IdleState.Update(float)",
           "mi": 61.6952097852496,
           "individualScore": 5.0557742243570285714285714286,
           "group": "weakest",
@@ -1850,11 +1850,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 251,
           "sourceSpanStart": 6288,
           "kind": "method",
-          "name": "sprint2.Players.Player.WalkState.Update(float)",
+          "name": "terraria.Players.Player.WalkState.Update(float)",
           "mi": 61.6952097852496,
           "individualScore": 5.0557742243570285714285714286,
           "group": "weakest",
@@ -1863,11 +1863,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/EyeOfCthulhu.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/EyeOfCthulhu.cs",
           "line": 72,
           "sourceSpanStart": 1706,
           "kind": "method",
-          "name": "sprint2.Bosses.EyeOfCthulhu.HandleRotation()",
+          "name": "terraria.Bosses.EyeOfCthulhu.HandleRotation()",
           "mi": 61.8496146475444,
           "individualScore": 5.0998898992984,
           "group": "weakest",
@@ -1876,11 +1876,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/Slime.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/Slime.cs",
           "line": 126,
           "sourceSpanStart": 3143,
           "kind": "method",
-          "name": "sprint2.Bosses.Slime.HandleJump(Microsoft.Xna.Framework.GameTime)",
+          "name": "terraria.Bosses.Slime.HandleJump(Microsoft.Xna.Framework.GameTime)",
           "mi": 62.0964343992144,
           "individualScore": 5.1704098283469714285714285714,
           "group": "weakest",
@@ -1889,11 +1889,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/RecallPotion.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/RecallPotion.cs",
           "line": 57,
           "sourceSpanStart": 1273,
           "kind": "method",
-          "name": "sprint2.Items.RecallPotion.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch, sprint2.Players.IPlayer)",
+          "name": "terraria.Items.RecallPotion.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch, terraria.Players.IPlayer)",
           "mi": 62.19263852191,
           "individualScore": 5.1978967205457142857142857143,
           "group": "weakest",
@@ -1902,11 +1902,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/Slime.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/Slime.cs",
           "line": 103,
           "sourceSpanStart": 2533,
           "kind": "method",
-          "name": "sprint2.Bosses.Slime.ApplyPhysics()",
+          "name": "terraria.Bosses.Slime.ApplyPhysics()",
           "mi": 62.5753280130505,
           "individualScore": 5.3072365751572857142857142857,
           "group": "weakest",
@@ -1915,11 +1915,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 132,
           "sourceSpanStart": 3505,
           "kind": "method",
-          "name": "sprint2.Players.Player.ApplyPhysics()",
+          "name": "terraria.Players.Player.ApplyPhysics()",
           "mi": 62.5753280130505,
           "individualScore": 5.3072365751572857142857142857,
           "group": "weakest",
@@ -1928,11 +1928,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/RecallPotion.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/RecallPotion.cs",
           "line": 39,
           "sourceSpanStart": 796,
           "kind": "method",
-          "name": "sprint2.Items.RecallPotion.Update(Microsoft.Xna.Framework.GameTime, sprint2.Players.IPlayer)",
+          "name": "terraria.Items.RecallPotion.Update(Microsoft.Xna.Framework.GameTime, terraria.Players.IPlayer)",
           "mi": 62.7906671328907,
           "individualScore": 5.3687620379687714285714285714,
           "group": "weakest",
@@ -1941,11 +1941,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/MultiBind.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/MultiBind.cs",
           "line": 60,
           "sourceSpanStart": 1286,
           "kind": "method",
-          "name": "sprint2.Players.MultiBind.Update(Microsoft.Xna.Framework.GameTime, MonoGameLibrary.Input.InputManager, float)",
+          "name": "terraria.Players.MultiBind.Update(Microsoft.Xna.Framework.GameTime, MonoGameLibrary.Input.InputManager, float)",
           "mi": 62.8422655719515,
           "individualScore": 5.3835044491290,
           "group": "weakest",
@@ -1967,11 +1967,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/EyeOfCthulhu.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/EyeOfCthulhu.cs",
           "line": 130,
           "sourceSpanStart": 3108,
           "kind": "method",
-          "name": "sprint2.Bosses.EyeOfCthulhu.RunToPosition(Microsoft.Xna.Framework.Vector2)",
+          "name": "terraria.Bosses.EyeOfCthulhu.RunToPosition(Microsoft.Xna.Framework.Vector2)",
           "mi": 63.3460498166818,
           "individualScore": 5.5274428047662285714285714286,
           "group": "weakest",
@@ -1980,11 +1980,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/QueenBee.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/QueenBee.cs",
           "line": 112,
           "sourceSpanStart": 2693,
           "kind": "method",
-          "name": "sprint2.Bosses.QueenBee.RunToPosition(Microsoft.Xna.Framework.Vector2)",
+          "name": "terraria.Bosses.QueenBee.RunToPosition(Microsoft.Xna.Framework.Vector2)",
           "mi": 63.3460498166818,
           "individualScore": 5.5274428047662285714285714286,
           "group": "weakest",
@@ -1993,11 +1993,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/ItemDemo.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/ItemDemo.cs",
           "line": 17,
           "sourceSpanStart": 332,
           "kind": "method",
-          "name": "sprint2.Items.ItemDemo.ItemDemo(Microsoft.Xna.Framework.Content.ContentManager)",
+          "name": "terraria.Items.ItemDemo.ItemDemo(Microsoft.Xna.Framework.Content.ContentManager)",
           "mi": 63.4964852783722,
           "individualScore": 5.5704243652492,
           "group": "weakest",
@@ -2019,11 +2019,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/EyeOfCthulhu.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/EyeOfCthulhu.cs",
           "line": 38,
           "sourceSpanStart": 864,
           "kind": "method",
-          "name": "sprint2.Bosses.EyeOfCthulhu.EyeOfCthulhu(MonoGameLibrary.Graphics.AnimatedSprite, MonoGameLibrary.Graphics.TextureAtlas)",
+          "name": "terraria.Bosses.EyeOfCthulhu.EyeOfCthulhu(MonoGameLibrary.Graphics.AnimatedSprite, MonoGameLibrary.Graphics.TextureAtlas)",
           "mi": 64.3615358920216,
           "individualScore": 5.8175816834347428571428571429,
           "group": "weakest",
@@ -2032,11 +2032,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/QueenBee.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/QueenBee.cs",
           "line": 36,
           "sourceSpanStart": 814,
           "kind": "method",
-          "name": "sprint2.Bosses.QueenBee.QueenBee(MonoGameLibrary.Graphics.AnimatedSprite, MonoGameLibrary.Graphics.TextureAtlas)",
+          "name": "terraria.Bosses.QueenBee.QueenBee(MonoGameLibrary.Graphics.AnimatedSprite, MonoGameLibrary.Graphics.TextureAtlas)",
           "mi": 64.4003478693892,
           "individualScore": 5.8286708198254857142857142857,
           "group": "weakest",
@@ -2058,11 +2058,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/HealthPotion.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/HealthPotion.cs",
           "line": 33,
           "sourceSpanStart": 645,
           "kind": "method",
-          "name": "sprint2.Items.HealthPotion.Update(Microsoft.Xna.Framework.GameTime, sprint2.Players.IPlayer)",
+          "name": "terraria.Items.HealthPotion.Update(Microsoft.Xna.Framework.GameTime, terraria.Players.IPlayer)",
           "mi": 64.7997963443424,
           "individualScore": 5.9427989555264,
           "group": "weakest",
@@ -2071,11 +2071,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/StateMachines/StateMachine.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/StateMachines/StateMachine.cs",
           "line": 15,
           "sourceSpanStart": 398,
           "kind": "method",
-          "name": "sprint2.StateMachines.StateMachine\u003CTState\u003E.ChangeState(TState)",
+          "name": "terraria.StateMachines.StateMachine\u003CTState\u003E.ChangeState(TState)",
           "mi": 65.3965733145015,
           "individualScore": 6.15862932580060,
           "group": "weakest",
@@ -2084,11 +2084,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/Slime.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/Slime.cs",
           "line": 31,
           "sourceSpanStart": 806,
           "kind": "method",
-          "name": "sprint2.Bosses.Slime.Slime(MonoGameLibrary.Graphics.AnimatedSprite, MonoGameLibrary.Graphics.TextureAtlas)",
+          "name": "terraria.Bosses.Slime.Slime(MonoGameLibrary.Graphics.AnimatedSprite, MonoGameLibrary.Graphics.TextureAtlas)",
           "mi": 65.4374651396854,
           "individualScore": 6.17498605587416,
           "group": "weakest",
@@ -2097,11 +2097,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/States/CthulhuPhase2State.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/States/CthulhuPhase2State.cs",
           "line": 23,
           "sourceSpanStart": 385,
           "kind": "method",
-          "name": "sprint2.Bosses.States.CthulhuPhase2State.Update(Microsoft.Xna.Framework.GameTime)",
+          "name": "terraria.Bosses.States.CthulhuPhase2State.Update(Microsoft.Xna.Framework.GameTime)",
           "mi": 65.5198663693117,
           "individualScore": 6.20794654772468,
           "group": "weakest",
@@ -2110,11 +2110,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/EyeOfCthulhu.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/EyeOfCthulhu.cs",
           "line": 112,
           "sourceSpanStart": 2774,
           "kind": "method",
-          "name": "sprint2.Bosses.EyeOfCthulhu.HandleDragComponent(float, float)",
+          "name": "terraria.Bosses.EyeOfCthulhu.HandleDragComponent(float, float)",
           "mi": 65.6017617321158,
           "individualScore": 6.24070469284632,
           "group": "weakest",
@@ -2123,11 +2123,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/QueenBee.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/QueenBee.cs",
           "line": 82,
           "sourceSpanStart": 2117,
           "kind": "method",
-          "name": "sprint2.Bosses.QueenBee.HandleDragComponent(float, float)",
+          "name": "terraria.Bosses.QueenBee.HandleDragComponent(float, float)",
           "mi": 65.6017617321158,
           "individualScore": 6.24070469284632,
           "group": "weakest",
@@ -2136,11 +2136,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/Slime.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/Slime.cs",
           "line": 85,
           "sourceSpanStart": 2198,
           "kind": "method",
-          "name": "sprint2.Bosses.Slime.HandleDragComponent(float, float)",
+          "name": "terraria.Bosses.Slime.HandleDragComponent(float, float)",
           "mi": 65.6017617321158,
           "individualScore": 6.24070469284632,
           "group": "weakest",
@@ -2149,11 +2149,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 177,
           "sourceSpanStart": 4533,
           "kind": "method",
-          "name": "sprint2.Players.Player.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
+          "name": "terraria.Players.Player.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
           "mi": 65.8221900904877,
           "individualScore": 6.32887603619508,
           "group": "weakest",
@@ -2162,11 +2162,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/EyeOfCthulhu.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/EyeOfCthulhu.cs",
           "line": 90,
           "sourceSpanStart": 2246,
           "kind": "method",
-          "name": "sprint2.Bosses.EyeOfCthulhu.HandleMovement()",
+          "name": "terraria.Bosses.EyeOfCthulhu.HandleMovement()",
           "mi": 65.9178436419274,
           "individualScore": 6.36713745677096,
           "group": "weakest",
@@ -2175,11 +2175,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/QueenBee.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/QueenBee.cs",
           "line": 61,
           "sourceSpanStart": 1598,
           "kind": "method",
-          "name": "sprint2.Bosses.QueenBee.HandleMovement()",
+          "name": "terraria.Bosses.QueenBee.HandleMovement()",
           "mi": 65.9178436419274,
           "individualScore": 6.36713745677096,
           "group": "weakest",
@@ -2188,11 +2188,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectiles/DaggerProjectile.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectiles/DaggerProjectile.cs",
           "line": 23,
           "sourceSpanStart": 479,
           "kind": "method",
-          "name": "sprint2.Projectiles.DaggerProjectile.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
+          "name": "terraria.Projectiles.DaggerProjectile.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
           "mi": 65.9259140494438,
           "individualScore": 6.37036561977752,
           "group": "weakest",
@@ -2201,11 +2201,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/States/QueenBeeFlyingState.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/States/QueenBeeFlyingState.cs",
           "line": 23,
           "sourceSpanStart": 405,
           "kind": "method",
-          "name": "sprint2.Bosses.States.QueenBeeFlyingState.Update(Microsoft.Xna.Framework.GameTime)",
+          "name": "terraria.Bosses.States.QueenBeeFlyingState.Update(Microsoft.Xna.Framework.GameTime)",
           "mi": 66.0135345885363,
           "individualScore": 6.40541383541452,
           "group": "weakest",
@@ -2214,11 +2214,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 334,
           "sourceSpanStart": 8347,
           "kind": "method",
-          "name": "sprint2.Players.Player.FallState.Update(float)",
+          "name": "terraria.Players.Player.FallState.Update(float)",
           "mi": 66.0975030521124,
           "individualScore": 6.43900122084496,
           "group": "weakest",
@@ -2227,11 +2227,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/ItemDemo.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/ItemDemo.cs",
           "line": 37,
           "sourceSpanStart": 879,
           "kind": "method",
-          "name": "sprint2.Items.ItemDemo.Update(Microsoft.Xna.Framework.GameTime, sprint2.Players.PlayerInput)",
+          "name": "terraria.Items.ItemDemo.Update(Microsoft.Xna.Framework.GameTime, terraria.Players.PlayerInput)",
           "mi": 66.1446381468749,
           "individualScore": 6.45785525874996,
           "group": "weakest",
@@ -2240,11 +2240,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/States/CthulhuPhase1State.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/States/CthulhuPhase1State.cs",
           "line": 23,
           "sourceSpanStart": 385,
           "kind": "method",
-          "name": "sprint2.Bosses.States.CthulhuPhase1State.Update(Microsoft.Xna.Framework.GameTime)",
+          "name": "terraria.Bosses.States.CthulhuPhase1State.Update(Microsoft.Xna.Framework.GameTime)",
           "mi": 66.1512694047512,
           "individualScore": 6.46050776190048,
           "group": "weakest",
@@ -2253,11 +2253,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectiles/Projectile.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectiles/Projectile.cs",
           "line": 25,
           "sourceSpanStart": 646,
           "kind": "method",
-          "name": "sprint2.Projectiles.Projectile.Update(Microsoft.Xna.Framework.GameTime)",
+          "name": "terraria.Projectiles.Projectile.Update(Microsoft.Xna.Framework.GameTime)",
           "mi": 66.307034665443,
           "individualScore": 6.5228138661772,
           "group": "weakest",
@@ -2279,11 +2279,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/Slime.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/Slime.cs",
           "line": 41,
           "sourceSpanStart": 1144,
           "kind": "method",
-          "name": "sprint2.Bosses.Slime.Slime(MonoGameLibrary.Graphics.AnimatedSprite, MonoGameLibrary.Graphics.TextureAtlas, Microsoft.Xna.Framework.Color)",
+          "name": "terraria.Bosses.Slime.Slime(MonoGameLibrary.Graphics.AnimatedSprite, MonoGameLibrary.Graphics.TextureAtlas, Microsoft.Xna.Framework.Color)",
           "mi": 66.8371927764823,
           "individualScore": 6.73487711059292,
           "group": "weakest",
@@ -2292,11 +2292,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Hotbar/PlayerHotbar.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Hotbar/PlayerHotbar.cs",
           "line": 24,
           "sourceSpanStart": 439,
           "kind": "method",
-          "name": "sprint2.Hotbar.PlayerHotbar.PlayerHotbar(sprint2.Hotbar.IHotbarEntry[])",
+          "name": "terraria.Hotbar.PlayerHotbar.PlayerHotbar(terraria.Hotbar.IHotbarEntry[])",
           "mi": 67.4217973471656,
           "individualScore": 6.96871893886624,
           "group": "weakest",
@@ -2318,11 +2318,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/Slime.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/Slime.cs",
           "line": 61,
           "sourceSpanStart": 1608,
           "kind": "method",
-          "name": "sprint2.Bosses.Slime.Update(Microsoft.Xna.Framework.GameTime, Microsoft.Xna.Framework.Vector2)",
+          "name": "terraria.Bosses.Slime.Update(Microsoft.Xna.Framework.GameTime, Microsoft.Xna.Framework.Vector2)",
           "mi": 67.9768714403663,
           "individualScore": 7.19074857614652,
           "group": "weakest",
@@ -2331,11 +2331,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/States/QueenBeeIdleState.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/States/QueenBeeIdleState.cs",
           "line": 23,
           "sourceSpanStart": 399,
           "kind": "method",
-          "name": "sprint2.Bosses.States.QueenBeeIdleState.Update(Microsoft.Xna.Framework.GameTime)",
+          "name": "terraria.Bosses.States.QueenBeeIdleState.Update(Microsoft.Xna.Framework.GameTime)",
           "mi": 68.106142566104,
           "individualScore": 7.2424570264416,
           "group": "weakest",
@@ -2344,11 +2344,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Game1.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Game1.cs",
           "line": 49,
           "sourceSpanStart": 1408,
           "kind": "method",
-          "name": "sprint2.Game1.Initialize()",
+          "name": "terraria.Game1.Initialize()",
           "mi": 68.3638756931752,
           "individualScore": 7.34555027727008,
           "group": "remaining",
@@ -2357,11 +2357,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/BlocksDemo.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/BlocksDemo.cs",
           "line": 39,
           "sourceSpanStart": 958,
           "kind": "method",
-          "name": "sprint2.Blocks.BlocksDemo.Update(Microsoft.Xna.Framework.GameTime, sprint2.Players.PlayerInput)",
+          "name": "terraria.Blocks.BlocksDemo.Update(Microsoft.Xna.Framework.GameTime, terraria.Players.PlayerInput)",
           "mi": 68.568787800661,
           "individualScore": 7.4275151202644,
           "group": "remaining",
@@ -2370,11 +2370,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Music/MusicPlayer.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Music/MusicPlayer.cs",
           "line": 63,
           "sourceSpanStart": 1450,
           "kind": "method",
-          "name": "sprint2.Music.MusicPlayer.NextSong()",
+          "name": "terraria.Music.MusicPlayer.NextSong()",
           "mi": 68.6054284460718,
           "individualScore": 7.44217137842872,
           "group": "remaining",
@@ -2383,11 +2383,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/QueenBee.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/QueenBee.cs",
           "line": 101,
           "sourceSpanStart": 2454,
           "kind": "method",
-          "name": "sprint2.Bosses.QueenBee.CalcDist(float, float)",
+          "name": "terraria.Bosses.QueenBee.CalcDist(float, float)",
           "mi": 69.4000105672628,
           "individualScore": 7.76000422690512,
           "group": "remaining",
@@ -2396,11 +2396,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectiles/ProjectileManager.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectiles/ProjectileManager.cs",
           "line": 27,
           "sourceSpanStart": 630,
           "kind": "method",
-          "name": "sprint2.Projectiles.ProjectileManager.Update(Microsoft.Xna.Framework.GameTime)",
+          "name": "terraria.Projectiles.ProjectileManager.Update(Microsoft.Xna.Framework.GameTime)",
           "mi": 69.8372535427216,
           "individualScore": 7.93490141708864,
           "group": "remaining",
@@ -2409,11 +2409,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/PlayerInput.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/PlayerInput.cs",
           "line": 74,
           "sourceSpanStart": 2903,
           "kind": "method",
-          "name": "sprint2.Players.PlayerInput.AddKey(sprint2.Players.KeyAction, Microsoft.Xna.Framework.Input.Keys)",
+          "name": "terraria.Players.PlayerInput.AddKey(terraria.Players.KeyAction, Microsoft.Xna.Framework.Input.Keys)",
           "mi": 70.3653435721386,
           "individualScore": 8.14613742885544,
           "group": "remaining",
@@ -2422,11 +2422,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Music/MusicPlayer.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Music/MusicPlayer.cs",
           "line": 21,
           "sourceSpanStart": 453,
           "kind": "method",
-          "name": "sprint2.Music.MusicPlayer.MusicPlayer(Microsoft.Xna.Framework.Media.Song, bool, float)",
+          "name": "terraria.Music.MusicPlayer.MusicPlayer(Microsoft.Xna.Framework.Media.Song, bool, float)",
           "mi": 70.4948965748728,
           "individualScore": 8.19795862994912,
           "group": "remaining",
@@ -2461,11 +2461,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/MultiBind.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/MultiBind.cs",
           "line": 48,
           "sourceSpanStart": 1038,
           "kind": "method",
-          "name": "sprint2.Players.MultiBind.ReplaceKey(MonoGameLibrary.Input.TriggerKey, int)",
+          "name": "terraria.Players.MultiBind.ReplaceKey(MonoGameLibrary.Input.TriggerKey, int)",
           "mi": 71.3794991820524,
           "individualScore": 8.55179967282096,
           "group": "remaining",
@@ -2474,11 +2474,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Hotbar/WeaponHotbarEntry.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Hotbar/WeaponHotbarEntry.cs",
           "line": 23,
           "sourceSpanStart": 535,
           "kind": "method",
-          "name": "sprint2.Hotbar.WeaponHotbarEntry.Use(sprint2.Players.IPlayer)",
+          "name": "terraria.Hotbar.WeaponHotbarEntry.Use(terraria.Players.IPlayer)",
           "mi": 71.504686733485,
           "individualScore": 8.6018746933940,
           "group": "remaining",
@@ -2487,11 +2487,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/BossFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/BossFactory.cs",
           "line": 76,
           "sourceSpanStart": 1798,
           "kind": "method",
-          "name": "sprint2.Bosses.BossFactory.CreateCthulhu()",
+          "name": "terraria.Bosses.BossFactory.CreateCthulhu()",
           "mi": 71.7010232080074,
           "individualScore": 8.68040928320296,
           "group": "remaining",
@@ -2500,11 +2500,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Hotbar/PlayerHotbar.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Hotbar/PlayerHotbar.cs",
           "line": 46,
           "sourceSpanStart": 966,
           "kind": "method",
-          "name": "sprint2.Hotbar.PlayerHotbar.UseSlot(int, sprint2.Players.IPlayer)",
+          "name": "terraria.Hotbar.PlayerHotbar.UseSlot(int, terraria.Players.IPlayer)",
           "mi": 71.7724237456174,
           "individualScore": 8.70896949824696,
           "group": "remaining",
@@ -2539,11 +2539,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/EyeOfCthulhu.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/EyeOfCthulhu.cs",
           "line": 56,
           "sourceSpanStart": 1352,
           "kind": "method",
-          "name": "sprint2.Bosses.EyeOfCthulhu.Update(Microsoft.Xna.Framework.GameTime, Microsoft.Xna.Framework.Vector2)",
+          "name": "terraria.Bosses.EyeOfCthulhu.Update(Microsoft.Xna.Framework.GameTime, Microsoft.Xna.Framework.Vector2)",
           "mi": 73.0023923873576,
           "individualScore": 9.20095695494304,
           "group": "remaining",
@@ -2552,11 +2552,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/QueenBee.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/QueenBee.cs",
           "line": 52,
           "sourceSpanStart": 1399,
           "kind": "method",
-          "name": "sprint2.Bosses.QueenBee.Update(Microsoft.Xna.Framework.GameTime, Microsoft.Xna.Framework.Vector2)",
+          "name": "terraria.Bosses.QueenBee.Update(Microsoft.Xna.Framework.GameTime, Microsoft.Xna.Framework.Vector2)",
           "mi": 73.0023923873576,
           "individualScore": 9.20095695494304,
           "group": "remaining",
@@ -2604,11 +2604,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Music/MusicPlayer.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Music/MusicPlayer.cs",
           "line": 30,
           "sourceSpanStart": 690,
           "kind": "method",
-          "name": "sprint2.Music.MusicPlayer.MusicPlayer(System.Collections.Generic.List\u003CMicrosoft.Xna.Framework.Media.Song\u003E, bool, float)",
+          "name": "terraria.Music.MusicPlayer.MusicPlayer(System.Collections.Generic.List\u003CMicrosoft.Xna.Framework.Media.Song\u003E, bool, float)",
           "mi": 73.6434356255334,
           "individualScore": 9.45737425021336,
           "group": "remaining",
@@ -2617,11 +2617,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/BossFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/BossFactory.cs",
           "line": 67,
           "sourceSpanStart": 1521,
           "kind": "method",
-          "name": "sprint2.Bosses.BossFactory.CreateQueenBee()",
+          "name": "terraria.Bosses.BossFactory.CreateQueenBee()",
           "mi": 73.770672227694,
           "individualScore": 9.5082688910776,
           "group": "remaining",
@@ -2630,11 +2630,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/MultiBind.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/MultiBind.cs",
           "line": 14,
           "sourceSpanStart": 297,
           "kind": "accessor",
-          "name": "sprint2.Players.MultiBind.IsPressed.get",
+          "name": "terraria.Players.MultiBind.IsPressed.get",
           "mi": 73.8307369295239,
           "individualScore": 9.53229477180956,
           "group": "remaining",
@@ -2643,11 +2643,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/MultiBind.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/MultiBind.cs",
           "line": 27,
           "sourceSpanStart": 606,
           "kind": "accessor",
-          "name": "sprint2.Players.MultiBind.IsNewPress.get",
+          "name": "terraria.Players.MultiBind.IsNewPress.get",
           "mi": 73.8307369295239,
           "individualScore": 9.53229477180956,
           "group": "remaining",
@@ -2656,11 +2656,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Music/MusicPlayer.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Music/MusicPlayer.cs",
           "line": 43,
           "sourceSpanStart": 1003,
           "kind": "method",
-          "name": "sprint2.Music.MusicPlayer.Update()",
+          "name": "terraria.Music.MusicPlayer.Update()",
           "mi": 73.8751641810557,
           "individualScore": 9.55006567242228,
           "group": "remaining",
@@ -2669,11 +2669,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Weapon.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Weapon.cs",
           "line": 29,
           "sourceSpanStart": 628,
           "kind": "method",
-          "name": "sprint2.Weapons.Weapon.Attack(Microsoft.Xna.Framework.Vector2, bool)",
+          "name": "terraria.Weapons.Weapon.Attack(Microsoft.Xna.Framework.Vector2, bool)",
           "mi": 73.9257359861248,
           "individualScore": 9.57029439444992,
           "group": "remaining",
@@ -2682,11 +2682,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Weapon.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Weapon.cs",
           "line": 41,
           "sourceSpanStart": 901,
           "kind": "method",
-          "name": "sprint2.Weapons.Weapon.Attack(Microsoft.Xna.Framework.Vector2, bool, Microsoft.Xna.Framework.Point)",
+          "name": "terraria.Weapons.Weapon.Attack(Microsoft.Xna.Framework.Vector2, bool, Microsoft.Xna.Framework.Point)",
           "mi": 73.9257359861248,
           "individualScore": 9.57029439444992,
           "group": "remaining",
@@ -2695,11 +2695,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 281,
           "sourceSpanStart": 7033,
           "kind": "method",
-          "name": "sprint2.Players.Player.JumpState.Enter()",
+          "name": "terraria.Players.Player.JumpState.Enter()",
           "mi": 74.0259996192422,
           "individualScore": 9.61039984769688,
           "group": "remaining",
@@ -2708,11 +2708,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectiles/Projectile.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectiles/Projectile.cs",
           "line": 17,
           "sourceSpanStart": 433,
           "kind": "method",
-          "name": "sprint2.Projectiles.Projectile.Projectile(Microsoft.Xna.Framework.Graphics.Texture2D, Microsoft.Xna.Framework.Vector2, Microsoft.Xna.Framework.Vector2)",
+          "name": "terraria.Projectiles.Projectile.Projectile(Microsoft.Xna.Framework.Graphics.Texture2D, Microsoft.Xna.Framework.Vector2, Microsoft.Xna.Framework.Vector2)",
           "mi": 74.0602389101014,
           "individualScore": 9.62409556404056,
           "group": "remaining",
@@ -2721,11 +2721,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Weapon.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Weapon.cs",
           "line": 18,
           "sourceSpanStart": 394,
           "kind": "method",
-          "name": "sprint2.Weapons.Weapon.Weapon(Microsoft.Xna.Framework.Graphics.Texture2D, float)",
+          "name": "terraria.Weapons.Weapon.Weapon(Microsoft.Xna.Framework.Graphics.Texture2D, float)",
           "mi": 74.0602389101014,
           "individualScore": 9.62409556404056,
           "group": "remaining",
@@ -2734,11 +2734,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/BossFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/BossFactory.cs",
           "line": 60,
           "sourceSpanStart": 1217,
           "kind": "method",
-          "name": "sprint2.Bosses.BossFactory.LoadAllTextures(Microsoft.Xna.Framework.Content.ContentManager)",
+          "name": "terraria.Bosses.BossFactory.LoadAllTextures(Microsoft.Xna.Framework.Content.ContentManager)",
           "mi": 74.3645987648995,
           "individualScore": 9.74583950595980,
           "group": "remaining",
@@ -2760,11 +2760,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/BossFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/BossFactory.cs",
           "line": 97,
           "sourceSpanStart": 2338,
           "kind": "method",
-          "name": "sprint2.Bosses.BossFactory.CreateColoredSlime(Microsoft.Xna.Framework.Color)",
+          "name": "terraria.Bosses.BossFactory.CreateColoredSlime(Microsoft.Xna.Framework.Color)",
           "mi": 74.8757150559378,
           "individualScore": 9.95028602237512,
           "group": "remaining",
@@ -2773,11 +2773,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectiles/ProjectileManager.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectiles/ProjectileManager.cs",
           "line": 18,
           "sourceSpanStart": 409,
           "kind": "method",
-          "name": "sprint2.Projectiles.ProjectileManager.AddProjectile(sprint2.Projectiles.IProjectile)",
+          "name": "terraria.Projectiles.ProjectileManager.AddProjectile(terraria.Projectiles.IProjectile)",
           "mi": 75.0850283874448,
           "individualScore": 10,
           "group": "remaining",
@@ -2786,11 +2786,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Content/World/WorldHandler.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Content/World/WorldHandler.cs",
           "line": 19,
           "sourceSpanStart": 535,
           "kind": "method",
-          "name": "sprint2.World.WorldHandler.WorldHandler(int, int)",
+          "name": "terraria.World.WorldHandler.WorldHandler(int, int)",
           "mi": 75.1514249013599,
           "individualScore": 10,
           "group": "remaining",
@@ -2799,11 +2799,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/BossFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/BossFactory.cs",
           "line": 88,
           "sourceSpanStart": 2127,
           "kind": "method",
-          "name": "sprint2.Bosses.BossFactory.CreateSlime()",
+          "name": "terraria.Bosses.BossFactory.CreateSlime()",
           "mi": 75.153755616667,
           "individualScore": 10,
           "group": "remaining",
@@ -2825,11 +2825,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/RecallPotion.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/RecallPotion.cs",
           "line": 26,
           "sourceSpanStart": 507,
           "kind": "method",
-          "name": "sprint2.Items.RecallPotion.RecallPotion(MonoGameLibrary.Graphics.TextureAtlas)",
+          "name": "terraria.Items.RecallPotion.RecallPotion(MonoGameLibrary.Graphics.TextureAtlas)",
           "mi": 75.9139197285038,
           "individualScore": 10,
           "group": "remaining",
@@ -2838,11 +2838,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/EyeOfCthulhu.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/EyeOfCthulhu.cs",
           "line": 147,
           "sourceSpanStart": 3536,
           "kind": "method",
-          "name": "sprint2.Bosses.EyeOfCthulhu.DashToPosition(Microsoft.Xna.Framework.Vector2)",
+          "name": "terraria.Bosses.EyeOfCthulhu.DashToPosition(Microsoft.Xna.Framework.Vector2)",
           "mi": 75.9837623213985,
           "individualScore": 10,
           "group": "remaining",
@@ -2851,11 +2851,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectiles/DaggerProjectile.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectiles/DaggerProjectile.cs",
           "line": 13,
           "sourceSpanStart": 320,
           "kind": "method",
-          "name": "sprint2.Projectiles.DaggerProjectile.Update(Microsoft.Xna.Framework.GameTime)",
+          "name": "terraria.Projectiles.DaggerProjectile.Update(Microsoft.Xna.Framework.GameTime)",
           "mi": 76.5547363595332,
           "individualScore": 10,
           "group": "remaining",
@@ -2864,11 +2864,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Content/World/WorldHandler.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Content/World/WorldHandler.cs",
           "line": 44,
           "sourceSpanStart": 1253,
           "kind": "method",
-          "name": "sprint2.World.WorldHandler.GetTransformMatrix()",
+          "name": "terraria.World.WorldHandler.GetTransformMatrix()",
           "mi": 77.4627676776508,
           "individualScore": 10,
           "group": "remaining",
@@ -2877,11 +2877,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/Slime.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/Slime.cs",
           "line": 119,
           "sourceSpanStart": 2942,
           "kind": "method",
-          "name": "sprint2.Bosses.Slime.HandleHorizontalMovement()",
+          "name": "terraria.Bosses.Slime.HandleHorizontalMovement()",
           "mi": 77.5975922183156,
           "individualScore": 10,
           "group": "remaining",
@@ -2890,11 +2890,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Hotbar/WeaponHotbarEntry.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Hotbar/WeaponHotbarEntry.cs",
           "line": 16,
           "sourceSpanStart": 337,
           "kind": "method",
-          "name": "sprint2.Hotbar.WeaponHotbarEntry.WeaponHotbarEntry(string, sprint2.Weapons.IWeapon, bool)",
+          "name": "terraria.Hotbar.WeaponHotbarEntry.WeaponHotbarEntry(string, terraria.Weapons.IWeapon, bool)",
           "mi": 77.7816063785165,
           "individualScore": 10,
           "group": "remaining",
@@ -2903,11 +2903,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectiles/ProjectileEffect.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectiles/ProjectileEffect.cs",
           "line": 10,
           "sourceSpanStart": 188,
           "kind": "method",
-          "name": "sprint2.Combat.ProjectileEffect.ProjectileEffect(sprint2.Combat.StatusEffectType, float, float)",
+          "name": "terraria.Combat.ProjectileEffect.ProjectileEffect(terraria.Combat.StatusEffectType, float, float)",
           "mi": 77.7816063785165,
           "individualScore": 10,
           "group": "remaining",
@@ -2916,11 +2916,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/BossFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/BossFactory.cs",
           "line": 44,
           "sourceSpanStart": 844,
           "kind": "method",
-          "name": "sprint2.Bosses.BossFactory.UpdateAll(Microsoft.Xna.Framework.GameTime, Microsoft.Xna.Framework.Vector2)",
+          "name": "terraria.Bosses.BossFactory.UpdateAll(Microsoft.Xna.Framework.GameTime, Microsoft.Xna.Framework.Vector2)",
           "mi": 77.8512177585774,
           "individualScore": 10,
           "group": "remaining",
@@ -2929,11 +2929,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/EyeOfCthulhu.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/EyeOfCthulhu.cs",
           "line": 156,
           "sourceSpanStart": 3756,
           "kind": "method",
-          "name": "sprint2.Bosses.EyeOfCthulhu.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
+          "name": "terraria.Bosses.EyeOfCthulhu.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
           "mi": 78.5802946158453,
           "individualScore": 10,
           "group": "remaining",
@@ -2955,11 +2955,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/QueenBee.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/QueenBee.cs",
           "line": 129,
           "sourceSpanStart": 3121,
           "kind": "method",
-          "name": "sprint2.Bosses.QueenBee.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
+          "name": "terraria.Bosses.QueenBee.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
           "mi": 78.858170369987,
           "individualScore": 10,
           "group": "remaining",
@@ -2981,11 +2981,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/PlayerInput.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/PlayerInput.cs",
           "line": 93,
           "sourceSpanStart": 3292,
           "kind": "method",
-          "name": "sprint2.Players.PlayerInput.Update(Microsoft.Xna.Framework.GameTime)",
+          "name": "terraria.Players.PlayerInput.Update(Microsoft.Xna.Framework.GameTime)",
           "mi": 79.2186717200386,
           "individualScore": 10,
           "group": "remaining",
@@ -2994,11 +2994,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/ItemFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/ItemFactory.cs",
           "line": 30,
           "sourceSpanStart": 530,
           "kind": "method",
-          "name": "sprint2.Items.ItemFactory.LoadAllTextures(Microsoft.Xna.Framework.Content.ContentManager)",
+          "name": "terraria.Items.ItemFactory.LoadAllTextures(Microsoft.Xna.Framework.Content.ContentManager)",
           "mi": 79.4905721209051,
           "individualScore": 10,
           "group": "remaining",
@@ -3007,11 +3007,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/WeaponFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/WeaponFactory.cs",
           "line": 31,
           "sourceSpanStart": 552,
           "kind": "method",
-          "name": "sprint2.Weapons.WeaponFactory.LoadAllTextures(Microsoft.Xna.Framework.Content.ContentManager)",
+          "name": "terraria.Weapons.WeaponFactory.LoadAllTextures(Microsoft.Xna.Framework.Content.ContentManager)",
           "mi": 79.4905721209051,
           "individualScore": 10,
           "group": "remaining",
@@ -3020,11 +3020,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Music/MusicPlayer.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Music/MusicPlayer.cs",
           "line": 55,
           "sourceSpanStart": 1301,
           "kind": "method",
-          "name": "sprint2.Music.MusicPlayer.Play()",
+          "name": "terraria.Music.MusicPlayer.Play()",
           "mi": 79.5490434149954,
           "individualScore": 10,
           "group": "remaining",
@@ -3046,11 +3046,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectiles/ProjectileFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectiles/ProjectileFactory.cs",
           "line": 29,
           "sourceSpanStart": 547,
           "kind": "method",
-          "name": "sprint2.Projectiles.ProjectileFactory.LoadAllTextures(Microsoft.Xna.Framework.Content.ContentManager)",
+          "name": "terraria.Projectiles.ProjectileFactory.LoadAllTextures(Microsoft.Xna.Framework.Content.ContentManager)",
           "mi": 79.8250107140021,
           "individualScore": 10,
           "group": "remaining",
@@ -3059,11 +3059,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/Slime.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/Slime.cs",
           "line": 73,
           "sourceSpanStart": 1882,
           "kind": "method",
-          "name": "sprint2.Bosses.Slime.HandleMovement()",
+          "name": "terraria.Bosses.Slime.HandleMovement()",
           "mi": 79.840607338655,
           "individualScore": 10,
           "group": "remaining",
@@ -3072,11 +3072,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Hotbar/PlayerHotbar.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Hotbar/PlayerHotbar.cs",
           "line": 57,
           "sourceSpanStart": 1181,
           "kind": "method",
-          "name": "sprint2.Hotbar.PlayerHotbar.Update(Microsoft.Xna.Framework.GameTime, sprint2.Players.IPlayer)",
+          "name": "terraria.Hotbar.PlayerHotbar.Update(Microsoft.Xna.Framework.GameTime, terraria.Players.IPlayer)",
           "mi": 79.9104973228516,
           "individualScore": 10,
           "group": "remaining",
@@ -3085,11 +3085,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Hotbar/PlayerHotbar.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Hotbar/PlayerHotbar.cs",
           "line": 65,
           "sourceSpanStart": 1363,
           "kind": "method",
-          "name": "sprint2.Hotbar.PlayerHotbar.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch, sprint2.Players.IPlayer)",
+          "name": "terraria.Hotbar.PlayerHotbar.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch, terraria.Players.IPlayer)",
           "mi": 79.9104973228516,
           "individualScore": 10,
           "group": "remaining",
@@ -3111,11 +3111,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/BossFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/BossFactory.cs",
           "line": 52,
           "sourceSpanStart": 1056,
           "kind": "method",
-          "name": "sprint2.Bosses.BossFactory.DrawAll(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
+          "name": "terraria.Bosses.BossFactory.DrawAll(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
           "mi": 80.3959847521368,
           "individualScore": 10,
           "group": "remaining",
@@ -3124,11 +3124,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectiles/ProjectileManager.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectiles/ProjectileManager.cs",
           "line": 39,
           "sourceSpanStart": 920,
           "kind": "method",
-          "name": "sprint2.Projectiles.ProjectileManager.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
+          "name": "terraria.Projectiles.ProjectileManager.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
           "mi": 80.3959847521368,
           "individualScore": 10,
           "group": "remaining",
@@ -3150,11 +3150,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/PlayerInput.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/PlayerInput.cs",
           "line": 101,
           "sourceSpanStart": 3471,
           "kind": "method",
-          "name": "sprint2.Players.PlayerInput.ScanKey(MonoGameLibrary.Input.KeyboardInfo)",
+          "name": "terraria.Players.PlayerInput.ScanKey(MonoGameLibrary.Input.KeyboardInfo)",
           "mi": 80.626896410143,
           "individualScore": 10,
           "group": "remaining",
@@ -3215,11 +3215,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/Slime.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/Slime.cs",
           "line": 145,
           "sourceSpanStart": 3597,
           "kind": "method",
-          "name": "sprint2.Bosses.Slime.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
+          "name": "terraria.Bosses.Slime.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
           "mi": 80.7043027357437,
           "individualScore": 10,
           "group": "remaining",
@@ -3228,11 +3228,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Hotbar/EmptyHotbarEntry.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Hotbar/EmptyHotbarEntry.cs",
           "line": 17,
           "sourceSpanStart": 307,
           "kind": "method",
-          "name": "sprint2.Hotbar.EmptyHotbarEntry.Use(sprint2.Players.IPlayer)",
+          "name": "terraria.Hotbar.EmptyHotbarEntry.Use(terraria.Players.IPlayer)",
           "mi": 81.4130518870663,
           "individualScore": 10,
           "group": "remaining",
@@ -3267,11 +3267,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Dagger.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Dagger.cs",
           "line": 20,
           "sourceSpanStart": 521,
           "kind": "method",
-          "name": "sprint2.Weapons.Dagger.Dagger(Microsoft.Xna.Framework.Graphics.Texture2D, sprint2.Projectiles.ProjectileManager)",
+          "name": "terraria.Weapons.Dagger.Dagger(Microsoft.Xna.Framework.Graphics.Texture2D, terraria.Projectiles.ProjectileManager)",
           "mi": 81.5200762622304,
           "individualScore": 10,
           "group": "remaining",
@@ -3280,11 +3280,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/States/CthulhuPhase1State.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/States/CthulhuPhase1State.cs",
           "line": 17,
           "sourceSpanStart": 282,
           "kind": "method",
-          "name": "sprint2.Bosses.States.CthulhuPhase1State.Enter()",
+          "name": "terraria.Bosses.States.CthulhuPhase1State.Enter()",
           "mi": 81.61648499626,
           "individualScore": 10,
           "group": "remaining",
@@ -3293,11 +3293,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/States/CthulhuPhase2State.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/States/CthulhuPhase2State.cs",
           "line": 17,
           "sourceSpanStart": 282,
           "kind": "method",
-          "name": "sprint2.Bosses.States.CthulhuPhase2State.Enter()",
+          "name": "terraria.Bosses.States.CthulhuPhase2State.Enter()",
           "mi": 81.61648499626,
           "individualScore": 10,
           "group": "remaining",
@@ -3306,11 +3306,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/States/QueenBeeFlyingState.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/States/QueenBeeFlyingState.cs",
           "line": 17,
           "sourceSpanStart": 296,
           "kind": "method",
-          "name": "sprint2.Bosses.States.QueenBeeFlyingState.Enter()",
+          "name": "terraria.Bosses.States.QueenBeeFlyingState.Enter()",
           "mi": 81.61648499626,
           "individualScore": 10,
           "group": "remaining",
@@ -3319,11 +3319,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/States/QueenBeeIdleState.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/States/QueenBeeIdleState.cs",
           "line": 17,
           "sourceSpanStart": 292,
           "kind": "method",
-          "name": "sprint2.Bosses.States.QueenBeeIdleState.Enter()",
+          "name": "terraria.Bosses.States.QueenBeeIdleState.Enter()",
           "mi": 81.61648499626,
           "individualScore": 10,
           "group": "remaining",
@@ -3332,11 +3332,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/Block.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/Block.cs",
           "line": 25,
           "sourceSpanStart": 451,
           "kind": "method",
-          "name": "sprint2.Blocks.Block.Block(MonoGameLibrary.Graphics.Sprite, Microsoft.Xna.Framework.Vector2)",
+          "name": "terraria.Blocks.Block.Block(MonoGameLibrary.Graphics.Sprite, Microsoft.Xna.Framework.Vector2)",
           "mi": 81.6228547711202,
           "individualScore": 10,
           "group": "remaining",
@@ -3345,11 +3345,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/Item.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/Item.cs",
           "line": 23,
           "sourceSpanStart": 439,
           "kind": "method",
-          "name": "sprint2.Items.Item.Item(MonoGameLibrary.Graphics.Sprite, Microsoft.Xna.Framework.Vector2)",
+          "name": "terraria.Items.Item.Item(MonoGameLibrary.Graphics.Sprite, Microsoft.Xna.Framework.Vector2)",
           "mi": 81.6228547711202,
           "individualScore": 10,
           "group": "remaining",
@@ -3358,11 +3358,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/EyeOfCthulhu.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/EyeOfCthulhu.cs",
           "line": 32,
           "sourceSpanStart": 756,
           "kind": "method",
-          "name": "sprint2.Bosses.EyeOfCthulhu.ChangeState(sprint2.Bosses.States.IBossState)",
+          "name": "terraria.Bosses.EyeOfCthulhu.ChangeState(terraria.Bosses.States.IBossState)",
           "mi": 82.0916170723493,
           "individualScore": 10,
           "group": "remaining",
@@ -3371,11 +3371,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/QueenBee.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/QueenBee.cs",
           "line": 30,
           "sourceSpanStart": 706,
           "kind": "method",
-          "name": "sprint2.Bosses.QueenBee.ChangeState(sprint2.Bosses.States.IBossState)",
+          "name": "terraria.Bosses.QueenBee.ChangeState(terraria.Bosses.States.IBossState)",
           "mi": 82.0916170723493,
           "individualScore": 10,
           "group": "remaining",
@@ -3384,11 +3384,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/EyeOfCthulhu.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/EyeOfCthulhu.cs",
           "line": 66,
           "sourceSpanStart": 1568,
           "kind": "method",
-          "name": "sprint2.Bosses.EyeOfCthulhu.HandleAttack(Microsoft.Xna.Framework.GameTime)",
+          "name": "terraria.Bosses.EyeOfCthulhu.HandleAttack(Microsoft.Xna.Framework.GameTime)",
           "mi": 82.4015890028989,
           "individualScore": 10,
           "group": "remaining",
@@ -3423,11 +3423,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/HealthPotion.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/HealthPotion.cs",
           "line": 21,
           "sourceSpanStart": 422,
           "kind": "method",
-          "name": "sprint2.Items.HealthPotion.HealthPotion(Microsoft.Xna.Framework.Graphics.Texture2D)",
+          "name": "terraria.Items.HealthPotion.HealthPotion(Microsoft.Xna.Framework.Graphics.Texture2D)",
           "mi": 82.956017128822,
           "individualScore": 10,
           "group": "remaining",
@@ -3436,11 +3436,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/HealthPotion.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/HealthPotion.cs",
           "line": 27,
           "sourceSpanStart": 537,
           "kind": "method",
-          "name": "sprint2.Items.HealthPotion.Use(sprint2.Players.IPlayer)",
+          "name": "terraria.Items.HealthPotion.Use(terraria.Players.IPlayer)",
           "mi": 82.956017128822,
           "individualScore": 10,
           "group": "remaining",
@@ -3449,11 +3449,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/RecallPotion.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/RecallPotion.cs",
           "line": 33,
           "sourceSpanStart": 699,
           "kind": "method",
-          "name": "sprint2.Items.RecallPotion.Use(sprint2.Players.IPlayer)",
+          "name": "terraria.Items.RecallPotion.Use(terraria.Players.IPlayer)",
           "mi": 82.956017128822,
           "individualScore": 10,
           "group": "remaining",
@@ -3462,11 +3462,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectile.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectile.cs",
           "line": 15,
           "sourceSpanStart": 396,
           "kind": "method",
-          "name": "sprint2.Weapons.Projectile.Projectile(Microsoft.Xna.Framework.Graphics.Texture2D, float)",
+          "name": "terraria.Weapons.Projectile.Projectile(Microsoft.Xna.Framework.Graphics.Texture2D, float)",
           "mi": 82.956017128822,
           "individualScore": 10,
           "group": "remaining",
@@ -3475,11 +3475,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Weapon.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Weapon.cs",
           "line": 57,
           "sourceSpanStart": 1282,
           "kind": "method",
-          "name": "sprint2.Weapons.Weapon.FinishAttack()",
+          "name": "terraria.Weapons.Weapon.FinishAttack()",
           "mi": 82.956017128822,
           "individualScore": 10,
           "group": "remaining",
@@ -3488,11 +3488,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/EyeOfCthulhu.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/EyeOfCthulhu.cs",
           "line": 107,
           "sourceSpanStart": 2608,
           "kind": "method",
-          "name": "sprint2.Bosses.EyeOfCthulhu.CalcDrag(Microsoft.Xna.Framework.Vector2, Microsoft.Xna.Framework.Vector2)",
+          "name": "terraria.Bosses.EyeOfCthulhu.CalcDrag(Microsoft.Xna.Framework.Vector2, Microsoft.Xna.Framework.Vector2)",
           "mi": 85.4817568735079,
           "individualScore": 10,
           "group": "remaining",
@@ -3501,11 +3501,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/QueenBee.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/QueenBee.cs",
           "line": 77,
           "sourceSpanStart": 1951,
           "kind": "method",
-          "name": "sprint2.Bosses.QueenBee.CalcDrag(Microsoft.Xna.Framework.Vector2, Microsoft.Xna.Framework.Vector2)",
+          "name": "terraria.Bosses.QueenBee.CalcDrag(Microsoft.Xna.Framework.Vector2, Microsoft.Xna.Framework.Vector2)",
           "mi": 85.4817568735079,
           "individualScore": 10,
           "group": "remaining",
@@ -3514,11 +3514,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/Slime.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/Slime.cs",
           "line": 80,
           "sourceSpanStart": 2032,
           "kind": "method",
-          "name": "sprint2.Bosses.Slime.CalcDrag(Microsoft.Xna.Framework.Vector2, Microsoft.Xna.Framework.Vector2)",
+          "name": "terraria.Bosses.Slime.CalcDrag(Microsoft.Xna.Framework.Vector2, Microsoft.Xna.Framework.Vector2)",
           "mi": 85.4817568735079,
           "individualScore": 10,
           "group": "remaining",
@@ -3566,11 +3566,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/BlocksDemo.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/BlocksDemo.cs",
           "line": 47,
           "sourceSpanStart": 1345,
           "kind": "method",
-          "name": "sprint2.Blocks.BlocksDemo.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
+          "name": "terraria.Blocks.BlocksDemo.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
           "mi": 86.47426026998,
           "individualScore": 10,
           "group": "remaining",
@@ -3579,11 +3579,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/ItemDemo.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/ItemDemo.cs",
           "line": 46,
           "sourceSpanStart": 1308,
           "kind": "method",
-          "name": "sprint2.Items.ItemDemo.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
+          "name": "terraria.Items.ItemDemo.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
           "mi": 86.47426026998,
           "individualScore": 10,
           "group": "remaining",
@@ -3592,11 +3592,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/PlayerInput.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/PlayerInput.cs",
           "line": 64,
           "sourceSpanStart": 2629,
           "kind": "method",
-          "name": "sprint2.Players.PlayerInput.IsPressed(sprint2.Players.KeyAction)",
+          "name": "terraria.Players.PlayerInput.IsPressed(terraria.Players.KeyAction)",
           "mi": 86.7259275912962,
           "individualScore": 10,
           "group": "remaining",
@@ -3605,11 +3605,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/PlayerInput.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/PlayerInput.cs",
           "line": 69,
           "sourceSpanStart": 2765,
           "kind": "method",
-          "name": "sprint2.Players.PlayerInput.IsNewPress(sprint2.Players.KeyAction)",
+          "name": "terraria.Players.PlayerInput.IsNewPress(terraria.Players.KeyAction)",
           "mi": 86.7259275912962,
           "individualScore": 10,
           "group": "remaining",
@@ -3683,11 +3683,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectiles/Projectile.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectiles/Projectile.cs",
           "line": 39,
           "sourceSpanStart": 993,
           "kind": "method",
-          "name": "sprint2.Projectiles.Projectile.ApplyPhysics()",
+          "name": "terraria.Projectiles.Projectile.ApplyPhysics()",
           "mi": 87.4553158108996,
           "individualScore": 10,
           "group": "remaining",
@@ -3696,11 +3696,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Content/World/WorldHandler.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Content/World/WorldHandler.cs",
           "line": 27,
           "sourceSpanStart": 750,
           "kind": "method",
-          "name": "sprint2.World.WorldHandler.Update(Microsoft.Xna.Framework.Vector2)",
+          "name": "terraria.World.WorldHandler.Update(Microsoft.Xna.Framework.Vector2)",
           "mi": 87.6515733020782,
           "individualScore": 10,
           "group": "remaining",
@@ -3709,11 +3709,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 203,
           "sourceSpanStart": 5201,
           "kind": "method",
-          "name": "sprint2.Players.Player.IdleState.Enter()",
+          "name": "terraria.Players.Player.IdleState.Enter()",
           "mi": 87.7479820361077,
           "individualScore": 10,
           "group": "remaining",
@@ -3722,11 +3722,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 242,
           "sourceSpanStart": 6117,
           "kind": "method",
-          "name": "sprint2.Players.Player.WalkState.Enter()",
+          "name": "terraria.Players.Player.WalkState.Enter()",
           "mi": 87.7479820361077,
           "individualScore": 10,
           "group": "remaining",
@@ -3735,11 +3735,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 325,
           "sourceSpanStart": 8176,
           "kind": "method",
-          "name": "sprint2.Players.Player.FallState.Enter()",
+          "name": "terraria.Players.Player.FallState.Enter()",
           "mi": 87.7479820361077,
           "individualScore": 10,
           "group": "remaining",
@@ -3748,11 +3748,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 362,
           "sourceSpanStart": 9046,
           "kind": "method",
-          "name": "sprint2.Players.Player.UseItemState.Enter()",
+          "name": "terraria.Players.Player.UseItemState.Enter()",
           "mi": 87.7479820361077,
           "individualScore": 10,
           "group": "remaining",
@@ -3761,11 +3761,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/BlockFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/BlockFactory.cs",
           "line": 26,
           "sourceSpanStart": 410,
           "kind": "method",
-          "name": "sprint2.Blocks.BlockFactory.LoadAllTextures(Microsoft.Xna.Framework.Content.ContentManager)",
+          "name": "terraria.Blocks.BlockFactory.LoadAllTextures(Microsoft.Xna.Framework.Content.ContentManager)",
           "mi": 88.086733762272,
           "individualScore": 10,
           "group": "remaining",
@@ -3774,11 +3774,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/MultiBind.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/MultiBind.cs",
           "line": 38,
           "sourceSpanStart": 845,
           "kind": "method",
-          "name": "sprint2.Players.MultiBind.MultiBind(params MonoGameLibrary.Input.TriggerKey[])",
+          "name": "terraria.Players.MultiBind.MultiBind(params MonoGameLibrary.Input.TriggerKey[])",
           "mi": 88.086733762272,
           "individualScore": 10,
           "group": "remaining",
@@ -3787,11 +3787,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/WeaponFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/WeaponFactory.cs",
           "line": 43,
           "sourceSpanStart": 882,
           "kind": "method",
-          "name": "sprint2.Weapons.WeaponFactory.CreateDagger(sprint2.Projectiles.ProjectileManager)",
+          "name": "terraria.Weapons.WeaponFactory.CreateDagger(terraria.Projectiles.ProjectileManager)",
           "mi": 88.086733762272,
           "individualScore": 10,
           "group": "remaining",
@@ -3800,11 +3800,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/EyeOfCthulhu.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/EyeOfCthulhu.cs",
           "line": 50,
           "sourceSpanStart": 1223,
           "kind": "method",
-          "name": "sprint2.Bosses.EyeOfCthulhu.SetAnimation(string)",
+          "name": "terraria.Bosses.EyeOfCthulhu.SetAnimation(string)",
           "mi": 88.1831424963016,
           "individualScore": 10,
           "group": "remaining",
@@ -3813,11 +3813,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/QueenBee.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/QueenBee.cs",
           "line": 47,
           "sourceSpanStart": 1271,
           "kind": "method",
-          "name": "sprint2.Bosses.QueenBee.SetAnimation(string)",
+          "name": "terraria.Bosses.QueenBee.SetAnimation(string)",
           "mi": 88.1831424963016,
           "individualScore": 10,
           "group": "remaining",
@@ -3826,11 +3826,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/Slime.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/Slime.cs",
           "line": 56,
           "sourceSpanStart": 1480,
           "kind": "method",
-          "name": "sprint2.Bosses.Slime.SetAnimation(string)",
+          "name": "terraria.Bosses.Slime.SetAnimation(string)",
           "mi": 88.1831424963016,
           "individualScore": 10,
           "group": "remaining",
@@ -3839,11 +3839,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectiles/ProjectileFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectiles/ProjectileFactory.cs",
           "line": 35,
           "sourceSpanStart": 766,
           "kind": "method",
-          "name": "sprint2.Projectiles.ProjectileFactory.CreateDagger(Microsoft.Xna.Framework.Vector2, Microsoft.Xna.Framework.Vector2)",
+          "name": "terraria.Projectiles.ProjectileFactory.CreateDagger(Microsoft.Xna.Framework.Vector2, Microsoft.Xna.Framework.Vector2)",
           "mi": 88.1831424963016,
           "individualScore": 10,
           "group": "remaining",
@@ -3865,11 +3865,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Content/World/WorldHandler.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Content/World/WorldHandler.cs",
           "line": 32,
           "sourceSpanStart": 882,
           "kind": "method",
-          "name": "sprint2.World.WorldHandler.WorldToPixelSpace(Microsoft.Xna.Framework.Vector2)",
+          "name": "terraria.World.WorldHandler.WorldToPixelSpace(Microsoft.Xna.Framework.Vector2)",
           "mi": 88.2915327268843,
           "individualScore": 10,
           "group": "remaining",
@@ -3878,11 +3878,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Content/World/WorldHandler.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Content/World/WorldHandler.cs",
           "line": 37,
           "sourceSpanStart": 1042,
           "kind": "method",
-          "name": "sprint2.World.WorldHandler.PixelToWorldSpace(Microsoft.Xna.Framework.Vector2)",
+          "name": "terraria.World.WorldHandler.PixelToWorldSpace(Microsoft.Xna.Framework.Vector2)",
           "mi": 88.2915327268843,
           "individualScore": 10,
           "group": "remaining",
@@ -3891,11 +3891,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Game1.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Game1.cs",
           "line": 45,
           "sourceSpanStart": 1309,
           "kind": "method",
-          "name": "sprint2.Game1.Game1()",
+          "name": "terraria.Game1.Game1()",
           "mi": 88.2915327268843,
           "individualScore": 10,
           "group": "remaining",
@@ -3904,11 +3904,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/BossFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/BossFactory.cs",
           "line": 29,
           "sourceSpanStart": 604,
           "kind": "method",
-          "name": "sprint2.Bosses.BossFactory.BossFactory()",
+          "name": "terraria.Bosses.BossFactory.BossFactory()",
           "mi": 88.4265472213907,
           "individualScore": 10,
           "group": "remaining",
@@ -3917,11 +3917,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Music/MusicPlayer.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Music/MusicPlayer.cs",
           "line": 51,
           "sourceSpanStart": 1209,
           "kind": "method",
-          "name": "sprint2.Music.MusicPlayer.Start()",
+          "name": "terraria.Music.MusicPlayer.Start()",
           "mi": 88.4265472213907,
           "individualScore": 10,
           "group": "remaining",
@@ -3930,11 +3930,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectiles/ProjectileManager.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectiles/ProjectileManager.cs",
           "line": 13,
           "sourceSpanStart": 311,
           "kind": "method",
-          "name": "sprint2.Projectiles.ProjectileManager.ProjectileManager()",
+          "name": "terraria.Projectiles.ProjectileManager.ProjectileManager()",
           "mi": 88.4265472213907,
           "individualScore": 10,
           "group": "remaining",
@@ -3956,11 +3956,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/Block.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/Block.cs",
           "line": 20,
           "sourceSpanStart": 350,
           "kind": "method",
-          "name": "sprint2.Blocks.Block.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
+          "name": "terraria.Blocks.Block.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
           "mi": 88.7995334521758,
           "individualScore": 10,
           "group": "remaining",
@@ -3969,11 +3969,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/Item.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/Item.cs",
           "line": 18,
           "sourceSpanStart": 338,
           "kind": "method",
-          "name": "sprint2.Items.Item.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
+          "name": "terraria.Items.Item.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)",
           "mi": 88.7995334521758,
           "individualScore": 10,
           "group": "remaining",
@@ -3982,11 +3982,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/ItemFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/ItemFactory.cs",
           "line": 37,
           "sourceSpanStart": 776,
           "kind": "method",
-          "name": "sprint2.Items.ItemFactory.CreateHealthPot()",
+          "name": "terraria.Items.ItemFactory.CreateHealthPot()",
           "mi": 88.7995334521758,
           "individualScore": 10,
           "group": "remaining",
@@ -3995,11 +3995,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/WeaponFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/WeaponFactory.cs",
           "line": 38,
           "sourceSpanStart": 791,
           "kind": "method",
-          "name": "sprint2.Weapons.WeaponFactory.CreateSword()",
+          "name": "terraria.Weapons.WeaponFactory.CreateSword()",
           "mi": 88.7995334521758,
           "individualScore": 10,
           "group": "remaining",
@@ -4008,11 +4008,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectiles/DaggerProjectile.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectiles/DaggerProjectile.cs",
           "line": 9,
           "sourceSpanStart": 174,
           "kind": "method",
-          "name": "sprint2.Projectiles.DaggerProjectile.DaggerProjectile(Microsoft.Xna.Framework.Graphics.Texture2D, Microsoft.Xna.Framework.Vector2, Microsoft.Xna.Framework.Vector2)",
+          "name": "terraria.Projectiles.DaggerProjectile.DaggerProjectile(Microsoft.Xna.Framework.Graphics.Texture2D, Microsoft.Xna.Framework.Vector2, Microsoft.Xna.Framework.Vector2)",
           "mi": 88.9228705725932,
           "individualScore": 10,
           "group": "remaining",
@@ -4021,7 +4021,7 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/Slime.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/Slime.cs",
           "line": 20,
           "sourceSpanStart": 516,
           "kind": "initializer",
@@ -4112,11 +4112,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/BlockFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/BlockFactory.cs",
           "line": 32,
           "sourceSpanStart": 556,
           "kind": "method",
-          "name": "sprint2.Blocks.BlockFactory.CreateCarvedBrickBlockSprite()",
+          "name": "terraria.Blocks.BlockFactory.CreateCarvedBrickBlockSprite()",
           "mi": 89.212702698314,
           "individualScore": 10,
           "group": "remaining",
@@ -4125,11 +4125,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/BlockFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/BlockFactory.cs",
           "line": 37,
           "sourceSpanStart": 675,
           "kind": "method",
-          "name": "sprint2.Blocks.BlockFactory.CreatePearlstoneBlockSprite()",
+          "name": "terraria.Blocks.BlockFactory.CreatePearlstoneBlockSprite()",
           "mi": 89.212702698314,
           "individualScore": 10,
           "group": "remaining",
@@ -4138,11 +4138,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/BlockFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/BlockFactory.cs",
           "line": 42,
           "sourceSpanStart": 791,
           "kind": "method",
-          "name": "sprint2.Blocks.BlockFactory.CreateCopperBrickBlockSprite()",
+          "name": "terraria.Blocks.BlockFactory.CreateCopperBrickBlockSprite()",
           "mi": 89.212702698314,
           "individualScore": 10,
           "group": "remaining",
@@ -4151,11 +4151,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/BlockFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/BlockFactory.cs",
           "line": 47,
           "sourceSpanStart": 910,
           "kind": "method",
-          "name": "sprint2.Blocks.BlockFactory.CreateGreenBrickBlockSprite()",
+          "name": "terraria.Blocks.BlockFactory.CreateGreenBrickBlockSprite()",
           "mi": 89.212702698314,
           "individualScore": 10,
           "group": "remaining",
@@ -4164,11 +4164,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/BlockFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/BlockFactory.cs",
           "line": 52,
           "sourceSpanStart": 1027,
           "kind": "method",
-          "name": "sprint2.Blocks.BlockFactory.CreateRedBrickBlockSprite()",
+          "name": "terraria.Blocks.BlockFactory.CreateRedBrickBlockSprite()",
           "mi": 89.212702698314,
           "individualScore": 10,
           "group": "remaining",
@@ -4177,11 +4177,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/BlockFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/BlockFactory.cs",
           "line": 57,
           "sourceSpanStart": 1140,
           "kind": "method",
-          "name": "sprint2.Blocks.BlockFactory.CreateBlueBrickBlockSprite()",
+          "name": "terraria.Blocks.BlockFactory.CreateBlueBrickBlockSprite()",
           "mi": 89.212702698314,
           "individualScore": 10,
           "group": "remaining",
@@ -4190,11 +4190,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/ItemFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/ItemFactory.cs",
           "line": 48,
           "sourceSpanStart": 1008,
           "kind": "method",
-          "name": "sprint2.Items.ItemFactory.CreateHealthPotSprite()",
+          "name": "terraria.Items.ItemFactory.CreateHealthPotSprite()",
           "mi": 89.212702698314,
           "individualScore": 10,
           "group": "remaining",
@@ -4203,11 +4203,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/ItemFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/ItemFactory.cs",
           "line": 52,
           "sourceSpanStart": 1120,
           "kind": "method",
-          "name": "sprint2.Items.ItemFactory.CreateRecallPotSprite()",
+          "name": "terraria.Items.ItemFactory.CreateRecallPotSprite()",
           "mi": 89.212702698314,
           "individualScore": 10,
           "group": "remaining",
@@ -4216,11 +4216,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/StateMachines/StateMachine.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/StateMachines/StateMachine.cs",
           "line": 32,
           "sourceSpanStart": 897,
           "kind": "method",
-          "name": "sprint2.StateMachines.StateMachine\u003CTState\u003E.Update(float)",
+          "name": "terraria.StateMachines.StateMachine\u003CTState\u003E.Update(float)",
           "mi": 89.212702698314,
           "individualScore": 10,
           "group": "remaining",
@@ -4229,7 +4229,7 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/Slime.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/Slime.cs",
           "line": 28,
           "sourceSpanStart": 760,
           "kind": "initializer",
@@ -4255,11 +4255,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/BossFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/BossFactory.cs",
           "line": 39,
           "sourceSpanStart": 773,
           "kind": "method",
-          "name": "sprint2.Bosses.BossFactory.Add(sprint2.Bosses.IBoss)",
+          "name": "terraria.Bosses.BossFactory.Add(terraria.Bosses.IBoss)",
           "mi": 89.6755268820517,
           "individualScore": 10,
           "group": "remaining",
@@ -4268,11 +4268,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Hotbar/PlayerHotbar.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Hotbar/PlayerHotbar.cs",
           "line": 41,
           "sourceSpanStart": 874,
           "kind": "method",
-          "name": "sprint2.Hotbar.PlayerHotbar.UseSelected(sprint2.Players.IPlayer)",
+          "name": "terraria.Hotbar.PlayerHotbar.UseSelected(terraria.Players.IPlayer)",
           "mi": 89.6755268820517,
           "individualScore": 10,
           "group": "remaining",
@@ -4281,11 +4281,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/ItemFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/ItemFactory.cs",
           "line": 42,
           "sourceSpanStart": 889,
           "kind": "method",
-          "name": "sprint2.Items.ItemFactory.CreateRecallPot()",
+          "name": "terraria.Items.ItemFactory.CreateRecallPot()",
           "mi": 89.6755268820517,
           "individualScore": 10,
           "group": "remaining",
@@ -4294,11 +4294,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/MultiBind.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/MultiBind.cs",
           "line": 43,
           "sourceSpanStart": 958,
           "kind": "method",
-          "name": "sprint2.Players.MultiBind.AddKey(MonoGameLibrary.Input.TriggerKey)",
+          "name": "terraria.Players.MultiBind.AddKey(MonoGameLibrary.Input.TriggerKey)",
           "mi": 89.6755268820517,
           "individualScore": 10,
           "group": "remaining",
@@ -4307,11 +4307,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/StateMachines/StateMachine.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/StateMachines/StateMachine.cs",
           "line": 10,
           "sourceSpanStart": 305,
           "kind": "method",
-          "name": "sprint2.StateMachines.StateMachine\u003CTState\u003E.AddState(TState, sprint2.StateMachines.IState)",
+          "name": "terraria.StateMachines.StateMachine\u003CTState\u003E.AddState(TState, terraria.StateMachines.IState)",
           "mi": 89.6755268820517,
           "individualScore": 10,
           "group": "remaining",
@@ -4320,7 +4320,7 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Sword.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Sword.cs",
           "line": 16,
           "sourceSpanStart": 553,
           "kind": "method",
@@ -4333,11 +4333,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/PlayerInput.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/PlayerInput.cs",
           "line": 86,
           "sourceSpanStart": 3204,
           "kind": "method",
-          "name": "sprint2.Players.PlayerInput.GetCursorPos()",
+          "name": "terraria.Players.PlayerInput.GetCursorPos()",
           "mi": 89.843069179402,
           "individualScore": 10,
           "group": "remaining",
@@ -4411,11 +4411,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Hotbar/PlayerHotbar.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Hotbar/PlayerHotbar.cs",
           "line": 21,
           "sourceSpanStart": 384,
           "kind": "accessor",
-          "name": "sprint2.Hotbar.PlayerHotbar.SelectedEntry.get",
+          "name": "terraria.Hotbar.PlayerHotbar.SelectedEntry.get",
           "mi": 90.2012398141466,
           "individualScore": 10,
           "group": "remaining",
@@ -4424,11 +4424,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Hotbar/PlayerHotbar.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Hotbar/PlayerHotbar.cs",
           "line": 36,
           "sourceSpanStart": 797,
           "kind": "method",
-          "name": "sprint2.Hotbar.PlayerHotbar.GetEntry(int)",
+          "name": "terraria.Hotbar.PlayerHotbar.GetEntry(int)",
           "mi": 90.2012398141466,
           "individualScore": 10,
           "group": "remaining",
@@ -4437,11 +4437,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Music/MusicPlayer.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Music/MusicPlayer.cs",
           "line": 75,
           "sourceSpanStart": 1752,
           "kind": "method",
-          "name": "sprint2.Music.MusicPlayer.Stop()",
+          "name": "terraria.Music.MusicPlayer.Stop()",
           "mi": 90.2012398141466,
           "individualScore": 10,
           "group": "remaining",
@@ -4450,11 +4450,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectiles/ProjectileManager.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectiles/ProjectileManager.cs",
           "line": 47,
           "sourceSpanStart": 1098,
           "kind": "method",
-          "name": "sprint2.Projectiles.ProjectileManager.Clear()",
+          "name": "terraria.Projectiles.ProjectileManager.Clear()",
           "mi": 90.2012398141466,
           "individualScore": 10,
           "group": "remaining",
@@ -4463,11 +4463,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Hotbar/PlayerHotbar.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Hotbar/PlayerHotbar.cs",
           "line": 14,
           "sourceSpanStart": 244,
           "kind": "accessor",
-          "name": "sprint2.Hotbar.PlayerHotbar.Count.get",
+          "name": "terraria.Hotbar.PlayerHotbar.Count.get",
           "mi": 90.8091257443747,
           "individualScore": 10,
           "group": "remaining",
@@ -4476,7 +4476,7 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/RecallPotion.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/RecallPotion.cs",
           "line": 12,
           "sourceSpanStart": 248,
           "kind": "initializer",
@@ -4489,11 +4489,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 28,
           "sourceSpanStart": 518,
           "kind": "accessor",
-          "name": "sprint2.Players.Player.SelectedHotbarSlot.get",
+          "name": "terraria.Players.Player.SelectedHotbarSlot.get",
           "mi": 90.8091257443747,
           "individualScore": 10,
           "group": "remaining",
@@ -4502,11 +4502,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 33,
           "sourceSpanStart": 619,
           "kind": "accessor",
-          "name": "sprint2.Players.Player.SelectedHotbarItem.get",
+          "name": "terraria.Players.Player.SelectedHotbarItem.get",
           "mi": 90.8091257443747,
           "individualScore": 10,
           "group": "remaining",
@@ -4515,7 +4515,7 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Dagger.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Dagger.cs",
           "line": 16,
           "sourceSpanStart": 424,
           "kind": "initializer",
@@ -4528,7 +4528,7 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Sword.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Sword.cs",
           "line": 15,
           "sourceSpanStart": 517,
           "kind": "initializer",
@@ -4567,7 +4567,7 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Dagger.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Dagger.cs",
           "line": 15,
           "sourceSpanStart": 354,
           "kind": "initializer",
@@ -4580,7 +4580,7 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Sword.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Sword.cs",
           "line": 14,
           "sourceSpanStart": 447,
           "kind": "initializer",
@@ -4710,11 +4710,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/BossFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/BossFactory.cs",
           "line": 34,
           "sourceSpanStart": 689,
           "kind": "method",
-          "name": "sprint2.Bosses.BossFactory.SetList(System.Collections.Generic.List\u003Csprint2.Bosses.IBoss\u003E)",
+          "name": "terraria.Bosses.BossFactory.SetList(System.Collections.Generic.List\u003Cterraria.Bosses.IBoss\u003E)",
           "mi": 91.5288617268536,
           "individualScore": 10,
           "group": "remaining",
@@ -4723,11 +4723,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/Slime.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/Slime.cs",
           "line": 51,
           "sourceSpanStart": 1414,
           "kind": "method",
-          "name": "sprint2.Bosses.Slime.SetColor(Microsoft.Xna.Framework.Color)",
+          "name": "terraria.Bosses.Slime.SetColor(Microsoft.Xna.Framework.Color)",
           "mi": 91.5288617268536,
           "individualScore": 10,
           "group": "remaining",
@@ -4736,11 +4736,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/States/CthulhuPhase1State.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/States/CthulhuPhase1State.cs",
           "line": 12,
           "sourceSpanStart": 196,
           "kind": "method",
-          "name": "sprint2.Bosses.States.CthulhuPhase1State.CthulhuPhase1State(sprint2.Bosses.EyeOfCthulhu)",
+          "name": "terraria.Bosses.States.CthulhuPhase1State.CthulhuPhase1State(terraria.Bosses.EyeOfCthulhu)",
           "mi": 91.5288617268536,
           "individualScore": 10,
           "group": "remaining",
@@ -4749,11 +4749,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/States/CthulhuPhase2State.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/States/CthulhuPhase2State.cs",
           "line": 12,
           "sourceSpanStart": 196,
           "kind": "method",
-          "name": "sprint2.Bosses.States.CthulhuPhase2State.CthulhuPhase2State(sprint2.Bosses.EyeOfCthulhu)",
+          "name": "terraria.Bosses.States.CthulhuPhase2State.CthulhuPhase2State(terraria.Bosses.EyeOfCthulhu)",
           "mi": 91.5288617268536,
           "individualScore": 10,
           "group": "remaining",
@@ -4762,11 +4762,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/States/QueenBeeFlyingState.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/States/QueenBeeFlyingState.cs",
           "line": 12,
           "sourceSpanStart": 198,
           "kind": "method",
-          "name": "sprint2.Bosses.States.QueenBeeFlyingState.QueenBeeFlyingState(sprint2.Bosses.QueenBee)",
+          "name": "terraria.Bosses.States.QueenBeeFlyingState.QueenBeeFlyingState(terraria.Bosses.QueenBee)",
           "mi": 91.5288617268536,
           "individualScore": 10,
           "group": "remaining",
@@ -4775,11 +4775,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/States/QueenBeeIdleState.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/States/QueenBeeIdleState.cs",
           "line": 12,
           "sourceSpanStart": 196,
           "kind": "method",
-          "name": "sprint2.Bosses.States.QueenBeeIdleState.QueenBeeIdleState(sprint2.Bosses.QueenBee)",
+          "name": "terraria.Bosses.States.QueenBeeIdleState.QueenBeeIdleState(terraria.Bosses.QueenBee)",
           "mi": 91.5288617268536,
           "individualScore": 10,
           "group": "remaining",
@@ -4788,11 +4788,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Hotbar/EmptyHotbarEntry.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Hotbar/EmptyHotbarEntry.cs",
           "line": 12,
           "sourceSpanStart": 227,
           "kind": "method",
-          "name": "sprint2.Hotbar.EmptyHotbarEntry.EmptyHotbarEntry(string)",
+          "name": "terraria.Hotbar.EmptyHotbarEntry.EmptyHotbarEntry(string)",
           "mi": 91.5288617268536,
           "individualScore": 10,
           "group": "remaining",
@@ -4801,11 +4801,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Music/MusicPlayer.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Music/MusicPlayer.cs",
           "line": 38,
           "sourceSpanStart": 911,
           "kind": "method",
-          "name": "sprint2.Music.MusicPlayer.SetPlaylist(System.Collections.Generic.List\u003CMicrosoft.Xna.Framework.Media.Song\u003E)",
+          "name": "terraria.Music.MusicPlayer.SetPlaylist(System.Collections.Generic.List\u003CMicrosoft.Xna.Framework.Media.Song\u003E)",
           "mi": 91.5288617268536,
           "individualScore": 10,
           "group": "remaining",
@@ -4814,11 +4814,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 167,
           "sourceSpanStart": 4365,
           "kind": "method",
-          "name": "sprint2.Players.Player.EquipWeapon(sprint2.Weapons.IWeapon)",
+          "name": "terraria.Players.Player.EquipWeapon(terraria.Weapons.IWeapon)",
           "mi": 91.5288617268536,
           "individualScore": 10,
           "group": "remaining",
@@ -4827,11 +4827,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 172,
           "sourceSpanStart": 4456,
           "kind": "method",
-          "name": "sprint2.Players.Player.UnequipWeapon()",
+          "name": "terraria.Players.Player.UnequipWeapon()",
           "mi": 91.5288617268536,
           "individualScore": 10,
           "group": "remaining",
@@ -4840,11 +4840,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 198,
           "sourceSpanStart": 5105,
           "kind": "method",
-          "name": "sprint2.Players.Player.IdleState.IdleState(sprint2.Players.Player)",
+          "name": "terraria.Players.Player.IdleState.IdleState(terraria.Players.Player)",
           "mi": 91.5288617268536,
           "individualScore": 10,
           "group": "remaining",
@@ -4853,11 +4853,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 237,
           "sourceSpanStart": 6021,
           "kind": "method",
-          "name": "sprint2.Players.Player.WalkState.WalkState(sprint2.Players.Player)",
+          "name": "terraria.Players.Player.WalkState.WalkState(terraria.Players.Player)",
           "mi": 91.5288617268536,
           "individualScore": 10,
           "group": "remaining",
@@ -4866,11 +4866,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 276,
           "sourceSpanStart": 6937,
           "kind": "method",
-          "name": "sprint2.Players.Player.JumpState.JumpState(sprint2.Players.Player)",
+          "name": "terraria.Players.Player.JumpState.JumpState(terraria.Players.Player)",
           "mi": 91.5288617268536,
           "individualScore": 10,
           "group": "remaining",
@@ -4879,11 +4879,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 320,
           "sourceSpanStart": 8080,
           "kind": "method",
-          "name": "sprint2.Players.Player.FallState.FallState(sprint2.Players.Player)",
+          "name": "terraria.Players.Player.FallState.FallState(terraria.Players.Player)",
           "mi": 91.5288617268536,
           "individualScore": 10,
           "group": "remaining",
@@ -4892,11 +4892,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 357,
           "sourceSpanStart": 8947,
           "kind": "method",
-          "name": "sprint2.Players.Player.UseItemState.UseItemState(sprint2.Players.Player)",
+          "name": "terraria.Players.Player.UseItemState.UseItemState(terraria.Players.Player)",
           "mi": 91.5288617268536,
           "individualScore": 10,
           "group": "remaining",
@@ -4905,11 +4905,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectile.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectile.cs",
           "line": 24,
           "sourceSpanStart": 564,
           "kind": "method",
-          "name": "sprint2.Weapons.Projectile.Attack(Microsoft.Xna.Framework.Vector2, bool)",
+          "name": "terraria.Weapons.Projectile.Attack(Microsoft.Xna.Framework.Vector2, bool)",
           "mi": 91.5288617268536,
           "individualScore": 10,
           "group": "remaining",
@@ -4918,11 +4918,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectile.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectile.cs",
           "line": 34,
           "sourceSpanStart": 768,
           "kind": "method",
-          "name": "sprint2.Weapons.Projectile.FinishAttack()",
+          "name": "terraria.Weapons.Projectile.FinishAttack()",
           "mi": 91.5288617268536,
           "individualScore": 10,
           "group": "remaining",
@@ -4931,11 +4931,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectiles/Projectile.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectiles/Projectile.cs",
           "line": 47,
           "sourceSpanStart": 1191,
           "kind": "method",
-          "name": "sprint2.Projectiles.Projectile.Destroy()",
+          "name": "terraria.Projectiles.Projectile.Destroy()",
           "mi": 91.5288617268536,
           "individualScore": 10,
           "group": "remaining",
@@ -4957,11 +4957,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/BlockFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/BlockFactory.cs",
           "line": 15,
           "sourceSpanStart": 284,
           "kind": "accessor",
-          "name": "sprint2.Blocks.BlockFactory.Instance.get",
+          "name": "terraria.Blocks.BlockFactory.Instance.get",
           "mi": 92.4096220424661,
           "individualScore": 10,
           "group": "remaining",
@@ -4970,11 +4970,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/BossFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/BossFactory.cs",
           "line": 23,
           "sourceSpanStart": 532,
           "kind": "accessor",
-          "name": "sprint2.Bosses.BossFactory.Instance.get",
+          "name": "terraria.Bosses.BossFactory.Instance.get",
           "mi": 92.4096220424661,
           "individualScore": 10,
           "group": "remaining",
@@ -4983,11 +4983,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/HealthPotion.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/HealthPotion.cs",
           "line": 17,
           "sourceSpanStart": 325,
           "kind": "accessor",
-          "name": "sprint2.Items.HealthPotion.Name.get",
+          "name": "terraria.Items.HealthPotion.Name.get",
           "mi": 92.4096220424661,
           "individualScore": 10,
           "group": "remaining",
@@ -4996,11 +4996,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/ItemFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/ItemFactory.cs",
           "line": 19,
           "sourceSpanStart": 402,
           "kind": "accessor",
-          "name": "sprint2.Items.ItemFactory.Instance.get",
+          "name": "terraria.Items.ItemFactory.Instance.get",
           "mi": 92.4096220424661,
           "individualScore": 10,
           "group": "remaining",
@@ -5009,11 +5009,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/RecallPotion.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/RecallPotion.cs",
           "line": 22,
           "sourceSpanStart": 410,
           "kind": "accessor",
-          "name": "sprint2.Items.RecallPotion.Name.get",
+          "name": "terraria.Items.RecallPotion.Name.get",
           "mi": 92.4096220424661,
           "individualScore": 10,
           "group": "remaining",
@@ -5022,11 +5022,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 54,
           "sourceSpanStart": 1197,
           "kind": "accessor",
-          "name": "sprint2.Players.Player.FacingRight.get",
+          "name": "terraria.Players.Player.FacingRight.get",
           "mi": 92.4096220424661,
           "individualScore": 10,
           "group": "remaining",
@@ -5035,11 +5035,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectiles/ProjectileFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectiles/ProjectileFactory.cs",
           "line": 18,
           "sourceSpanStart": 413,
           "kind": "accessor",
-          "name": "sprint2.Projectiles.ProjectileFactory.Instance.get",
+          "name": "terraria.Projectiles.ProjectileFactory.Instance.get",
           "mi": 92.4096220424661,
           "individualScore": 10,
           "group": "remaining",
@@ -5048,11 +5048,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/WeaponFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/WeaponFactory.cs",
           "line": 20,
           "sourceSpanStart": 422,
           "kind": "accessor",
-          "name": "sprint2.Weapons.WeaponFactory.Instance.get",
+          "name": "terraria.Weapons.WeaponFactory.Instance.get",
           "mi": 92.4096220424661,
           "individualScore": 10,
           "group": "remaining",
@@ -5113,7 +5113,7 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/BlockFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/BlockFactory.cs",
           "line": 11,
           "sourceSpanStart": 207,
           "kind": "initializer",
@@ -5126,7 +5126,7 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/BossFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/BossFactory.cs",
           "line": 17,
           "sourceSpanStart": 393,
           "kind": "initializer",
@@ -5139,7 +5139,7 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Bosses/Slime.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Bosses/Slime.cs",
           "line": 24,
           "sourceSpanStart": 642,
           "kind": "initializer",
@@ -5152,7 +5152,7 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Game1.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Game1.cs",
           "line": 43,
           "sourceSpanStart": 1270,
           "kind": "initializer",
@@ -5165,7 +5165,7 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/ItemFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/ItemFactory.cs",
           "line": 15,
           "sourceSpanStart": 327,
           "kind": "initializer",
@@ -5178,7 +5178,7 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectiles/ProjectileFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectiles/ProjectileFactory.cs",
           "line": 14,
           "sourceSpanStart": 326,
           "kind": "initializer",
@@ -5191,7 +5191,7 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/WeaponFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/WeaponFactory.cs",
           "line": 16,
           "sourceSpanStart": 343,
           "kind": "initializer",
@@ -5347,7 +5347,7 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/StateMachines/StateMachine.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/StateMachines/StateMachine.cs",
           "line": 7,
           "sourceSpanStart": 228,
           "kind": "initializer",
@@ -5360,7 +5360,7 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectiles/ProjectileManager.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectiles/ProjectileManager.cs",
           "line": 11,
           "sourceSpanStart": 290,
           "kind": "initializer",
@@ -5438,11 +5438,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/Block.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/Block.cs",
           "line": 15,
           "sourceSpanStart": 286,
           "kind": "method",
-          "name": "sprint2.Blocks.Block.Update(Microsoft.Xna.Framework.GameTime)",
+          "name": "terraria.Blocks.Block.Update(Microsoft.Xna.Framework.GameTime)",
           "mi": 100,
           "individualScore": 10,
           "group": "remaining",
@@ -5451,11 +5451,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Blocks/BlockFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Blocks/BlockFactory.cs",
           "line": 21,
           "sourceSpanStart": 356,
           "kind": "method",
-          "name": "sprint2.Blocks.BlockFactory.BlockFactory()",
+          "name": "terraria.Blocks.BlockFactory.BlockFactory()",
           "mi": 100,
           "individualScore": 10,
           "group": "remaining",
@@ -5464,11 +5464,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Hotbar/EmptyHotbarEntry.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Hotbar/EmptyHotbarEntry.cs",
           "line": 23,
           "sourceSpanStart": 439,
           "kind": "method",
-          "name": "sprint2.Hotbar.EmptyHotbarEntry.Update(Microsoft.Xna.Framework.GameTime, sprint2.Players.IPlayer)",
+          "name": "terraria.Hotbar.EmptyHotbarEntry.Update(Microsoft.Xna.Framework.GameTime, terraria.Players.IPlayer)",
           "mi": 100,
           "individualScore": 10,
           "group": "remaining",
@@ -5477,11 +5477,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Hotbar/EmptyHotbarEntry.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Hotbar/EmptyHotbarEntry.cs",
           "line": 27,
           "sourceSpanStart": 510,
           "kind": "method",
-          "name": "sprint2.Hotbar.EmptyHotbarEntry.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch, sprint2.Players.IPlayer)",
+          "name": "terraria.Hotbar.EmptyHotbarEntry.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch, terraria.Players.IPlayer)",
           "mi": 100,
           "individualScore": 10,
           "group": "remaining",
@@ -5490,11 +5490,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Hotbar/WeaponHotbarEntry.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Hotbar/WeaponHotbarEntry.cs",
           "line": 34,
           "sourceSpanStart": 791,
           "kind": "method",
-          "name": "sprint2.Hotbar.WeaponHotbarEntry.Update(Microsoft.Xna.Framework.GameTime, sprint2.Players.IPlayer)",
+          "name": "terraria.Hotbar.WeaponHotbarEntry.Update(Microsoft.Xna.Framework.GameTime, terraria.Players.IPlayer)",
           "mi": 100,
           "individualScore": 10,
           "group": "remaining",
@@ -5503,11 +5503,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Hotbar/WeaponHotbarEntry.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Hotbar/WeaponHotbarEntry.cs",
           "line": 39,
           "sourceSpanStart": 919,
           "kind": "method",
-          "name": "sprint2.Hotbar.WeaponHotbarEntry.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch, sprint2.Players.IPlayer)",
+          "name": "terraria.Hotbar.WeaponHotbarEntry.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch, terraria.Players.IPlayer)",
           "mi": 100,
           "individualScore": 10,
           "group": "remaining",
@@ -5516,11 +5516,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/Item.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/Item.cs",
           "line": 13,
           "sourceSpanStart": 274,
           "kind": "method",
-          "name": "sprint2.Items.Item.Update(Microsoft.Xna.Framework.GameTime)",
+          "name": "terraria.Items.Item.Update(Microsoft.Xna.Framework.GameTime)",
           "mi": 100,
           "individualScore": 10,
           "group": "remaining",
@@ -5529,11 +5529,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Items/ItemFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Items/ItemFactory.cs",
           "line": 25,
           "sourceSpanStart": 474,
           "kind": "method",
-          "name": "sprint2.Items.ItemFactory.ItemFactory()",
+          "name": "terraria.Items.ItemFactory.ItemFactory()",
           "mi": 100,
           "individualScore": 10,
           "group": "remaining",
@@ -5542,11 +5542,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 208,
           "sourceSpanStart": 5324,
           "kind": "method",
-          "name": "sprint2.Players.Player.IdleState.Exit()",
+          "name": "terraria.Players.Player.IdleState.Exit()",
           "mi": 100,
           "individualScore": 10,
           "group": "remaining",
@@ -5555,11 +5555,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 247,
           "sourceSpanStart": 6240,
           "kind": "method",
-          "name": "sprint2.Players.Player.WalkState.Exit()",
+          "name": "terraria.Players.Player.WalkState.Exit()",
           "mi": 100,
           "individualScore": 10,
           "group": "remaining",
@@ -5568,11 +5568,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 288,
           "sourceSpanStart": 7275,
           "kind": "method",
-          "name": "sprint2.Players.Player.JumpState.Exit()",
+          "name": "terraria.Players.Player.JumpState.Exit()",
           "mi": 100,
           "individualScore": 10,
           "group": "remaining",
@@ -5581,11 +5581,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 330,
           "sourceSpanStart": 8299,
           "kind": "method",
-          "name": "sprint2.Players.Player.FallState.Exit()",
+          "name": "terraria.Players.Player.FallState.Exit()",
           "mi": 100,
           "individualScore": 10,
           "group": "remaining",
@@ -5594,11 +5594,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Player/Player.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Player/Player.cs",
           "line": 367,
           "sourceSpanStart": 9172,
           "kind": "method",
-          "name": "sprint2.Players.Player.UseItemState.Exit()",
+          "name": "terraria.Players.Player.UseItemState.Exit()",
           "mi": 100,
           "individualScore": 10,
           "group": "remaining",
@@ -5607,11 +5607,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/Projectiles/ProjectileFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/Projectiles/ProjectileFactory.cs",
           "line": 24,
           "sourceSpanStart": 485,
           "kind": "method",
-          "name": "sprint2.Projectiles.ProjectileFactory.ProjectileFactory()",
+          "name": "terraria.Projectiles.ProjectileFactory.ProjectileFactory()",
           "mi": 100,
           "individualScore": 10,
           "group": "remaining",
@@ -5620,11 +5620,11 @@
           "observationCount": 1
         },
         {
-          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/sprint2/Weapons/WeaponFactory.cs",
+          "file": "/Users/adamrehan/Desktop/Terraria Project/CSE3902/terraria/Weapons/WeaponFactory.cs",
           "line": 26,
           "sourceSpanStart": 494,
           "kind": "method",
-          "name": "sprint2.Weapons.WeaponFactory.WeaponFactory()",
+          "name": "terraria.Weapons.WeaponFactory.WeaponFactory()",
           "mi": 100,
           "individualScore": 10,
           "group": "remaining",
@@ -6556,8 +6556,8 @@
         {
           "category": "uncoveredProject",
           "severity": "warning",
-          "project": "sprint2",
-          "message": "Production project \u0027sprint2\u0027 has no matching test project.",
+          "project": "terraria",
+          "message": "Production project \u0027terraria\u0027 has no matching test project.",
           "confidence": "low",
           "ruleId": "dotnet/testing/uncoveredProject",
           "fingerprint": "9c05c414828fe80ebb6b63c1ddad760a32a5c5fdccb22f22f10834b3b75753a6",
@@ -6577,7 +6577,7 @@
         "assertionDensity": 0,
         "uncoveredProjects": [
           "MonoGameLibrary",
-          "sprint2"
+          "terraria"
         ],
         "coverageFileFound": false
       },
@@ -6908,9 +6908,9 @@
         {
           "category": "highCoupling",
           "severity": "warning",
-          "file": "sprint2/Player/Player.cs",
+          "file": "terraria/Player/Player.cs",
           "line": 13,
-          "project": "sprint2",
+          "project": "terraria",
           "type": "Player",
           "message": "Type \u0027Player\u0027 has structural coupling of 10 (raw class coupling: 17, threshold: 10).",
           "confidence": "high",
@@ -6928,9 +6928,9 @@
         {
           "category": "highCoupling",
           "severity": "warning",
-          "file": "sprint2/Game1.cs",
+          "file": "terraria/Game1.cs",
           "line": 21,
-          "project": "sprint2",
+          "project": "terraria",
           "type": "Game1",
           "message": "Type \u0027Game1\u0027 has structural coupling of 26 (raw class coupling: 47, threshold: 10).",
           "confidence": "high",
@@ -6989,13 +6989,13 @@
       "cycles": [],
       "hotspots": [
         {
-          "project": "sprint2",
+          "project": "terraria",
           "type": "Game1",
           "category": "highCoupling",
           "message": "Type \u0027Game1\u0027 has structural coupling of 26 (raw class coupling: 47, threshold: 10)."
         },
         {
-          "project": "sprint2",
+          "project": "terraria",
           "type": "Player",
           "category": "highCoupling",
           "message": "Type \u0027Player\u0027 has structural coupling of 10 (raw class coupling: 17, threshold: 10)."
@@ -7014,8 +7014,8 @@
       },
       "couplingProvenance": [
         {
-          "project": "sprint2",
-          "namespace": "sprint2",
+          "project": "terraria",
+          "namespace": "terraria",
           "type": "Game1",
           "classCoupling": 47,
           "coupledTypes": [
@@ -7042,30 +7042,30 @@
             "Sword",
             "System.Collections.Generic.List\u003CT\u003E",
             "System.Nullable\u003CT\u003E",
-            "sprint2.Blocks.BlocksDemo",
-            "sprint2.Bosses.BossFactory",
-            "sprint2.Bosses.EyeOfCthulhu",
-            "sprint2.Bosses.IBoss",
-            "sprint2.Bosses.QueenBee",
-            "sprint2.Bosses.Slime",
-            "sprint2.Hotbar.EmptyHotbarEntry",
-            "sprint2.Hotbar.IHotbarEntry",
-            "sprint2.Hotbar.PlayerHotbar",
-            "sprint2.Hotbar.WeaponHotbarEntry",
-            "sprint2.Items.HealthPotion",
-            "sprint2.Items.ItemDemo",
-            "sprint2.Items.ItemFactory",
-            "sprint2.Items.RecallPotion",
-            "sprint2.Music.MusicPlayer",
-            "sprint2.Players.IPlayer",
-            "sprint2.Players.Player",
-            "sprint2.Players.PlayerInput",
-            "sprint2.Projectiles.ProjectileFactory",
-            "sprint2.Projectiles.ProjectileManager",
-            "sprint2.Weapons.Dagger",
-            "sprint2.Weapons.IWeapon",
-            "sprint2.Weapons.WeaponFactory",
-            "sprint2.World.WorldHandler"
+            "terraria.Blocks.BlocksDemo",
+            "terraria.Bosses.BossFactory",
+            "terraria.Bosses.EyeOfCthulhu",
+            "terraria.Bosses.IBoss",
+            "terraria.Bosses.QueenBee",
+            "terraria.Bosses.Slime",
+            "terraria.Hotbar.EmptyHotbarEntry",
+            "terraria.Hotbar.IHotbarEntry",
+            "terraria.Hotbar.PlayerHotbar",
+            "terraria.Hotbar.WeaponHotbarEntry",
+            "terraria.Items.HealthPotion",
+            "terraria.Items.ItemDemo",
+            "terraria.Items.ItemFactory",
+            "terraria.Items.RecallPotion",
+            "terraria.Music.MusicPlayer",
+            "terraria.Players.IPlayer",
+            "terraria.Players.Player",
+            "terraria.Players.PlayerInput",
+            "terraria.Projectiles.ProjectileFactory",
+            "terraria.Projectiles.ProjectileManager",
+            "terraria.Weapons.Dagger",
+            "terraria.Weapons.IWeapon",
+            "terraria.Weapons.WeaponFactory",
+            "terraria.World.WorldHandler"
           ],
           "structuralClassCoupling": 26,
           "structuralCoupledTypes": [
@@ -7079,22 +7079,22 @@
             "MonoGameLibrary.Core",
             "MonoGameLibrary.Graphics.TextureAtlas",
             "MonoGameLibrary.Input.InputManager",
-            "sprint2.Blocks.BlocksDemo",
-            "sprint2.Bosses.BossFactory",
-            "sprint2.Bosses.IBoss",
-            "sprint2.Hotbar.EmptyHotbarEntry",
-            "sprint2.Hotbar.PlayerHotbar",
-            "sprint2.Hotbar.WeaponHotbarEntry",
-            "sprint2.Items.ItemDemo",
-            "sprint2.Items.ItemFactory",
-            "sprint2.Music.MusicPlayer",
-            "sprint2.Players.IPlayer",
-            "sprint2.Players.Player",
-            "sprint2.Players.PlayerInput",
-            "sprint2.Projectiles.ProjectileFactory",
-            "sprint2.Projectiles.ProjectileManager",
-            "sprint2.Weapons.WeaponFactory",
-            "sprint2.World.WorldHandler"
+            "terraria.Blocks.BlocksDemo",
+            "terraria.Bosses.BossFactory",
+            "terraria.Bosses.IBoss",
+            "terraria.Hotbar.EmptyHotbarEntry",
+            "terraria.Hotbar.PlayerHotbar",
+            "terraria.Hotbar.WeaponHotbarEntry",
+            "terraria.Items.ItemDemo",
+            "terraria.Items.ItemFactory",
+            "terraria.Music.MusicPlayer",
+            "terraria.Players.IPlayer",
+            "terraria.Players.Player",
+            "terraria.Players.PlayerInput",
+            "terraria.Projectiles.ProjectileFactory",
+            "terraria.Projectiles.ProjectileManager",
+            "terraria.Weapons.WeaponFactory",
+            "terraria.World.WorldHandler"
           ],
           "couplingExclusions": {
             "nonStructuralUsage": [
@@ -7109,14 +7109,14 @@
               "Microsoft.Xna.Framework.Vector2",
               "MonoGameLibrary.Graphics.AnimatedSprite",
               "Sword",
-              "sprint2.Bosses.EyeOfCthulhu",
-              "sprint2.Bosses.QueenBee",
-              "sprint2.Bosses.Slime",
-              "sprint2.Hotbar.IHotbarEntry",
-              "sprint2.Items.HealthPotion",
-              "sprint2.Items.RecallPotion",
-              "sprint2.Weapons.Dagger",
-              "sprint2.Weapons.IWeapon"
+              "terraria.Bosses.EyeOfCthulhu",
+              "terraria.Bosses.QueenBee",
+              "terraria.Bosses.Slime",
+              "terraria.Hotbar.IHotbarEntry",
+              "terraria.Items.HealthPotion",
+              "terraria.Items.RecallPotion",
+              "terraria.Weapons.Dagger",
+              "terraria.Weapons.IWeapon"
             ],
             "valueOrContainer": [
               "Microsoft.Xna.Framework.Graphics.SpriteSortMode",
@@ -7127,8 +7127,8 @@
           "wouldExceedRawThreshold": true
         },
         {
-          "project": "sprint2",
-          "namespace": "sprint2.Players",
+          "project": "terraria",
+          "namespace": "terraria.Players",
           "type": "Player",
           "classCoupling": 17,
           "coupledTypes": [
@@ -7141,14 +7141,14 @@
             "MonoGameLibrary.Graphics.TextureAtlas",
             "System.ArgumentNullException",
             "System.TimeSpan",
-            "sprint2.Hotbar.IHotbarEntry",
-            "sprint2.Hotbar.PlayerHotbar",
-            "sprint2.Players.IPlayer",
-            "sprint2.Players.KeyAction",
-            "sprint2.Players.PlayerInput",
-            "sprint2.StateMachines.IState",
-            "sprint2.StateMachines.StateMachine\u003CTState\u003E",
-            "sprint2.Weapons.IWeapon"
+            "terraria.Hotbar.IHotbarEntry",
+            "terraria.Hotbar.PlayerHotbar",
+            "terraria.Players.IPlayer",
+            "terraria.Players.KeyAction",
+            "terraria.Players.PlayerInput",
+            "terraria.StateMachines.IState",
+            "terraria.StateMachines.StateMachine\u003CTState\u003E",
+            "terraria.Weapons.IWeapon"
           ],
           "structuralClassCoupling": 10,
           "structuralCoupledTypes": [
@@ -7156,25 +7156,25 @@
             "MonoGameLibrary.Graphics.AnimatedSprite",
             "MonoGameLibrary.Graphics.Sprite",
             "MonoGameLibrary.Graphics.TextureAtlas",
-            "sprint2.Hotbar.IHotbarEntry",
-            "sprint2.Hotbar.PlayerHotbar",
-            "sprint2.Players.IPlayer",
-            "sprint2.Players.PlayerInput",
-            "sprint2.StateMachines.StateMachine\u003CTState\u003E",
-            "sprint2.Weapons.IWeapon"
+            "terraria.Hotbar.IHotbarEntry",
+            "terraria.Hotbar.PlayerHotbar",
+            "terraria.Players.IPlayer",
+            "terraria.Players.PlayerInput",
+            "terraria.StateMachines.StateMachine\u003CTState\u003E",
+            "terraria.Weapons.IWeapon"
           ],
           "couplingExclusions": {
             "nonStructuralUsage": [
               "Microsoft.Xna.Framework.GameTime",
               "Microsoft.Xna.Framework.Graphics.SpriteBatch",
               "Microsoft.Xna.Framework.Point",
-              "sprint2.StateMachines.IState"
+              "terraria.StateMachines.IState"
             ],
             "valueOrContainer": [
               "Microsoft.Xna.Framework.Graphics.SpriteEffects",
               "System.ArgumentNullException",
               "System.TimeSpan",
-              "sprint2.Players.KeyAction"
+              "terraria.Players.KeyAction"
             ]
           },
           "wouldExceedRawThreshold": false

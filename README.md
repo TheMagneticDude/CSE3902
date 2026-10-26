@@ -37,13 +37,13 @@ As of Sprint 3, this program includes three different boss levels that you can s
 | Next Level | `K` |
 | Previous Level | `J` |
 
-- Run project from root with: dotnet run --project sprint2
+- Run project from root with: dotnet run --project terraria
 
 ## Known Bugs
 
 - Health and Recall potions appear simultaneously when pressing 4 and 5 together
+- Weapons can still be used while using Health or Recall potions
 - Daggers appear oddly in hand
-- Currently no player death animation the player just stops moving
 
 ## Extra Tools/Processes
 
