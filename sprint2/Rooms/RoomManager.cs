@@ -10,6 +10,7 @@ using sprint2.Collision;
 
 using static sprint2.Constants;
 using Microsoft.Xna.Framework.Graphics;
+using System.Linq;
 
 
 
@@ -19,6 +20,7 @@ public class RoomManager
 {
     private readonly RoomFactory _roomFactory;
     private readonly List<IBlock> _blocks;
+    private List<SpecialBlock> _specialBlocks;
     private readonly BossManager _bossManager;
     private readonly IPlayer _player;
 
@@ -38,6 +40,7 @@ public class RoomManager
     {
         _roomFactory = roomFactory;
         _blocks = new List<IBlock>();
+        _specialBlocks = _blocks.OfType<SpecialBlock>().ToList<SpecialBlock>();
         _bossManager = bossManager;
         _player = player;
         _currRoom = 0;
@@ -161,6 +164,7 @@ public class RoomManager
     {
         RoomLoaded?.Invoke();
         _blocks.Clear();
+        _specialBlocks.Clear();
         _bossManager.Clear();
 
         string roomFile = Path.Combine(
@@ -187,6 +191,8 @@ public class RoomManager
         }
 
         LoadMesh(_blocks);//load collision mesh
+
+        _specialBlocks = _blocks.OfType<SpecialBlock>().ToList<SpecialBlock>();
 
         _player.Location = new Vector2(200, 450);
         _player.Velocity = Vector2.Zero;
@@ -426,6 +432,19 @@ public class RoomManager
         }
     }
 
+
+    public void SpecialBlockCollision()
+    {
+        foreach(SpecialBlock sb in _specialBlocks)
+        {
+            if (_player.SpecialHitbox.Intersects(sb.Hitbox))
+            {
+                _player.MovementEffects = sb.MovementEffect;
+            }
+        }
+        
+    }
+
     public void Update(PlayerInput input, GameTime gameTime)
     {
         ArgumentNullException.ThrowIfNull(input);
@@ -450,5 +469,8 @@ public class RoomManager
         {
             ProcessBossWorldCollisions(b);
         }
+
+
+        SpecialBlockCollision();
     }
 }

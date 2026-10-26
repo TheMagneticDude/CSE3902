@@ -6,6 +6,8 @@ using Microsoft.Xna.Framework;
 using MonoGameLibrary.Graphics;
 using sprint2.Blocks;
 using sprint2.Bosses;
+using static sprint2.Constants;
+
 
 namespace sprint2.Rooms;
 
@@ -99,14 +101,17 @@ public class RoomFactory
         else if (objectName == "Hellstone")
         {
             sprite = BlockFactory.Instance.CreateHellstoneBlockSprite();
+            return new SpecialBlock(sprite, location, PlayerMovementEffects.Burning);
         }
         else if (objectName == "Hellstone-Brick")
         {
             sprite = BlockFactory.Instance.CreateHellstoneBrickBlockSprite();
+            return new SpecialBlock(sprite, location, PlayerMovementEffects.Burning);
         }
         else if (objectName == "Honey")
         {
             sprite = BlockFactory.Instance.CreateHoneyBlockSprite();
+            return new SpecialBlock(sprite, location, PlayerMovementEffects.Slowed);
         }
         else
         {

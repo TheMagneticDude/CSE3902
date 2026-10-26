@@ -46,13 +46,17 @@ public class Player : IPlayer
     public Vector2 Velocity { get; set; }
 
     public CapsuleCollider Hitbox {get; set;}
+    public ICollider SpecialHitbox {get;set;}
 
     internal AnimatedSprite Sprite { get; private set; }
     public bool IsGrounded { get; set; }
+    public PlayerMovementEffects MovementEffects {get;set;}
+
     public PlayerInput Input { get; private set; }
 
     private TextureAtlas _atlas;
     private StateMachine<PlayerState> _stateMachine;
+ 
     public IWeapon EquippedWeapon => _equippedWeapon;
 
     // Player physics values.
@@ -92,12 +96,20 @@ public class Player : IPlayer
         _stateMachine.AddState(PlayerState.UseItem, new UseItemState(this));
         _stateMachine.ChangeState(PlayerState.Idle);
 
+        MovementEffects = PlayerMovementEffects.None;
+
         _hotbar.SelectSlot(0, this);
 
         Hitbox = new CapsuleCollider(
         Location,
         Sprite.Width/2f,
         Sprite.Height * 0.5f
+        );
+
+        SpecialHitbox = new RectangularCollider(
+        Location,
+        Sprite.Width,
+        Sprite.Height * 2f
         );
     }
 
@@ -114,6 +126,28 @@ public class Player : IPlayer
             _voidFloor = !_voidFloor;
         }
         
+    }
+
+    public void HandleSpecialBlockEffect()
+    {
+        if (MovementEffects != PlayerMovementEffects.None)
+        {
+            switch (MovementEffects){
+                case PlayerMovementEffects.Burning:
+                    TakeDamage(1000);
+                    
+                    break;
+                case PlayerMovementEffects.Frozen:
+                    //TODO: ADD FROZEN 
+                    break;
+                case PlayerMovementEffects.Slowed:
+                    //TODO: ADD SLOWED
+                    break;
+
+            }
+
+            MovementEffects = PlayerMovementEffects.None;
+        }
     }
     public void TakeDamage(int damage)
     {
@@ -188,6 +222,7 @@ public class Player : IPlayer
         HandleToggleDebugInput();
 
         Hitbox.Update(Location);
+        SpecialHitbox.Update(Location);
 
         if (_equippedWeapon != null && Input.IsNewPress(KeyAction.Attack))
         {
@@ -205,6 +240,8 @@ public class Player : IPlayer
         ApplyPhysics();
 
         Hitbox.Update(Location);
+
+        HandleSpecialBlockEffect();
 
         _stateMachine.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
         // Movement states can change facing; use the same final pose as Draw.
@@ -264,7 +301,7 @@ public class Player : IPlayer
     public void Draw(SpriteBatch spriteBatch)
     {
 
-        if (DEBUG.ShowHitboxes) {Hitbox.DrawDebug(spriteBatch);}
+        if (DEBUG.ShowHitboxes) {Hitbox.DrawDebug(spriteBatch); SpecialHitbox.DrawDebug(spriteBatch);}
 
         // Vector2 origin = new Vector2(Sprite.Width / 2f, Sprite.Height / 2f);
         // Sprite.Origin = origin;

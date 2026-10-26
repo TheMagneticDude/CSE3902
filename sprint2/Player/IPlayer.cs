@@ -9,6 +9,8 @@ using sprint2.Combat;
 
 
 namespace sprint2.Players;
+using static sprint2.Constants;
+
 
 
 public interface IPlayer
@@ -16,7 +18,9 @@ public interface IPlayer
     public Vector2 Location { get; set; }
     public Vector2 Velocity {get; set;}
     public CapsuleCollider Hitbox {get; set;}    
-      public bool IsGrounded { get; set; }
+    public ICollider SpecialHitbox {get;set;}
+    public bool IsGrounded { get; set; }
+    public PlayerMovementEffects MovementEffects {get;set;}
     bool IsDead { get; }
     void TakeDamage(int damage);
     IWeapon EquippedWeapon { get; }
